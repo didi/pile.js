@@ -1,0 +1,37 @@
+.jimu-result{
+  padding: 15px 40px 15px 110px;position: relative;min-height: 80px;
+  .jimu-result-aside{
+    position: absolute;width: 50px;height: 50px;top:15px;left:40px;text-align: center;line-height: 50px;
+    .icon-jimu-toast-right,.icon-jimu-successful{color:@result-icon-type-successful }
+    .icon-jimu-toast-warning,.icon-jimu-information{color:@result-icon-type-warning }
+    .icon-jimu-toast-wrong,.icon-jimu-error{color:@result-icon-type-error}
+  }
+  .jimu-result-article{
+    .jimu-result-title{
+      font-size: @font-size-caption;color: @color-text-base;margin-bottom: 5px;line-height: 20px;padding: 3px 0;
+    }
+    .jimu-result-message{font-size: @font-size-caption-sm;color: @color-text-light;line-height: 16px}
+  }
+}
+.jimu-result-size-small{
+  .jimu-result-aside{
+    .jimu-result-icon{font-size:@font-size-subhead;}
+  }
+}
+.jimu-result-size-middle{
+  .jimu-result-aside{
+    .jimu-result-icon{font-size: @result-icon-size-big;}
+  }
+}
+.jimu-result-size-big{
+  padding: 40px 0;text-align: center;
+  .jimu-result-aside{
+    display: block;position: static;width: auto;margin-bottom: 20px;
+    .jimu-result-icon{font-size: @result-icon-size-big;}
+  }
+  .jimu-result-article{
+    .jimu-result-title{font-size:@icon-size-base;color: @color-text-base;margin-bottom: 5px;line-height: 30px;}
+    .jimu-result-message{color: @color-text-light;font-size: @font-size-caption-big;line-height: 16px}
+  }
+}
+.jimu-result-size-big:after{content:"";position: absolute;height:1px;background: @fill-body;left:0;right:0;-webkit-transform: scaleY(.5);transform: scaleY(.5);bottom: 0}

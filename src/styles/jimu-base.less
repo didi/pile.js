@@ -1,0 +1,7 @@
+@borderColor: #eee;
+@linkBorderColor: #CECECE;
+.displayflex () {display: -webkit-box;display: -webkit-flex;display: flex;}
+.flex (@flex : 1) {-webkit-box-flex: @flex;-webkit-flex: @flex;flex: @flex;box-flex:@flex;flex:@flex;}
+.border-lat () {position: absolute;height:1px;background: @borderColor;left:0;right:0;-webkit-transform: scaleY(.5);transform: scaleY(.5);}
+.border-long(){position: absolute;width:1px;background: @borderColor;top:0;bottom:0;-webkit-transform: scaleX(.5);transform: scaleX(.5);    -webkit-transform-origin: 0 100%;    transform-origin: 0 100%;}
+.line-clamp(@clamp:2){overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: @clamp;}

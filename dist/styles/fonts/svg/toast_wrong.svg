@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>c_ic_toast_wrong</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="A组件" transform="translate(-1561.000000, -706.000000)" fill="#000000">
+            <g id="Toast/操作错误" transform="translate(1545.000000, 690.000000)">
+                <g id="Group-21">
+                    <path d="M28,40 C21.3725,40 16,34.6275 16,28 C16,21.3725 21.3725,16 28,16 C34.6275,16 40,21.3725 40,28 C40,34.6275 34.6275,40 28,40 L28,40 Z M32.773,24.2875 L31.7125,23.227 L28,26.9395 L24.2875,23.227 L23.227,24.2875 L26.9395,28 L23.227,31.7125 L24.2875,32.773 L28,29.0605 L31.7125,32.773 L32.773,31.7125 L29.0605,28 L32.773,24.2875 L32.773,24.2875 Z" id="c_ic_toast_wrong"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

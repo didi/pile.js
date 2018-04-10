@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="3px" height="26px" viewBox="0 0 3 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>c_ic_popup_warning</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="规范" transform="translate(-896.000000, -449.000000)" fill="#343C5C">
+            <g id="c_ic_popup_warning" transform="translate(896.000000, 449.000000)">
+                <path d="M0.0123596191,0.494384766 C0.00553358998,0.221343599 0.215752602,0 0.495388985,0 L2.50461102,0 C2.7782068,0 2.99438477,0.224609375 2.98764038,0.494384766 L2.51235962,19.5056152 C2.50553359,19.7786564 2.28596497,20 1.99531555,20 L1.00468445,20 C0.725954924,20 0.494384766,19.7753906 0.487640381,19.5056152 L0.0123596191,0.494384766 Z" id="Rectangle-44"></path>
+                <circle id="Oval-21" cx="1.5" cy="24.5" r="1.5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

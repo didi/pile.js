@@ -1,0 +1,63 @@
+/*引入默认样式*/
+.jimu-layout{background: @fill-base;position: relative;margin-top: 10px;line-height: @line-height-base;}
+
+.jimu-layout-hd{padding: 14px 15px 15px 0px;margin-left:15px;font-size: @font-size-base;position: relative;.displayflex;
+  .jimu-layout-hd-title{.flex;font-size: @font-size-caption-big;color: @color-text-light;}
+  .jimu-layout-hd-aside{text-align: right;font-size: @font-size-caption-big;color: @color-text-light}
+}
+.jimu-item{padding: 15px;position: relative;display: block;}
+.jimu-item-href:active{background: @fill-href-active}
+.jimu-item-bd{.displayflex;}
+.jimu-item-aside{width: 60px;height: 60px;margin-right: 10px;}
+.jimu-item-aside img{width: 100%;height: 100%;}
+.jimu-item-content{.flex}
+.jimu-item-title{font-size: @font-size-caption;margin-bottom: 2px;color: @color-text-title;line-height: @line-height-paragraph;}
+.jimu-item-desc{font-size: @font-size-caption-big;.line-clamp(2);color: @color-text-light;line-height: @line-height-paragraph;}
+
+.jimu-layout-ft{padding: 15px;position: relative;color: @layout-ft-color;}
+.jimu-item-link{padding-right: 10px;font-size: @font-size-caption-big}
+.jimu-item-link-diff{border-left: 1px solid @linkBorderColor;padding:0 10px; display: inline-block;line-height:@line-height-base;}
+
+.jimu-layout-hd:after{content:"";.border-lat;top:auto;bottom:0;}
+.jimu-item:before{content:"";top:0;.border-lat;}
+.jimu-layout-hd:before,.jimu-item:before,.jimu-layout-ft:before{left:15px;}
+.jimu-layout:first-child{margin-top: 0}
+.jimu-item-hd .jimu-item-title{margin-bottom: 10px;}
+.jimu-item:first-child:before{display: none;}
+.jimu-item-oh{overflow: hidden;}
+.jimu-aside-left{
+  .jimu-itemaside{float: left;}
+  .jimu-Itemcontent{float: right;color: @color-text-light}
+}
+.jimu-aside-right{
+  .jimu-itemaside{float: right;color:@color-text-light}
+  .jimu-Itemcontent{}
+}
+.jimu-items-list{
+  .jimu-Itemcontent{font-size: @font-size-subhead;color: @color-text-paragraph;}
+  .jimu-itemaside{font-size: @font-size-caption-big;}
+}
+.jimu-items-list-banner{
+  .jimu-item{
+    padding: 10px 20px;
+    .jimu-Item-title{font-size: @font-size-subhead;color: @color-text-paragraph;}
+    .jimu-Item-content{
+      font-size: @font-size-caption-sm;color: @color-text-light;line-height:@line-height-base;margin-top: 5px;
+    }
+  }
+}
+.jimu-aside-flex{
+  display: flex;line-height: @line-height-base;
+  .jimu-item-label{width: 100px;font-size:@font-size-base;color: @color-text-paragraph;margin-top: 1px;}
+  .jimu-item-content{
+    -webkit-box-flex: 1;-webkit-flex: 1;-ms-flex: 1;flex: 1;line-height:@line-height-base;font-size: @font-size-base;
+    input{width: 100%;color: @color-text-paragraph;}
+  }
+}
+
+
+
+
+
+
+
