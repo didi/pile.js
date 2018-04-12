@@ -4,8 +4,6 @@
 
 ## Installation
 
-版本 (1.15.4)
-
 With [npm](http://npmjs.com/):
 
 If React is not installed
@@ -69,3 +67,21 @@ ReactDOM.render((
 ), document.getElementById('container'));
 
 ```
+
+## Development
+
+```shell
+git clone git@github.com:didi/jimu-mobile.git
+cd jimu-mobile
+npm install
+npm start
+```
+
+# Contributing
+
+Welcome to contribute by creating issues or sending pull requests. See [Contributing Guide](CONTRIBUTING.md) for guidelines.
+
+
+# License
+
+jimu-mobile is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file.
