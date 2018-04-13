@@ -1,4 +1,4 @@
-# jimu-mobile [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+# jimu-mobile [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![license Apache 2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://www.npmjs.com/package/jimu-mobile)
 
 [JIMU](https://www.npmjs.com/package/jimu-mobile) Components build with [React](http://facebook.github.io/react/).
 
@@ -79,7 +79,7 @@ npm start
 
 # Contributing
 
-Welcome to contribute by creating issues or sending pull requests. See [Contributing Guide](CONTRIBUTING.md) for guidelines.
+Welcome to contribute by creating issues or sending pull requests. See [Contributing Guide](.github/CONTRIBUTING.md) for guidelines.
 
 
 # License

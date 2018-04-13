@@ -7,7 +7,7 @@ Thanks for considering to contribute this project. All issues and pull requests 
 Before sending pull request to this project, please read and follow guidelines below.
 
 1. Branch: We only accept pull request on `dev` branch.
-2. Coding style: Follow the coding style used in cube-ui.
+2. Coding style: Follow the coding style used in jimu-mobile.
 3. Commit message: Use English and be aware of your spell.
 4. Test: Make sure to test your code.
 
@@ -26,3 +26,7 @@ Following information can help us to resolve the issue faster.
 * Logs.
 * Screenshots.
 * Steps to reproduce the issue.
+
+## Committing Changes
+
+Commit messages should follow the [commit message convention](COMMIT_CONVENTION.md) so that changelogs can be automatically generated. Commit messages will be automatically validated upon commit. If you are not familiar with the commit message convention, you can use `npm run commit` instead of `git commit`, which provides an interactive CLI for generating proper commit messages.
