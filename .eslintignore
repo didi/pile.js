@@ -1,5 +1,0 @@
-dist/*
-example/*
-demo/*
-test/*
-**/lib/**/*.js
