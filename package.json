@@ -1,6 +1,6 @@
 {
   "name": "jimu-mobile",
-  "version": "1.15.5",
+  "version": "1.15.6",
   "description": "积木组件库助力移动端开发",
   "main": "./dist",
   "scripts": {
