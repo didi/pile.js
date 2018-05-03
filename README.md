@@ -1,6 +1,6 @@
-# jimu-mobile [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![license Apache 2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://www.npmjs.com/package/jimu-mobile)
+# pile [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![license Apache 2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://www.npmjs.com/package/pile)
 
-[JIMU](https://www.npmjs.com/package/jimu-mobile) Components build with [React](http://facebook.github.io/react/).
+[Pile](https://www.npmjs.com/package/pile) Components build with [React](http://facebook.github.io/react/).
 
 ## Installation
 
@@ -15,30 +15,30 @@ npm install --save react react-dom
 With React Installed
 
 ```
-npm install jimu-mobile --save
+npm install pile --save
 
 ```
-[![jimu-mobile](https://nodei.co/npm/jimu-mobile.png)](https://www.npmjs.com/package/jimu-mobile)
+[![pile](https://nodei.co/npm/pile.png)](https://www.npmjs.com/package/pile)
 
 
 import css
 
 ```
-import 'jimu-mobile/dist/styles/jimu.min.css'
+import 'pile/dist/styles/Pile.min.css'
 ```
 
-import JIMU
+import Pile
 
 ```
 // 引用方式一
-import JIMU from 'jimu-mobile'
-const {Button} = JIMU
+import Pile from 'pile'
+const {Button} = Pile
 
 // 引用方式二
-import {Button} from 'jimu-mobile'
+import {Button} from 'pile'
 
 // 单个组件引用方式 （推荐使用，节省无用组件调用）
-import Button from 'jimu-mobile/dist/components/button'
+import Button from 'pile/dist/components/button'
 ```
 
 ## Example
@@ -49,15 +49,15 @@ We have several examples on the documentation. Here is the first one to get you 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-//import jimu-mobile
-import JIMU from 'jimu-mobile'
-import 'jimu-mobile/dist/styles/jimu.min.css'
-const {Button} = JIMU
+//import pile
+import Pile from 'pile'
+import 'pile/dist/styles/Pile.min.css'
+const {Button} = Pile
 
 class App extends Component {
     render() {
         return (
-            <Button>hello JIMU</Button>
+            <Button>hello Pile</Button>
         );
     }
 }
@@ -71,8 +71,8 @@ ReactDOM.render((
 ## Development
 
 ```shell
-git clone git@github.com:didi/jimu-mobile.git
-cd jimu-mobile
+git clone git@github.com:didi/pile.git
+cd pile
 npm install
 npm start
 ```
@@ -84,4 +84,4 @@ Welcome to contribute by creating issues or sending pull requests. See [Contribu
 
 # License
 
-jimu-mobile is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file.
+pile is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file.
