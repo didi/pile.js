@@ -169,7 +169,7 @@ class DateTimePicker extends Component {
 
       // 开始日期
       if (onDay === day[0]) {
-        const getHour = this._deleteStrUnit(onHours, format[1]);
+        const getHour = DateTimePicker._deleteStrUnit(onHours, format[1]);
         // 判断小时是否在开始范围内
         setHour = this._setInitHour(startDateArr.datelist.h, 23);
         if (getHour < startDateArr.datelist.h) {
@@ -179,7 +179,7 @@ class DateTimePicker extends Component {
 
       // 结束日期
       if (onDay === day[len]) {
-        const getHour = this._deleteStrUnit(onHours, format[1]);
+        const getHour = DateTimePicker._deleteStrUnit(onHours, format[1]);
         setHour = this._setInitHour(0, endDateArr.datelist.h);
         if (getHour > endDateArr.datelist.h) {
           onHours = endDateArr.datelist.h + format[1];
@@ -202,7 +202,7 @@ class DateTimePicker extends Component {
 
     // 开始日期
     if (onDay === day[0] && onHours === setHour[0]) {
-      const getMinute = this._deleteStrUnit(onMinutes, format[2]);
+      const getMinute = DateTimePicker._deleteStrUnit(onMinutes, format[2]);
       const endMinutes = startDateTime.split(':')[0] === endDateTime.split(':')[0] ? endDateArr.datelist.m : 59;
       // 判断分钟是否在开始范围内
       setMinute = this._setInitMinutes(startDateArr.datelist.m, endMinutes);
@@ -211,8 +211,8 @@ class DateTimePicker extends Component {
       }
       // 结束日期
     } else if (onDay === day[len]
-      && this._deleteStrUnit(onHours, format[1]) === endDateArr.datelist.h) {
-      const getMinute = this._deleteStrUnit(onMinutes, format[2]);
+      && DateTimePicker._deleteStrUnit(onHours, format[1]) === endDateArr.datelist.h) {
+      const getMinute = DateTimePicker._deleteStrUnit(onMinutes, format[2]);
       // 判断分钟是否在开始范围内
       setMinute = this._setInitMinutes(0, endDateArr.datelist.m);
       if (getMinute > Number(endDateArr.datelist.m)) {
@@ -225,7 +225,7 @@ class DateTimePicker extends Component {
     // 设置日期
     for (let i = day.length - 1; i >= 0; i--) {
       if (day[i] === onDay) {
-        onDataTime = `${this.dataTimeArr[i]} ${this._deleteStrUnit(onHours, format[1])}:${this._deleteStrUnit(onMinutes, format[2])}`;
+        onDataTime = `${this.dataTimeArr[i]} ${DateTimePicker._deleteStrUnit(onHours, format[1])}:${DateTimePicker._deleteStrUnit(onMinutes, format[2])}`;
       }
     }
 
@@ -241,22 +241,22 @@ class DateTimePicker extends Component {
       startData, endData, defaultData, scale, format, open, nameFormatBool,
     } = this.props;
     // 设置默认显示参数
-    const onDataTime = this._getTimeRound(defaultData, scale);
-    const startDateTime = this._getTimeRound(startData, scale);
-    const endDateTime = this._getTimeRound(endData, scale);
-    const len = this._getDayDiff(endDateTime.split(' ')[0], startDateTime.split(' ')[0]);
-    const onDataArr = this.setDateFormat(onDataTime, 'yyyy/MM/dd hh:mm');
-    const startDateArr = this.setDateFormat(startDateTime, 'yyyy/MM/dd hh:mm');
-    const endDateArr = this.setDateFormat(endDateTime, 'yyyy/MM/dd hh:mm');
+    const onDataTime = DateTimePicker._getTimeRound(defaultData, scale);
+    const startDateTime = DateTimePicker._getTimeRound(startData, scale);
+    const endDateTime = DateTimePicker._getTimeRound(endData, scale);
+    const len = DateTimePicker._getDayDiff(endDateTime.split(' ')[0], startDateTime.split(' ')[0]);
+    const onDataArr = DateTimePicker.setDateFormat(onDataTime, 'yyyy/MM/dd hh:mm');
+    const startDateArr = DateTimePicker.setDateFormat(startDateTime, 'yyyy/MM/dd hh:mm');
+    const endDateArr = DateTimePicker.setDateFormat(endDateTime, 'yyyy/MM/dd hh:mm');
 
     // 获取时间范围
-    const getHoverOver = this._checkHourOver(onDataArr, startDateArr, endDateArr);
+    const getHoverOver = DateTimePicker._checkHourOver(onDataArr, startDateArr, endDateArr);
     let startMinutes = 0;
     let endMinutes = 59;
-    const nowdate = this._getDataTime();
-    const tomorrow = this._tomorrowData();
-    const valueFirst = this.setDateFormat(onDataTime, 'yyyy/M/d').fmt;
-    let setValueFirst = `${this.setDateFormat(onDataTime, format[0]).fmt}`;
+    const nowdate = DateTimePicker._getDataTime();
+    const tomorrow = DateTimePicker._tomorrowData();
+    const valueFirst = DateTimePicker.setDateFormat(onDataTime, 'yyyy/M/d').fmt;
+    let setValueFirst = `${DateTimePicker.setDateFormat(onDataTime, format[0]).fmt}`;
 
     if (nameFormatBool) {
       if (valueFirst === nowdate) {
@@ -312,29 +312,28 @@ class DateTimePicker extends Component {
 
   // 设置初始日期展示
   _setInitData(startDate, len) {
-    const self = this;
     const { format, nameFormatBool } = this.props;
     const timestamp = new Date(startDate).getTime();
     const dataArr = [];
-    const nowdate = this._getDataTime();
-    const tomorrow = this._tomorrowData();
+    const nowdate = DateTimePicker._getDataTime();
+    const tomorrow = DateTimePicker._tomorrowData();
     this.dataTimeArr = [];
     for (let i = 0; i <= len; i++) {
       const tamp = timestamp + 24 * 60 * 60 * 1000 * i;
 
       if (nameFormatBool) {
-        if (nowdate === self.setDateFormat(new Date(parseInt(tamp, 10)), 'yyyy/M/d').fmt) {
+        if (nowdate === DateTimePicker.setDateFormat(new Date(parseInt(tamp, 10)), 'yyyy/M/d').fmt) {
           dataArr.push('今天');
-        } else if (tomorrow === self.setDateFormat(new Date(parseInt(tamp, 10)), 'yyyy/M/d').fmt) {
+        } else if (tomorrow === DateTimePicker.setDateFormat(new Date(parseInt(tamp, 10)), 'yyyy/M/d').fmt) {
           dataArr.push('明天');
         } else {
-          dataArr.push(self.setDateFormat(new Date(parseInt(tamp, 10)), format[0]).fmt);
+          dataArr.push(DateTimePicker.setDateFormat(new Date(parseInt(tamp, 10)), format[0]).fmt);
         }
       } else {
-        dataArr.push(self.setDateFormat(new Date(parseInt(tamp, 10)), format[0]).fmt);
+        dataArr.push(DateTimePicker.setDateFormat(new Date(parseInt(tamp, 10)), format[0]).fmt);
       }
 
-      this.dataTimeArr.push(self.setDateFormat(new Date(parseInt(tamp, 10)), 'yyyy/MM/dd').fmt);
+      this.dataTimeArr.push(DateTimePicker.setDateFormat(new Date(parseInt(tamp, 10)), 'yyyy/MM/dd').fmt);
     }
 
     return dataArr;

@@ -94,7 +94,7 @@ export default class CarRecord extends Component {
     } = this.props;
     const username = this.changeName(realname);
     const timeObj = new Date(create_time * 1000);
-    const data = !weekShow ? this.setDateFormat(timeObj, this.props.dateFormat) : `${this.setDateFormat(timeObj, this.props.dateFormat)} ${this.setWeekFormat(timeObj)}`;
+    const data = !weekShow ? CarRecord.setDateFormat(timeObj, this.props.dateFormat) : `${CarRecord.setDateFormat(timeObj, this.props.dateFormat)} ${this.setWeekFormat(timeObj)}`;
     const startName = start_name && this.subFontChar(start_name);
     const endName = end_name && this.subFontChar(end_name);
     const cls = classNames({
@@ -105,7 +105,7 @@ export default class CarRecord extends Component {
     return (
       <Wapper className={cls} {...others}>
         <div className="record-head">
-          <span className="icon-time icon-jimu-time" />
+          <span className="icon-time icon-pile-time" />
           <span className="timer fz12">{data}</span>
           {superAdmin === 1 && <span className="remark fz16">{username}</span>}
           {use_car_type !== '2' && <span className="remark fz11">{filedMap.use_car_type[use_car_type]}</span>}
@@ -113,11 +113,11 @@ export default class CarRecord extends Component {
           {pay_type !== '0' && <span className="remark fz11">{filedMap.pay_type[pay_type]}</span>}
         </div>
         <div className="wrapper wrapper-from-hook">
-          <span className="jimu-icon jimu-icon-location-point" />
+          <span className="pile-icon pile-icon-location-point" />
           <span className="fz14 txt-from txt-from-hook default ml5">{startName}</span>
         </div>
         <div className="wrapper wrapper-from-hook">
-          <span className="jimu-icon jimu-icon-location-point-red" />
+          <span className="pile-icon pile-icon-location-point-red" />
           <span className="fz14 txt-from txt-from-hook default ml5">{endName}</span>
         </div>
         <div className="car-record-cost">

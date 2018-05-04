@@ -71,7 +71,7 @@ class Switch extends React.Component {
     } = this.state;
     const cls = classNames({
       'ui-switch': true,
-      'jimu-switch-issmall': isSmall,
+      'pile-switch-issmall': isSmall,
       'switch-open': isOpen && !isReader,
       'switch-open-move': isOpen && isReader,
       'switch-close': !isOpen && !isReader,

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import JIMU from './index';
+import { Link } from 'react-router'
+import Pile from './index';
 
 const {
     Dialog, Button, Layouts, Switch, Popover,
-  } = JIMU,
+  } = Pile,
   {
     Alert, Toast, Confirm, ContentTip, ToastLoad, NConfirm, Bubble,
   } = Dialog,
@@ -79,7 +80,7 @@ const _Switch = React.createClass({
     } = this.state;
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home" /></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{ minHeight: `${document.body.clientHeight - 94}px` }}>
           <h2 className="page-title"><b>Popover</b><span>气泡</span></h2>
 
@@ -90,8 +91,8 @@ const _Switch = React.createClass({
           </div>
 
           <Layout>
-            <Items className="jimu-items-list">
-              <Item className="jimu-aside-right popover-items">
+            <Items className="pile-items-list">
+              <Item className="pile-aside-right popover-items">
                 <Tooltip
                   overlay="说明文字"
                   placement="left"
@@ -104,7 +105,7 @@ const _Switch = React.createClass({
                 <span className="tool-tip-btn" id="newIndex" />
               </Item>
 
-              <Item className="jimu-aside-right popover-items">
+              <Item className="pile-aside-right popover-items">
                 <Tooltip
                   overlay="说明文字"
                   placement="right"
@@ -117,7 +118,7 @@ const _Switch = React.createClass({
                 <span className="tool-tip-btn" id="newIndexright" />
               </Item>
 
-              <Item className="jimu-aside-right popover-items">
+              <Item className="pile-aside-right popover-items">
                 <Tooltip
                   overlay="说明文字"
                   placement="top"
@@ -130,7 +131,7 @@ const _Switch = React.createClass({
                 <span className="tool-tip-btn" id="newIndextop" />
               </Item>
 
-              <Item className="jimu-aside-right popover-items">
+              <Item className="pile-aside-right popover-items">
                 <Tooltip
                   overlay="说明文字"
                   placement="bottom"
@@ -144,7 +145,7 @@ const _Switch = React.createClass({
               </Item>
 
 
-              <Item className="jimu-aside-right popover-items">
+              <Item className="pile-aside-right popover-items">
                 <Tooltip
                   overlay={<div className="popover-left-more"><p>内容折行显示</p><p>内容折行显示</p><p>内容折行显示</p><p>内容折行显示</p></div>}
                   placement="left"

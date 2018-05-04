@@ -1,7 +1,7 @@
 export function getComponentLocale(props, context, componentName, getDefaultLocale) {
   let locale: any = {};
-  if (context && context.jimuLocale && context.jimuLocale[componentName]) {
-    locale = context.jimuLocale[componentName];
+  if (context && context.pileLocale && context.pileLocale[componentName]) {
+    locale = context.pileLocale[componentName];
   } else {
     const defaultLocale = getDefaultLocale();
     locale = defaultLocale.default || defaultLocale;

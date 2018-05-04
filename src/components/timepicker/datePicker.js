@@ -38,7 +38,7 @@ class PickerDate extends Component {
     const cunrrentmonth = currentdate.getMonth() + 1;
     const currentday = currentdate.getDate();
     const startTime = [currentyear, cunrrentmonth, currentday];
-    const days = this._getDay(startTime[0], startTime[1]);
+    const days = PickerDate._getDay(startTime[0], startTime[1]);
     let tomorrow;
 
     if (startTime[2] < days) {
@@ -108,12 +108,12 @@ class PickerDate extends Component {
           // const startTimeY = parseInt(starttime[0], 10);
           const startTimeM = parseInt(starttime[1], 10);
           const startTimeD = parseInt(starttime[2], 10);
-          const days = this._getDay(options[0][0], Number(alloptions[1].slice(startTimeM - 1)[0].replace(/[^0-9]/ig, '')));
+          const days = PickerDate._getDay(options[0][0], Number(alloptions[1].slice(startTimeM - 1)[0].replace(/[^0-9]/ig, '')));
           options = [options[0], alloptions[1].slice(startTimeM - 1),
             alloptions[2].slice(startTimeD - 1, days)];
         } else {
           // month day为全值
-          const days = this._getDay(options[0][0], 1);
+          const days = PickerDate._getDay(options[0][0], 1);
           options = [options[0], alloptions[1], alloptions[2].slice(0, days)];
         }
         newvalue = [value, options[1][0], options[2][0]];
@@ -126,12 +126,12 @@ class PickerDate extends Component {
           // const startTimeY = parseInt(starttime[0], 10);
           // const startTimeM = parseInt(starttime[1], 10);
           const startTimeD = parseInt(starttime[2], 10);
-          const days = this._getDay(options[0][0], Number(options[1][0].replace(/[^0-9]/ig, '')));
+          const days = PickerDate._getDay(options[0][0], Number(options[1][0].replace(/[^0-9]/ig, '')));
           // newvalue = [val[0] ,alloptions[1][0],alloptions[2]]
           options = [options[0], options[1], alloptions[2].slice(startTimeD - 1, days)];
         } else {
           // YEAR MONTH不变 DAY为全值
-          const days = this._getDay(Number(val[0]), Number(val[1].replace(/[^0-9]/ig, '')));
+          const days = PickerDate._getDay(Number(val[0]), Number(val[1].replace(/[^0-9]/ig, '')));
           options = [options[0], options[1], alloptions[2].slice(0, days)];
         }
 
@@ -196,7 +196,7 @@ class PickerDate extends Component {
       const startTimeY = parseInt(startTime[0], 10);
       const startTimeM = parseInt(startTime[1], 10);
       const startTimeD = parseInt(startTime[2], 10);
-      const days = this._getDay(startTimeY, startTimeM);
+      const days = PickerDate._getDay(startTimeY, startTimeM);
       yeararr = alloptions[0];
       marr = alloptions[1].slice(startTimeM - 1);
       darr = alloptions[2].slice(startTimeD - 1, days);

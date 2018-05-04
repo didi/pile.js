@@ -30,14 +30,14 @@ class Star extends React.Component {
     }
     this.state = {
       currentValue: defaultVal,
-      setLenArr: this.setLenArrFuc(len),
+      setLenArr: Star.setLenArrFuc(len),
     };
   }
 
   componentWillReceiveProps(nextProps) {
     this.state = {
       currentValue: nextProps.defaultVal,
-      setLenArr: this.setLenArrFuc(nextProps.len),
+      setLenArr: Star.setLenArrFuc(nextProps.len),
     };
   }
 
@@ -56,14 +56,14 @@ class Star extends React.Component {
     const { className, disabled, bigger } = this.props;
     const { setLenArr, currentValue } = this.state;
     const cls = classNames({
-      'jimu-score-star': true,
-      'jimu-score-disabled': disabled,
-      'jimu-score-bigger': bigger,
+      'pile-score-star': true,
+      'pile-score-disabled': disabled,
+      'pile-score-bigger': bigger,
       [className]: className,
     });
     return (
       <div className={cls}>
-        <div className="jimu-star-main">
+        <div className="pile-star-main">
           {setLenArr.map((re, index) => {
              const strCls = classNames({
                'icon-trip_icon_star': true,

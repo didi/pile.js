@@ -24,7 +24,7 @@ npm install pile --save
 import css
 
 ```
-import 'pile/dist/styles/Pile.min.css'
+import 'pile/dist/styles/pile.min.css'
 ```
 
 import Pile
@@ -51,7 +51,7 @@ import ReactDOM from 'react-dom';
 
 //import pile
 import Pile from 'pile'
-import 'pile/dist/styles/Pile.min.css'
+import 'pile/dist/styles/pile.min.css'
 const {Button} = Pile
 
 class App extends Component {

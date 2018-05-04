@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import JIMU from './index'
+import { Link } from 'react-router'
+import Pile from './index'
 
-const {Rule} = JIMU,
+const {Rule} = Pile,
   {RuleLine} = Rule
 
 class _Rule extends Component {
@@ -56,7 +57,7 @@ class _Rule extends Component {
     let {value,list1,defaultValue1,touchMin1,touchMax1,min1,max1,list2,defaultValue2,touchMin2,touchMax2,min2,max2,defaultVal1,defaultVal2} = this.state
     return(
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home"></span></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{"minHeight" : `${document.body.clientHeight - 94}px`}}>
           <h2 className="page-title"><b>Rule</b><span>刻度尺</span></h2>
           <div className="">

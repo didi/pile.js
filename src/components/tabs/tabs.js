@@ -86,12 +86,12 @@ class Tabs extends React.Component {
     const { children } = this.props;
     const { activeIndex } = this.state;
     return (
-      <div className="jimu-tabs-hd" ref={(n) => { this.tabsHd = n; }}>
+      <div className="pile-tabs-hd" ref={(n) => { this.tabsHd = n; }}>
         {React.Children.map(children, (child, i) => {
            if (!child) { return null; }
            const navCls = classNames({
-             'jimu-tabs-nav': true,
-             'jimu-tabs-nav-active': i === (activeIndex - 1),
+             'pile-tabs-nav': true,
+             'pile-tabs-nav-active': i === (activeIndex - 1),
            });
            return (
              <div
@@ -100,7 +100,7 @@ class Tabs extends React.Component {
                ref={(n) => { this[`tabsNav-${i + 1}`] = n; }}
                onClick={() => { this.handleTabClick(i + 1); }}
              >
-               <b className="jimu-tabs-nav-bar">{child.props.tab}</b>
+               <b className="pile-tabs-nav-bar">{child.props.tab}</b>
              </div>
            );
          })}
@@ -111,12 +111,12 @@ class Tabs extends React.Component {
     const { children } = this.props;
     const { activeIndex } = this.state;
     return (
-      <div className="jimu-tabs-bd">
+      <div className="pile-tabs-bd">
         {React.Children.map(children, (child, i) => {
            if (!child) { return null; }
            const contentCls = classNames({
-             'jimu-tabs-content': true,
-             'jimu-tabs-content-active': i === (activeIndex - 1),
+             'pile-tabs-content': true,
+             'pile-tabs-content-active': i === (activeIndex - 1),
            });
            return (
              <div className={contentCls} key={i}>
@@ -130,8 +130,8 @@ class Tabs extends React.Component {
   render() {
     const { className, isInLocal } = this.props;
     const cls = classNames({
-      'jimu-tabs': true,
-      'jimu-tabs-in-local': isInLocal,
+      'pile-tabs': true,
+      'pile-tabs-in-local': isInLocal,
       [className]: className,
     });
     return (

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-
-import JIMU from './index'
-const {Layouts,Switch} = JIMU,
+import { Link } from 'react-router'
+import Pile from './index'
+const {Layouts,Switch} = Pile,
   {
     Layout,
     LayoutHd,
@@ -39,7 +39,7 @@ const _List = React.createClass({
     let {isOpen,disabled} = this.state
     return (
       <div className="example-wrap demo-page-list">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home"></span></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{"minHeight" : `${document.body.clientHeight - 94}px`}}>
           <h2 className="page-title"><b>List</b><span>列表</span></h2>
           <div>
@@ -47,9 +47,9 @@ const _List = React.createClass({
               <dt style={{"margin":"0 10px 10px 10px","color":"#999"}}>普通列表</dt>
               <dd>
                 <Layout>
-                  <Items className="jimu-items-list">
-                    <Item className="jimu-item-oh jimu-aside-right">
-                      <div className="jimu-Itemcontent">普通列表</div>
+                  <Items className="pile-items-list">
+                    <Item className="pile-item-oh pile-aside-right">
+                      <div className="pile-Itemcontent">普通列表</div>
                     </Item>
                   </Items>
                 </Layout>
@@ -58,14 +58,14 @@ const _List = React.createClass({
               <dt style={{"margin":"17px 10px 10px 10px","color":"#999"}}>选择列表</dt>
               <dd>
                 <Layout>
-                  <Items className="jimu-items-list">
-                    <Item className="jimu-item-oh jimu-aside-right" href="javascript:;">
-                      <div className="jimu-itemaside">选择 <span className="icon-jimu-right"></span></div>
-                      <div className="jimu-Itemcontent">列表+操作</div>
+                  <Items className="pile-items-list">
+                    <Item className="pile-item-oh pile-aside-right" href="javascript:;">
+                      <div className="pile-itemaside">选择 <span className="icon-pile-right"></span></div>
+                      <div className="pile-Itemcontent">列表+操作</div>
                     </Item>
-                    <Item className="jimu-item-oh jimu-aside-right" href="javascript:;">
-                      <div className="jimu-itemaside"><span className="icon-jimu-location"></span> 地址 <span className="icon-jimu-right"></span></div>
-                      <div className="jimu-Itemcontent">列表+操作</div>
+                    <Item className="pile-item-oh pile-aside-right" href="javascript:;">
+                      <div className="pile-itemaside"><span className="icon-pile-location"></span> 地址 <span className="icon-pile-right"></span></div>
+                      <div className="pile-Itemcontent">列表+操作</div>
                     </Item>
                   </Items>
                 </Layout>
@@ -74,10 +74,10 @@ const _List = React.createClass({
               <dt style={{"margin":"17px 10px 10px 10px","color":"#999"}}>填写列表</dt>
               <dd>
                 <Layout>
-                  <Items className="jimu-items-list">
-                    <Item className="jimu-item-oh jimu-aside-right">
-                      <div className="jimu-itemaside"><input type="text" placeholder="请填写金额"  style={{"textAlign":"right"}}/> 元</div>
-                      <div className="jimu-Itemcontent">列表</div>
+                  <Items className="pile-items-list">
+                    <Item className="pile-item-oh pile-aside-right">
+                      <div className="pile-itemaside"><input type="text" placeholder="请填写金额"  style={{"textAlign":"right"}}/> 元</div>
+                      <div className="pile-Itemcontent">列表</div>
                     </Item>
                   </Items>
                 </Layout>
@@ -86,10 +86,10 @@ const _List = React.createClass({
               <dt style={{"margin":"17px 10px 10px 10px","color":"#999"}}>标题+文本列表</dt>
               <dd>
                 <Layout>
-                  <Items className="jimu-items-list jimu-items-list-banner">
+                  <Items className="pile-items-list pile-items-list-banner">
                     <Item>
-                      <div className="jimu-Item-title">列表标题文字</div>
-                      <div className="jimu-Item-content">详细文本</div>
+                      <div className="pile-Item-title">列表标题文字</div>
+                      <div className="pile-Item-content">详细文本</div>
                     </Item>
                   </Items>
                 </Layout>

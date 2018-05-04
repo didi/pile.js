@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import JIMU from './index'
+import { Link } from 'react-router'
+import Pile from './index'
 
-const {Dialog,Button} = JIMU,
+const {Dialog,Button} = Pile,
   { DialogLayout} = Dialog
 
 // 对话框 _Dialog
@@ -13,7 +14,7 @@ const _Dialog = React.createClass({
 	},
 	_toastshow(){
   	window.toastDialog({
-			msg:'我是jimu我是jimu我是jimu我是jimu我是jimu我是jimu我是jimu'
+			msg:'我是pile我是pile我是pile我是pile我是pile我是pile我是pile'
 		})
   },
   _confirmshow(){
@@ -24,7 +25,7 @@ const _Dialog = React.createClass({
   render() {
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home"></span></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{"minHeight" : `${document.body.clientHeight - 94}px`}}>
           <h2 className="page-title"><b>DialogLayout</b><span>函数式引用对话框</span></h2>
           <div className="demo-show">

@@ -38,9 +38,7 @@ class Brand extends Component {
 
     this.fast_charTouchMove = this.fast_charTouchMove.bind(this);
     this.fast_charTouchEnd = this.fast_charTouchEnd.bind(this);
-    this.fast_charClick = this.fast_charClick.bind(this);
     this.carClick = this.carClick.bind(this);
-    this.hotCarBrandClick = this.hotCarBrandClick.bind(this);
     this.initMaxChar = this.initMaxChar.bind(this);
     this.initHotCarBrandCon = this.initHotCarBrandCon.bind(this);
     this.initCarBrandCon = this.initCarBrandCon.bind(this);
@@ -88,7 +86,6 @@ class Brand extends Component {
     const {
       fast_charTouchMove,
       fast_charTouchEnd,
-      fast_charClick,
       state,
     } = this;
     const {
@@ -108,7 +105,7 @@ class Brand extends Component {
               <button
                 data-char={char}
                 key={i}
-                onClick={fast_charClick}
+                onClick={Brand.fast_charClick}
               >{char}
               </button>
             );
@@ -239,7 +236,7 @@ class Brand extends Component {
                   key={index}
                   className={`hotCarBrandList ${isCheck ? 'select' : null}`}
                   data-carid={ele.id}
-                  onClick={this.hotCarBrandClick}
+                  onClick={Brand.hotCarBrandClick}
 
                 >
                   <img src={`${staticImgURL}${ele.id}.png`} alt="" />

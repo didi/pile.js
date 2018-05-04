@@ -27,6 +27,7 @@ class carList extends Component {
   }
   colorClick(e) {
     const ele = e.currentTarget;
+
     this.state.onClick(JSON.parse(ele.dataset.obj));
   }
   initListData() {
@@ -43,13 +44,15 @@ class carList extends Component {
       selectCarType[dataAttrName.id] === ele[dataAttrName.id]) {
         isCheck = true;
       }
+
       return (
         <div
-          className={`list ${isCheck ? 'select' : null}`}
-          key={index}
-          data-obj={JSON.stringify(ele)}
-          onClick={this.listClick}
           {...other}
+          key={index}
+          onClick={self.listClick}
+          data-obj={JSON.stringify(ele)}
+          className={`list ${isCheck ? 'select' : null}`}
+
         >
           {/* <img src={ele.imgurl} alt=""/> */}
           {ele[self.props.dataAttrName.name]}

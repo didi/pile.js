@@ -18,8 +18,8 @@ const Label = (props) => {
     type, className, children, ...others
   } = props;
   const cls = classNames({
-    'jimu-lable': true,
-    [`jimu-lable-${type}`]: true,
+    'pile-lable': true,
+    [`pile-lable-${type}`]: true,
     [className]: className,
   });
   return (

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-
-import JIMU from './index'
-const {Layouts,Switch} = JIMU,
+import { Link } from 'react-router'
+import Pile from './index'
+const {Layouts,Switch} = Pile,
   {
     Layout,
     LayoutHd,
@@ -39,7 +39,7 @@ const _Switch = React.createClass({
 
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home"></span></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{"minHeight" : `${document.body.clientHeight - 94}px`}}>
           <h2 className="page-title"><b>Switch</b><span>开关</span></h2>
           <div>
@@ -55,21 +55,21 @@ const _Switch = React.createClass({
               <dd>
                 <Layout>
                   <Items>
-                    <Item className="jimu-item-oh jimu-aside-left">
-                      <div className="jimu-Itemcontent"><Switch isOpen  isSmall/></div>
-                      <div className="jimu-itemaside" style={{"lineHeight":"25px","fontSize":"1.4rem"}}>开启状态</div>
+                    <Item className="pile-item-oh pile-aside-left">
+                      <div className="pile-Itemcontent"><Switch isOpen  isSmall/></div>
+                      <div className="pile-itemaside" style={{"lineHeight":"25px","fontSize":"1.4rem"}}>开启状态</div>
                     </Item>
-                    <Item className="jimu-item-oh jimu-aside-left">
-                      <div className="jimu-Itemcontent"><Switch isOpen={false} isSmall clickBack={(o)=>{console.log(o)}}/></div>
-                      <div className="jimu-itemaside" style={{"lineHeight":"25px","fontSize":"1.4rem"}}>关闭状态</div>
+                    <Item className="pile-item-oh pile-aside-left">
+                      <div className="pile-Itemcontent"><Switch isOpen={false} isSmall clickBack={(o)=>{console.log(o)}}/></div>
+                      <div className="pile-itemaside" style={{"lineHeight":"25px","fontSize":"1.4rem"}}>关闭状态</div>
                     </Item>
-                    <Item className="jimu-item-oh jimu-aside-left">
-                      <div className="jimu-Itemcontent"><Switch  disabled  isSmall isOpen  /></div>
-                      <div className="jimu-itemaside" style={{"lineHeight":"25px","fontSize":"1.4rem"}}>开启状态 disabled</div>
+                    <Item className="pile-item-oh pile-aside-left">
+                      <div className="pile-Itemcontent"><Switch  disabled  isSmall isOpen  /></div>
+                      <div className="pile-itemaside" style={{"lineHeight":"25px","fontSize":"1.4rem"}}>开启状态 disabled</div>
                     </Item>
-                    <Item className="jimu-item-oh jimu-aside-left">
-                      <div className="jimu-Itemcontent"><Switch  disabled  isSmall isOpen={false}/></div>
-                      <div className="jimu-itemaside" style={{"lineHeight":"25px","fontSize":"1.4rem"}}>关闭状态 disabled</div>
+                    <Item className="pile-item-oh pile-aside-left">
+                      <div className="pile-Itemcontent"><Switch  disabled  isSmall isOpen={false}/></div>
+                      <div className="pile-itemaside" style={{"lineHeight":"25px","fontSize":"1.4rem"}}>关闭状态 disabled</div>
                     </Item>
                   </Items>
                 </Layout>

@@ -11,12 +11,14 @@ class Checkbox extends React.Component {
     disabled: PropTypes.bool,
     defaultChecked: PropTypes.bool,
     label: PropTypes.string,
+    id: PropTypes.string,
   }
   static defaultProps = {
     back() {},
     disabled: false,
     defaultChecked: false,
     label: '',
+    id: 'pile-checkbox',
   }
 
   constructor(props) {
@@ -48,21 +50,26 @@ class Checkbox extends React.Component {
   }
 
   render() {
-    const { className, label, disabled } = this.props;
+    const {
+      className, label, id, disabled,
+    } = this.props;
     const { defaultChecked } = this.state;
 
     const cls = classNames({
-      'jimu-form-checkbox': true,
-      'jimu-checkbox-checked': defaultChecked,
-      'jimu-checkbox-disabled': disabled,
+      'pile-form-checkbox': true,
+      'pile-checkbox-checked': defaultChecked,
+      'pile-checkbox-disabled': disabled,
       [className]: className,
     });
 
+    const checkboxState = defaultChecked ? 'icon-pile-check' : 'icon-pile-check-normal';
+
     return (
       <div className={cls} onClick={this.clicktaggle}>
-        {!defaultChecked && <span className="icon-jimu-check-normal" />}
-        {defaultChecked && <span className="icon-jimu-check" />}
-        <span>{label}</span>
+        <label className="label" htmlFor={id}>
+          <span id={id} className={classNames('icon', checkboxState)} />
+          {label}
+        </label>
       </div>
     );
   }

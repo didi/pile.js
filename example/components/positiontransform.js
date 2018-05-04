@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import JIMU from './index'
+import { Link } from 'react-router'
+import Pile from './index'
 
-const {Switch,Anime,Button} = JIMU,
+const {Switch,Anime,Button} = Pile,
   {PositionTransform} = Anime
 
 // 加载 _Load
@@ -16,7 +17,7 @@ const _Anime = React.createClass({
     let {myOrderArr} = this.state
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home"></span></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{"minHeight" : `${document.body.clientHeight - 94}px`}}>
           <h2 className="page-title"><b>PositionTransform</b><span>模块间位置切换</span></h2>
           <div>
@@ -24,10 +25,10 @@ const _Anime = React.createClass({
               <dt>模块间位置切换</dt>
               <dd style={{"paddingTop":"30px"}}>
                 <PositionTransform ref="myPostionSwitch" width={60} orderArr={myOrderArr} itemsMoveBack={function(n){console.log(n)}}>
-                  <div className="jimu-demo-postion-test">1</div>
-                  <div className="jimu-demo-postion-test">2</div>
-                  <div className="jimu-demo-postion-test">3</div>
-                  <div className="jimu-demo-postion-test">4</div>
+                  <div className="pile-demo-postion-test">1</div>
+                  <div className="pile-demo-postion-test">2</div>
+                  <div className="pile-demo-postion-test">3</div>
+                  <div className="pile-demo-postion-test">4</div>
                 </PositionTransform>
               </dd>
 

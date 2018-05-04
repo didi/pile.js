@@ -1,4 +1,4 @@
-// jimu-mobile
+// pile
 import Version from './version';
 // 工具类
 import Mask from './components/mask/index';

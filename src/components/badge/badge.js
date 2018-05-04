@@ -10,9 +10,9 @@ const Badge = (props) => {
     className, number, type, ...others
   } = props;
   const cls = classNames({
-    'jimu-badge': true,
-    'jimu-badge-full': number,
-    [`jimu-badge-${type}`]: !number && type,
+    'pile-badge': true,
+    'pile-badge-full': number,
+    [`pile-badge-${type}`]: !number && type,
     [className]: className,
   });
   return (

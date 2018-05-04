@@ -8,7 +8,7 @@ const Message = (props) => {
     children, ...others
   } = props;
   return (
-    <div className="jimu_message">
+    <div className="pile_message">
       <div {...others}>
         {children}
       </div>

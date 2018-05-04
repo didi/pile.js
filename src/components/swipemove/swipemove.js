@@ -409,11 +409,11 @@ class SwipeMove extends React.Component {
   render() {
     const { className, children, direction } = this.props;
     const cls = classNames({
-      'jimu-swipemove': true,
-      'jimu-bottom': direction === 'bottom',
-      'jimu-top': direction === 'top',
-      'jimu-left': direction === 'left',
-      'jimu-right': direction === 'right',
+      'pile-swipemove': true,
+      'pile-bottom': direction === 'bottom',
+      'pile-top': direction === 'top',
+      'pile-left': direction === 'left',
+      'pile-right': direction === 'right',
       [className]: className,
     });
     return (

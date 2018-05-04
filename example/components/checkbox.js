@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import JIMU from './index';
+import { Link } from 'react-router'
+import Pile from './index';
 
-const { Layouts, Form } = JIMU,
+const { Layouts, Form } = Pile,
   {
     Layout,
     LayoutHd,
@@ -36,7 +37,7 @@ const _List = React.createClass({
     const { isOpen, disabled } = this.state;
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home" /></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{ minHeight: `${document.body.clientHeight - 94}px` }}>
           <h2 className="page-title" onClick={this.chengeState}><b>Checkbox</b><span>复选框</span></h2>
           <div className="demo-show-nopadd">
@@ -45,7 +46,7 @@ const _List = React.createClass({
               <dd>
                 <Layout>
                   <Items>
-                    <Item className="jimu-item-oh jimu-aside-left">
+                    <Item className="pile-item-oh pile-aside-left">
                       <div className="dis-inline"><Checkbox defaultChecked={false} back={(o) => { console.log(o); }} label="未选中" /></div>
                       <div className="dis-inline ml-44"><Checkbox defaultChecked back={(o) => { console.log(o); }} label="选中" /></div>
                       <div className="dis-inline ml-44"><Checkbox defaultChecked disabled back={(o) => { console.log(o); }} label="选中不可点击" /></div>
@@ -60,17 +61,17 @@ const _List = React.createClass({
               <dd>
                 <Layout>
                   <Items>
-                    <Item className="jimu-item-oh jimu-aside-left jimu-check-item">
-                      <Checkbox className="jimu-checkbox-aside" defaultChecked={false} back={(o) => { console.log(o); }} label="未选中" />
+                    <Item className="pile-item-oh pile-aside-left pile-check-item">
+                      <Checkbox className="pile-checkbox-aside" defaultChecked={false} back={(o) => { console.log(o); }} label="未选中" />
                     </Item>
-                    <Item className="jimu-item-oh jimu-aside-left jimu-check-item">
-                      <Checkbox className="jimu-checkbox-aside" defaultChecked back={(o) => { console.log(o); }} label="默认选中" />
+                    <Item className="pile-item-oh pile-aside-left pile-check-item">
+                      <Checkbox className="pile-checkbox-aside" defaultChecked back={(o) => { console.log(o); }} label="默认选中" />
                     </Item>
-                    <Item className="jimu-item-oh jimu-aside-left jimu-check-item">
-                      <Checkbox className="jimu-checkbox-aside" defaultChecked disabled back={(o) => { console.log(o); }} label="选中不可点击" />
+                    <Item className="pile-item-oh pile-aside-left pile-check-item">
+                      <Checkbox className="pile-checkbox-aside" defaultChecked disabled back={(o) => { console.log(o); }} label="选中不可点击" />
                     </Item>
-                    <Item className="jimu-item-oh jimu-aside-left jimu-check-item">
-                      <Checkbox className="jimu-checkbox-aside" defaultChecked={false} disabled back={(o) => { console.log(o); }} label="未选中不可点击" />
+                    <Item className="pile-item-oh pile-aside-left pile-check-item">
+                      <Checkbox className="pile-checkbox-aside" defaultChecked={false} disabled back={(o) => { console.log(o); }} label="未选中不可点击" />
                     </Item>
                   </Items>
                 </Layout>

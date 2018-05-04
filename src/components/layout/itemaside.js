@@ -10,7 +10,7 @@ const ItemAside = (props) => {
     className, children, ...others
   } = props;
   const cls = classNames({
-    'jimu-item-aside': true,
+    'pile-item-aside': true,
     [className]: className,
   });
   const Component = props.href ? 'a' : 'div';

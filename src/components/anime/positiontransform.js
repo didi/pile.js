@@ -36,7 +36,7 @@ class PositionSwitch extends Component {
   render() {
     const { className, width, children } = this.props;
     const cls = classNames({
-      'jimu-position-switch': true,
+      'pile-position-switch': true,
       [className]: className,
     });
     return (
@@ -45,7 +45,7 @@ class PositionSwitch extends Component {
           <div
             style={{ width: `${width}px` }}
             ref={`move_${index}`}
-            className="jimu-move-item"
+            className="pile-move-item"
             key={index}
           >{re}
           </div>

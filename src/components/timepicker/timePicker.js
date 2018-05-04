@@ -79,7 +79,7 @@ class PickerTime extends Component {
           dayarr.push('后天');
           break;
         default:
-          dayarr.push(this._getDay());
+          dayarr.push(PickerTime._getDay());
           break;
       }
     }
@@ -298,7 +298,7 @@ class PickerTime extends Component {
       harr = alloptions[1].slice(0, endTimeH);
       marr = alloptions[2].slice(0, Math.ceil(endTimeM / scale));
     } else if (endTime && startTime) {
-      if (this._compare(startTime, endTime)) {
+      if (PickerTime._compare(startTime, endTime)) {
         let startTimeD = parseInt(startTime[0], 10);
         let startTimeH = parseInt(startTime[1], 10);
         let startTimeM = parseInt(startTime[2], 10);

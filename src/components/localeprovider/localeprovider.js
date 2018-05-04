@@ -16,12 +16,12 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
   };
 
   static childContextTypes = {
-    jimuLocale: PropTypes.object,
+    pileLocale: PropTypes.object,
   };
 
   getChildContext() {
     return {
-      jimuLocale: {
+      pileLocale: {
         ...this.props.locale,
         exist: true,
       },

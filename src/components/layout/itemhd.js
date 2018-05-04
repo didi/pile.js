@@ -9,7 +9,7 @@ import classNames from 'classnames';
 const ItemHd = (props) => {
   const { className, children, ...others } = props;
   const cls = classNames({
-    'jimu-item-hd': true,
+    'pile-item-hd': true,
     [className]: className,
   });
   return (

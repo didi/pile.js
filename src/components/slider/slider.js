@@ -244,8 +244,8 @@ class Slider extends React.Component {
   render() {
     const { disabled, className } = this.props;
     const cls = classNames({
-      'jimu-slider': true,
-      'jimu-disabled': disabled,
+      'pile-slider': true,
+      'pile-disabled': disabled,
       [className]: className,
     });
 

@@ -11,9 +11,9 @@ const Mask = (props) => {
     transparent, hidden, className, ...others
   } = props;
   const cls = classNames({
-    didi_mask_none: hidden,
-    didi_mask: !transparent,
-    didi_mask_transparent: transparent,
+    pile_mask_none: hidden,
+    pile_mask: !transparent,
+    pile_mask_transparent: transparent,
     [className]: className,
   });
 

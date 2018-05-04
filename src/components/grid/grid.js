@@ -10,8 +10,8 @@ class Grid extends Component {
       flexCells, className, children, ...others
     } = this.props;
     const cls = classNames({
-      'jimu-grid': true,
-      'jimu-grid-flex': flexCells,
+      'pile-grid': true,
+      'pile-grid-flex': flexCells,
       [className]: className,
     });
     return (
@@ -19,7 +19,7 @@ class Grid extends Component {
         {React.Children.map(children, (child, i) => {
            if (!child) { return null; }
            const contentCls = classNames({
-             'jimu-cell': true,
+             'pile-cell': true,
            });
            return (
              <div className={contentCls} key={i}>

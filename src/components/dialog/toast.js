@@ -114,7 +114,7 @@ export default class Toast extends React.Component {
       );
     } else if (type === 'loading') {
       return (
-        <div className="jimu-load-loading">
+        <div className="pile-load-loading">
           <div className="load-spinner">
             <div />
             <div />
@@ -144,11 +144,11 @@ export default class Toast extends React.Component {
     const { toastShow } = this.state;
 
     return (
-      <div className="jimu-dialog jimu-dialog-toast" style={{ visibility: toastShow ? 'visible' : 'hidden' }}>
+      <div className="pile-dialog pile-dialog-toast" style={{ visibility: toastShow ? 'visible' : 'hidden' }}>
         <Mask />
-        <div className="didi_toast" ref={(t) => { this.toast = t; }}>
+        <div className="pile_toast" ref={(t) => { this.toast = t; }}>
           {this.icon()}
-          <div className="didi_toast_content" ref={(t) => { this.toastContent = t; }}>
+          <div className="pile_toast_content" ref={(t) => { this.toastContent = t; }}>
             {content}
           </div>
         </div>

@@ -6,7 +6,7 @@ import classNames from 'classnames';
 const NavItem = (props) => {
   const { className, children, ...others } = props;
   const cls = classNames({
-    'jimu-nav-item': true,
+    'pile-nav-item': true,
     [className]: className,
   });
   return (

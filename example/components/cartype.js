@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import JIMU from '../../src/index'
+import { Link } from 'react-router'
+import Pile from '../../src/index'
 
-const {Button,SelectCar} = JIMU
+const {Button,SelectCar} = Pile
 class CarType extends Component {
   constructor(props){
     super(props)
@@ -11,7 +12,6 @@ class CarType extends Component {
     }
   }
   brandClick(obj){
-    console.log('------tttttttttttt----------')
     console.log(obj)
   }
   cityClick(){
@@ -20,11 +20,9 @@ class CarType extends Component {
     })
   }
   carTypeClick(objArr){
-    console.log('------tttttttttttt----------')
     console.log(objArr)
   }
   carColorClick(objArr){
-    console.log('------ccccccccccc----------')
     console.log(objArr)
     this.setState({
       selectCarShow:false,
@@ -43,7 +41,11 @@ class CarType extends Component {
 
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home"></span></a></div>
+        <div className="example-back">
+          <Link to="/">
+            <span className="icon-pic-home"></span>
+          </Link>
+        </div>
         <div className="libs-intr" style={{"minHeight" : `${document.body.clientHeight - 94}px`}}>
           <h2 className="page-title"><b>SelectCar</b><span>车型</span></h2>
           <div className="demo-show">

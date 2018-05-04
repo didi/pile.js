@@ -74,6 +74,12 @@ class DatePeriodPicker extends Component {
     return `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`;
   }
 
+  // 获取 结束时间
+  static _getEndData(startData, days) {
+    const nowTamp = DatePeriodPicker._dataTransTamp(startData) + days * 60 * 60 * 1000 * 24;
+    return DatePeriodPicker._tampTransData(nowTamp);
+  }
+
   static propTypes = {
     /* eslint-disable react/no-unused-prop-types */
     value: PropTypes.array,
@@ -101,13 +107,13 @@ class DatePeriodPicker extends Component {
     let startDay;
 
     // 判断是否传入开始日期 并且检验传入日期是否有效
-    if (startData && this.isEffectiveDate(startData)) {
+    if (startData && DatePeriodPicker.isEffectiveDate(startData)) {
       startDay = startData;
     } else {
-      startDay = this._getNewDate();
+      startDay = DatePeriodPicker._getNewDate();
     }
 
-    const endDay = this._getEndData(startDay, days - 1);
+    const endDay = DatePeriodPicker._getEndData(startDay, days - 1);
 
     // 设置初始数组
     const opts = this._setInitOptions(startDay, endDay, startDay);
@@ -115,8 +121,8 @@ class DatePeriodPicker extends Component {
 
     // 设置默认显示参数
     this.setState({
-      value: [this._addStrUnit(newArrValue[0], format[0]),
-        this._addStrUnit(newArrValue[1], format[1]),
+      value: [DatePeriodPicker._addStrUnit(newArrValue[0], format[0]),
+        DatePeriodPicker._addStrUnit(newArrValue[1], format[1]),
         this._setDaysWeek(newArrValue[0], newArrValue[1], newArrValue[2])], // 默认数值 开始时间 、 结束时间
       options: opts, // 默认数值
       open,
@@ -137,7 +143,7 @@ class DatePeriodPicker extends Component {
 
     // 当改变年份时
     if (listIndex === 0) {
-      const yearval = this._deleteStrUnit(val, format[0]);
+      const yearval = DatePeriodPicker._deleteStrUnit(val, format[0]);
       // 当前年份
       if (startD.split('/')[0] === yearval) {
         onData = [yearval, startDataArr[1], startDataArr[2]];
@@ -148,7 +154,7 @@ class DatePeriodPicker extends Component {
 
     // 当改变月份时
     if (listIndex === 1) {
-      const mouthval = this._deleteStrUnit(val, format[1]);
+      const mouthval = DatePeriodPicker._deleteStrUnit(val, format[1]);
       // 当前年份
       if (startDataArr[0] === onData[0] && startDataArr[1] === mouthval) {
         onData = [startDataArr[0], mouthval, startDataArr[2]];
@@ -159,11 +165,12 @@ class DatePeriodPicker extends Component {
 
     // 当改变日时
     if (listIndex === 2) {
-      onData[2] = this._deleteStrUnit(val, format[2]);
+      onData[2] = DatePeriodPicker._deleteStrUnit(val, format[2]);
     }
 
-    const newDataArr = [this._addStrUnit(onData[0], format[0]),
-      this._addStrUnit(onData[1], format[1]), this._setDaysWeek(onData[0], onData[1], onData[2])];
+    const newDataArr = [DatePeriodPicker._addStrUnit(onData[0], format[0]),
+      DatePeriodPicker._addStrUnit(onData[1], format[1]),
+      this._setDaysWeek(onData[0], onData[1], onData[2])];
 
     this.setState({
       value: newDataArr,
@@ -240,7 +247,7 @@ class DatePeriodPicker extends Component {
     let optms = 1;
     let optme = 12;
     let optds = 1;
-    let optde = this._getDays(yon, mon);
+    let optde = DatePeriodPicker._getDays(yon, mon);
 
     // 如果同年 2017/3/5 2017/6/7
     if (ys === yon && yon === ye) {
@@ -291,12 +298,12 @@ class DatePeriodPicker extends Component {
 
     // 设置 年份
     for (; ys <= ye; ys++) {
-      year.push(this._addStrUnit(ys, format[0]));
+      year.push(DatePeriodPicker._addStrUnit(ys, format[0]));
     }
 
     // 设置 月份
     for (; optms <= optme; optms++) {
-      mouth.push(this._addStrUnit(optms, format[1]));
+      mouth.push(DatePeriodPicker._addStrUnit(optms, format[1]));
     }
 
     // 设置 天
@@ -313,12 +320,6 @@ class DatePeriodPicker extends Component {
     return newdaysopt;
   }
 
-
-  // 获取 结束时间
-  _getEndData(startData, days) {
-    const nowTamp = this._dataTransTamp(startData) + days * 60 * 60 * 1000 * 24;
-    return this._tampTransData(nowTamp);
-  }
 
   show() {
     this.refs.date_picker.show();

@@ -10,22 +10,22 @@ const PermissionsCard = (props) => {
     className, titleHTML, labelTitle, labelType, messageHTML, iconHTML, ...others
   } = props;
   const cls = classNames({
-    'jimu-permissions-card': true,
-    'jimu-permissions-aside-icon': iconHTML,
+    'pile-permissions-card': true,
+    'pile-permissions-aside-icon': iconHTML,
     [className]: className,
   });
   const Component = props.href ? 'a' : 'div';
 
   return (
     <Component className={cls} {...others}>
-      <div className="jimu-permissions-icon">
+      <div className="pile-permissions-icon">
         {iconHTML}
       </div>
-      <div className="jimu-permissions-hd">
-        {titleHTML && <div className="jimu-permissions-title">{titleHTML}</div>}
+      <div className="pile-permissions-hd">
+        {titleHTML && <div className="pile-permissions-title">{titleHTML}</div>}
         {labelTitle && <Label type={labelType}>{labelTitle}</Label>}
       </div>
-      <div className="jimu-permissions-message">
+      <div className="pile-permissions-message">
         {messageHTML}
       </div>
     </Component>

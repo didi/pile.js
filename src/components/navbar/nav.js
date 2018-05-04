@@ -17,7 +17,7 @@ const NavBar = (props) => {
     className, activeIndex, children, ...others
   } = props;
   const cls = classNames({
-    'jimu-navbar': true,
+    'pile-navbar': true,
     [className]: className,
   });
   return (
@@ -25,8 +25,8 @@ const NavBar = (props) => {
       {React.Children.map(children, (child, i) => {
            if (!child) { return null; }
            const itemsCls = classNames({
-               'jimu-nav-items': true,
-               'jimu-nav-items-selected': i === (activeIndex - 1),
+               'pile-nav-items': true,
+               'pile-nav-items-selected': i === (activeIndex - 1),
                [className]: className,
              });
            return (

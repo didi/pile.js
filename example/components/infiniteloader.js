@@ -1,10 +1,10 @@
 import React from 'react';
-
-import JIMU from './index';
+import { Link } from 'react-router'
+import Pile from './index';
 
 const {
     InfiniteLoader, PermissionsCard, Tabs, LocaleProvider,
-  } = JIMU,
+  } = Pile,
   { TabPane } = Tabs;
 import enUS from '../../src/components/localeprovider/en_US';
 import zhCN from '../../src/components/localeprovider/zh-CN';
@@ -114,7 +114,7 @@ const _Ringloading = React.createClass({
     } = this.state;
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home" /></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{ minHeight: `${document.body.clientHeight - 94}px` }}>
           <h2 className="page-title"><b>InfiniteLoader</b><span>滚动加载</span></h2>
           <div className="swipe-tab-layout">
@@ -135,7 +135,7 @@ const _Ringloading = React.createClass({
                 {list.map((res, index) => (
                   <div key={index}>
                     <PermissionsCard
-                      iconHTML={<span className="icon-jimu-right" />}
+                      iconHTML={<span className="icon-pile-right" />}
                       titleHTML={`微信支付合作商谈 - ${res}`}
                       messageHTML="1月12日-1月20日"
                       labelTitle="过期未审批"

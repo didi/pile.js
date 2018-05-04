@@ -56,7 +56,7 @@ class Sliders extends React.Component {
   render() {
     const { ...others } = this.props;
     return (
-      <div className="jimu-sliders" >
+      <div className="pile-sliders" >
         <SliderLine {...others} onChangeBack={this.changeBack}>
           <div className="slider-title" ref={(n) => { this.sliderTitles = n; }} />
         </SliderLine>

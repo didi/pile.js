@@ -47,12 +47,12 @@ const Passenger = (props) => {
     isNeed, user_phone, order_info, ride_type, ...others
   } = props;
   return (
-    <div className="jimu_passenger" {...others}>
-      <div className="jimu_passenger_avatar">
+    <div className="pile_passenger" {...others}>
+      <div className="pile_passenger_avatar">
         <img src={headpic} width="50" height="50" alt="头像" />
         {isNeed && (isMaster ? (<p>下单人</p>) : (<p>同行人</p>))}
       </div>
-      <div className="jimu_passenger_userinfo">
+      <div className="pile_passenger_userinfo">
         <p>
           {user_name}
         </p>
@@ -82,7 +82,7 @@ const Passenger = (props) => {
              )
              : null}
       </div>
-      {isPhone && (<div className="jimu_passenger_telphone"><a href={`tel:${user_phone}`}><span className="icon-car-icons-phone" /></a></div>)}
+      {isPhone && (<div className="pile_passenger_telphone"><a href={`tel:${user_phone}`}><span className="icon-car-icons-phone" /></a></div>)}
       {props.children && (
         <div className="brd">
           {props.children}

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import JIMU from './index';
+import { Link } from 'react-router'
+import Pile from './index';
 import enUS from '../../src/components/localeprovider/en_US';
 import zhCN from '../../src/components/localeprovider/zh-CN';
-const { Picker, Layouts ,LocaleProvider} = JIMU,
+const { Picker, Layouts ,LocaleProvider} = Pile,
   {
     Layout,
     LayoutHd,
@@ -102,7 +103,7 @@ const _Picker = React.createClass({
     } = this.state;
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home" /></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{ minHeight: `${document.body.clientHeight - 94}px` }}>
           <h2 className="page-title"><b>DataPicker</b><span>日期选择器</span></h2>
           <div className="demo-show">
@@ -113,65 +114,65 @@ const _Picker = React.createClass({
 
             <Layout>
               <Items>
-                <Item className="jimu-item-oh jimu-aside-left" onClick={this.handleTimePeriod}>
+                <Item className="pile-item-oh pile-aside-left" onClick={this.handleTimePeriod}>
                   <ItemHd>
                     <ItemTitle>TimePeriodPicker</ItemTitle>
                   </ItemHd>
-                  <div className="jimu-item-oh">
-                    <div className="jimu-Itemcontent ly-item-picker">每日 {TimePeriodValue.join('-')} 可用</div>
-                    <div className="jimu-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>带分钟的时间段</div>
+                  <div className="pile-item-oh">
+                    <div className="pile-Itemcontent ly-item-picker">每日 {TimePeriodValue.join('-')} 可用</div>
+                    <div className="pile-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>带分钟的时间段</div>
                   </div>
                 </Item>
 
-                <Item className="jimu-item-oh jimu-aside-left" onClick={this.handleTimeGroup}>
+                <Item className="pile-item-oh pile-aside-left" onClick={this.handleTimeGroup}>
                   <ItemHd>
                     <ItemTitle>TimeGroupPicker</ItemTitle>
                   </ItemHd>
-                  <div className="jimu-item-oh">
-                    <div className="jimu-Itemcontent ly-item-picker">{TimeGroupValue.join('-')}</div>
-                    <div className="jimu-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>当天时间段</div>
+                  <div className="pile-item-oh">
+                    <div className="pile-Itemcontent ly-item-picker">{TimeGroupValue.join('-')}</div>
+                    <div className="pile-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>当天时间段</div>
                   </div>
                 </Item>
 
-                <Item className="jimu-item-oh jimu-aside-left" onClick={this.handlePickerInstall}>
+                <Item className="pile-item-oh pile-aside-left" onClick={this.handlePickerInstall}>
                   <ItemHd>
                     <ItemTitle>DatePeriodPicker</ItemTitle>
                   </ItemHd>
-                  <div className="jimu-item-oh">
-                    <div className="jimu-Itemcontent ly-item-picker">{PickerInstallValue.join('-')}</div>
-                    <div className="jimu-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>日期按天数展示</div>
+                  <div className="pile-item-oh">
+                    <div className="pile-Itemcontent ly-item-picker">{PickerInstallValue.join('-')}</div>
+                    <div className="pile-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>日期按天数展示</div>
                   </div>
                 </Item>
 
 
-                <Item className="jimu-item-oh jimu-aside-left" onClick={() => { this.refs.pickerBefore.show(); }}>
+                <Item className="pile-item-oh pile-aside-left" onClick={() => { this.refs.pickerBefore.show(); }}>
                   <ItemHd>
                     <ItemTitle>DateRangePicker</ItemTitle>
                   </ItemHd>
-                  <div className="jimu-item-oh">
-                    <div className="jimu-Itemcontent ly-item-picker">{pickerBeforeValue.join('-')}</div>
-                    <div className="jimu-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>自定义年、月、日</div>
+                  <div className="pile-item-oh">
+                    <div className="pile-Itemcontent ly-item-picker">{pickerBeforeValue.join('-')}</div>
+                    <div className="pile-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>自定义年、月、日</div>
                   </div>
                 </Item>
 
 
-                <Item className="jimu-item-oh jimu-aside-left" onClick={() => { this.refs.pickerNowRef.show(); }}>
+                <Item className="pile-item-oh pile-aside-left" onClick={() => { this.refs.pickerNowRef.show(); }}>
                   <ItemHd>
                     <ItemTitle>TimeDefaultPicker</ItemTitle>
                   </ItemHd>
-                  <div className="jimu-item-oh">
-                    <div className="jimu-Itemcontent ly-item-picker">{pickerNowValue.join('-')}</div>
-                    <div className="jimu-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>今日起月、日、时、分</div>
+                  <div className="pile-item-oh">
+                    <div className="pile-Itemcontent ly-item-picker">{pickerNowValue.join('-')}</div>
+                    <div className="pile-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>今日起月、日、时、分</div>
                   </div>
                 </Item>
 
-                <Item className="jimu-item-oh jimu-aside-left" onClick={() => { this.refs.sectionPickerRef.show(); }}>
+                <Item className="pile-item-oh pile-aside-left" onClick={() => { this.refs.sectionPickerRef.show(); }}>
                   <ItemHd>
                     <ItemTitle>DateTimePicker</ItemTitle>
                   </ItemHd>
-                  <div className="jimu-item-oh">
-                    <div className="jimu-Itemcontent ly-item-picker">{sectionPickerValue.join('-')}</div>
-                    <div className="jimu-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>自定义月、日、时、分</div>
+                  <div className="pile-item-oh">
+                    <div className="pile-Itemcontent ly-item-picker">{sectionPickerValue.join('-')}</div>
+                    <div className="pile-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>自定义月、日、时、分</div>
                   </div>
                 </Item>
 

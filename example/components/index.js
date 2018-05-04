@@ -1,4 +1,4 @@
-/*  对node_modules jimu版本做验证  */
+/*  对node_modules pile版本做验证  */
 
 import {
   Mask,
@@ -57,7 +57,6 @@ import {
   Upload,
   LocaleProvider,
 } from '../../src/index'; // 验证本地
-// }  from 'jimu-mobile'  // 验证jimu
 
 /*  引用本地文件做验证  */
 export default {

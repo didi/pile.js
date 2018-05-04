@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import JIMU from './index'
+import { Link } from 'react-router'
+import Pile from './index'
 
-const {Slider} = JIMU,
+const {Slider} = Pile,
   {SliderLine,Sliders}= Slider
 
 function slidecb(o){
@@ -10,7 +11,7 @@ function slidecb(o){
 // 滑动条组件 Slider
 const _Slider = () => (
   <div className="example-wrap">
-    <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home"></span></a></div>
+    <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
     <div className="libs-intr" style={{"minHeight" : `${document.body.clientHeight - 94}px`}}>
       <h2 className="page-title"><b>Slider</b><span>滑动条</span></h2>
       <div className="slider-layout" style={{margin:"0 30px"}}>

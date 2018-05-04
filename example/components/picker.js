@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router'
+import Pile from './index';
 
-import JIMU from './index';
-// import JIMU from 'jimu-mobile'
-const { Layouts, Picker } = JIMU,
+const { Layouts, Picker } = Pile,
   {
     Layout,
     LayoutHd,
@@ -94,7 +94,7 @@ const _Picker = React.createClass({
     } = this.state;
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home" /></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{ minHeight: `${document.body.clientHeight - 94}px` }}>
           <h2 className="page-title" onClick={this.changeOpt2}><b>Picker</b><span>选择器</span></h2>
           <div className="demo-show">
@@ -105,33 +105,33 @@ const _Picker = React.createClass({
 
           <Layout>
             <Items>
-              <Item className="jimu-item-oh jimu-aside-left" onClick={this.onehandleChangepickers}>
+              <Item className="pile-item-oh pile-aside-left" onClick={this.onehandleChangepickers}>
                 <ItemHd>
                   <ItemTitle>ColumnPicker</ItemTitle>
                 </ItemHd>
-                <div className="jimu-item-oh">
-                  <div className="jimu-Itemcontent ly-item-picker">{onevalue.join('-')}</div>
-                  <div className="jimu-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>单列不联动</div>
+                <div className="pile-item-oh">
+                  <div className="pile-Itemcontent ly-item-picker">{onevalue.join('-')}</div>
+                  <div className="pile-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>单列不联动</div>
                 </div>
               </Item>
 
-              <Item className="jimu-item-oh jimu-aside-left" onClick={this.handleChangepickers}>
+              <Item className="pile-item-oh pile-aside-left" onClick={this.handleChangepickers}>
                 <ItemHd>
                   <ItemTitle>ColumnPicker</ItemTitle>
                 </ItemHd>
-                <div className="jimu-item-oh">
-                  <div className="jimu-Itemcontent ly-item-picker">{twovalue.join('-')}</div>
-                  <div className="jimu-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>两列不联动</div>
+                <div className="pile-item-oh">
+                  <div className="pile-Itemcontent ly-item-picker">{twovalue.join('-')}</div>
+                  <div className="pile-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>两列不联动</div>
                 </div>
               </Item>
 
-              <Item className="jimu-item-oh jimu-aside-left" onClick={this.handleCarChange}>
+              <Item className="pile-item-oh pile-aside-left" onClick={this.handleCarChange}>
                 <ItemHd>
                   <ItemTitle>CarNumberPicker</ItemTitle>
                 </ItemHd>
-                <div className="jimu-item-oh">
-                  <div className="jimu-Itemcontent ly-item-picker">{carValue.join('-')}</div>
-                  <div className="jimu-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>车牌号码</div>
+                <div className="pile-item-oh">
+                  <div className="pile-Itemcontent ly-item-picker">{carValue.join('-')}</div>
+                  <div className="pile-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>车牌号码</div>
                 </div>
               </Item>
             </Items>

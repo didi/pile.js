@@ -1,15 +1,15 @@
 import React from 'react';
-// import JIMU from '../../src/index'
-import JIMU from './index';
+import { Link } from 'react-router'
+import Pile from './index';
 
-const { Button } = JIMU;
+const { Button } = Pile;
 
 // 按钮组件 Button
 class _Button extends React.Component {
   render() {
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home" /></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{ minHeight: `${document.body.clientHeight - 94}px` }}>
           <h2 className="page-title"><b>Button</b><span>按钮</span></h2>
           <div className="demo-show demo-button">
@@ -23,10 +23,10 @@ class _Button extends React.Component {
               <dd><Button disabled float>地图浮层按钮 disabled</Button></dd>
 
               <dt>图标+文字</dt>
-              <dd><Button type="highlight"><span className="icon-pay icon-jimu-pay" />主要按钮</Button></dd>
-              <dd><Button type="highlight" disabled><span className="icon-pay icon-jimu-pay" />主要按钮 disabled</Button></dd>
-              <dd><Button><span className="icon-pay icon-jimu-pay" />次要按钮</Button></dd>
-              <dd><Button disabled><span className="icon-pay icon-jimu-pay" />次要按钮 disabled</Button></dd>
+              <dd><Button type="highlight"><span className="icon-pay icon-pile-pay" />主要按钮</Button></dd>
+              <dd><Button type="highlight" disabled><span className="icon-pay icon-pile-pay" />主要按钮 disabled</Button></dd>
+              <dd><Button><span className="icon-pay icon-pile-pay" />次要按钮</Button></dd>
+              <dd><Button disabled><span className="icon-pay icon-pile-pay" />次要按钮 disabled</Button></dd>
 
               <dt>基础按钮(小)</dt>
               <dd>
@@ -41,8 +41,8 @@ class _Button extends React.Component {
 
               <dt>尺寸</dt>
               <dd>
-                <span className="de-mr-5 de-pb-5 di-inblok"><Button className="jimu-button-size-big" type="highlight">默认</Button> </span>
-                <span className="de-mr-5 de-pb-5 di-inblok" style={{ marginLeft: '10px', verticalAlign: 'bottom' }}><Button className="jimu-button-size-samll" size="small">高亮</Button> </span>
+                <span className="de-mr-5 de-pb-5 di-inblok"><Button className="pile-button-size-big" type="highlight">默认</Button> </span>
+                <span className="de-mr-5 de-pb-5 di-inblok" style={{ marginLeft: '10px', verticalAlign: 'bottom' }}><Button className="pile-button-size-samll" size="small">高亮</Button> </span>
               </dd>
             </dl>
           </div>

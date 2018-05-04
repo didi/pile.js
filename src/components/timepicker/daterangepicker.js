@@ -100,19 +100,19 @@ class DateRangePicker extends Component {
       valueData, open, startData, endData, yearText, monthText, dayText,
     } = this.props;
     let startDay;
-    const endDataTamp = !endData ? new Date().getTime() : this._dataTransTamp(endData);
-    const startDataTamp = this._dataTransTamp(startData);
+    const endDataTamp = !endData ? new Date().getTime() : DateRangePicker._dataTransTamp(endData);
+    const startDataTamp = DateRangePicker._dataTransTamp(startData);
     const days = Math.ceil((endDataTamp - startDataTamp) / 1000 / 24 / 60 / 60);
 
     // 判断是否传入开始日期 并且检验传入日期是否有效
-    if (startData && this.isEffectiveDate(startData)) {
+    if (startData && DateRangePicker.isEffectiveDate(startData)) {
       startDay = startData;
     } else {
-      startDay = this._getNewDate();
+      startDay = DateRangePicker._getNewDate();
     }
 
-    const endDay = endData || this._getNewDate();
-    const onDay = valueData || this._getNewDate();
+    const endDay = endData || DateRangePicker._getNewDate();
+    const onDay = valueData || DateRangePicker._getNewDate();
 
     // 设置初始数组
     const opts = this._setInitOptions(startDay, endDay, onDay);
@@ -140,9 +140,9 @@ class DateRangePicker extends Component {
     const { value, valueData } = this.state;
     const { yearText, monthText, dayText } = this.props;
     let dataString = '';
-    dataString += `${this._deleteStrUnit(value[0], yearText)}/`;
-    dataString += `${this._deleteStrUnit(value[1], monthText)}/`;
-    dataString += this._deleteStrUnit(value[2], dayText);
+    dataString += `${DateRangePicker._deleteStrUnit(value[0], yearText)}/`;
+    dataString += `${DateRangePicker._deleteStrUnit(value[1], monthText)}/`;
+    dataString += DateRangePicker._deleteStrUnit(value[2], dayText);
     const fmt = new Date(`${dataString} 00:00`).getTime();
     this.props.pickerAway && this.props.pickerAway(value, this.refs.pickertime, valueData, {
       fmt,
@@ -170,7 +170,7 @@ class DateRangePicker extends Component {
 
     // 当改变年份时
     if (listIndex === 0) {
-      const yearval = this._deleteStrUnit(val, yearText);
+      const yearval = DateRangePicker._deleteStrUnit(val, yearText);
       // 当前年份
       if (startD.split('/')[0] === yearval) {
         onData = [yearval, startDataArr[1], startDataArr[2]];
@@ -186,7 +186,7 @@ class DateRangePicker extends Component {
 
     // 当改变月份时
     if (listIndex === 1) {
-      const mouthval = this._deleteStrUnit(val, monthText);
+      const mouthval = DateRangePicker._deleteStrUnit(val, monthText);
       // 当前年份
       if (startDataArr[0] === onData[0] && startDataArr[1] === mouthval) {
         onData = [startDataArr[0], mouthval, startDataArr[2]];
@@ -197,13 +197,14 @@ class DateRangePicker extends Component {
 
     // 当改变日时
     if (listIndex === 2) {
-      onData[2] = this._deleteStrUnit(val, dayText);
+      onData[2] = DateRangePicker._deleteStrUnit(val, dayText);
     }
 
-    const newDataArr = [this._addStrUnit(onData[0], yearText), this._addStrUnit(
-      onData[1],
-      monthText,
-    ), this._setDaysWeek(onData[0], onData[1], onData[2])];
+    const newDataArr = [DateRangePicker._addStrUnit(onData[0], yearText),
+      DateRangePicker._addStrUnit(
+        onData[1],
+        monthText,
+      ), this._setDaysWeek(onData[0], onData[1], onData[2])];
     const opts = this._setInitOptions(startD, endD, onData.join('/'));
     // 判断当前年月是否包含当前的日  比如 2月 29
 
@@ -249,7 +250,7 @@ class DateRangePicker extends Component {
     let optms = 1;
     let optme = 12;
     let optds = 1;
-    let optde = this._getDays(yon, mon);
+    let optde = DateRangePicker._getDays(yon, mon);
 
     // 如果同年 2017/3/5 2017/6/7
     if (ys === yon && yon === ye) {
@@ -302,12 +303,12 @@ class DateRangePicker extends Component {
 
     // 设置 年份
     for (; ys <= ye; ys++) {
-      year.push(this._addStrUnit(ys, yearText));
+      year.push(DateRangePicker._addStrUnit(ys, yearText));
     }
 
     // 设置 月份
     for (; optms <= optme; optms++) {
-      mouth.push(this._addStrUnit(optms, monthText));
+      mouth.push(DateRangePicker._addStrUnit(optms, monthText));
     }
 
     // 设置 天
@@ -324,12 +325,6 @@ class DateRangePicker extends Component {
     return newdaysopt;
   }
 
-  // 获取 结束时间
-  _getEndData(startData, days) {
-    const nowTamp = this._dataTransTamp(startData) + days * 60 * 60 * 1000 * 24;
-    return this._tampTransData(nowTamp);
-  }
-
   show() {
     this._showFunc();
   }
@@ -343,15 +338,15 @@ class DateRangePicker extends Component {
       const {
         valueData, endData, startData, yearText, monthText, dayText,
       } = this.props;
-      const endDay = endData || this._getNewDate();
-      const onDay = valueData || this._getNewDate();
+      const endDay = endData || DateRangePicker._getNewDate();
+      const onDay = valueData || DateRangePicker._getNewDate();
       let startDay;
 
       // 判断是否传入开始日期 并且检验传入日期是否有效
-      if (startData && this.isEffectiveDate(startData)) {
+      if (startData && DateRangePicker.isEffectiveDate(startData)) {
         startDay = startData;
       } else {
-        startDay = this._getNewDate();
+        startDay = DateRangePicker._getNewDate();
       }
 
       // 设置初始数组

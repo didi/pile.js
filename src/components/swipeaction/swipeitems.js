@@ -114,7 +114,7 @@ class SwipeItems extends React.Component {
       disTouchs, shows, touchDefaults, displacements,
     } = this.state;
     const cls = classNames({
-      'jimu-swipe-items': true,
+      'pile-swipe-items': true,
       [className]: className,
     });
 
@@ -144,7 +144,7 @@ class SwipeItems extends React.Component {
                  {child}
                </SwipeItem>);
            }
-             return (<div className="jimu-swipe-del jimu-item-undel" key={index}>{child}</div>);
+             return (<div className="pile-swipe-del pile-item-undel" key={index}>{child}</div>);
          })}
       </div>
     );
