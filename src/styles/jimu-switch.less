@@ -18,76 +18,28 @@
   border-radius: @switch-btn-width;
   background: @fill-base;
 }
-.switch-open{background: @fill-highlight}
-.switch-open:after{left: @switch-btn-open-left;}
-.switch-open-move{-webkit-animation:switchShow .2s .0s ease both;animation:switchShow .2s .0s ease both;}
-.switch-open-move:after{-webkit-animation:switchShowBnt .2s .0s ease both;animation:switchShowBnt .2s .0s ease both;}
-.jimu-switch-issmall.switch-open-move:after{-webkit-animation:switchShowsmallBnt .2s .0s ease both;animation:switchShowsmallBnt .2s .0s ease both;}
-@-webkit-keyframes switchShow{
-  0%{background: @switch-default-bg}
-  100%{background: @fill-highlight}
+.ui-switch{transition:all .2s ease 0s; -webkit-transition:all .2s ease 0s;}
+.ui-switch:after{transition:all .2s ease 0s; -webkit-transition:all .2s ease 0s; }
+.switch-open{background: @fill-highlight;}
+.switch-open:after{left: @switch-btn-open-left; }
+.switch-open-move{
+  background: @fill-highlight
 }
-
-@-webkit-keyframes switchShowBnt{
-  0%{left: @switch-btn-close-left;}
-  100%{left: @switch-btn-open-left;}
+.switch-open-move:after{
+ left: @switch-btn-open-left;}
+.jimu-switch-issmall.switch-open-move:after{
+  left: @switch-btn-open-left-sm;
 }
-
-@-webkit-keyframes switchShowsmallBnt{
-  0%{left: @switch-btn-close-left-sm;}
-  100%{left: @switch-btn-open-left-sm;}
-}
-
-
-@keyframes switchShow{
-  0%{background: @switch-default-bg}
-  100%{background: @fill-highlight}
-}
-
-@keyframes switchShowBnt{
-  0%{left: @switch-btn-close-left;}
-  100%{left: @switch-btn-open-left;}
-}
-
-@keyframes switchShowsmallBnt{
-  0%{left: @switch-btn-close-left-sm;}
-  100%{left: @switch-btn-open-left-sm;}
-}
-
 .switch-close{background: @switch-default-bg}
 .switch-close:after{left: @switch-btn-close-left;}
-
-.switch-close-move{-webkit-animation:switchClose .2s .0s ease both;animation:switchClose .2s .0s ease both;}
-.switch-close-move:after{-webkit-animation:switchCloseBnt .2s .0s ease both;animation:switchCloseBnt .2s .0s ease both;}
-.jimu-switch-issmall.switch-close-move:after{-webkit-animation:switchClosesmallBnt .2s .0s ease both;animation:switchClosesmallBnt .2s .0s ease both;}
-@-webkit-keyframes switchClose{
-  100%{background: @switch-default-bg}
-  0%{background: @fill-highlight}
+.switch-close-move{
+  background: @switch-default-bg;
 }
-
-@-webkit-keyframes switchCloseBnt{
-  100%{left: @switch-btn-close-left;}
-  0%{left: @switch-btn-open-left;}
+.switch-close-move:after{
+  left: @switch-btn-close-left;
 }
-
-@-webkit-keyframes switchClosesmallBnt{
-  100%{left: @switch-btn-close-left-sm;}
-  0%{left: @switch-btn-open-left-sm;}
-}
-
-@keyframes switchClose{
-  100%{background: @switch-default-bg}
-  0%{background: @fill-highlight}
-}
-
-@keyframes switchCloseBnt{
-  100%{left: @switch-btn-close-left;}
-  0%{left: @switch-btn-open-left;}
-}
-
-@keyframes switchClosesmallBnt{
-  100%{left: @switch-btn-close-left-sm;}
-  0%{left: @switch-btn-open-left-sm;}
+.jimu-switch-issmall.switch-close-move:after{
+  left: @switch-btn-close-left-sm;
 }
 .switch-disabled{background: @switch-default-bg}
 .switch-open.switch-disabled{background: rgba(52, 60, 92, .5);}
