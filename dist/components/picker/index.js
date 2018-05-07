@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _pickers = require('./pickers');
 
 var _pickers2 = _interopRequireDefault(_pickers);
@@ -46,22 +50,23 @@ var _timeSectionPicker2 = _interopRequireDefault(_timeSectionPicker);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-module.exports = {
-    TimePicker: _timePicker2.default,
-    ColumnPicker: _pickers2.default,
-    DatePicker: _datePicker2.default,
-    TimeGroupPicker: _timeGroupPicker2.default,
-    DatePickerV2: _dateperiodpicker2.default,
-    DatePickerInstall: _dateperiodpicker2.default,
-    DatePickerNow: _timedefaultpicker2.default,
-    DataPickerBefore: _daterangepicker2.default,
-    Pickers: _pickers2.default,
-    CarNumberPicker: _carNumberPicker2.default,
-    TimeSectionPicker: _timeSectionPicker2.default,
-    DatePeriodPicker: _dateperiodpicker2.default,
-    DateRangePicker: _daterangepicker2.default,
-    TimeDefaultPicker: _timedefaultpicker2.default,
-    DateTimePicker: _datetimepicker2.default,
-    TimePeriodPicker: _timePeriodPicker2.default
+/* eslint-disable import/no-duplicates */
+exports.default = {
+  TimePicker: _timePicker2.default,
+  ColumnPicker: _pickers2.default,
+  DatePicker: _datePicker2.default,
+  TimeGroupPicker: _timeGroupPicker2.default,
+  DatePickerV2: _dateperiodpicker2.default,
+  DatePickerInstall: _dateperiodpicker2.default,
+  DatePickerNow: _timedefaultpicker2.default,
+  DataPickerBefore: _daterangepicker2.default,
+  Pickers: _pickers2.default,
+  CarNumberPicker: _carNumberPicker2.default,
+  TimeSectionPicker: _timeSectionPicker2.default,
+  DatePeriodPicker: _dateperiodpicker2.default,
+  DateRangePicker: _daterangepicker2.default,
+  TimeDefaultPicker: _timedefaultpicker2.default,
+  DateTimePicker: _datetimepicker2.default,
+  TimePeriodPicker: _timePeriodPicker2.default
 };
 /* 以下名称不建议使用 */

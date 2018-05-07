@@ -45,7 +45,7 @@ var defaultProps = {
   type: 'text',
   disabled: false,
   required: false,
-  focusClass: 'jimu-input-focus'
+  focusClass: 'pile-input-focus'
 };
 
 var Input = function (_React$Component) {

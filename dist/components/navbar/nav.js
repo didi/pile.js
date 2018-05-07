@@ -41,18 +41,18 @@ var NavBar = function NavBar(props) {
       others = _objectWithoutProperties(props, ['className', 'activeIndex', 'children']);
 
   var cls = (0, _classnames2.default)(_defineProperty({
-    'jimu-navbar': true
+    'pile-navbar': true
   }, className, className));
   return _react2.default.createElement(
     'div',
     _extends({}, others, { className: cls }),
     _react2.default.Children.map(children, function (child, i) {
       if (!child) {
-        return;
+        return null;
       }
       var itemsCls = (0, _classnames2.default)(_defineProperty({
-        'jimu-nav-items': true,
-        'jimu-nav-items-selected': i === activeIndex - 1
+        'pile-nav-items': true,
+        'pile-nav-items-selected': i === activeIndex - 1
       }, className, className));
       return _react2.default.createElement(
         'div',

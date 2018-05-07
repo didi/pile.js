@@ -51,10 +51,10 @@ var Stepper = (_temp = _class = function (_React$Component) {
         max = _this$props.max;
 
     if (min > defaultVal) {
-      console.error('默认值小于最小值，请查看');
+      throw new Error('默认值小于最小值，请查看');
     }
     if (max < defaultVal) {
-      console.error('默认值大于最大值，请查看');
+      throw new Error('默认值大于最大值，请查看');
     }
     _this.state = { defaultVal: defaultVal };
 
@@ -72,10 +72,10 @@ var Stepper = (_temp = _class = function (_React$Component) {
         });
       }
       if (nextProps.min > nextProps.defaultVal) {
-        console.error('默认值小于最小值，请查看');
+        throw new Error('默认值小于最小值，请查看');
       }
       if (nextProps.max < nextProps.defaultVal) {
-        console.error('默认值大于最大值，请查看');
+        throw new Error('默认值大于最大值，请查看');
       }
     }
   }, {
@@ -85,8 +85,8 @@ var Stepper = (_temp = _class = function (_React$Component) {
           disabled = _props.disabled,
           min = _props.min,
           back = _props.back,
-          steps = _props.steps,
-          defaultVal = this.state.defaultVal;
+          steps = _props.steps;
+      var defaultVal = this.state.defaultVal;
 
       if (disabled || min >= defaultVal) {
         return;
@@ -105,8 +105,8 @@ var Stepper = (_temp = _class = function (_React$Component) {
           disabled = _props2.disabled,
           max = _props2.max,
           back = _props2.back,
-          steps = _props2.steps,
-          defaultVal = this.state.defaultVal;
+          steps = _props2.steps;
+      var defaultVal = this.state.defaultVal;
 
       if (disabled || max <= defaultVal) {
         return;
@@ -123,35 +123,35 @@ var Stepper = (_temp = _class = function (_React$Component) {
       var _props3 = this.props,
           className = _props3.className,
           disabled = _props3.disabled,
-          type = _props3.type,
           min = _props3.min,
           max = _props3.max,
-          others = _objectWithoutProperties(_props3, ['className', 'disabled', 'type', 'min', 'max']),
-          defaultVal = this.state.defaultVal,
-          cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-stepper': true,
-        'jimu-stepper-disabled': disabled
-      }, className, className)),
-          prevCls = (0, _classnames2.default)({
-        'jimu-stepper-btn': true,
-        'icon-jimu-artboard-reduce': true,
-        'jimu-stepper-btn-prev': true,
-        'jimu-stepper-disabled': defaultVal <= min
-      }),
-          nextCls = (0, _classnames2.default)({
-        'jimu-stepper-btn': true,
-        'icon-jimu-artboard-add': true,
-        'jimu-stepper-btn-next': true,
-        'jimu-stepper-disabled': defaultVal >= max
-      });
+          others = _objectWithoutProperties(_props3, ['className', 'disabled', 'min', 'max']);
 
+      var defaultVal = this.state.defaultVal;
+
+      var cls = (0, _classnames2.default)(_defineProperty({
+        'pile-stepper': true,
+        'pile-stepper-disabled': disabled
+      }, className, className));
+      var prevCls = (0, _classnames2.default)({
+        'pile-stepper-btn': true,
+        'icon-pile-artboard-reduce': true,
+        'pile-stepper-btn-prev': true,
+        'pile-stepper-disabled': defaultVal <= min
+      });
+      var nextCls = (0, _classnames2.default)({
+        'pile-stepper-btn': true,
+        'icon-pile-artboard-add': true,
+        'pile-stepper-btn-next': true,
+        'pile-stepper-disabled': defaultVal >= max
+      });
       return _react2.default.createElement(
         'div',
         _extends({ className: cls }, others),
         _react2.default.createElement('span', { className: prevCls, onClick: this.prevClick }),
         _react2.default.createElement(
           'span',
-          { className: 'jimu-stepper-defaultval' },
+          { className: 'pile-stepper-defaultval' },
           defaultVal
         ),
         _react2.default.createElement('span', { className: nextCls, onClick: this.nextClick })

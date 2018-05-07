@@ -8,10 +8,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -34,7 +30,7 @@ var DateRangePicker = (_temp = _class = function (_Component) {
   function DateRangePicker() {
     _classCallCheck(this, DateRangePicker);
 
-    return _possibleConstructorReturn(this, (DateRangePicker.__proto__ || Object.getPrototypeOf(DateRangePicker)).call(this));
+    return _possibleConstructorReturn(this, (DateRangePicker.__proto__ || Object.getPrototypeOf(DateRangePicker)).apply(this, arguments));
   }
 
   _createClass(DateRangePicker, [{
@@ -47,161 +43,64 @@ var DateRangePicker = (_temp = _class = function (_Component) {
           endData = _props.endData,
           yearText = _props.yearText,
           monthText = _props.monthText,
-          dayText = _props.dayText,
-          timeArr = [],
-          startDay = '',
-          endDay = '',
-          onDay = '',
-          endDataTamp = !endData ? new Date().getTime() : this._dataTransTamp(endData),
-          startDataTamp = this._dataTransTamp(startData),
-          days = Math.ceil((endDataTamp - startDataTamp) / 1000 / 24 / 60 / 60);
+          dayText = _props.dayText;
+
+      var startDay = void 0;
+      var endDataTamp = !endData ? new Date().getTime() : DateRangePicker._dataTransTamp(endData);
+      var startDataTamp = DateRangePicker._dataTransTamp(startData);
+      var days = Math.ceil((endDataTamp - startDataTamp) / 1000 / 24 / 60 / 60);
 
       // 判断是否传入开始日期 并且检验传入日期是否有效
-
-
-      if (startData && this.isEffectiveDate(startData)) {
+      if (startData && DateRangePicker.isEffectiveDate(startData)) {
         startDay = startData;
       } else {
-        startDay = this._getNewDate();
+        startDay = DateRangePicker._getNewDate();
       }
 
-      endDay = endData || this._getNewDate();
-      onDay = valueData || this._getNewDate();
+      var endDay = endData || DateRangePicker._getNewDate();
+      var onDay = valueData || DateRangePicker._getNewDate();
 
       // 设置初始数组
-      var opts = this._setInitOptions(startDay, endDay, onDay),
-
+      var opts = this._setInitOptions(startDay, endDay, onDay);
       // newArrValue = startDay.split("/"),
-      dayList = onDay.split('/'),
-          onDataValue = [dayList[0], Number(dayList[1]), Number(dayList[2])],
-          onDataArr = ['' + onDataValue[0] + yearText, '' + onDataValue[1] + monthText, '' + onDataValue[2] + dayText];
+      var dayList = onDay.split('/');
+      var onDataValue = [dayList[0], Number(dayList[1]), Number(dayList[2])];
+      var onDataArr = ['' + onDataValue[0] + yearText, '' + onDataValue[1] + monthText, '' + onDataValue[2] + dayText];
       // 设置默认显示参数
       this.setState({
         options: opts, // 默认数值
         startD: startDay,
         endD: endDay,
         valueD: onDataValue,
+        /* eslint-disable react/no-unused-state */
         dayState: days,
         startDataState: startData,
+        /* esline-enable react/no-unused-state */
         value: onDataArr,
         open: open,
         valueData: valueData
       });
     }
   }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {}
-
-    // 设置 options 当前年月日
-
-  }, {
-    key: '_setInitOptions',
-    value: function _setInitOptions(startDay, endDay, onDay) {
-      var self = this,
-          start = startDay.split('/'),
-          end = endDay.split('/'),
-          on = onDay.split('/'),
-          opt = [],
-
-      /* opt 年月日 数组 */
-      year = [],
-          mouth = [],
-          day = [],
-
-
-      /* 开始、结束、当前 年月日 */
-      ys = Number(start[0]),
-          ye = Number(end[0]),
-          yon = Number(on[0]),
-          ms = Number(start[1]),
-          me = Number(end[1]),
-          mon = Number(on[1]),
-          ds = Number(start[2]),
-          de = Number(end[2]),
-          don = Number(on[2]),
-          optms = 1,
-          optme = 12,
-          optds = 1,
-          optde = this._getDays(yon, mon);
-
-      // 如果同年 2017/3/5 2017/6/7
-      if (ys == yon && yon == ye) {
-        optms = ms;
-        optme = me;
-        // 月份相同
-        if (mon == me && mon == ms) {
-          optds = ds;
-          optde = de;
-        } else {
-          // 如果 当前月份 与 开始月份相同
-          if (mon == ms) {
-            optds = ds;
-          }
-          // 如果 当前月份 与 结束月份相同
-          if (mon == me) {
-            optds = 1;
-            optde = de;
-          }
-        }
-      } else {
-        // 如果不同年 2016/3/5 2017 /6/7
-        // 如果当前年份与结束年份相等
-        if (yon == ys) {
-          optme = 12;
-          optms = ms;
-          // 如果 当前月份 与 开始月份相同
-          if (mon == ms) {
-            optds = ds;
-          }
-          // 如果 当前月份 与 结束月份相同
-          if (mon == me) {
-            optds = 1;
-          }
-        }
-
-        if (yon == ye) {
-          optms = 1;
-          optme = me;
-
-          // 如果 当前月份 与 结束月份相同
-          if (mon == me) {
-            optds = 1;
-            optde = de;
-          }
-        }
-      }
-
+    key: 'onClickAway',
+    value: function onClickAway() {
+      var _state = this.state,
+          value = _state.value,
+          valueData = _state.valueData;
       var _props2 = this.props,
           yearText = _props2.yearText,
-          monthText = _props2.monthText;
+          monthText = _props2.monthText,
+          dayText = _props2.dayText;
 
-      // 设置 年份
-
-      for (; ys <= ye; ys++) {
-        year.push(this._addStrUnit(ys, yearText));
-      }
-
-      // 设置 月份
-      for (; optms <= optme; optms++) {
-        mouth.push(this._addStrUnit(optms, monthText));
-      }
-
-      // 设置 天
-      for (; optds <= optde; optds++) {
-        day.push(this._setDaysWeek(yon, mon, optds));
-      }
-
-      return opt = [year, mouth, day];
-    }
-  }, {
-    key: '_setDaysWeek',
-    value: function _setDaysWeek(yon, mon, optds) {
-      var dayText = this.props.dayText,
-          nowdt = yon + '/' + mon + '/' + optds,
-          week = new Date(nowdt).getDay(),
-          newdaysopt = '' + optds + dayText;
-
-      return newdaysopt;
+      var dataString = '';
+      dataString += DateRangePicker._deleteStrUnit(value[0], yearText) + '/';
+      dataString += DateRangePicker._deleteStrUnit(value[1], monthText) + '/';
+      dataString += DateRangePicker._deleteStrUnit(value[2], dayText);
+      var fmt = new Date(dataString + ' 00:00').getTime();
+      this.props.pickerAway && this.props.pickerAway(value, this.refs.pickertime, valueData, {
+        fmt: fmt,
+        data: dataString
+      });
     }
   }, {
     key: 'onChange',
@@ -209,17 +108,15 @@ var DateRangePicker = (_temp = _class = function (_Component) {
       var _props3 = this.props,
           yearText = _props3.yearText,
           monthText = _props3.monthText,
-          dayText = _props3.dayText,
-          _state = this.state,
-          startD = _state.startD,
-          endD = _state.endD,
-          value = _state.value,
-          valueD = _state.valueD,
-          valueData = _state.valueData,
-          options = _state.options,
-          newDataArr = valueData,
-          startDataArr = startD.split('/'),
-          onData = valueD; // 当前时间数组
+          dayText = _props3.dayText;
+      var _state2 = this.state,
+          startD = _state2.startD,
+          endD = _state2.endD,
+          valueD = _state2.valueD,
+          valueData = _state2.valueData;
+
+      var startDataArr = startD.split('/'); // 起始时间数组
+      var onData = valueD; // 当前时间数组
 
       if (this.initDraw) {
         this.setState({
@@ -227,30 +124,30 @@ var DateRangePicker = (_temp = _class = function (_Component) {
           valueD: valueD,
           valueData: valueData
         });
-        return false;
+        return;
       }
 
       // 当改变年份时
-      if (listIndex == 0) {
-        var yearval = this._deleteStrUnit(val, yearText);
+      if (listIndex === 0) {
+        var yearval = DateRangePicker._deleteStrUnit(val, yearText);
         // 当前年份
-        if (startD.split('/')[0] == yearval) {
+        if (startD.split('/')[0] === yearval) {
           onData = [yearval, startDataArr[1], startDataArr[2]];
         } else {
           onData[0] = yearval;
         }
 
         // 判断 2月份是否是  29号
-        if (valueD[2] == 29) {
+        if (valueD[2] === 29) {
           onData[2] = 28;
         }
       }
 
       // 当改变月份时
-      if (listIndex == 1) {
-        var mouthval = this._deleteStrUnit(val, monthText);
+      if (listIndex === 1) {
+        var mouthval = DateRangePicker._deleteStrUnit(val, monthText);
         // 当前年份
-        if (startDataArr[0] == onData[0] && startDataArr[1] == mouthval) {
+        if (startDataArr[0] === onData[0] && startDataArr[1] === mouthval) {
           onData = [startDataArr[0], mouthval, startDataArr[2]];
         } else {
           onData[1] = mouthval;
@@ -258,11 +155,11 @@ var DateRangePicker = (_temp = _class = function (_Component) {
       }
 
       // 当改变日时
-      if (listIndex == 2) {
-        onData[2] = this._deleteStrUnit(val, dayText);
+      if (listIndex === 2) {
+        onData[2] = DateRangePicker._deleteStrUnit(val, dayText);
       }
 
-      newDataArr = [this._addStrUnit(onData[0], yearText), this._addStrUnit(onData[1], monthText), this._setDaysWeek(onData[0], onData[1], onData[2])];
+      var newDataArr = [DateRangePicker._addStrUnit(onData[0], yearText), DateRangePicker._addStrUnit(onData[1], monthText), this._setDaysWeek(onData[0], onData[1], onData[2])];
       var opts = this._setInitOptions(startD, endD, onData.join('/'));
       // 判断当前年月是否包含当前的日  比如 2月 29
 
@@ -286,127 +183,174 @@ var DateRangePicker = (_temp = _class = function (_Component) {
       });
     }
 
-    // 数组添加单位
+    // 设置 options 当前年月日
 
   }, {
-    key: '_addArrUnit',
-    value: function _addArrUnit(arr, unit) {
-      arr.map(function (re, i) {
-        return '' + re + unit;
-      });
-    }
+    key: '_setInitOptions',
+    value: function _setInitOptions(startDay, endDay, onDay) {
+      var start = startDay.split('/');
+      var end = endDay.split('/');
+      var on = onDay.split('/');
+      var year = [];
+      var mouth = [];
+      var day = [];
 
-    // 数组删除单位
+      /* 开始、结束、当前 年月日 */
+      var ys = Number(start[0]);
+      var ye = Number(end[0]);
+      var yon = Number(on[0]);
+      var ms = Number(start[1]);
+      var me = Number(end[1]);
+      var mon = Number(on[1]);
+      var ds = Number(start[2]);
+      var de = Number(end[2]);
 
-  }, {
-    key: '_deleteArrUnit',
-    value: function _deleteArrUnit(arr, unit) {
-      arr.map(function (re, i) {
-        return re.split(unit)[0];
-      });
-    }
+      var optms = 1;
+      var optme = 12;
+      var optds = 1;
+      var optde = DateRangePicker._getDays(yon, mon);
 
-    // 字符串添加单位
+      // 如果同年 2017/3/5 2017/6/7
+      if (ys === yon && yon === ye) {
+        optms = ms;
+        optme = me;
+        // 月份相同
+        if (mon === me && mon === ms) {
+          optds = ds;
+          optde = de;
+        } else {
+          // 如果 当前月份 与 开始月份相同
+          if (mon === ms) {
+            optds = ds;
+          }
+          // 如果 当前月份 与 结束月份相同
+          if (mon === me) {
+            optds = 1;
+            optde = de;
+          }
+        }
+      } else {
+        // 如果不同年 2016/3/5 2017 /6/7
+        // 如果当前年份与结束年份相等
+        if (yon === ys) {
+          optme = 12;
+          optms = ms;
+          // 如果 当前月份 与 开始月份相同
+          if (mon === ms) {
+            optds = ds;
+          }
+          // 如果 当前月份 与 结束月份相同
+          if (mon === me) {
+            optds = 1;
+          }
+        }
 
-  }, {
-    key: '_addStrUnit',
-    value: function _addStrUnit(string, unit) {
-      return '' + string + unit;
-    }
+        if (yon === ye) {
+          optms = 1;
+          optme = me;
 
-    // 字符串删除单位
-
-  }, {
-    key: '_deleteStrUnit',
-    value: function _deleteStrUnit(string, unit) {
-      return string.split(unit)[0];
-    }
-
-    // 判断是否为有效日期
-
-  }, {
-    key: 'isEffectiveDate',
-    value: function isEffectiveDate(data) {
-      var dataArr = data.split('/'),
-          intYear = dataArr[0],
-          intMonth = dataArr[1],
-          intDay = dataArr[2];
-      if (isNaN(intYear) || isNaN(intMonth) || isNaN(intDay)) return false;
-      if (intMonth > 12 || intMonth < 1) return false;
-      if (intDay < 1 || intDay > 31) return false;
-      if ((intMonth == 4 || intMonth == 6 || intMonth == 9 || intMonth == 11) && intDay > 30) return false;
-      if (intMonth == 2) {
-        if (intDay > 29) return false;
-        if ((intYear % 100 == 0 && intYear % 400 != 0 || intYear % 4 != 0) && intDay > 28) return false;
+          // 如果 当前月份 与 结束月份相同
+          if (mon === me) {
+            optds = 1;
+            optde = de;
+          }
+        }
       }
-      return true;
-    }
 
-    // 获取 结束时间
-
-  }, {
-    key: '_getEndData',
-    value: function _getEndData(startData, days) {
-      var nowTamp = this._dataTransTamp(startData) + days * 60 * 60 * 1000 * 24;
-      return this._tampTransData(nowTamp);
-    }
-
-    // 时间戳转换时间
-
-  }, {
-    key: '_tampTransData',
-    value: function _tampTransData(tamp) {
-      var d = new Date(parseInt(tamp));
-      return d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate();
-    }
-
-    // 时间转换时间戳
-
-  }, {
-    key: '_dataTransTamp',
-    value: function _dataTransTamp(data) {
-      return new Date(data).getTime();
-    }
-
-    // 设置结束小时参数值
-
-  }, {
-    key: '_pushEndHour',
-    value: function _pushEndHour(starthour) {
-      var endA = [];
-      for (var i = starthour + 1; i <= 24; i++) {
-        endA.push(i);
-      }
-      return endA;
-    }
-  }, {
-    key: 'onClickAway',
-    value: function onClickAway() {
-      var _state2 = this.state,
-          value = _state2.value,
-          valueData = _state2.valueData,
-          _props4 = this.props,
+      var _props4 = this.props,
           yearText = _props4.yearText,
-          monthText = _props4.monthText,
-          dayText = _props4.dayText,
-          dataString = '';
+          monthText = _props4.monthText;
 
-      dataString += this._deleteStrUnit(value[0], yearText) + '/';
-      dataString += this._deleteStrUnit(value[1], monthText) + '/';
-      dataString += this._deleteStrUnit(value[2], dayText);
-      var fmt = new Date(dataString + ' 00:00').getTime();
-      this.props.pickerAway && this.props.pickerAway(value, this.refs.pickertime, valueData, {
-        fmt: fmt,
-        data: dataString
-      });
+      // 设置 年份
+
+      for (; ys <= ye; ys++) {
+        year.push(DateRangePicker._addStrUnit(ys, yearText));
+      }
+
+      // 设置 月份
+      for (; optms <= optme; optms++) {
+        mouth.push(DateRangePicker._addStrUnit(optms, monthText));
+      }
+
+      // 设置 天
+      for (; optds <= optde; optds++) {
+        day.push(this._setDaysWeek(yon, mon, optds));
+      }
+
+      return [year, mouth, day];
+    }
+  }, {
+    key: '_setDaysWeek',
+    value: function _setDaysWeek(yon, mon, optds) {
+      var dayText = this.props.dayText;
+
+      var newdaysopt = '' + optds + dayText;
+      return newdaysopt;
+    }
+  }, {
+    key: 'show',
+    value: function show() {
+      this._showFunc();
+    }
+  }, {
+    key: '_onClick',
+    value: function _onClick() {
+      this._showFunc();
+    }
+  }, {
+    key: '_showFunc',
+    value: function _showFunc() {
+      if (this.props.valueData !== this.state.valueData) {
+        var _props5 = this.props,
+            valueData = _props5.valueData,
+            endData = _props5.endData,
+            startData = _props5.startData,
+            yearText = _props5.yearText,
+            monthText = _props5.monthText,
+            dayText = _props5.dayText;
+
+        var endDay = endData || DateRangePicker._getNewDate();
+        var onDay = valueData || DateRangePicker._getNewDate();
+        var startDay = void 0;
+
+        // 判断是否传入开始日期 并且检验传入日期是否有效
+        if (startData && DateRangePicker.isEffectiveDate(startData)) {
+          startDay = startData;
+        } else {
+          startDay = DateRangePicker._getNewDate();
+        }
+
+        // 设置初始数组
+        var self = this;
+        var options = this._setInitOptions(startDay, endDay, onDay);
+
+        var dayList = onDay.split('/');
+        var onDataValue = [dayList[0], Number(dayList[1]), Number(dayList[2])];
+        var onDataArr = ['' + onDataValue[0] + yearText, '' + onDataValue[1] + monthText, '' + onDataValue[2] + dayText];
+
+        this.setState({
+          valueData: valueData,
+          options: options,
+          valueD: onDataValue,
+          value: onDataArr
+        });
+
+        this.initDraw = true;
+        setTimeout(function () {
+          self.initDraw = false;
+        }, 500);
+
+        // this.refs.date_picker.show()
+      }
+      this.refs.date_picker.show();
     }
   }, {
     key: 'render',
     value: function render() {
-      var _props5 = this.props,
-          bntTest = _props5.bntTest,
-          textvalue = _props5.textvalue,
-          _state3 = this.state,
+      var _props6 = this.props,
+          bntTest = _props6.bntTest,
+          textvalue = _props6.textvalue;
+      var _state3 = this.state,
           value = _state3.value,
           options = _state3.options,
           open = _state3.open;
@@ -429,63 +373,91 @@ var DateRangePicker = (_temp = _class = function (_Component) {
         })
       );
     }
-  }, {
-    key: 'show',
-    value: function show() {
-      this._showFunc();
-    }
-  }, {
-    key: '_onClick',
-    value: function _onClick() {
-      this._showFunc();
-    }
-  }, {
-    key: '_showFunc',
-    value: function _showFunc() {
-      if (this.props.valueData != this.state.valueData) {
-        var _props6 = this.props,
-            valueData = _props6.valueData,
-            endData = _props6.endData,
-            startData = _props6.startData,
-            yearText = _props6.yearText,
-            monthText = _props6.monthText,
-            dayText = _props6.dayText,
-            valueDataArr = valueData.split('/'),
-            endDay = endData || this._getNewDate(),
-            onDay = valueData || this._getNewDate(),
-            startDay = void 0;
+  }], [{
+    key: 'isEffectiveDate',
 
-        // 判断是否传入开始日期 并且检验传入日期是否有效
-
-
-        if (startData && this.isEffectiveDate(startData)) {
-          startDay = startData;
-        } else {
-          startDay = this._getNewDate();
-        }
-
-        // 设置初始数组
-        var self = this,
-            options = this._setInitOptions(startDay, endDay, onDay),
-            dayList = onDay.split('/'),
-            onDataValue = [dayList[0], Number(dayList[1]), Number(dayList[2])],
-            onDataArr = ['' + onDataValue[0] + yearText, '' + onDataValue[1] + monthText, '' + onDataValue[2] + dayText];
-
-        this.setState({
-          valueData: valueData,
-          options: options,
-          valueD: onDataValue,
-          value: onDataArr
-        });
-
-        this.initDraw = true;
-        setTimeout(function () {
-          self.initDraw = false;
-        }, 500);
-
-        // this.refs.date_picker.show()
+    // 判断是否为有效日期
+    value: function isEffectiveDate(data) {
+      var dataArr = data.split('/');
+      var intYear = dataArr[0];
+      var intMonth = dataArr[1];
+      var intDay = dataArr[2];
+      /* eslint-disable no-restricted-globals */
+      if (isNaN(intYear) || isNaN(intMonth) || isNaN(intDay)) return false;
+      /* eslint-enable no-restricted-globals */
+      if (intMonth > 12 || intMonth < 1) return false;
+      if (intDay < 1 || intDay > 31) return false;
+      if ((intMonth === 4 || intMonth === 6 || intMonth === 9 || intMonth === 11) && intDay > 30) return false;
+      if (intMonth === 2) {
+        if (intDay > 29) return false;
+        if ((intYear % 100 === 0 && intYear % 400 !== 0 || intYear % 4 !== 0) && intDay > 28) return false;
       }
-      this.refs.date_picker.show();
+      return true;
+    }
+
+    // 数组添加单位
+
+  }, {
+    key: '_addArrUnit',
+    value: function _addArrUnit(arr, unit) {
+      arr.map(function (re) {
+        return '' + re + unit;
+      });
+    }
+
+    // 数组删除单位
+
+  }, {
+    key: '_deleteArrUnit',
+    value: function _deleteArrUnit(arr, unit) {
+      arr.map(function (re) {
+        return re.split(unit)[0];
+      });
+    }
+
+    // 字符串添加单位
+
+  }, {
+    key: '_addStrUnit',
+    value: function _addStrUnit(string, unit) {
+      return '' + string + unit;
+    }
+
+    // 字符串删除单位
+
+  }, {
+    key: '_deleteStrUnit',
+    value: function _deleteStrUnit(string, unit) {
+      return string.split(unit)[0];
+    }
+
+    // 时间戳转换时间
+
+  }, {
+    key: '_tampTransData',
+    value: function _tampTransData(tamp) {
+      var d = new Date(parseInt(tamp, 10));
+      return d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate();
+    }
+
+    // 时间转换时间戳
+
+  }, {
+    key: '_dataTransTamp',
+    value: function _dataTransTamp(data) {
+      return new Date(data).getTime();
+    }
+
+    // 设置结束小时参数值
+
+  }, {
+    key: '_pushEndHour',
+    value: function _pushEndHour(starthour) {
+      var endA = [];
+      for (var i = starthour + 1; i <= 24; i++) {
+        endA.push(i);
+      }
+      return endA;
     }
 
     // 获取当前月份参数
@@ -505,10 +477,13 @@ var DateRangePicker = (_temp = _class = function (_Component) {
 
   return DateRangePicker;
 }(_react.Component), _class.propTypes = {
+  /* eslint-disable react/no-unused-prop-types */
   value: _propTypes2.default.array,
+  /* eslint-enable react/no-unused-prop-types */
   open: _propTypes2.default.bool,
   pickerAway: _propTypes2.default.func
 }, _class.defaultProps = {
+  value: [],
   textvalue: '',
   pickerAway: function pickerAway() {},
 

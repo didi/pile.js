@@ -51,6 +51,7 @@ var Swipeable = _index2.default.Swipeable;
 var InfiniteLoader = (_temp = _class = function (_React$Component) {
   _inherits(InfiniteLoader, _React$Component);
 
+  /* eslint-disable react/no-unused-prop-types */
   function InfiniteLoader(props) {
     _classCallCheck(this, InfiniteLoader);
 
@@ -67,6 +68,7 @@ var InfiniteLoader = (_temp = _class = function (_React$Component) {
     _this.SwipedBack = _this.SwipedBack.bind(_this);
     return _this;
   }
+  /* eslint-enable react/no-unused-prop-types */
 
   _createClass(InfiniteLoader, [{
     key: 'componentDidMount',
@@ -99,8 +101,8 @@ var InfiniteLoader = (_temp = _class = function (_React$Component) {
     value: function SwipingFun(posY) {
       var _props = this.props,
           onSwipingBack = _props.onSwipingBack,
-          disAbled = _props.disAbled,
-          _state = this.state,
+          disAbled = _props.disAbled;
+      var _state = this.state,
           isSwipeIng = _state.isSwipeIng,
           degree = _state.degree;
 
@@ -125,19 +127,22 @@ var InfiniteLoader = (_temp = _class = function (_React$Component) {
       if (onSwipingBack) {
         onSwipingBack();
       }
+      return true;
     }
   }, {
     key: 'SwipingUpBack',
     value: function SwipingUpBack(e, posY) {
       var _props2 = this.props,
           direction = _props2.direction,
-          disAbled = _props2.disAbled,
-          conMain = this.conMain,
-          SwipeNode = this.SwipeNode,
-          listNode = _reactDom2.default.findDOMNode(conMain),
-          swipeScrollTop = _reactDom2.default.findDOMNode(SwipeNode).scrollTop,
-          documentH = _reactDom2.default.findDOMNode(SwipeNode).clientHeight;
+          disAbled = _props2.disAbled;
+      var conMain = this.conMain,
+          SwipeNode = this.SwipeNode;
+      /* eslint-disable react/no-find-dom-node */
 
+      var listNode = _reactDom2.default.findDOMNode(conMain);
+      var swipeScrollTop = _reactDom2.default.findDOMNode(SwipeNode).scrollTop;
+      var documentH = _reactDom2.default.findDOMNode(SwipeNode).clientHeight;
+      /* eslint-enable react/no-find-dom-node */
       if (disAbled) {
         return false;
       }
@@ -152,18 +157,20 @@ var InfiniteLoader = (_temp = _class = function (_React$Component) {
       // conMain.style.WebkitTransform = `translate(0,-${posY / 4}px)`;
       conMain.style.top = '-' + posY / 4 + 'px';
 
-      this.SwipingFun(posY);
+      return this.SwipingFun(posY);
     }
   }, {
     key: 'SwipingDownBack',
     value: function SwipingDownBack(e, posY) {
       var _props3 = this.props,
-          onSwipingBack = _props3.onSwipingBack,
           direction = _props3.direction,
-          disAbled = _props3.disAbled,
-          conMain = this.conMain,
-          SwipeNode = this.SwipeNode,
-          swipeScrollTop = _reactDom2.default.findDOMNode(SwipeNode).scrollTop;
+          disAbled = _props3.disAbled;
+      var conMain = this.conMain,
+          SwipeNode = this.SwipeNode;
+      /* eslint-disable react/no-find-dom-node */
+
+      var swipeScrollTop = _reactDom2.default.findDOMNode(SwipeNode).scrollTop;
+      /* eslint-enable react/no-find-dom-node */
 
       if (disAbled) {
         return false;
@@ -179,7 +186,7 @@ var InfiniteLoader = (_temp = _class = function (_React$Component) {
       // conMain.style.WebkitTransform = `translate(0,${posY / 4}px)`;
       conMain.style.top = posY / 4 + 'px';
 
-      this.SwipingFun(posY);
+      return this.SwipingFun(posY);
     }
   }, {
     key: 'SwipedBack',
@@ -188,14 +195,17 @@ var InfiniteLoader = (_temp = _class = function (_React$Component) {
           onSwipedBack = _props4.onSwipedBack,
           direction = _props4.direction,
           disSwipe = _props4.disSwipe,
-          disAbled = _props4.disAbled,
-          conMain = this.conMain,
-          SwipeNode = this.SwipeNode,
-          degree = this.state.degree,
-          listNode = _reactDom2.default.findDOMNode(conMain),
-          swipeScrollTop = _reactDom2.default.findDOMNode(SwipeNode).scrollTop,
-          documentH = _reactDom2.default.findDOMNode(SwipeNode).clientHeight,
-          newposY = Math.abs(posY);
+          disAbled = _props4.disAbled;
+      var conMain = this.conMain,
+          SwipeNode = this.SwipeNode;
+      var degree = this.state.degree;
+      /* eslint-disable react/no-find-dom-node */
+
+      var listNode = _reactDom2.default.findDOMNode(conMain);
+      var swipeScrollTop = _reactDom2.default.findDOMNode(SwipeNode).scrollTop;
+      var documentH = _reactDom2.default.findDOMNode(SwipeNode).clientHeight;
+      /* eslint-enable react/no-find-dom-node */
+      var newposY = Math.abs(posY);
 
       if (disAbled) {
         return false;
@@ -236,6 +246,7 @@ var InfiniteLoader = (_temp = _class = function (_React$Component) {
       if (onSwipedBack) {
         onSwipedBack();
       }
+      return true;
     }
   }, {
     key: 'render',
@@ -248,20 +259,21 @@ var InfiniteLoader = (_temp = _class = function (_React$Component) {
           direction = _props5.direction,
           disSwipe = _props5.disSwipe,
           height = _props5.height,
-          defaultbackground = _props5.defaultbackground,
-          _state2 = this.state,
+          defaultbackground = _props5.defaultbackground;
+      var _state2 = this.state,
           isSwipeIng = _state2.isSwipeIng,
           swipeSucc = _state2.swipeSucc,
-          isDegree = _state2.isDegree,
-          cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-swipe-items': true
-      }, className, className)),
-          cls2 = (0, _classnames2.default)({
-        'jimu-pos-layout': true,
-        'jimu-pos-top': direction === 'top',
-        'jimu-pos-bottom': direction === 'bottom'
-      });
+          isDegree = _state2.isDegree;
 
+      var cls = (0, _classnames2.default)(_defineProperty({
+        'pile-swipe-items': true
+      }, className, className));
+
+      var cls2 = (0, _classnames2.default)({
+        'pile-pos-layout': true,
+        'pile-pos-top': direction === 'top',
+        'pile-pos-bottom': direction === 'bottom'
+      });
       var locale = (0, _getLocale.getComponentLocale)(this.props, this.context, 'Infiniteloader', function () {
         return _zhCN2.default.Infiniteloader;
       });
@@ -272,6 +284,7 @@ var InfiniteLoader = (_temp = _class = function (_React$Component) {
           loadedText = locale.loadedText,
           dataIsNewText = locale.dataIsNewText,
           loadingText = locale.loadingText;
+      /* eslint-disable no-nested-ternary */
 
       return _react2.default.createElement(
         Swipeable,
@@ -287,12 +300,12 @@ var InfiniteLoader = (_temp = _class = function (_React$Component) {
         },
         _react2.default.createElement(
           'div',
-          { className: 'jimu-swipe-por' },
+          { className: 'pile-swipe-por' },
           _react2.default.createElement(
             'div',
             { ref: function ref(t) {
                 _this2.conMain = t;
-              }, className: 'jimu-swipe-con', style: { background: defaultbackground || 'transparent' } },
+              }, className: 'pile-swipe-con', style: { background: defaultbackground || 'transparent' } },
             children
           ),
           _react2.default.createElement(
@@ -343,6 +356,7 @@ var InfiniteLoader = (_temp = _class = function (_React$Component) {
 }, _temp);
 
 InfiniteLoader.contextTypes = {
-  jimuLocale: _propTypes2.default.object
+  pileLocale: _propTypes2.default.object
 };
+
 exports.default = InfiniteLoader;

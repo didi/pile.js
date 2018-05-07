@@ -35,6 +35,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Slider = (_temp = _class = function (_React$Component) {
   _inherits(Slider, _React$Component);
 
+  /* eslint-disable react/no-unused-prop-types */
   function Slider(props) {
     _classCallCheck(this, Slider);
 
@@ -79,9 +80,9 @@ var Slider = (_temp = _class = function (_React$Component) {
   }, {
     key: 'stepBgColor',
     value: function stepBgColor(step) {
-      var colorStageGroup = this.props.colorStageGroup,
-          len = colorStageGroup.length;
+      var colorStageGroup = this.props.colorStageGroup;
 
+      var len = colorStageGroup.length;
 
       for (var i = 0; i < len; i++) {
         if (len === 0) {
@@ -102,6 +103,8 @@ var Slider = (_temp = _class = function (_React$Component) {
           return i;
         }
       }
+
+      return 0;
     }
   }, {
     key: 'eventMoveStart',
@@ -117,12 +120,12 @@ var Slider = (_temp = _class = function (_React$Component) {
     }
   }, {
     key: 'eventMoveEnd',
-    value: function eventMoveEnd(e) {
-      var everyWidth = this.state.everyWidth,
-          sliderBnt = this.sliderBnt,
-          lineLight = this.lineLight,
-          valueWidth = this.value * everyWidth;
+    value: function eventMoveEnd() {
+      var everyWidth = this.state.everyWidth;
+      var sliderBnt = this.sliderBnt,
+          lineLight = this.lineLight;
 
+      var valueWidth = this.value * everyWidth;
       sliderBnt.style.left = valueWidth + 'px';
       lineLight.style.width = valueWidth + 'px';
     }
@@ -143,32 +146,32 @@ var Slider = (_temp = _class = function (_React$Component) {
     value: function initDraw(props) {
       var wrapLay = this.wrapLay,
           sliderBnt = this.sliderBnt,
-          lineLight = this.lineLight,
-          max = props.max,
+          lineLight = this.lineLight;
+      var max = props.max,
           min = props.min,
           defaultValue = props.defaultValue,
           disabled = props.disabled,
           isShading = props.isShading,
-          colorGroup = props.colorGroup,
-          totle = max - min,
-          everyWidth = Number(wrapLay.clientWidth) / totle,
-          startBgColor = colorGroup[0],
-          endBgColor = colorGroup[colorGroup.length - 1],
-          reg = /^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/;
+          colorGroup = props.colorGroup;
 
+      var totle = max - min;
+      var everyWidth = Number(wrapLay.clientWidth) / totle;
+      // 设置初始背景颜色
+      var startBgColor = colorGroup[0];
+      var endBgColor = colorGroup[colorGroup.length - 1];
+      var reg = /^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/;
 
       if (!reg.test(startBgColor) || !reg.test(endBgColor)) {
-        console.error('颜色格式错误');
-        return false;
+        throw new Error('颜色格式错误');
       }
 
       // 设置 开始和结束的 r g b 颜色的值
-      var startR = void 0,
-          startG = void 0,
-          startB = void 0,
-          endR = void 0,
-          endG = void 0,
-          endB = void 0;
+      var startR = void 0;
+      var startG = void 0;
+      var startB = void 0;
+      var endR = void 0;
+      var endG = void 0;
+      var endB = void 0;
 
       if (startBgColor.length === 4) {
         startR = parseInt(startBgColor.substring(1, 2) + startBgColor.substring(1, 2), 16);
@@ -190,9 +193,9 @@ var Slider = (_temp = _class = function (_React$Component) {
         endB = parseInt(endBgColor.substring(5, 7), 16);
       }
 
-      var stageR = endR - startR,
-          stageG = endG - startG,
-          stageB = endB - startB;
+      var stageR = endR - startR;
+      var stageG = endG - startG;
+      var stageB = endB - startB;
 
       this.setState({
         maxWidth: wrapLay.clientWidth,
@@ -215,9 +218,9 @@ var Slider = (_temp = _class = function (_React$Component) {
 
       // 设置初始颜色
       if (!disabled && isShading) {
-        var nowR = parseInt(startR + stageR * defaultValue / totle, 10),
-            nowG = parseInt(startG + stageG * defaultValue / totle, 10),
-            nowB = parseInt(startB + stageB * defaultValue / totle, 10);
+        var nowR = parseInt(startR + stageR * defaultValue / totle, 10);
+        var nowG = parseInt(startG + stageG * defaultValue / totle, 10);
+        var nowB = parseInt(startB + stageB * defaultValue / totle, 10);
         lineLight.style.backgroundColor = 'rgb(' + nowR + ', ' + nowG + ', ' + nowB + ')';
       }
 
@@ -234,10 +237,10 @@ var Slider = (_temp = _class = function (_React$Component) {
           colorGroup = _props.colorGroup,
           min = _props.min,
           onChangeBack = _props.onChangeBack,
-          toFixed = _props.toFixed,
-          sliderBnt = this.sliderBnt,
-          lineLight = this.lineLight,
-          _state2 = this.state,
+          toFixed = _props.toFixed;
+      var sliderBnt = this.sliderBnt,
+          lineLight = this.lineLight;
+      var _state2 = this.state,
           everyWidth = _state2.everyWidth,
           offsetLeft = _state2.offsetLeft;
 
@@ -281,12 +284,12 @@ var Slider = (_temp = _class = function (_React$Component) {
 
       var _props2 = this.props,
           disabled = _props2.disabled,
-          className = _props2.className,
-          cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-slider': true,
-        'jimu-disabled': disabled
-      }, className, className));
+          className = _props2.className;
 
+      var cls = (0, _classnames2.default)(_defineProperty({
+        'pile-slider': true,
+        'pile-disabled': disabled
+      }, className, className));
 
       return _react2.default.createElement(
         'div',

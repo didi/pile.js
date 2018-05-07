@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _class, _temp;
@@ -45,7 +49,6 @@ var Focus = (_temp = _class = function (_Component) {
         loop = _this$props.loop;
 
     _this.state = {
-      degree: 50,
       index: index > children.length - 1 ? children.length - 1 : index,
       len: children.length,
       // loop : timer ? true : loop
@@ -66,8 +69,7 @@ var Focus = (_temp = _class = function (_Component) {
           index = _props.index,
           width = _props.width,
           children = _props.children,
-          loop = _props.loop,
-          timer = _props.timer;
+          loop = _props.loop;
 
       var itemsWidthNumber = Number(width.split('px')[0]);
       //  setloop = timer ? true : loop;
@@ -113,14 +115,15 @@ var Focus = (_temp = _class = function (_Component) {
   }, {
     key: 'touchRight',
     value: function touchRight(e, poaX) {
-      var focusContent = this.focusContent,
-          _state2 = this.state,
+      var focusContent = this.focusContent;
+      var _state2 = this.state,
           index = _state2.index,
           itemsWidthNumber = _state2.itemsWidthNumber,
           translateX = _state2.translateX,
           loop = _state2.loop;
 
       // 阻止window窗体滚动
+
       e.preventDefault && e.preventDefault();
       e.stopPropagation && e.stopPropagation();
 
@@ -140,8 +143,8 @@ var Focus = (_temp = _class = function (_Component) {
   }, {
     key: 'touchLeft',
     value: function touchLeft(e, poaX) {
-      var focusContent = this.focusContent,
-          _state3 = this.state,
+      var focusContent = this.focusContent;
+      var _state3 = this.state,
           index = _state3.index,
           itemsWidthNumber = _state3.itemsWidthNumber,
           len = _state3.len,
@@ -204,8 +207,8 @@ var Focus = (_temp = _class = function (_Component) {
   }, {
     key: 'autoMove',
     value: function autoMove() {
-      var self = this,
-          _props2 = this.props,
+      var self = this;
+      var _props2 = this.props,
           direction = _props2.direction,
           timer = _props2.timer,
           auto = _props2.auto;
@@ -230,9 +233,9 @@ var Focus = (_temp = _class = function (_Component) {
           itemsWidthNumber = _state5.itemsWidthNumber,
           translateX = _state5.translateX,
           len = _state5.len,
-          loop = _state5.loop,
-          duration = this.props.duration,
-          focusContent = this.focusContent;
+          loop = _state5.loop;
+      var duration = this.props.duration;
+      var focusContent = this.focusContent;
 
 
       var stateIndex = index;
@@ -278,14 +281,14 @@ var Focus = (_temp = _class = function (_Component) {
           className = _props3.className,
           children = _props3.children,
           width = _props3.width,
-          spotShow = _props3.spotShow,
-          _state6 = this.state,
+          spotShow = _props3.spotShow;
+      var _state6 = this.state,
           index = _state6.index,
           loop = _state6.loop;
 
 
       var cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-focus-layout': true
+        'pile-focus-layout': true
       }, className, className));
 
       return _react2.default.createElement(
@@ -301,61 +304,61 @@ var Focus = (_temp = _class = function (_Component) {
           },
           loop ? _react2.default.createElement(
             'div',
-            { className: 'jimu-focus-content', ref: function ref(t) {
+            { className: 'pile-focus-content', ref: function ref(t) {
                 _this2.focusContent = t;
               } },
             children.map(function (re, i) {
               return _react2.default.createElement(
                 'div',
-                { className: 'jimu-focus-items', style: { width: width }, key: i },
+                { className: 'pile-focus-items', style: { width: width }, key: i },
                 re
               );
             }),
             children.map(function (re, i) {
               return _react2.default.createElement(
                 'div',
-                { className: 'jimu-focus-items', style: { width: width }, key: i },
+                { className: 'pile-focus-items', style: { width: width }, key: i },
                 re
               );
             }),
             children.map(function (re, i) {
               return _react2.default.createElement(
                 'div',
-                { className: 'jimu-focus-items', style: { width: width }, key: i },
+                { className: 'pile-focus-items', style: { width: width }, key: i },
                 re
               );
             })
           ) : _react2.default.createElement(
             'div',
-            { className: 'jimu-focus-content', ref: function ref(t) {
+            { className: 'pile-focus-content', ref: function ref(t) {
                 _this2.focusContent = t;
               } },
             children.map(function (re, i) {
               return _react2.default.createElement(
                 'div',
-                { className: 'jimu-focus-items', style: { width: width }, key: i },
+                { className: 'pile-focus-items', style: { width: width }, key: i },
                 re
               );
             })
           ),
           _react2.default.createElement(
             'div',
-            { className: 'jimu-focus-ft' },
+            { className: 'pile-focus-ft' },
             spotShow && children.map(function (re, i) {
               if (i === index) {
-                return _react2.default.createElement('span', { className: 'jimu-focus-ftitems jimu-focus-current', key: i });
+                return _react2.default.createElement('span', { className: 'pile-focus-ftitems pile-focus-current', key: i });
               }
-              return _react2.default.createElement('span', { className: 'jimu-focus-ftitems', key: i });
+              return _react2.default.createElement('span', { className: 'pile-focus-ftitems', key: i });
             })
           )
         ) : _react2.default.createElement(
           'div',
-          { className: 'jimu-focus-content', ref: function ref(t) {
+          { className: 'pile-focus-content', ref: function ref(t) {
               _this2.focusContent = t;
             } },
           _react2.default.createElement(
             'div',
-            { className: 'jimu-focus-items', style: { width: width } },
+            { className: 'pile-focus-items', style: { width: width } },
             children
           )
         )
@@ -381,5 +384,4 @@ var Focus = (_temp = _class = function (_Component) {
   auto: true,
   spotShow: false // 是否显示指示点
 }, _temp);
-
-module.exports = Focus;
+exports.default = Focus;

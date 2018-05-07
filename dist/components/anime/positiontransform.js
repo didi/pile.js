@@ -37,12 +37,6 @@ var PositionSwitch = (_temp = _class = function (_Component) {
 
   _createClass(PositionSwitch, [{
     key: 'componentDidMount',
-
-
-    // constructor(props) {
-    //   super(props);
-    // }
-
     value: function componentDidMount() {
       var orderArr = this.props.orderArr;
 
@@ -68,7 +62,7 @@ var PositionSwitch = (_temp = _class = function (_Component) {
         return;
       }
 
-      obj.map(function (re, idx) {
+      obj.forEach(function (re, idx) {
         self.refs['move_' + (re - 1)].style.webkitTransform = 'translate(' + width * (idx - re + 1) + 'px,0)';
       });
       itemsMoveBack && itemsMoveBack({ obj: obj });
@@ -82,7 +76,7 @@ var PositionSwitch = (_temp = _class = function (_Component) {
           children = _props2.children;
 
       var cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-position-switch': true
+        'pile-position-switch': true
       }, className, className));
       return _react2.default.createElement(
         'div',
@@ -93,7 +87,7 @@ var PositionSwitch = (_temp = _class = function (_Component) {
             {
               style: { width: width + 'px' },
               ref: 'move_' + index,
-              className: 'jimu-move-item',
+              className: 'pile-move-item',
               key: index
             },
             re

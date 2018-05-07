@@ -35,6 +35,31 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var FadeIn = (_temp = _class = function (_React$Component) {
   _inherits(FadeIn, _React$Component);
 
+  _createClass(FadeIn, null, [{
+    key: 'setPos',
+    value: function setPos(props) {
+      var direction = props.direction,
+          align = props.align;
+
+      var posInP = void 0;
+      var posOutP = void 0;
+      if (direction === 'bottom' || direction === 'right') {
+        posInP = '0';
+        posOutP = '100%';
+      } else {
+        posInP = '0';
+        posOutP = '-100%';
+      }
+      var alignPos = align === 0 ? '-50%' : 0;
+      var pos = {
+        posInP: posInP,
+        posOutP: posOutP,
+        alignPos: alignPos
+      };
+      return pos;
+    }
+  }]);
+
   function FadeIn(props) {
     _classCallCheck(this, FadeIn);
 
@@ -52,12 +77,12 @@ var FadeIn = (_temp = _class = function (_React$Component) {
   _createClass(FadeIn, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.setPos(this.props);
+      FadeIn.setPos(this.props);
       this.setStyle(this.props);
       if (this.props.show) {
-        this.wrapFadeIn(this.setPos(this.props), this.props.direction);
+        this.wrapFadeIn(FadeIn.setPos(this.props), this.props.direction);
       } else {
-        this.wrapFadeOut(this.setPos(this.props), this.props.direction);
+        this.wrapFadeOut(FadeIn.setPos(this.props), this.props.direction);
       }
     }
   }, {
@@ -67,9 +92,9 @@ var FadeIn = (_temp = _class = function (_React$Component) {
         this.setStyle(nextprops);
       }
       if (nextprops.show) {
-        this.wrapFadeIn(this.setPos(nextprops), nextprops.direction);
+        this.wrapFadeIn(FadeIn.setPos(nextprops), nextprops.direction);
       } else {
-        this.wrapFadeOut(this.setPos(nextprops), nextprops.direction);
+        this.wrapFadeOut(FadeIn.setPos(nextprops), nextprops.direction);
       }
     }
   }, {
@@ -129,35 +154,6 @@ var FadeIn = (_temp = _class = function (_React$Component) {
       }
     }
   }, {
-    key: 'setPos',
-    value: function setPos(props) {
-      var direction = props.direction,
-          align = props.align;
-
-      var posInP = void 0,
-          posOutP = void 0;
-      if (direction === 'bottom') {
-        posInP = '0';
-        posOutP = '100%';
-      } else if (direction === 'left') {
-        posInP = '0';
-        posOutP = '-100%';
-      } else if (direction === 'right') {
-        posInP = '0';
-        posOutP = '100%';
-      } else {
-        posInP = '0';
-        posOutP = '-100%';
-      }
-      var alignPos = align === 0 ? '-50%' : 0;
-      var pos = {
-        posInP: posInP,
-        posOutP: posOutP,
-        alignPos: alignPos
-      };
-      return pos;
-    }
-  }, {
     key: 'wrapFadeIn',
     value: function wrapFadeIn(pos, direction) {
       var wraplayout = this.wraplayout;
@@ -191,7 +187,7 @@ var FadeIn = (_temp = _class = function (_React$Component) {
   }, {
     key: 'closeTips',
     value: function closeTips() {
-      this.wrapFadeOut(this.setPos(this.props), this.props.direction);
+      this.wrapFadeOut(FadeIn.setPos(this.props), this.props.direction);
       this.props.closeBack && this.props.closeBack();
     }
   }, {
@@ -211,12 +207,12 @@ var FadeIn = (_temp = _class = function (_React$Component) {
 
       var claName = (0, _classnames2.default)({
         'up-bd': contentPadding,
-        'jimu-up-content': !contentPadding
+        'pile-up-content': !contentPadding
       });
       var cls = (0, _classnames2.default)((_classNames = {
         'up-wrap': true,
-        'jimu-fade-wrap': true
-      }, _defineProperty(_classNames, 'jimu-fade-' + direction, true), _defineProperty(_classNames, 'jimu-fade-top-show', !closeShow), _defineProperty(_classNames, className, className), _classNames));
+        'pile-fade-wrap': true
+      }, _defineProperty(_classNames, 'pile-fade-' + direction, true), _defineProperty(_classNames, 'pile-fade-top-show', !closeShow), _defineProperty(_classNames, className, className), _classNames));
       return _react2.default.createElement(
         'div',
         { className: cls },

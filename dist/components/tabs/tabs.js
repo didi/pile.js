@@ -53,7 +53,7 @@ var Tabs = (_temp = _class = function (_React$Component) {
       activeIndex: activeIndex > children.length ? children.length : activeIndex
     };
     if (activeIndex > children.length) {
-      console.error('activeIndex值大于了元素个数');
+      throw new Error('activeIndex值大于了元素个数');
     }
 
     _this.handleTabClick = _this.handleTabClick.bind(_this);
@@ -73,14 +73,14 @@ var Tabs = (_temp = _class = function (_React$Component) {
           activeIndex: nextProps.activeIndex
         });
         var activeIndex = nextProps.activeIndex,
-            children = nextProps.children,
-            newActiveIndex = activeIndex > children.length ? children.length : activeIndex;
+            children = nextProps.children;
 
+        var newActiveIndex = activeIndex > children.length ? children.length : activeIndex;
         this.state = {
           activeIndex: newActiveIndex
         };
         if (activeIndex > children.length) {
-          console.error('activeIndex值大于了元素个数');
+          throw new Error('activeIndex值大于了元素个数');
         }
 
         this.setTabHdX(newActiveIndex);
@@ -92,15 +92,17 @@ var Tabs = (_temp = _class = function (_React$Component) {
   }, {
     key: 'setTabHdX',
     value: function setTabHdX(activeIndex) {
-      var tabsHd = this.tabsHd,
-          NavNode = this['tabsNav-' + activeIndex],
-          TabsHdWidth = _reactDom2.default.findDOMNode(tabsHd).clientWidth,
-          NodeLeft = _reactDom2.default.findDOMNode(NavNode).offsetLeft,
-          NodeWidth = _reactDom2.default.findDOMNode(NavNode).clientWidth;
+      var tabsHd = this.tabsHd;
 
+      var NavNode = this['tabsNav-' + activeIndex];
+      /* eslint-disable  react/no-find-dom-node */
+      var TabsHdWidth = _reactDom2.default.findDOMNode(tabsHd).clientWidth;
+      var NodeLeft = _reactDom2.default.findDOMNode(NavNode).offsetLeft;
+      var NodeWidth = _reactDom2.default.findDOMNode(NavNode).clientWidth;
       if (NodeLeft + NodeWidth > TabsHdWidth) {
         _reactDom2.default.findDOMNode(tabsHd).scrollTo(NodeLeft, 0);
       }
+      /* eslint-enable  react/no-find-dom-node */
     }
   }, {
     key: 'handleTabClick',
@@ -116,21 +118,21 @@ var Tabs = (_temp = _class = function (_React$Component) {
     value: function renderTabNav() {
       var _this2 = this;
 
-      var children = this.props.children,
-          activeIndex = this.state.activeIndex;
+      var children = this.props.children;
+      var activeIndex = this.state.activeIndex;
 
       return _react2.default.createElement(
         'div',
-        { className: 'jimu-tabs-hd', ref: function ref(n) {
+        { className: 'pile-tabs-hd', ref: function ref(n) {
             _this2.tabsHd = n;
           } },
         _react2.default.Children.map(children, function (child, i) {
           if (!child) {
-            return;
+            return null;
           }
           var navCls = (0, _classnames2.default)({
-            'jimu-tabs-nav': true,
-            'jimu-tabs-nav-active': i == activeIndex - 1
+            'pile-tabs-nav': true,
+            'pile-tabs-nav-active': i === activeIndex - 1
           });
           return _react2.default.createElement(
             'div',
@@ -138,7 +140,7 @@ var Tabs = (_temp = _class = function (_React$Component) {
               className: navCls,
               key: i,
               ref: function ref(n) {
-                return _this2['tabsNav-' + (i + 1)] = n;
+                _this2['tabsNav-' + (i + 1)] = n;
               },
               onClick: function onClick() {
                 _this2.handleTabClick(i + 1);
@@ -146,7 +148,7 @@ var Tabs = (_temp = _class = function (_React$Component) {
             },
             _react2.default.createElement(
               'b',
-              { className: 'jimu-tabs-nav-bar' },
+              { className: 'pile-tabs-nav-bar' },
               child.props.tab
             )
           );
@@ -156,19 +158,19 @@ var Tabs = (_temp = _class = function (_React$Component) {
   }, {
     key: 'renderTabContent',
     value: function renderTabContent() {
-      var children = this.props.children,
-          activeIndex = this.state.activeIndex;
+      var children = this.props.children;
+      var activeIndex = this.state.activeIndex;
 
       return _react2.default.createElement(
         'div',
-        { className: 'jimu-tabs-bd' },
+        { className: 'pile-tabs-bd' },
         _react2.default.Children.map(children, function (child, i) {
           if (!child) {
-            return;
+            return null;
           }
           var contentCls = (0, _classnames2.default)({
-            'jimu-tabs-content': true,
-            'jimu-tabs-content-active': i === activeIndex - 1
+            'pile-tabs-content': true,
+            'pile-tabs-content-active': i === activeIndex - 1
           });
           return _react2.default.createElement(
             'div',
@@ -186,8 +188,8 @@ var Tabs = (_temp = _class = function (_React$Component) {
           isInLocal = _props.isInLocal;
 
       var cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-tabs': true,
-        'jimu-tabs-in-local': isInLocal
+        'pile-tabs': true,
+        'pile-tabs-in-local': isInLocal
       }, className, className));
       return _react2.default.createElement(
         'div',
@@ -200,7 +202,7 @@ var Tabs = (_temp = _class = function (_React$Component) {
 
   return Tabs;
 }(_react2.default.Component), _class.propTypes = {
-  children: _propTypes2.default.oneOfType([_propTypes2.default.arrayOf(_propTypes2.default.node), _propTypes2.default.node]),
+  children: _propTypes2.default.oneOfType([_propTypes2.default.arrayOf(_propTypes2.default.node), _propTypes2.default.node]).isRequired,
   activeIndex: _propTypes2.default.number, // 默认索引
   isInLocal: _propTypes2.default.bool, // 默认索引
   onChange: _propTypes2.default.func

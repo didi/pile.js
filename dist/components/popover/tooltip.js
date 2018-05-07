@@ -14,13 +14,13 @@ var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _align = require('../align');
-
-var _align2 = _interopRequireDefault(_align);
-
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
+
+var _align = require('../align');
+
+var _align2 = _interopRequireDefault(_align);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -121,7 +121,9 @@ var Tooltip = function (_Component) {
   }, {
     key: 'getTarget',
     value: function getTarget() {
+      /* eslint-disable react/no-find-dom-node */
       return _reactDom2.default.findDOMNode(this);
+      /* eslint-enable react/no-find-dom-node */
     }
   }, {
     key: 'handleShowTip',
@@ -137,10 +139,20 @@ var Tooltip = function (_Component) {
       }
     }
   }, {
+    key: 'closeTip',
+    value: function closeTip() {
+      this.setState({
+        isHide: true
+      });
+      if (typeof this.props.setTooltipClose === 'function') {
+        this.props.setTooltipClose();
+      }
+    }
+  }, {
     key: 'renderTipContent',
     value: function renderTipContent() {
-      var placement = this.props.placement,
-          _state = this.state,
+      var placement = this.props.placement;
+      var _state = this.state,
           triangleStyle = _state.triangleStyle,
           isHide = _state.isHide,
           points = _state.points,
@@ -155,7 +167,7 @@ var Tooltip = function (_Component) {
         },
         _react2.default.createElement(
           'div',
-          { className: (0, _classnames2.default)('tooltip-box', isHide ? 'hide' : '', ['jimu-popover-' + placement]) },
+          { className: (0, _classnames2.default)('tooltip-box', isHide ? 'hide' : '', ['pile-popover-' + placement]) },
           _react2.default.createElement(
             'span',
             null,
@@ -169,16 +181,6 @@ var Tooltip = function (_Component) {
           _react2.default.createElement('div', { className: (0, _classnames2.default)('triangle-border', triangleStyle) })
         )
       ), this._layer);
-    }
-  }, {
-    key: 'closeTip',
-    value: function closeTip() {
-      this.setState({
-        isHide: true
-      });
-      if (typeof this.props.setTooltipClose === 'function') {
-        this.props.setTooltipClose();
-      }
     }
   }, {
     key: 'render',

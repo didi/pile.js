@@ -35,6 +35,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Rule = (_temp = _class = function (_React$Component) {
   _inherits(Rule, _React$Component);
 
+  /* eslint-disable react/no-unused-prop-types */
   function Rule(props) {
     _classCallCheck(this, Rule);
 
@@ -45,6 +46,7 @@ var Rule = (_temp = _class = function (_React$Component) {
     _this.eventStart = _this.eventStart.bind(_this);
     return _this;
   }
+  /* eslint-enable react/no-unused-prop-types */
 
   _createClass(Rule, [{
     key: 'componentWillMount',
@@ -148,22 +150,19 @@ var Rule = (_temp = _class = function (_React$Component) {
 
       var pageX = e.touches[0].pageX - this.startX + this.stepLeft; // 当前x轴坐标
       var onValue = (min + -((pageX - this.stepLayClientWidth / 2) * unitAmount) / unitWidth).toFixed(fixed); // 当前值
-      var onLeft = pageX;
 
       if (onValue <= touchMin) {
         // 设置拖动最小值
         onValue = touchMin;
-        onLeft = this.setPosLf(touchMin);
+        pageX = this.setPosLf(touchMin);
       } else if (onValue >= touchMax) {
         // 设置拖动最大值
         onValue = touchMax;
-        onLeft = this.setPosLf(touchMax);
-      } else {
-        onLeft = pageX;
+        pageX = this.setPosLf(touchMax);
       }
 
       // 设置 stepTouch left 值
-      stepTouch.style.left = onLeft + 'px';
+      stepTouch.style.left = pageX + 'px';
 
       // back
       if (back) {
@@ -198,11 +197,12 @@ var Rule = (_temp = _class = function (_React$Component) {
           min = props.min,
           max = props.max,
           touchMin = props.touchMin,
-          touchMax = props.touchMax,
-          len = list.length,
-          lenArr = Array(len).fill(0),
-          lineArr = Array((max - min) / unitAmount + 1).fill(0);
+          touchMax = props.touchMax;
 
+      var len = list.length;
+      // totle = max - min,
+      var lenArr = Array(len).fill(0);
+      var lineArr = Array((max - min) / unitAmount + 1).fill(0);
       this.setState({
         list: list,
         // len,
@@ -224,9 +224,9 @@ var Rule = (_temp = _class = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var self = this,
-          className = this.props.className,
-          _state4 = this.state,
+      var self = this;
+      var className = this.props.className;
+      var _state4 = this.state,
           list = _state4.list,
           lenArr = _state4.lenArr,
           lineArr = _state4.lineArr,
@@ -235,8 +235,8 @@ var Rule = (_temp = _class = function (_React$Component) {
           unitAmount = _state4.unitAmount;
 
       var cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-slider': true,
-        'jimu-step-slider': true
+        'pile-slider': true,
+        'pile-step-slider': true
       }, className, className));
       // });
 
@@ -250,7 +250,7 @@ var Rule = (_temp = _class = function (_React$Component) {
         },
         _react2.default.createElement(
           'div',
-          { className: 'jimu-slider-rule', ref: function ref(n) {
+          { className: 'pile-slider-rule', ref: function ref(n) {
               _this2.wrapLay = n;
             } },
           _react2.default.createElement(

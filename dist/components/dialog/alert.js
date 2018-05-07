@@ -65,15 +65,14 @@ var Alert = (_temp = _class = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       // 居中
-      var that = this;
       var dialog_alert = this.dialog_alert,
-          didi_icon_alert = this.didi_icon_alert,
+          pile_icon_alert = this.pile_icon_alert,
           title_font = this.title_font;
 
       dialog_alert.style.background = '#fff';
-      dialog_alert.style.width = that.state.width || '267px';
+      dialog_alert.style.width = this.state.width || '267px';
       dialog_alert.style.textAlign = 'center';
-      didi_icon_alert.style.margin = '0 0 16px';
+      pile_icon_alert.style.margin = '0 0 16px';
       title_font.style.lineHeight = '22px';
       title_font.style.marginBottom = !this.props.children ? '20px' : '10px';
       title_font.style.fontSize = '16px';
@@ -102,10 +101,9 @@ var Alert = (_temp = _class = function (_React$Component) {
     key: 'renderButtons',
     value: function renderButtons() {
       return this.props.buttons.map(function (action, idx) {
-        var type = action.type,
-            className = action.className,
+        var className = action.className,
             label = action.label,
-            others = _objectWithoutProperties(action, ['type', 'className', 'label']);
+            others = _objectWithoutProperties(action, ['className', 'label']);
 
         var cls = (0, _classnames2.default)(_defineProperty({
           btn_orange: true
@@ -134,25 +132,25 @@ var Alert = (_temp = _class = function (_React$Component) {
       var iconHide = this.state.iconHide;
 
       var className = (0, _classnames2.default)({
-        // "didi_icon icon-popup_warning": !!type === false ||  type === 'warning',
-        didi_icon_hide: iconHide,
-        'didi_icon icon-popup_right': type === 'success',
-        'didi_icon icon-popup_warning': type !== 'success'
+        // "pile_icon icon-popup_warning": !!type === false ||  type === 'warning',
+        pile_icon_hide: iconHide,
+        'pile_icon icon-popup_right': type === 'success',
+        'pile_icon icon-popup_warning': type !== 'success'
       });
       return _react2.default.createElement(
         'div',
-        { className: 'jimu-dialog' },
+        { className: 'pile-dialog' },
         _react2.default.createElement(
           'div',
-          { className: 'didi_dialog_alert', style: { display: show ? 'block' : 'none' } },
+          { className: 'pile_dialog_alert', style: { display: show ? 'block' : 'none' } },
           _react2.default.createElement(_index2.default, { onClick: this.MaskClick }),
           _react2.default.createElement(
             'div',
-            { className: 'didi_dialog', ref: function ref(c) {
+            { className: 'pile_dialog', ref: function ref(c) {
                 _this2.dialog_alert = c;
               } },
             _react2.default.createElement('p', { className: className, ref: function ref(c) {
-                _this2.didi_icon_alert = c;
+                _this2.pile_icon_alert = c;
               } }),
             _react2.default.createElement(
               'div',
@@ -168,7 +166,7 @@ var Alert = (_temp = _class = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'd_btns didi_btn_alert' },
+              { className: 'd_btns pile_btn_alert' },
               this.renderButtons()
             )
           )
@@ -185,6 +183,7 @@ var Alert = (_temp = _class = function (_React$Component) {
 }, _class.defaultProps = {
   buttons: [],
   title: '',
+  show: false,
   iconHide: false
 }, _temp);
 exports.default = Alert;

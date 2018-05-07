@@ -89,7 +89,7 @@ function initBreakpoints() {
   }
 }
 
-var optimizedResize = exports.optimizedResize = function () {
+var optimizedResize = exports.optimizedResize = function optimizedResize() {
   var callbacks = new Map();
   var running = false;
 
@@ -199,12 +199,14 @@ function assign(target) {
   var to = Object(target);
   var hasOwnProperty = Object.prototype.hasOwnProperty;
 
+  /* eslint-disable prefer-rest-params,no-continue */
+
   for (var nextIndex = 1; nextIndex < arguments.length; nextIndex++) {
     var nextSource = arguments[nextIndex];
     if (nextSource == null) {
       continue;
     }
-
+    /* eslint-enable prefer-rest-params,no-continue */
     var source = Object(nextSource);
 
     // We don't currently support accessors nor proxies. Therefore this

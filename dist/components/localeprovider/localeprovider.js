@@ -40,7 +40,7 @@ var LocaleProvider = (_temp = _class = function (_React$Component) {
     key: 'getChildContext',
     value: function getChildContext() {
       return {
-        jimuLocale: _extends({}, this.props.locale, {
+        pileLocale: _extends({}, this.props.locale, {
           exist: true
         })
       };
@@ -55,7 +55,9 @@ var LocaleProvider = (_temp = _class = function (_React$Component) {
   return LocaleProvider;
 }(_react2.default.Component), _class.propTypes = {
   locale: _propTypes2.default.object
+}, _class.defaultProps = {
+  locale: {}
 }, _class.childContextTypes = {
-  jimuLocale: _propTypes2.default.object
+  pileLocale: _propTypes2.default.object
 }, _temp);
 exports.default = LocaleProvider;

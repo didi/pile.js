@@ -101,25 +101,25 @@ var Confirm = (_temp = _class = function (_React$Component) {
           type = _props.type,
           title = _props.title,
           show = _props.show,
-          children = _props.children,
-          iconHide = this.state.iconHide;
+          children = _props.children;
+      var iconHide = this.state.iconHide;
 
       var className = (0, _classnames2.default)({
-        didi_icon: true,
-        didi_icon_hide: iconHide,
+        pile_icon: true,
+        pile_icon_hide: iconHide,
         'icon-popup_warning': type !== 'success',
         'icon-popup_right': type === 'success'
       });
       return _react2.default.createElement(
         'div',
-        { className: 'jimu-dialog' },
+        { className: 'pile-dialog' },
         _react2.default.createElement(
           'div',
-          { className: 'didi_dialog_confirm', style: { display: show ? 'block' : 'none' } },
+          { className: 'pile_dialog_confirm', style: { display: show ? 'block' : 'none' } },
           _react2.default.createElement(_index2.default, { onClick: this.MaskClick }),
           _react2.default.createElement(
             'div',
-            { className: 'didi_dialog' },
+            { className: 'pile_dialog' },
             _react2.default.createElement('p', { className: className }),
             _react2.default.createElement(
               'div',
@@ -133,7 +133,7 @@ var Confirm = (_temp = _class = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'd_btns didi_btn_confirm' },
+              { className: 'd_btns pile_btn_confirm' },
               this.renderButtons()
             )
           )
@@ -150,6 +150,7 @@ var Confirm = (_temp = _class = function (_React$Component) {
 }, _class.defaultProps = {
   buttons: [],
   title: '',
-  iconHide: false
+  iconHide: false,
+  show: false
 }, _temp);
 exports.default = Confirm;

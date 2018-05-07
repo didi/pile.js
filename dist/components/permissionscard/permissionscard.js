@@ -34,27 +34,28 @@ var PermissionsCard = function PermissionsCard(props) {
       labelType = props.labelType,
       messageHTML = props.messageHTML,
       iconHTML = props.iconHTML,
-      others = _objectWithoutProperties(props, ['className', 'titleHTML', 'labelTitle', 'labelType', 'messageHTML', 'iconHTML']),
-      cls = (0, _classnames2.default)(_defineProperty({
-    'jimu-permissions-card': true,
-    'jimu-permissions-aside-icon': iconHTML
-  }, className, className)),
-      Component = props.href ? 'a' : 'div';
+      others = _objectWithoutProperties(props, ['className', 'titleHTML', 'labelTitle', 'labelType', 'messageHTML', 'iconHTML']);
+
+  var cls = (0, _classnames2.default)(_defineProperty({
+    'pile-permissions-card': true,
+    'pile-permissions-aside-icon': iconHTML
+  }, className, className));
+  var Component = props.href ? 'a' : 'div';
 
   return _react2.default.createElement(
     Component,
     _extends({ className: cls }, others),
     _react2.default.createElement(
       'div',
-      { className: 'jimu-permissions-icon' },
+      { className: 'pile-permissions-icon' },
       iconHTML
     ),
     _react2.default.createElement(
       'div',
-      { className: 'jimu-permissions-hd' },
+      { className: 'pile-permissions-hd' },
       titleHTML && _react2.default.createElement(
         'div',
-        { className: 'jimu-permissions-title' },
+        { className: 'pile-permissions-title' },
         titleHTML
       ),
       labelTitle && _react2.default.createElement(
@@ -65,7 +66,7 @@ var PermissionsCard = function PermissionsCard(props) {
     ),
     _react2.default.createElement(
       'div',
-      { className: 'jimu-permissions-message' },
+      { className: 'pile-permissions-message' },
       messageHTML
     )
   );

@@ -206,6 +206,16 @@ var Swipeable = (_temp = _class = function (_React$Component) {
   flickThreshold: 0.6,
   delta: 10,
   preventDefaultTouchmoveEvent: false,
-  nodeName: 'div'
+  nodeName: 'div',
+  onSwiped: null,
+  onSwiping: null,
+  onSwipingUp: null,
+  onSwipingRight: null,
+  onSwipingDown: null,
+  onSwipingLeft: null,
+  onSwipedUp: null,
+  onSwipedRight: null,
+  onSwipedDown: null,
+  onSwipedLeft: null
 }, _temp);
 exports.default = Swipeable;

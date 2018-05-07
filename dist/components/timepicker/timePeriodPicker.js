@@ -8,10 +8,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -34,15 +30,16 @@ var TimePeriod = (_temp = _class = function (_Component) {
   function TimePeriod() {
     _classCallCheck(this, TimePeriod);
 
-    return _possibleConstructorReturn(this, (TimePeriod.__proto__ || Object.getPrototypeOf(TimePeriod)).call(this));
+    return _possibleConstructorReturn(this, (TimePeriod.__proto__ || Object.getPrototypeOf(TimePeriod)).apply(this, arguments));
   }
 
   _createClass(TimePeriod, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      var value = this.props.value,
-          startTimeArr = this._setStartTime(),
-          endTimeArr = this._setEndTime(value[0]);
+      var value = this.props.value;
+
+      var startTimeArr = this._setStartTime();
+      var endTimeArr = this._setEndTime(value[0]);
       // 设置默认显示参数
       this.setState({
         value: [value ? value[0] : startTimeArr[0], value ? value[1] : endTimeArr[0]], // 默认数值 开始时间 、 结束时间
@@ -55,14 +52,14 @@ var TimePeriod = (_temp = _class = function (_Component) {
       // 当改变开始时间时
       var _state = this.state,
           value = _state.value,
-          options = _state.options,
-          startTime = value[0],
-          endTime = value[1];
-      // 当改变开始时间时
+          options = _state.options;
 
-      if (listIndex == 0) {
-        var endTimeArr = this._setEndTime(val),
-            endTimeVal = this.checkEndTimeIsBefore(val, endTime) ? endTimeArr[0] : endTime;
+      var startTime = value[0];
+      var endTime = value[1];
+      // 当改变开始时间时
+      if (listIndex === 0) {
+        var endTimeArr = this._setEndTime(val);
+        var endTimeVal = this.checkEndTimeIsBefore(val, endTime) ? endTimeArr[0] : endTime;
         this.setState({
           value: [val, endTimeVal],
           options: [options[0], endTimeArr]
@@ -73,15 +70,21 @@ var TimePeriod = (_temp = _class = function (_Component) {
         });
       }
     }
+  }, {
+    key: 'onClickAway',
+    value: function onClickAway() {
+      this.props.pickerAway && this.props.pickerAway(this.state.value, this.refs.pickertime);
+    }
 
     // 检测结束时间是否早于开始时间  true 早于， false 晚于
 
   }, {
     key: 'checkEndTimeIsBefore',
     value: function checkEndTimeIsBefore(startTime, endTime) {
-      var unit = this.props.unit,
-          splitStartTime = startTime.split(':'),
-          splitEndTime = endTime.split(':');
+      var unit = this.props.unit;
+
+      var splitStartTime = startTime.split(':');
+      var splitEndTime = endTime.split(':');
 
       // 如果 endTime 带有 次日 返回 false
       if (endTime.indexOf(unit) > -1) {
@@ -98,18 +101,71 @@ var TimePeriod = (_temp = _class = function (_Component) {
       return true;
     }
   }, {
-    key: 'onClickAway',
-    value: function onClickAway() {
-      this.props.pickerAway && this.props.pickerAway(this.state.value, this.refs.pickertime);
+    key: 'show',
+    value: function show() {
+      this.refs.date_picker.show();
+    }
+
+    // 设置开始时间
+
+  }, {
+    key: '_setStartTime',
+    value: function _setStartTime() {
+      var delay = this.props.delay;
+
+      var startArr = [];
+      var mdelay = 60 / delay;
+      for (var i = 0, len = 24; i < len; i++) {
+        for (var mi = 0, mlen = mdelay; mi < mlen; mi++) {
+          var newi = i < 10 ? '0' + i : i;
+          var newmi = mi * delay < 10 ? '0' + mi * delay : mi * delay;
+          startArr.push(newi + ':' + newmi);
+        }
+      }
+      return startArr;
+    }
+
+    // 设置结束时间
+
+  }, {
+    key: '_setEndTime',
+    value: function _setEndTime() {
+      var startTime = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '00:00';
+      var _props = this.props,
+          delay = _props.delay,
+          unit = _props.unit;
+
+      var mdelay = 60 / delay;
+      var splitStartTime = startTime.split(':');
+      var startH = Number(splitStartTime[0]);
+      var startM = Number(splitStartTime[1]);
+      var endArr = [];
+      for (var i = startH, len = 31 + startH; i < len; i++) {
+        if (i < 48) {
+          for (var mi = 0, mlen = mdelay; mi < mlen; mi++) {
+            var newi = i < 10 ? '0' + i : i;
+            var cond1 = startH === i && mi * delay <= startM;
+            var cond2 = startH + 30 === i && mi * delay > startM;
+            if (!(cond1 || cond2)) {
+              var newmi = mi * delay < 10 ? '0' + mi * delay : mi * delay;
+              if (newi >= 24) {
+                newi = '' + unit + (newi - 24 < 10 ? '0' + (newi - 24) : newi - 24);
+              }
+              endArr.push(newi + ':' + newmi);
+            }
+          }
+        }
+      }
+      return endArr;
     }
   }, {
     key: 'render',
     value: function render() {
-      var _props = this.props,
-          textvalue = _props.textvalue,
-          open = _props.open,
-          titleName = _props.titleName,
-          _state2 = this.state,
+      var _props2 = this.props,
+          textvalue = _props2.textvalue,
+          open = _props2.open,
+          titleName = _props2.titleName;
+      var _state2 = this.state,
           options = _state2.options,
           value = _state2.value;
 
@@ -129,65 +185,9 @@ var TimePeriod = (_temp = _class = function (_Component) {
           onChange: this.onChange.bind(this),
           onClickAway: this.onClickAway.bind(this),
           open: open,
-          titleName: titleName })
+          titleName: titleName
+        })
       );
-    }
-  }, {
-    key: 'show',
-    value: function show() {
-      this.refs.date_picker.show();
-    }
-
-    // 设置开始时间
-
-  }, {
-    key: '_setStartTime',
-    value: function _setStartTime() {
-      var delay = this.props.delay,
-          startArr = [],
-          mdelay = 60 / delay;
-
-      for (var i = 0, len = 24; i < len; i++) {
-        for (var mi = 0, mlen = mdelay; mi < mlen; mi++) {
-          var newi = i < 10 ? '0' + i : i,
-              newmi = mi * delay < 10 ? '0' + mi * delay : mi * delay;
-          startArr.push(newi + ':' + newmi);
-        }
-      }
-      return startArr;
-    }
-
-    // 设置结束时间
-
-  }, {
-    key: '_setEndTime',
-    value: function _setEndTime() {
-      var startTime = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '00:00';
-      var _props2 = this.props,
-          delay = _props2.delay,
-          unit = _props2.unit,
-          startArr = [],
-          mdelay = 60 / delay,
-          splitStartTime = startTime.split(':'),
-          startH = Number(splitStartTime[0]),
-          startM = Number(splitStartTime[1]),
-          endArr = [];
-
-      for (var i = startH, len = 31 + startH; i < len; i++) {
-        if (i < 48) {
-          for (var mi = 0, mlen = mdelay; mi < mlen; mi++) {
-            var newi = i < 10 ? '0' + i : i;
-            if (startH == i && mi * delay <= startM) {} else if (startH + 30 == i && mi * delay > startM) {} else {
-              var newmi = mi * delay < 10 ? '0' + mi * delay : mi * delay;
-              if (newi >= 24) {
-                newi = '' + unit + (newi - 24 < 10 ? '0' + (newi - 24) : newi - 24);
-              }
-              endArr.push(newi + ':' + newmi);
-            }
-          }
-        }
-      }
-      return endArr;
     }
   }]);
 

@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -28,10 +32,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Grid = function (_Component) {
   _inherits(Grid, _Component);
 
-  function Grid(props) {
+  function Grid() {
     _classCallCheck(this, Grid);
 
-    return _possibleConstructorReturn(this, (Grid.__proto__ || Object.getPrototypeOf(Grid)).call(this, props));
+    return _possibleConstructorReturn(this, (Grid.__proto__ || Object.getPrototypeOf(Grid)).apply(this, arguments));
   }
 
   _createClass(Grid, [{
@@ -44,21 +48,21 @@ var Grid = function (_Component) {
           flexCells = _props.flexCells,
           className = _props.className,
           children = _props.children,
-          others = _objectWithoutProperties(_props, ['flexCells', 'className', 'children']),
-          cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-grid': true,
-        'jimu-grid-flex': flexCells
-      }, className, className));
+          others = _objectWithoutProperties(_props, ['flexCells', 'className', 'children']);
 
+      var cls = (0, _classnames2.default)(_defineProperty({
+        'pile-grid': true,
+        'pile-grid-flex': flexCells
+      }, className, className));
       return _react2.default.createElement(
         'div',
         _extends({ className: cls }, others),
         _react2.default.Children.map(children, function (child, i) {
           if (!child) {
-            return;
+            return null;
           }
           var contentCls = (0, _classnames2.default)({
-            'jimu-cell': true
+            'pile-cell': true
           });
           return _react2.default.createElement(
             'div',
@@ -73,4 +77,4 @@ var Grid = function (_Component) {
   return Grid;
 }(_react.Component);
 
-module.exports = Grid;
+exports.default = Grid;

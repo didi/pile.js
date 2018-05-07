@@ -75,12 +75,13 @@ var SwipeMove = (_temp = _class = function (_React$Component) {
   }, {
     key: 'setContState',
     value: function setContState(pos, open) {
-      var touchContent = this.touchContent,
-          _props = this.props,
+      var touchContent = this.touchContent;
+      var _props = this.props,
           direction = _props.direction,
-          back = _props.back,
-          self = this;
+          back = _props.back;
+      // { oldPosY, oldPosX } = this.state,
 
+      var self = this;
       touchContent.style.WebkitTransition = 'all 0.1s ease-in';
 
       if (direction === 'bottom') {
@@ -113,19 +114,22 @@ var SwipeMove = (_temp = _class = function (_React$Component) {
   }, {
     key: 'swipingDown',
     value: function swipingDown(e, posY) {
-      var self = this,
-          touchContent = this.touchContent,
+      var self = this;
+      var touchContent = this.touchContent,
           touchScroll = this.touchScroll,
-          touchMain = this.touchMain,
-          touchScrollTop = _reactDom2.default.findDOMNode(touchScroll).scrollTop,
-          touchScrollHeight = _reactDom2.default.findDOMNode(touchScroll).clientHeight,
-          touchMainHeight = _reactDom2.default.findDOMNode(touchMain).clientHeight,
-          _state = this.state,
+          touchMain = this.touchMain;
+      /* eslint-disable react/no-find-dom-node */
+
+      var touchScrollTop = _reactDom2.default.findDOMNode(touchScroll).scrollTop;
+      var touchScrollHeight = _reactDom2.default.findDOMNode(touchScroll).clientHeight;
+      var touchMainHeight = _reactDom2.default.findDOMNode(touchMain).clientHeight;
+      /* eslint-enable react/no-find-dom-node */
+      var _state = this.state,
           distance = _state.distance,
           postion = _state.postion,
           open = _state.open,
-          contentHeight = _state.contentHeight,
-          direction = this.props.direction;
+          contentHeight = _state.contentHeight;
+      var direction = this.props.direction;
 
 
       if (touchScrollTop + touchScrollHeight < touchMainHeight + 5 && direction !== 'bottom' && open || direction === 'left' || direction === 'right') {
@@ -140,7 +144,7 @@ var SwipeMove = (_temp = _class = function (_React$Component) {
       e.preventDefault && e.preventDefault();
 
       if (direction === 'bottom' && !open || direction === 'top' && open || direction === 'left' || direction === 'right') {
-        return false;
+        return;
       }
       touchContent.style.WebkitTransition = 'none';
       // this.refs.touchScroll.style.overflow = "hidden"
@@ -163,18 +167,18 @@ var SwipeMove = (_temp = _class = function (_React$Component) {
   }, {
     key: 'swipingLeft',
     value: function swipingLeft(e, posX) {
-      var self = this,
-          touchContent = this.touchContent,
-          _state2 = this.state,
+      var self = this;
+      var touchContent = this.touchContent;
+      var _state2 = this.state,
           distance = _state2.distance,
           postion = _state2.postion,
           open = _state2.open,
-          contentWidth = _state2.contentWidth,
-          direction = this.props.direction;
+          contentWidth = _state2.contentWidth;
+      var direction = this.props.direction;
 
 
       if (direction === 'left' && !open || direction === 'right' && open || direction === 'bottom' || direction === 'up') {
-        return false;
+        return;
       }
       touchContent.style.WebkitTransition = 'none';
       // 弹层跟随坐标
@@ -196,18 +200,18 @@ var SwipeMove = (_temp = _class = function (_React$Component) {
   }, {
     key: 'swipingRight',
     value: function swipingRight(e, posX) {
-      var self = this,
-          touchContent = this.touchContent,
-          _state3 = this.state,
+      var self = this;
+      var touchContent = this.touchContent;
+      var _state3 = this.state,
           distance = _state3.distance,
           postion = _state3.postion,
           open = _state3.open,
-          contentWidth = _state3.contentWidth,
-          direction = this.props.direction;
+          contentWidth = _state3.contentWidth;
+      var direction = this.props.direction;
 
 
       if (direction === 'right' && !open || direction === 'left' && open || direction === 'bottom' || direction === 'up') {
-        return false;
+        return;
       }
 
       touchContent.style.WebkitTransition = 'none';
@@ -231,19 +235,22 @@ var SwipeMove = (_temp = _class = function (_React$Component) {
   }, {
     key: 'swipingUp',
     value: function swipingUp(e, posY) {
-      var self = this,
-          touchContent = this.touchContent,
+      var self = this;
+      var touchContent = this.touchContent,
           touchScroll = this.touchScroll,
-          touchMain = this.touchMain,
-          touchScrollTop = _reactDom2.default.findDOMNode(touchScroll).scrollTop,
-          touchScrollHeight = _reactDom2.default.findDOMNode(touchScroll).clientHeight,
-          touchMainHeight = _reactDom2.default.findDOMNode(touchMain).clientHeight,
-          _state4 = this.state,
+          touchMain = this.touchMain;
+      /* eslint-disable react/no-find-dom-node */
+
+      var touchScrollTop = _reactDom2.default.findDOMNode(touchScroll).scrollTop;
+      var touchScrollHeight = _reactDom2.default.findDOMNode(touchScroll).clientHeight;
+      var touchMainHeight = _reactDom2.default.findDOMNode(touchMain).clientHeight;
+      /* eslint-enable react/no-find-dom-node */
+      var _state4 = this.state,
           distance = _state4.distance,
           postion = _state4.postion,
           open = _state4.open,
-          contentHeight = _state4.contentHeight,
-          direction = this.props.direction;
+          contentHeight = _state4.contentHeight;
+      var direction = this.props.direction;
 
 
       if (touchScrollTop + touchScrollHeight < touchMainHeight && direction !== 'bottom') {
@@ -277,17 +284,18 @@ var SwipeMove = (_temp = _class = function (_React$Component) {
   }, {
     key: 'initSetContentStyle',
     value: function initSetContentStyle(propsData) {
-      var touchContent = this.touchContent,
-          height = propsData.height,
+      var touchContent = this.touchContent;
+      var height = propsData.height,
           width = propsData.width,
           direction = propsData.direction,
-          align = propsData.align,
-          windowW = document.documentElement ? document.documentElement.clientWidth : document.body.clientWidth,
-          windowH = document.documentElement ? document.documentElement.clientHeight : document.body.clientHeight,
-          mydistance = direction === 'bottom' || direction === 'top' ? windowH : windowW;
+          align = propsData.align;
 
-      var contentH = 0,
-          conentW = 0;
+
+      var windowW = document.documentElement ? document.documentElement.clientWidth : document.body.clientWidth;
+      var windowH = document.documentElement ? document.documentElement.clientHeight : document.body.clientHeight;
+      var mydistance = direction === 'bottom' || direction === 'top' ? windowH : windowW;
+      var contentH = void 0;
+      var conentW = void 0;
 
       // 设置容器高度
       if (height.indexOf('px') !== -1) {
@@ -370,23 +378,26 @@ var SwipeMove = (_temp = _class = function (_React$Component) {
   }, {
     key: 'swiped',
     value: function swiped(e, posX, posY) {
-      var touchContent = this.touchContent,
-          touchScroll = this.touchScroll,
-          touchMain = this.touchMain,
-          touchScrollTop = _reactDom2.default.findDOMNode(touchScroll).scrollTop,
-          touchScrollHeight = _reactDom2.default.findDOMNode(touchScroll).clientHeight,
-          touchMainHeight = _reactDom2.default.findDOMNode(touchMain).clientHeight,
-          _state5 = this.state,
+      var touchScroll = this.touchScroll,
+          touchMain = this.touchMain;
+      /* eslint-disable react/no-find-dom-node */
+
+      var touchScrollTop = _reactDom2.default.findDOMNode(touchScroll).scrollTop;
+      var touchScrollHeight = _reactDom2.default.findDOMNode(touchScroll).clientHeight;
+      var touchMainHeight = _reactDom2.default.findDOMNode(touchMain).clientHeight;
+      /* eslint-enable react/no-find-dom-node */
+      var _state5 = this.state,
           open = _state5.open,
           postion = _state5.postion,
           distance = _state5.distance,
           oldPosY = _state5.oldPosY,
-          oldPosX = _state5.oldPosX,
-          _props2 = this.props,
+          oldPosX = _state5.oldPosX;
+      var _props2 = this.props,
           direction = _props2.direction,
-          degree = _props2.degree,
-          posYabs = posY,
-          posXabs = Math.abs(posX);
+          degree = _props2.degree;
+
+      var posYabs = posY;
+      var posXabs = Math.abs(posX);
 
       if (direction === 'bottom') {
         if (open) {
@@ -400,13 +411,10 @@ var SwipeMove = (_temp = _class = function (_React$Component) {
           // if(posYabs > oldPosY){
           //   this.setContState(postion,true)
           // }
+        } else if (posYabs > oldPosY) {
+          this.setContState(postion, true);
         } else {
-          // 展开状态
-          if (posYabs > oldPosY) {
-            this.setContState(postion, true);
-          } else {
-            this.setContState(distance, false);
-          }
+          this.setContState(distance, false);
         }
       }
 
@@ -421,13 +429,10 @@ var SwipeMove = (_temp = _class = function (_React$Component) {
           // if(posYabs < oldPosY){
           //   this.setContState(postion,true)
           // }
+        } else if (posYabs < oldPosY) {
+          this.setContState(postion, true);
         } else {
-          // 展开状态
-          if (posYabs < oldPosY) {
-            this.setContState(postion, true);
-          } else {
-            this.setContState(distance, false);
-          }
+          this.setContState(distance, false);
         }
       }
 
@@ -439,13 +444,10 @@ var SwipeMove = (_temp = _class = function (_React$Component) {
           } else {
             this.setContState(postion, true);
           }
+        } else if (posXabs >= oldPosX && posXabs >= degree) {
+          this.setContState(postion, true);
         } else {
-          // 展开状态
-          if (posXabs >= oldPosX && posXabs >= degree) {
-            this.setContState(postion, true);
-          } else {
-            this.setContState(distance, false);
-          }
+          this.setContState(distance, false);
         }
       }
     }
@@ -481,15 +483,15 @@ var SwipeMove = (_temp = _class = function (_React$Component) {
       var _props3 = this.props,
           className = _props3.className,
           children = _props3.children,
-          direction = _props3.direction,
-          cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-swipemove': true,
-        'jimu-bottom': direction === 'bottom',
-        'jimu-top': direction === 'top',
-        'jimu-left': direction === 'left',
-        'jimu-right': direction === 'right'
-      }, className, className));
+          direction = _props3.direction;
 
+      var cls = (0, _classnames2.default)(_defineProperty({
+        'pile-swipemove': true,
+        'pile-bottom': direction === 'bottom',
+        'pile-top': direction === 'top',
+        'pile-left': direction === 'left',
+        'pile-right': direction === 'right'
+      }, className, className));
       return _react2.default.createElement(
         Swipeable,
         {

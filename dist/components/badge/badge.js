@@ -36,9 +36,9 @@ var Badge = function Badge(props) {
       others = _objectWithoutProperties(props, ['className', 'number', 'type']);
 
   var cls = (0, _classnames2.default)((_classNames = {
-    'jimu-badge': true,
-    'jimu-badge-full': number
-  }, _defineProperty(_classNames, 'jimu-badge-' + type, !number && type), _defineProperty(_classNames, className, className), _classNames));
+    'pile-badge': true,
+    'pile-badge-full': number
+  }, _defineProperty(_classNames, 'pile-badge-' + type, !number && type), _defineProperty(_classNames, className, className), _classNames));
   return _react2.default.createElement(
     'span',
     _extends({}, others, { className: cls }),

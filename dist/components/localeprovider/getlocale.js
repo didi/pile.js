@@ -9,8 +9,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 exports.getComponentLocale = getComponentLocale;
 function getComponentLocale(props, context, componentName, getDefaultLocale) {
   var locale = {};
-  if (context && context.jimuLocale && context.jimuLocale[componentName]) {
-    locale = context.jimuLocale[componentName];
+  if (context && context.pileLocale && context.pileLocale[componentName]) {
+    locale = context.pileLocale[componentName];
   } else {
     var defaultLocale = getDefaultLocale();
     locale = defaultLocale.default || defaultLocale;
@@ -25,3 +25,7 @@ function getComponentLocale(props, context, componentName, getDefaultLocale) {
   }
   return result;
 }
+
+exports.default = {
+  getComponentLocale: getComponentLocale
+};

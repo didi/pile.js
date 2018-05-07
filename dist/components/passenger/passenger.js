@@ -54,29 +54,26 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 // "total_fee": "60.00",
 
 var headpic = require('../../styles/image/default-avatar.png');
-
+/* eslint-disable no-nested-ternary */
 var Passenger = function Passenger(props) {
   var start_address = props.start_address,
       end_address = props.end_address,
       user_name = props.user_name,
       departure_endtime = props.departure_endtime,
-      avatarUrl = props.avatarUrl,
       isMaster = props.isMaster,
       isPhone = props.isPhone,
       isNeed = props.isNeed,
       user_phone = props.user_phone,
-      company_pay = props.company_pay,
-      total_fee = props.total_fee,
       order_info = props.order_info,
       ride_type = props.ride_type,
-      others = _objectWithoutProperties(props, ['start_address', 'end_address', 'user_name', 'departure_endtime', 'avatarUrl', 'isMaster', 'isPhone', 'isNeed', 'user_phone', 'company_pay', 'total_fee', 'order_info', 'ride_type']);
+      others = _objectWithoutProperties(props, ['start_address', 'end_address', 'user_name', 'departure_endtime', 'isMaster', 'isPhone', 'isNeed', 'user_phone', 'order_info', 'ride_type']);
 
   return _react2.default.createElement(
     'div',
-    _extends({ className: 'jimu_passenger' }, others),
+    _extends({ className: 'pile_passenger' }, others),
     _react2.default.createElement(
       'div',
-      { className: 'jimu_passenger_avatar' },
+      { className: 'pile_passenger_avatar' },
       _react2.default.createElement('img', { src: headpic, width: '50', height: '50', alt: '\u5934\u50CF' }),
       isNeed && (isMaster ? _react2.default.createElement(
         'p',
@@ -90,7 +87,7 @@ var Passenger = function Passenger(props) {
     ),
     _react2.default.createElement(
       'div',
-      { className: 'jimu_passenger_userinfo' },
+      { className: 'pile_passenger_userinfo' },
       _react2.default.createElement(
         'p',
         null,
@@ -140,7 +137,7 @@ var Passenger = function Passenger(props) {
         _react2.default.createElement(
           'span',
           null,
-          '\u81EA\u8D39: ',
+          '\u81EA\u8D39:',
           _react2.default.createElement(
             'b',
             null,
@@ -152,7 +149,7 @@ var Passenger = function Passenger(props) {
     ),
     isPhone && _react2.default.createElement(
       'div',
-      { className: 'jimu_passenger_telphone' },
+      { className: 'pile_passenger_telphone' },
       _react2.default.createElement(
         'a',
         { href: 'tel:' + user_phone },

@@ -14,11 +14,11 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-require('./binaryFile');
+require('./lib/binaryFile');
 
-require('./exif');
+require('./lib/exif');
 
-require('./canvasResize');
+require('./lib/canvasResize');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30,14 +30,15 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+/* global Blob */
 // 早期版本的浏览器需要用BlobBuilder来构造Blob，创建一个通用构造器来兼容早期版本
-var BlobConstructor = function () {
+var BlobConstructor = function init() {
   try {
     return new Blob() && true;
   } catch (e) {
     return false;
   }
-}() ? window.Blob : function (parts, opts) {
+}() ? window.Blob : function initBlob(parts, opts) {
   var bb = new (window.BlobBuilder || window.WebKitBlobBuilder || window.MSBlobBuilder || window.MozBlobBuilder)();
   parts.forEach(function (p) {
     bb.append(p);
@@ -62,7 +63,8 @@ var propTypes = {
   imageQuality: _react2.default.PropTypes.number, // 压缩图片的质量 0.1 - 1
   onLoadSuccess: _react2.default.PropTypes.func, // 成功上传时回调
   onLoadError: _react2.default.PropTypes.func, // 上传失败回调
-  pictureView: _react2.default.PropTypes.bool // 是否开启按钮态上传
+  pictureView: _react2.default.PropTypes.bool, // 是否开启按钮态上传
+  id: _react2.default.PropTypes.string
 };
 
 var defaultProps = {
@@ -72,7 +74,8 @@ var defaultProps = {
   imageQuality: 0.8,
   onLoadSuccess: null,
   onLoadError: null,
-  pictureView: true
+  pictureView: true,
+  id: 'upload-input'
 };
 
 var UploadImage = function (_Component) {
@@ -107,6 +110,52 @@ var UploadImage = function (_Component) {
       if (nextProps.imgURI !== this.props.imgURI) {
         this.setState({ imgURI: nextProps.imgURI, isShowPlus: false });
       }
+    }
+  }, {
+    key: 'onChange',
+    value: function onChange(e) {
+      var file = e.target.files[0];
+      var _props = this.props,
+          imageMaxWidth = _props.imageMaxWidth,
+          imageQuality = _props.imageQuality,
+          onLoadError = _props.onLoadError;
+
+      var self = this;
+      window.canvasResize(file, {
+        width: imageMaxWidth,
+        quality: imageQuality,
+        callback: function callback(dataUri, width, height, attributes) {
+          var b64Str = dataUri.substr(dataUri.indexOf('base64') + 7);
+          self.setState({
+            isShowPlus: false,
+            imgURI: dataUri,
+            imageBase64: b64Str,
+            originalWidth: attributes.originalWidth,
+            originalHeight: attributes.originalHeight,
+            originalBase64Length: attributes.originalBase64Length,
+            compressedWidth: width,
+            compressedHeight: height,
+            compressedBase64Length: attributes.compressedBase64Length,
+            orientation: attributes.orientation,
+            fileType: attributes.fileType,
+            compressedFileType: attributes.compressedFileType,
+            file: file
+          });
+          setTimeout(function () {
+            self.outputImage();
+          }, 0);
+        },
+        onerror: function onerror() {
+          onLoadError && onLoadError();
+        }
+      });
+    }
+  }, {
+    key: 'getBlob',
+    value: function getBlob(outputImageType) {
+      var imageBase64 = this.state.imageBase64;
+
+      return dataURLtoBlob(imageBase64, outputImageType);
     }
   }, {
     key: 'outputImage',
@@ -148,52 +197,6 @@ var UploadImage = function (_Component) {
       onLoadSuccess && onLoadSuccess(myfile);
     }
   }, {
-    key: 'getBlob',
-    value: function getBlob(outputImageType) {
-      var imageBase64 = this.state.imageBase64;
-
-      return dataURLtoBlob(imageBase64, outputImageType);
-    }
-  }, {
-    key: 'onChange',
-    value: function onChange(e) {
-      var file = e.target.files[0];
-      var _props = this.props,
-          imageMaxWidth = _props.imageMaxWidth,
-          imageQuality = _props.imageQuality,
-          onLoadError = _props.onLoadError;
-
-      var self = this;
-      window.canvasResize(file, {
-        width: imageMaxWidth,
-        quality: imageQuality,
-        callback: function callback(dataUri, width, height, attributes) {
-          var b64Str = dataUri.substr(dataUri.indexOf('base64') + 7);
-          self.setState({
-            isShowPlus: false,
-            imgURI: dataUri,
-            imageBase64: b64Str,
-            originalWidth: attributes.originalWidth,
-            originalHeight: attributes.originalHeight,
-            originalBase64Length: attributes.originalBase64Length,
-            compressedWidth: width,
-            compressedHeight: height,
-            compressedBase64Length: attributes.compressedBase64Length,
-            orientation: attributes.orientation,
-            fileType: attributes.fileType,
-            compressedFileType: attributes.compressedFileType,
-            file: file
-          });
-          setTimeout(function () {
-            self.outputImage();
-          }, 0);
-        },
-        onerror: function onerror(e) {
-          onLoadError && onLoadError();
-        }
-      });
-    }
-  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -213,7 +216,7 @@ var UploadImage = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: cls },
-        pictureView && _react2.default.createElement('img', { className: 'ui-uploadImage-preview', src: imgURI }),
+        pictureView && _react2.default.createElement('img', { className: 'ui-uploadImage-preview', alt: '', src: imgURI }),
         _react2.default.createElement(
           'div',
           { className: (0, _classnames2.default)('ui-uploadImage-plus-wrapper', isShowPlus ? '' : 'hide') },
@@ -226,8 +229,8 @@ var UploadImage = function (_Component) {
         ),
         _react2.default.createElement(
           'label',
-          { className: (0, _classnames2.default)('ui-uploadImage-label', !imgURI || !pictureView ? 'ui-uploadImage-add-show' : '') },
-          _react2.default.createElement('input', { className: 'ui-uploadImage-input', type: 'file', onChange: this.onChange, accept: accept, ref: function ref(obj) {
+          { htmlFor: this.props.id, className: (0, _classnames2.default)('ui-uploadImage-label', !imgURI || !pictureView ? 'ui-uploadImage-add-show' : '') },
+          _react2.default.createElement('input', { id: this.props.id, className: 'ui-uploadImage-input', type: 'file', onChange: this.onChange, accept: accept, ref: function ref(obj) {
               _this2.UploadInput = obj;
             } })
         )
@@ -240,4 +243,5 @@ var UploadImage = function (_Component) {
 
 UploadImage.propTypes = propTypes;
 UploadImage.defaultProps = defaultProps;
+
 exports.default = UploadImage;

@@ -37,6 +37,7 @@ var DialogLayout = function (_Component) {
   function DialogLayout() {
     _classCallCheck(this, DialogLayout);
 
+    /* eslint-disable react/no-unused-state */
     var _this = _possibleConstructorReturn(this, (DialogLayout.__proto__ || Object.getPrototypeOf(DialogLayout)).call(this));
 
     _this.state = {
@@ -62,6 +63,7 @@ var DialogLayout = function (_Component) {
       alertLabelText: '我知道了',
       MaskClick: null
     };
+    /* eslint-enable react/no-unused-state */
     var self = _this;
     function alertDialog() {
       var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -76,7 +78,7 @@ var DialogLayout = function (_Component) {
         alertLabelText: config.btnText || '我知道了',
         alertBeforeCallBack: config.beforeCallBack,
         alertCallBack: config.callBack,
-        MaskClick: config.isMaskClick ? function () {
+        MaskClick: config.isMaskClick ? function mask() {
           self.setState({
             alertShow: false
           });
@@ -249,7 +251,10 @@ var DialogLayout = function (_Component) {
             iconHide: confirmIconHide,
             type: confirmType,
             title: confirmTitle,
-            buttons: [{ label: confirmcancelBtnText, onClick: this.confirmCancelClick.bind(this) }, { type: confirmBtnType, label: confirmBtnText, onClick: this.confirmClick.bind(this) }]
+            buttons: [{
+              label: confirmcancelBtnText,
+              onClick: this.confirmCancelClick.bind(this)
+            }, { type: confirmBtnType, label: confirmBtnText, onClick: this.confirmClick.bind(this) }]
           },
           confirmChildren
         )

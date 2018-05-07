@@ -49,31 +49,31 @@ var Result = function Result(props) {
       others = _objectWithoutProperties(props, ['title', 'message', 'className', 'iconHtml', 'size']);
 
   var cls = (0, _classnames2.default)((_classNames = {
-    'jimu-result': true
-  }, _defineProperty(_classNames, 'jimu-result-size-' + size, true), _defineProperty(_classNames, className, className), _classNames));
+    'pile-result': true
+  }, _defineProperty(_classNames, 'pile-result-size-' + size, true), _defineProperty(_classNames, className, className), _classNames));
   return _react2.default.createElement(
     'div',
     _extends({ className: cls }, others),
     _react2.default.createElement(
       'div',
-      { className: 'jimu-result-aside' },
+      { className: 'pile-result-aside' },
       _react2.default.createElement(
         'div',
-        { className: 'jimu-result-icon' },
+        { className: 'pile-result-icon' },
         iconHtml
       )
     ),
     _react2.default.createElement(
       'div',
-      { className: 'jimu-result-article' },
+      { className: 'pile-result-article' },
       title && _react2.default.createElement(
         'div',
-        { className: 'jimu-result-title' },
+        { className: 'pile-result-title' },
         title
       ),
       message && _react2.default.createElement(
         'div',
-        { className: 'jimu-result-message' },
+        { className: 'pile-result-message' },
         message
       )
     )
@@ -82,4 +82,5 @@ var Result = function Result(props) {
 
 Result.propTypes = propTypes;
 Result.defaultProps = defaultProps;
+
 exports.default = Result;

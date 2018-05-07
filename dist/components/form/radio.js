@@ -74,23 +74,25 @@ var Checkbox = (_temp = _class = function (_React$Component) {
       var _props = this.props,
           className = _props.className,
           label = _props.label,
-          disabled = _props.disabled,
-          defaultChecked = this.state.defaultChecked;
+          id = _props.id,
+          disabled = _props.disabled;
+      var defaultChecked = this.state.defaultChecked;
 
       var cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-form-radio': true,
-        'jimu-radio-checked': defaultChecked,
-        'jimu-radio-disabled': disabled
+        'pile-form-radio': true,
+        'pile-radio-checked': defaultChecked,
+        'pile-radio-disabled': disabled
       }, className, className));
+
+      var radioType = defaultChecked ? 'icon-pile-radio' : 'icon-pile-radio-normal';
 
       return _react2.default.createElement(
         'div',
         { className: cls, onClick: this.clicktaggle },
-        !defaultChecked && _react2.default.createElement('span', { className: 'icon-jimu-radio-normal' }),
-        defaultChecked && _react2.default.createElement('span', { className: 'icon-jimu-radio' }),
         _react2.default.createElement(
           'label',
-          null,
+          { className: 'label', htmlFor: id },
+          _react2.default.createElement('span', { id: id, className: (0, _classnames2.default)('icon', radioType) }),
           label
         )
       );
@@ -102,12 +104,14 @@ var Checkbox = (_temp = _class = function (_React$Component) {
   back: _propTypes2.default.func,
   disabled: _propTypes2.default.bool,
   defaultChecked: _propTypes2.default.bool,
-  label: _propTypes2.default.string
+  label: _propTypes2.default.string,
+  id: _propTypes2.default.string
 }, _class.defaultProps = {
   back: function back() {},
 
   disabled: false,
   defaultChecked: false,
-  label: ''
+  label: '',
+  id: 'pile-radio'
 }, _temp);
 exports.default = Checkbox;

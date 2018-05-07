@@ -76,7 +76,7 @@ var Sliders = (_temp = _class = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'jimu-sliders' },
+        { className: 'pile-sliders' },
         _react2.default.createElement(
           _slider2.default,
           _extends({}, others, { onChangeBack: this.changeBack }),

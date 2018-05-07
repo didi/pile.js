@@ -59,7 +59,7 @@ var NConfirm = (_temp = _class = function (_React$Component) {
             others = _objectWithoutProperties(action, ['type', 'label', 'className']);
 
         var cls = (0, _classnames2.default)(_defineProperty({
-          didi_btn_nconfirm: true,
+          pile_btn_nconfirm: true,
           default: type === 'default',
           primary: type === 'primary'
         }, className, className));
@@ -86,31 +86,31 @@ var NConfirm = (_temp = _class = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'jimu-dialog' },
+        { className: 'pile-dialog' },
         _react2.default.createElement(
           'div',
-          { className: ['didi_dialog_nconfirm', show ? 'show' : undefined].join(' ') },
+          { className: ['pile_dialog_nconfirm', show ? 'show' : undefined].join(' ') },
           _react2.default.createElement(_index2.default, { transparent: transparent }),
           _react2.default.createElement(
             'div',
-            { className: ['didi_nconfirm', show ? 'show' : undefined].join(' ') },
+            { className: ['pile_nconfirm', show ? 'show' : undefined].join(' ') },
             _react2.default.createElement(
               'div',
-              { className: 'didi_nconfirm_hd' },
+              { className: 'pile_nconfirm_hd' },
               _react2.default.createElement(
                 'strong',
-                { className: 'didi_nconfirm_title' },
+                { className: 'pile_nconfirm_title' },
                 title
               )
             ),
             _react2.default.createElement(
               'div',
-              { className: 'didi_nconfirm_bd' },
+              { className: 'pile_nconfirm_bd' },
               this.renderButtons()
             ),
             _react2.default.createElement(
               'div',
-              { className: 'didi_nconfirm_ft' },
+              { className: 'pile_nconfirm_ft' },
               _react2.default.createElement(
                 'a',
                 { className: 'btn-orange', onClick: hide },

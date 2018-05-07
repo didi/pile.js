@@ -38,11 +38,11 @@ var ItemDesc = function ItemDesc(props) {
   var className = props.className,
       children = props.children,
       clamp = props.clamp,
-      others = _objectWithoutProperties(props, ['className', 'children', 'clamp']),
-      cls = (0, _classnames2.default)(_defineProperty({
-    'jimu-item-desc': true
-  }, className, className));
+      others = _objectWithoutProperties(props, ['className', 'children', 'clamp']);
 
+  var cls = (0, _classnames2.default)(_defineProperty({
+    'pile-item-desc': true
+  }, className, className));
   return _react2.default.createElement(
     'div',
     _extends({ className: cls }, others, { style: { WebkitLineClamp: clamp } }),

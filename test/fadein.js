@@ -26,7 +26,7 @@ describe('<FadeIn></FadeIn>', () => {
 
                 it('方向样式检测', () => {
                   if (direction) {
-                    assert(wrapper.hasClass(`Pile-fade-${direction}`));
+                    assert(wrapper.hasClass(`pile-fade-${direction}`));
                   }
                 });
 

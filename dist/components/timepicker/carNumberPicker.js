@@ -8,10 +8,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -34,7 +30,7 @@ var CarNumberPicker = (_temp = _class = function (_Component) {
   function CarNumberPicker() {
     _classCallCheck(this, CarNumberPicker);
 
-    return _possibleConstructorReturn(this, (CarNumberPicker.__proto__ || Object.getPrototypeOf(CarNumberPicker)).call(this));
+    return _possibleConstructorReturn(this, (CarNumberPicker.__proto__ || Object.getPrototypeOf(CarNumberPicker)).apply(this, arguments));
   }
 
   _createClass(CarNumberPicker, [{
@@ -49,7 +45,17 @@ var CarNumberPicker = (_temp = _class = function (_Component) {
       this.setState({
         open: open,
         options: options,
-        value: value });
+        value: value
+      });
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextprops) {
+      if (nextprops.value !== this.props.value) {
+        this.setState({
+          value: nextprops.value
+        });
+      }
     }
   }, {
     key: 'onClickAway',
@@ -62,26 +68,27 @@ var CarNumberPicker = (_temp = _class = function (_Component) {
       var value = this.state.value;
 
       value[idx] = val;
-      this.setState({
-        value: value });
+      this.setState({ value: value });
     }
   }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextprops) {
-      if (nextprops.value !== this.props.value) {
-        this.setState({
-          value: nextprops.value
-        });
-      }
+    key: 'show',
+    value: function show() {
+      this.refs.car_picker.show();
+    }
+  }, {
+    key: '_onClick',
+    value: function _onClick() {
+      this.refs.car_picker.show();
     }
   }, {
     key: 'render',
     value: function render() {
-      var textvalue = this.props.textvalue,
-          _state = this.state,
+      var textvalue = this.props.textvalue;
+      var _state = this.state,
           value = _state.value,
           options = _state.options,
           open = _state.open;
+
 
       return _react2.default.createElement(
         'div',
@@ -97,18 +104,9 @@ var CarNumberPicker = (_temp = _class = function (_Component) {
           options: options,
           onChange: this.onChange.bind(this),
           onClickAway: this.onClickAway.bind(this),
-          open: open })
+          open: open
+        })
       );
-    }
-  }, {
-    key: '_onClick',
-    value: function _onClick() {
-      this.refs.car_picker.show();
-    }
-  }, {
-    key: 'show',
-    value: function show() {
-      this.refs.car_picker.show();
     }
   }]);
 

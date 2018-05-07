@@ -75,7 +75,7 @@ var Inputs = function Inputs(props) {
   var aligncls = inputsAlign === 'left' ? 'align-lf' : 'align-rt';
   var cls = (0, _classnames2.default)((_classNames = {
     'name-all': true,
-    'jimu-inputs': true
+    'pile-inputs': true
   }, _defineProperty(_classNames, aligncls, aligncls), _defineProperty(_classNames, className, className), _classNames));
 
   var clsinput = (0, _classnames2.default)({

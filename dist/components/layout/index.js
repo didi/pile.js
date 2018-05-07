@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _layout = require('./layout');
 
 var _layout2 = _interopRequireDefault(_layout);
@@ -69,7 +73,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /**
  * Created by yanshenshen on 17/05/05.
  */
-module.exports = {
+exports.default = {
   Layout: _layout2.default,
   LayoutHd: _layouthd2.default,
   LayoutHdTitle: _layouthdtitle2.default,

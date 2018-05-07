@@ -33,9 +33,9 @@ var Mask = function Mask(props) {
       others = _objectWithoutProperties(props, ['transparent', 'hidden', 'className']);
 
   var cls = (0, _classnames2.default)(_defineProperty({
-    didi_mask_none: hidden,
-    didi_mask: !transparent,
-    didi_mask_transparent: transparent
+    pile_mask_none: hidden,
+    pile_mask: !transparent,
+    pile_mask_transparent: transparent
   }, className, className));
 
   return _react2.default.createElement('div', _extends({ className: cls }, others));

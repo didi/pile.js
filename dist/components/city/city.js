@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -36,6 +40,42 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var City = function (_Component) {
   _inherits(City, _Component);
 
+  _createClass(City, null, [{
+    key: 'fast_charClick',
+
+    /* 解决锚点会产生历史记录，点后退，退不出当前页面的问题 */
+    value: function fast_charClick(e) {
+      var fastCharEle = e.currentTarget;
+      var ele = document.querySelector('#first_char_' + fastCharEle.dataset.char);
+      var cityCon = document.querySelector('._cityCon');
+      cityCon.scrollTop = ele.offsetTop;
+    }
+    /* 点击头部已选城市的删除按钮 */
+
+  }, {
+    key: 'delSelect',
+    value: function delSelect(a) {
+      var cityid = a.currentTarget.dataset.cityid;
+
+      var ele = document.getElementById('city_' + cityid);
+      try {
+        // oppo r8007 安卓4.3手机运行会报错
+        ele.click();
+      } catch (e) {
+        var ev = document.createEvent('HTMLEvents');
+        ev.initEvent('click', true, true);
+        ele.dispatchEvent(ev);
+      }
+    }
+    /* 点击定位城市的事件 */
+
+  }, {
+    key: 'positionAddrClick',
+    value: function positionAddrClick(e) {
+      document.getElementById('city_' + e.currentTarget.dataset.cityid).click();
+    }
+  }]);
+
   function City(props) {
     _classCallCheck(this, City);
 
@@ -46,17 +86,14 @@ var City = function (_Component) {
     // 把26个字母放进数组里
     while (i < 26) {
       firstChar.push(String.fromCharCode(i + 97).toLocaleUpperCase());
-      i++;
+      i += 1;
     }
 
     _this.fast_charTouchMove = _this.fast_charTouchMove.bind(_this);
     _this.fast_charTouchEnd = _this.fast_charTouchEnd.bind(_this);
-    _this.fast_charClick = _this.fast_charClick.bind(_this);
     _this.delCity = _this.delCity.bind(_this);
     _this.addCity = _this.addCity.bind(_this);
     _this.cityClick = _this.cityClick.bind(_this);
-    _this.positionAddrClick = _this.positionAddrClick.bind(_this);
-    _this.delSelect = _this.delSelect.bind(_this);
     _this.initSelectCityCon = _this.initSelectCityCon.bind(_this);
     _this.initMaxChar = _this.initMaxChar.bind(_this);
     _this.initPositionCon = _this.initPositionCon.bind(_this);
@@ -65,7 +102,6 @@ var City = function (_Component) {
 
     _this.state = {
       selectCity: [],
-      max_char: 'A',
       isRadio: true,
       showMaxChar: false,
       firstChar: firstChar
@@ -77,19 +113,17 @@ var City = function (_Component) {
     key: 'componentWillMount',
     value: function componentWillMount() {
       var self = this;
-      var _props = this.props,
-          cityArr = _props.cityArr,
-          dataAttrName = _props.dataAttrName,
-          aaa = _props.aaa;
+      var cityArr = this.props.cityArr;
+      var dataAttrName = this.props.dataAttrName;
 
       if (cityArr) {
         // 如果是对象的话，需要转换一下
         if (!cityArr.length) {
           var cityObj = cityArr;
           cityArr = [];
-          this.state.firstChar.map(function (char, index) {
+          this.state.firstChar.forEach(function (char) {
             if (cityObj[char]) {
-              cityObj[char].map(function (ele, index) {
+              cityObj[char].forEach(function (ele) {
                 ele[self.props.dataAttrName.firstChar] = char;
                 cityArr.push(ele);
               });
@@ -98,7 +132,7 @@ var City = function (_Component) {
         }
         var Obj = {};
         /* 把城市分成数组，字母相同的在一组 */
-        cityArr.map(function (ele, i) {
+        cityArr.forEach(function (ele, i) {
           var firstChar = ele[dataAttrName.firstChar];
           if (!Obj[firstChar]) {
             Obj[firstChar] = [];
@@ -108,15 +142,21 @@ var City = function (_Component) {
         this.setState({ cityObj: Obj });
       }
     }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      var selectCon = document.getElementById('selectCon');
+      if (selectCon) {
+        selectCon.scrollTop = selectCon.scrollHeight;
+      }
+    }
     /* 初始化右侧字母栏 */
 
   }, {
     key: 'init_fast_char',
     value: function init_fast_char() {
-      var self = this;
       var fast_charTouchMove = this.fast_charTouchMove,
           fast_charTouchEnd = this.fast_charTouchEnd,
-          fast_charClick = this.fast_charClick,
           state = this.state;
       var cityObj = state.cityObj,
           firstChar = state.firstChar;
@@ -132,12 +172,11 @@ var City = function (_Component) {
         firstChar.map(function (char, i) {
           if (cityObj[char]) {
             return _react2.default.createElement(
-              'a',
+              'button',
               {
-                href: 'javascript:;',
                 'data-char': char,
                 key: i,
-                onClick: fast_charClick.bind(self)
+                onClick: City.fast_charClick
               },
               char
             );
@@ -146,16 +185,7 @@ var City = function (_Component) {
         })
       );
     }
-    /* 解决锚点会产生历史记录，点后退，退不出当前页面的问题 */
 
-  }, {
-    key: 'fast_charClick',
-    value: function fast_charClick(e) {
-      var fastCharEle = e.currentTarget;
-      var ele = document.querySelector('#first_char_' + fastCharEle.dataset.char);
-      var _cityCon = document.querySelector('._cityCon');
-      _cityCon.scrollTop = ele.offsetTop;
-    }
     /* 城市点击事件 */
 
   }, {
@@ -163,14 +193,14 @@ var City = function (_Component) {
     value: function cityClick(e) {
       var isRadio = this.state.isRadio;
       var callBack = this.props.callBack;
-      var target = e.currentTarget,
-          target_class = target.className,
-          inp = target.querySelector('input'),
-          checked = inp.checked,
-          cityObj = JSON.parse(target.dataset.cityobj);
-      /* if(!checked&&this.props.selectCity.length===10){
-        return;
-      } */
+
+      var target = e.currentTarget;
+      var target_class = target.className;
+      var inp = target.querySelector('input');
+      var checked = inp.checked;
+
+      var cityObj = JSON.parse(target.dataset.cityobj);
+
       if (isRadio) {
         callBack && callBack(cityObj);
         return;
@@ -209,37 +239,12 @@ var City = function (_Component) {
 
       var cityId = cityData[dataAttrName.id];
       var selectCityArr = this.state.selectCity.slice(0);
-      selectCityArr.map(function (ele, index) {
+      selectCityArr.forEach(function (ele, index) {
         Number(cityId) === Number(ele[dataAttrName.id]) && selectCityArr.splice(index, 1);
       });
       this.setState({
         selectCity: selectCityArr
       });
-    }
-    /* 点击头部已选城市的删除按钮 */
-
-  }, {
-    key: 'delSelect',
-    value: function delSelect(a) {
-      var cityid = a.currentTarget.dataset.cityid;
-
-      var ele = document.getElementById('city_' + cityid);
-      try {
-        // oppo r8007 安卓4.3手机运行会报错
-        ele.click();
-      } catch (e) {
-        var ev = document.createEvent('HTMLEvents');
-        ev.initEvent('click', true, true);
-        ele.dispatchEvent(ev);
-      }
-    }
-  }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate() {
-      var selectCon = document.getElementById('selectCon');
-      if (selectCon) {
-        selectCon.scrollTop = selectCon.scrollHeight;
-      }
     }
   }, {
     key: 'fast_charTouchMove',
@@ -283,82 +288,69 @@ var City = function (_Component) {
       return _react2.default.createElement(
         'ul',
         { className: 'cityCon' },
-        function () {
+        function init() {
           var arr = [];
           for (var a in cityObj) {
-            arr.push(_react2.default.createElement(
-              'li',
-              { key: a, id: 'first_char_' + a },
-              _react2.default.createElement(
-                'a',
-                {
-                  className: 'first_char',
-                  href: 'javascript:;'
-                },
-                a
-              ),
-              cityObj[a].map(function (ele, index) {
-                var isCheck = false;
-                selectCity.map(function () {
-                  var _ele = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+            if ({}.hasOwnProperty.call(cityObj, a)) {
+              arr.push(_react2.default.createElement(
+                'li',
+                { key: a, id: 'first_char_' + a },
+                _react2.default.createElement(
+                  'button',
+                  { className: 'first_char' },
+                  a
+                ),
+                cityObj[a].map(function (ele, index) {
+                  var isCheck = false;
+                  selectCity.forEach(function () {
+                    var _ele = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-                  if (Number(ele.city_id) === Number(_ele.city_id)) {
-                    isCheck = true;
-                  }
-                });
-                {/* div不用label是因为label click 会触发两次 */}
-                return _react2.default.createElement(
-                  'div',
-                  {
-                    className: 'list' + (isCheck ? ' select' : ''),
-                    key: index,
-                    id: 'city_' + ele.city_id,
-                    'data-cityobj': JSON.stringify(ele),
-                    onClick: self.cityClick
-                  },
-                  _react2.default.createElement('input', {
-                    className: 'none',
-                    defaultChecked: isCheck,
-                    name: 'cityInp',
-                    type: 'checkbox'
-                  }),
-                  !isRadio && _react2.default.createElement(
-                    'span',
+                    if (Number(ele.city_id) === Number(_ele.city_id)) {
+                      isCheck = true;
+                    }
+                  });
+                  return _react2.default.createElement(
+                    'div',
                     {
-                      className: 'check'
+                      className: 'list' + (isCheck ? ' select' : ''),
+                      key: index,
+                      id: 'city_' + ele.city_id,
+                      'data-cityobj': JSON.stringify(ele),
+                      onClick: self.cityClick
                     },
-                    _react2.default.createElement('span', {
-                      className: 'icon icon-popup_right'
-                    })
-                  ),
-                  _react2.default.createElement(
-                    'span',
-                    {
-                      className: 'cityName'
-                    },
-                    ele[dataAttrName.name]
-                  )
-                );
-              })
-            ));
+                    _react2.default.createElement('input', {
+                      className: 'none',
+                      defaultChecked: isCheck,
+                      name: 'cityInp',
+                      type: 'checkbox'
+                    }),
+                    !isRadio && _react2.default.createElement(
+                      'span',
+                      { className: 'check' },
+                      _react2.default.createElement('span', { className: 'icon icon-popup_right' })
+                    ),
+                    _react2.default.createElement(
+                      'span',
+                      {
+                        className: 'cityName'
+                      },
+                      ele[dataAttrName.name]
+                    )
+                  );
+                })
+              ));
+            }
           }
           return arr;
         }()
       );
     }
-    /* 点击定位城市的事件 */
-
-  }, {
-    key: 'positionAddrClick',
-    value: function positionAddrClick(e) {
-      document.getElementById('city_' + e.currentTarget.dataset.cityid).click();
-    }
   }, {
     key: 'initPositionCon',
     value: function initPositionCon() {
-      var _props2 = this.props,
-          position = _props2.position,
-          dataAttrName = _props2.dataAttrName;
+      var _props = this.props,
+          position = _props.position,
+          dataAttrName = _props.dataAttrName;
 
       if (!position) {
         return null;
@@ -376,7 +368,7 @@ var City = function (_Component) {
           {
             className: 'positionAddr',
             'data-cityid': position.city_id,
-            onClick: this.positionAddrClick
+            onClick: City.positionAddrClick
           },
           _react2.default.createElement('span', { className: 'icon icon-addr' }),
           _react2.default.createElement(
@@ -406,8 +398,6 @@ var City = function (_Component) {
   }, {
     key: 'initSelectCityCon',
     value: function initSelectCityCon() {
-      var _this2 = this;
-
       var selectCity = this.state.selectCity;
       var dataAttrName = this.props.dataAttrName;
 
@@ -417,9 +407,7 @@ var City = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: 'selectCon', id: 'selectCon' },
-        selectCity.map(function () {
-          var ele = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-          var index = arguments[1];
+        selectCity.map(function (ele, index) {
           return _react2.default.createElement(
             'div',
             {
@@ -434,11 +422,10 @@ var City = function (_Component) {
               null,
               ele[dataAttrName.name]
             ),
-            _react2.default.createElement('a', {
+            _react2.default.createElement('button', {
               className: 'icon icon-close',
               'data-cityid': ele.city_id,
-              onClick: _this2.delSelect,
-              href: 'javascript:;'
+              onClick: City.delSelect
             })
           );
         })
@@ -452,13 +439,10 @@ var City = function (_Component) {
       }
       var isRadio = this.state.isRadio;
 
-      var _props3 = this.props,
-          position = _props3.position,
-          cityArr = _props3.cityArr,
-          dataAttrName = _props3.dataAttrName,
-          callBack = _props3.callBack,
-          show = _props3.show,
-          other = _objectWithoutProperties(_props3, ['position', 'cityArr', 'dataAttrName', 'callBack', 'show']);
+      var _props2 = this.props,
+          position = _props2.position,
+          show = _props2.show,
+          other = _objectWithoutProperties(_props2, ['position', 'show']);
 
       if (!show) {
         return null;
@@ -1922,4 +1906,5 @@ City.defaultProps = {
     city_id: 337
   }]
 };
-module.exports = City;
+
+exports.default = City;

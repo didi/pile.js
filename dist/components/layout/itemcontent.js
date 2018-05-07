@@ -25,12 +25,12 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 var ItemContent = function ItemContent(props) {
   var className = props.className,
       children = props.children,
-      others = _objectWithoutProperties(props, ['className', 'children']),
-      cls = (0, _classnames2.default)(_defineProperty({
-    'jimu-item-content': true
-  }, className, className)),
-      Component = props.href ? 'a' : 'div';
+      others = _objectWithoutProperties(props, ['className', 'children']);
 
+  var cls = (0, _classnames2.default)(_defineProperty({
+    'pile-item-content': true
+  }, className, className));
+  var Component = props.href ? 'a' : 'div';
   return _react2.default.createElement(
     Component,
     _extends({ className: cls }, others),

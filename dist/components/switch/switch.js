@@ -92,22 +92,22 @@ var Switch = (_temp = _class = function (_React$Component) {
       var _props = this.props,
           radioName = _props.radioName,
           isSmall = _props.isSmall,
-          className = _props.className,
-          _state2 = this.state,
+          className = _props.className;
+      var _state2 = this.state,
           isOpen = _state2.isOpen,
           radioVal = _state2.radioVal,
           isReader = _state2.isReader,
-          disabled = _state2.disabled,
-          cls = (0, _classnames2.default)(_defineProperty({
+          disabled = _state2.disabled;
+
+      var cls = (0, _classnames2.default)(_defineProperty({
         'ui-switch': true,
-        'jimu-switch-issmall': isSmall,
+        'pile-switch-issmall': isSmall,
         'switch-open': isOpen && !isReader,
         'switch-open-move': isOpen && isReader,
         'switch-close': !isOpen && !isReader,
         'switch-close-move': !isOpen && isReader,
         'switch-disabled': disabled
       }, className, className));
-
       return _react2.default.createElement(
         'div',
         { className: cls, onClick: this.radioFun },

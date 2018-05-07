@@ -51,6 +51,8 @@ var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined'
 var Picker = (_temp = _class = function (_React$Component) {
   _inherits(Picker, _React$Component);
 
+  /* eslint-disable react/require-default-props,
+  no-underscore-dangle, no-multi-assign, react/no-find-dom-node, prefer-destructuring */
   function Picker(props) {
     _classCallCheck(this, Picker);
 
@@ -79,8 +81,8 @@ var Picker = (_temp = _class = function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var op = this.refs['op-0-0'],
-          opHeight = 0;
+      var op = this.refs['op-0-0'];
+      var opHeight = 0;
       if (op) {
         opHeight = this.state.optionHeight = _reactDom2.default.findDOMNode(op).clientHeight;
       }
@@ -97,12 +99,12 @@ var Picker = (_temp = _class = function (_React$Component) {
     value: function componentWillReceiveProps(nextProps) {
       var _this3 = this;
 
-      var self = this,
-          values = nextProps.value,
-          opArr = nextProps.options,
-          preValues = this.state.value,
-          preOpArr = this.state.options,
-          opHeight = this.state.optionHeight;
+      var self = this;
+      var values = nextProps.value;
+      var opArr = nextProps.options;
+      var preValues = this.state.value;
+      var preOpArr = this.state.options;
+      var opHeight = this.state.optionHeight;
       if (!Array.isArray(values)) {
         values = [values];
         opArr = [opArr];
@@ -111,8 +113,8 @@ var Picker = (_temp = _class = function (_React$Component) {
       }
       values.forEach(function (v, idx) {
         if (values[idx] !== preValues[idx] || opArr[idx] !== preOpArr[idx]) {
-          var ops = opArr[idx],
-              top = 0;
+          var ops = opArr[idx];
+          var top = 0;
           for (var oi = 0; oi < ops.length; oi++) {
             var opv = typeof ops[oi] === 'string' || typeof ops[oi] === 'number' ? ops[oi] : ops[oi].value;
             if (String(opv) === String(v)) {
@@ -144,12 +146,161 @@ var Picker = (_temp = _class = function (_React$Component) {
       return this.state.value;
     }
   }, {
-    key: 'render',
-    value: function render() {
+    key: 'dismiss',
+    value: function dismiss() {
+      if (this.state.closeable) {
+        this._onDismiss();
+      }
+    }
+  }, {
+    key: 'show',
+    value: function show() {
+      // prevent rapid show/hide
+      this._onShow();
+    }
+  }, {
+    key: '_cancelClick',
+    value: function _cancelClick() {
+      this.setState({
+        open: false
+      });
+      this.props.onClickCancel && this.props.onClickCancel();
+    }
+  }, {
+    key: '_okClick',
+    value: function _okClick() {
+      if (this.determine) {
+        this._handleOverlayTouchTap(this.state.opValue, this.state.opText, this.state.idx);
+      }
+    }
+  }, {
+    key: '_handleOverlayTouchTap',
+    value: function _handleOverlayTouchTap(value, text, idx) {
+      if (this.state.closeable) {
+        this._onDismiss();
+        this.props.onClickAway && this.props.onClickAway(value, text, idx);
+      }
+    }
+  }, {
+    key: '_onShow',
+    value: function _onShow() {
       var _this4 = this;
 
-      var values = this.state.value,
-          __options = this.state.options;
+      setTimeout(function () {
+        _this4.state.closeable = true;
+      }, 250);
+      this.setState({
+        open: true
+      });
+      this.props.onShow && this.props.onShow();
+    }
+  }, {
+    key: '_onDismiss',
+    value: function _onDismiss() {
+      this.setState({
+        open: false
+      });
+      this.props.onDismiss && this.props.onDismiss();
+    }
+  }, {
+    key: '_onScroll',
+    value: function _onScroll(e) {
+      var _this5 = this;
+
+      var el = e.target;
+      var idx = parseInt(el.dataset ? el.dataset.id : el.getAttribute('data-id'), 10);
+      var opHeight = this.state.optionHeight;
+      var scrollStartTop = this.state._scrollStartTop;
+
+      window.clearTimeout(this.state._scrollTimer);
+      this.state._scrollTimer = window.setTimeout(function () {
+        if (typeof scrollStartTop[idx] !== 'number') {
+          scrollStartTop[idx] = 0;
+        }
+
+        if (scrollStartTop[idx] === el.scrollTop) {
+          return;
+        }
+
+        var scrollTop = el.scrollTop;
+
+        var mod = scrollTop % opHeight;
+        var percent = mod / opHeight;
+
+        var toLowerItem = function toLowerItem() {
+          var diff = opHeight - mod;
+          scrollTop += diff;
+          el.scrollTop += diff;
+        };
+        var toUpperItem = function toUpperItem() {
+          scrollTop -= mod;
+          el.scrollTop -= mod;
+        };
+
+        /* eslint-disable no-unused-expressions */
+        if (scrollTop > scrollStartTop[idx]) {
+          percent > 0.46 ? toLowerItem() : toUpperItem();
+        } else {
+          percent < 0.64 ? toUpperItem() : toLowerItem();
+        }
+        /* eslint-enable no-unused-expressions */
+        scrollStartTop[idx] = scrollTop;
+        var opname = 'op-' + idx + '-' + scrollTop / opHeight;
+        if (_this5.refs[opname] && _reactDom2.default.findDOMNode(_this5.refs[opname]) && _reactDom2.default.findDOMNode(_this5.refs[opname]).getAttribute('data-value')) {
+          var op = _reactDom2.default.findDOMNode(_this5.refs[opname]).getAttribute('data-value');
+          if (!op) {
+            return;
+          }
+          op = JSON.parse(op);
+
+          var value = _this5.state.value;
+
+          if (Array.isArray(value)) {
+            value[idx] = op.value;
+          } else {
+            value = op.value;
+          }
+          _this5.setState({
+            value: value,
+            opValue: op.value,
+            opText: op.text,
+            idx: idx
+          });
+          _this5.props.onChange(op.value, op.text, idx);
+          _this5.determine = true;
+        } else {
+          _this5.determine = false;
+        }
+      }, 250);
+    }
+  }, {
+    key: '_clickOnOption',
+    value: function _clickOnOption(e) {
+      var el = e.target;
+      var value = el.dataset ? el.dataset.id : el.getAttribute('data-id');
+      if (!value) {
+        return;
+      }
+
+      var arr = value.split('-');
+      if (arr.length < 2) {
+        return;
+      }
+
+      var _list = this.refs['list-' + arr[0]];
+      if (!_list) {
+        return;
+      }
+      var list = _list; // div, ReactDOM.findDOMNode(_list)
+      list.scrollTop = this.state.optionHeight * parseInt(arr[1], 10);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this6 = this;
+
+      var values = this.state.value;
+      var __options = this.state.options;
       if (!Array.isArray(values)) {
         values = [values];
         __options = [__options];
@@ -162,9 +313,9 @@ var Picker = (_temp = _class = function (_React$Component) {
       var i = -1; // counter for __options, for it is an array or key-map object
       var lists = __options.map(function (options) {
         if (!options) {
-          return;
+          return null;
         }
-        i++;
+        i += 1;
         var j = -1; // counter for options, for it is an array or key-map object
         return _react2.default.createElement(
           'div',
@@ -174,20 +325,20 @@ var Picker = (_temp = _class = function (_React$Component) {
             'data-id': i,
             className: 'list-wrap',
             style: style,
-            onScroll: isBrowser ? _this4._onScroll : undefined
+            onScroll: isBrowser ? _this6._onScroll : undefined
           },
           _react2.default.createElement(
             'ul',
             null,
             options.map(function (op) {
-              j++;
+              j += 1;
               if (typeof op === 'string' || typeof op === 'number') {
                 op = {
                   text: op,
                   value: op
                 };
               } else if ((typeof op === 'undefined' ? 'undefined' : _typeof(op)) !== 'object' || !op.text) {
-                return;
+                return null;
               }
               if (typeof op.value !== 'string' && typeof op.value !== 'number') {
                 op.value = '';
@@ -228,7 +379,7 @@ var Picker = (_temp = _class = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: ['jimu-picker', this.props.className].join(' ') },
+        { className: ['pile-picker', this.props.className].join(' ') },
         this.props.children,
         _react2.default.createElement(
           'div',
@@ -268,156 +419,6 @@ var Picker = (_temp = _class = function (_React$Component) {
         )
       );
     }
-  }, {
-    key: 'dismiss',
-    value: function dismiss() {
-      if (this.state.closeable) {
-        this._onDismiss();
-      }
-    }
-  }, {
-    key: 'show',
-    value: function show() {
-      // prevent rapid show/hide
-      this._onShow();
-    }
-  }, {
-    key: '_cancelClick',
-    value: function _cancelClick() {
-      this.setState({
-        open: false,
-        loading: false
-      });
-      this.props.onClickCancel && this.props.onClickCancel();
-    }
-  }, {
-    key: '_okClick',
-    value: function _okClick() {
-      if (this.determine) {
-        this._handleOverlayTouchTap(this.state.opValue, this.state.opText, this.state.idx);
-      }
-    }
-  }, {
-    key: '_handleOverlayTouchTap',
-    value: function _handleOverlayTouchTap(value, text, idx) {
-      if (this.state.closeable) {
-        this._onDismiss();
-        this.props.onClickAway && this.props.onClickAway(value, text, idx);
-      }
-    }
-  }, {
-    key: '_onShow',
-    value: function _onShow() {
-      var _this5 = this;
-
-      setTimeout(function () {
-        _this5.state.closeable = true;
-      }, 250);
-      this.setState({
-        open: true
-      });
-      this.props.onShow && this.props.onShow();
-    }
-  }, {
-    key: '_onDismiss',
-    value: function _onDismiss() {
-      this.setState({
-        open: false,
-        loading: false
-      });
-      this.props.onDismiss && this.props.onDismiss();
-    }
-  }, {
-    key: '_onPageScroll',
-    value: function _onPageScroll(e) {}
-  }, {
-    key: '_onScroll',
-    value: function _onScroll(e) {
-      var _this6 = this;
-
-      var el = e.target,
-          idx = parseInt(el.dataset ? el.dataset.id : el.getAttribute('data-id'), 10),
-          opHeight = this.state.optionHeight,
-          scrollStartTop = this.state._scrollStartTop;
-
-      window.clearTimeout(this.state._scrollTimer);
-      this.state._scrollTimer = window.setTimeout(function () {
-        if (typeof scrollStartTop[idx] !== 'number') {
-          scrollStartTop[idx] = 0;
-        }
-
-        if (scrollStartTop[idx] === el.scrollTop) {
-          return;
-        }
-
-        var scrollTop = el.scrollTop,
-            mod = scrollTop % opHeight,
-            percent = mod / opHeight;
-
-        var toLowerItem = function toLowerItem() {
-          var diff = opHeight - mod;
-          scrollTop += diff;
-          el.scrollTop += diff;
-        };
-        var toUpperItem = function toUpperItem() {
-          scrollTop -= mod;
-          el.scrollTop -= mod;
-        };
-
-        if (scrollTop > scrollStartTop[idx]) {
-          percent > 0.46 ? toLowerItem() : toUpperItem();
-        } else {
-          percent < 0.64 ? toUpperItem() : toLowerItem();
-        }
-        scrollStartTop[idx] = scrollTop;
-        var opname = 'op-' + idx + '-' + scrollTop / opHeight;
-        if (_this6.refs[opname] && _reactDom2.default.findDOMNode(_this6.refs[opname]) && _reactDom2.default.findDOMNode(_this6.refs[opname]).getAttribute('data-value')) {
-          var op = _reactDom2.default.findDOMNode(_this6.refs[opname]).getAttribute('data-value');
-          if (!op) {
-            return;
-          }
-          op = JSON.parse(op);
-
-          var value = _this6.state.value;
-          if (Array.isArray(value)) {
-            value[idx] = op.value;
-          } else {
-            value = op.value;
-          }
-          _this6.setState({
-            value: value,
-            opValue: op.value,
-            opText: op.text,
-            idx: idx
-          });
-          _this6.props.onChange(op.value, op.text, idx);
-          _this6.determine = true;
-        } else {
-          _this6.determine = false;
-        }
-      }, 250);
-    }
-  }, {
-    key: '_clickOnOption',
-    value: function _clickOnOption(e) {
-      var el = e.target,
-          value = el.dataset ? el.dataset.id : el.getAttribute('data-id');
-      if (!value) {
-        return;
-      }
-
-      var arr = value.split('-');
-      if (arr.length < 2) {
-        return;
-      }
-
-      var _list = this.refs['list-' + arr[0]];
-      if (!_list) {
-        return;
-      }
-      var list = _list; // div, ReactDOM.findDOMNode(_list)
-      list.scrollTop = this.state.optionHeight * parseInt(arr[1], 10);
-    }
   }]);
 
   return Picker;
@@ -430,10 +431,11 @@ var Picker = (_temp = _class = function (_React$Component) {
   onClickAway: _propTypes2.default.func,
   width: _propTypes2.default.string
 }, _class.defaultProps = {
-  onChange: function onChange(value, text, idx) {}
+  onChange: function onChange() {}
 }, _temp);
 
 Picker.contextTypes = {
-  jimuLocale: _propTypes2.default.object
+  pileLocale: _propTypes2.default.object
 };
+
 exports.default = Picker;

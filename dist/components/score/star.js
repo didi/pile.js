@@ -33,6 +33,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Star = (_temp = _class = function (_React$Component) {
   _inherits(Star, _React$Component);
 
+  _createClass(Star, null, [{
+    key: 'setLenArrFuc',
+    value: function setLenArrFuc(len) {
+      return Array(len).fill(0);
+    }
+  }]);
+
   function Star(props) {
     _classCallCheck(this, Star);
 
@@ -43,11 +50,11 @@ var Star = (_temp = _class = function (_React$Component) {
         defaultVal = _this$props.defaultVal;
 
     if (len < defaultVal) {
-      console.error('当前默认值大于len,请检查默认值');
+      throw new Error('当前默认值大于len,请检查默认值');
     }
     _this.state = {
       currentValue: defaultVal,
-      setLenArr: _this.setLenArrFuc(len)
+      setLenArr: Star.setLenArrFuc(len)
     };
     return _this;
   }
@@ -57,7 +64,7 @@ var Star = (_temp = _class = function (_React$Component) {
     value: function componentWillReceiveProps(nextProps) {
       this.state = {
         currentValue: nextProps.defaultVal,
-        setLenArr: this.setLenArrFuc(nextProps.len)
+        setLenArr: Star.setLenArrFuc(nextProps.len)
       };
     }
   }, {
@@ -70,11 +77,6 @@ var Star = (_temp = _class = function (_React$Component) {
         currentValue: n
       });
       this.props.back && this.props.back(n);
-    }
-  }, {
-    key: 'setLenArrFuc',
-    value: function setLenArrFuc(len) {
-      return Array(len).fill(0);
     }
   }, {
     key: 'render',
@@ -90,16 +92,16 @@ var Star = (_temp = _class = function (_React$Component) {
           currentValue = _state.currentValue;
 
       var cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-score-star': true,
-        'jimu-score-disabled': disabled,
-        'jimu-score-bigger': bigger
+        'pile-score-star': true,
+        'pile-score-disabled': disabled,
+        'pile-score-bigger': bigger
       }, className, className));
       return _react2.default.createElement(
         'div',
         { className: cls },
         _react2.default.createElement(
           'div',
-          { className: 'jimu-star-main' },
+          { className: 'pile-star-main' },
           setLenArr.map(function (re, index) {
             var strCls = (0, _classnames2.default)({
               'icon-trip_icon_star': true,

@@ -12,7 +12,7 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _anime = require('./anime.min');
+var _anime = require('../../lib/anime/anime.min');
 
 var _anime2 = _interopRequireDefault(_anime);
 
@@ -56,24 +56,12 @@ var Anime = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      // let children = []
-      // if (this.props.children) {
-      //   if (Array.isArray(this.props.children)) children = this.props.children
-      //   else children = [this.props.children]
-      // }
-      // return ( < g > {
-      //   children.map((child, i) => (React.cloneElement(child, {
-      //     key: i,
-      //     ref: this.addTarget
-      //   })))
-      // } < /g>)
-
       return _react2.default.createElement(
         'g',
         null,
         _react2.default.Children.map(this.props.children, function (child, i) {
           if (!child) {
-            return;
+            return null;
           }
           return _react2.default.cloneElement(child, {
             key: i,

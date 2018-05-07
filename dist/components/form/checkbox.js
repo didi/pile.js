@@ -77,24 +77,26 @@ var Checkbox = (_temp = _class = function (_React$Component) {
       var _props = this.props,
           className = _props.className,
           label = _props.label,
-          disabled = _props.disabled,
-          defaultChecked = this.state.defaultChecked;
+          id = _props.id,
+          disabled = _props.disabled;
+      var defaultChecked = this.state.defaultChecked;
 
 
       var cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-form-checkbox': true,
-        'jimu-checkbox-checked': defaultChecked,
-        'jimu-checkbox-disabled': disabled
+        'pile-form-checkbox': true,
+        'pile-checkbox-checked': defaultChecked,
+        'pile-checkbox-disabled': disabled
       }, className, className));
+
+      var checkboxState = defaultChecked ? 'icon-pile-check' : 'icon-pile-check-normal';
 
       return _react2.default.createElement(
         'div',
         { className: cls, onClick: this.clicktaggle },
-        !defaultChecked && _react2.default.createElement('span', { className: 'icon-jimu-check-normal' }),
-        defaultChecked && _react2.default.createElement('span', { className: 'icon-jimu-check' }),
         _react2.default.createElement(
           'label',
-          null,
+          { className: 'label', htmlFor: id },
+          _react2.default.createElement('span', { id: id, className: (0, _classnames2.default)('icon', checkboxState) }),
           label
         )
       );
@@ -106,12 +108,14 @@ var Checkbox = (_temp = _class = function (_React$Component) {
   back: _propTypes2.default.func,
   disabled: _propTypes2.default.bool,
   defaultChecked: _propTypes2.default.bool,
-  label: _propTypes2.default.string
+  label: _propTypes2.default.string,
+  id: _propTypes2.default.string
 }, _class.defaultProps = {
   back: function back() {},
 
   disabled: false,
   defaultChecked: false,
-  label: ''
+  label: '',
+  id: 'pile-checkbox'
 }, _temp);
 exports.default = Checkbox;

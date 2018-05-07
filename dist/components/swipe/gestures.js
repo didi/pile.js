@@ -69,6 +69,7 @@ var Gestures = (_temp = _class = function (_React$Component) {
         _this._handleTapGesture(ge);
       }
       _this._resetState();
+      return true;
     };
 
     _this.state = {
@@ -127,8 +128,10 @@ var Gestures = (_temp = _class = function (_React$Component) {
           absX = _ge$gesture.absX,
           deltaY = _ge$gesture.deltaY,
           absY = _ge$gesture.absY;
+      /* eslint-disable  no-nested-ternary */
 
       var direction = absX > absY ? deltaX < 0 ? 'Right' : 'Left' : deltaY < 0 ? 'Up' : 'Down';
+      /* esline-enable  no-nested-ternary */
 
       this.setState({ swiping: true });
 
@@ -151,10 +154,6 @@ var Gestures = (_temp = _class = function (_React$Component) {
 
   return Gestures;
 }(_react2.default.Component), _class.propTypes = {
-  onSwipeUp: _propTypes2.default.func,
-  onSwipeDown: _propTypes2.default.func,
-  onSwipeLeft: _propTypes2.default.func,
-  onSwipeRight: _propTypes2.default.func,
   flickThreshold: _propTypes2.default.number,
   swipeThreshold: _propTypes2.default.number
 }, _class.defaultProps = {

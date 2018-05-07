@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _confirm = require('./confirm');
 
 var _confirm2 = _interopRequireDefault(_confirm);
@@ -30,7 +34,7 @@ var _bubble2 = _interopRequireDefault(_bubble);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-module.exports = {
+exports.default = {
   Confirm: _confirm2.default,
   NConfirm: _nconfirm2.default,
   Alert: _alert2.default,

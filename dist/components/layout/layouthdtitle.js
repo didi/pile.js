@@ -25,11 +25,11 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 var LayoutHdTitle = function LayoutHdTitle(props) {
   var className = props.className,
       children = props.children,
-      others = _objectWithoutProperties(props, ['className', 'children']),
-      cls = (0, _classnames2.default)(_defineProperty({
-    'jimu-layout-hd-title': true
-  }, className, className));
+      others = _objectWithoutProperties(props, ['className', 'children']);
 
+  var cls = (0, _classnames2.default)(_defineProperty({
+    'pile-layout-hd-title': true
+  }, className, className));
   return _react2.default.createElement(
     'h2',
     _extends({ className: cls }, others),

@@ -4,17 +4,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _class, _temp, _initialiseProps;
-
-var _stylesheet = require('./stylesheet');
-
-var _stylesheet2 = _interopRequireDefault(_stylesheet);
+var _class, _temp2;
 
 var _stilr = require('stilr');
 
@@ -30,9 +26,15 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _utils = require('./utils');
 
+var _stylesheet = require('./stylesheet');
+
+var _stylesheet2 = _interopRequireDefault(_stylesheet);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -63,38 +65,48 @@ var cellStyles = _stilr2.default.create({
   }
 }, _stylesheet2.default);
 
-var Cell = (_temp = _class = function (_React$Component) {
+var Cell = (_temp2 = _class = function (_React$Component) {
   _inherits(Cell, _React$Component);
 
-  function Cell(props, context) {
+  function Cell() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, Cell);
 
-    var _this = _possibleConstructorReturn(this, (Cell.__proto__ || Object.getPrototypeOf(Cell)).call(this, props, context));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-    _initialiseProps.call(_this);
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Cell.__proto__ || Object.getPrototypeOf(Cell)).call.apply(_ref, [this].concat(args))), _this), _this.getDefinedBreakpoints = function () {
+      var breakpoints = [];
 
-    return _this;
+      for (var i = 0, len = ERGONOMICS.length; i < len; i++) {
+        if (_this.props[ERGONOMICS[i]]) breakpoints.push(ERGONOMICS[i]);
+      }
+
+      return breakpoints;
+    }, _this.getMatchingBreakpoint = function () {
+      return _this.props[_utils.findMatch.apply(undefined, _toConsumableArray(_this.getDefinedBreakpoints()))];
+    }, _this.handleFlexSize = function (breakpoint) {
+      var _this$props = _this.props,
+          grow = _this$props.grow,
+          size = _this$props.size;
+      /* eslint-disable no-nested-ternary */
+
+      var growStyle = typeof grow === 'number' ? grow : grow === false ? 0 : undefined;
+
+      return breakpoint && breakpoint !== 'hidden' ? _this.calcWidth(breakpoint) : size ? _this.calcWidth(size) : growStyle !== undefined ? {
+        flex: growStyle + ' 1 auto',
+        WebkitFlex: growStyle + ' 1 auto',
+        msFlex: growStyle + ' 1 auto'
+      } : null;
+      /* eslint-enable no-nested-ternary */
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Cell, [{
-    key: 'calcWidth',
-    value: function calcWidth(size) {
-      if (typeof size === 'number') {
-        return {
-          width: size < 1 ? Math.round(size * 10000) / 100 + '%' : size + 'px'
-        };
-      }
-
-      var _ref = size ? size.split('/') : [],
-          _ref2 = _slicedToArray(_ref, 2),
-          numerator = _ref2[0],
-          denominator = _ref2[1];
-
-      return {
-        width: 100 / denominator * numerator + '%'
-      };
-    }
-  }, {
     key: 'render',
     value: function render() {
       var _props = this.props,
@@ -104,12 +116,7 @@ var Cell = (_temp = _class = function (_React$Component) {
           align = _props.align,
           style = _props.style,
           children = _props.children,
-          palm = _props.palm,
-          lap = _props.lap,
-          portable = _props.portable,
-          desk = _props.desk,
-          grow = _props.grow,
-          rest = _objectWithoutProperties(_props, ['gutter', 'flex', 'className', 'align', 'style', 'children', 'palm', 'lap', 'portable', 'desk', 'grow']);
+          rest = _objectWithoutProperties(_props, ['gutter', 'flex', 'className', 'align', 'style', 'children']);
 
       var breakpoint = this.getMatchingBreakpoint();
 
@@ -128,10 +135,33 @@ var Cell = (_temp = _class = function (_React$Component) {
         'div',
         _extends({}, rest, {
           style: this.styles,
-          className: classes }),
+          className: classes
+        }),
         children
       );
     }
+  }], [{
+    key: 'calcWidth',
+    value: function calcWidth(size) {
+      if (typeof size === 'number') {
+        return {
+          width: size < 1 ? Math.round(size * 10000) / 100 + '%' : size + 'px'
+        };
+      }
+
+      var _ref2 = size ? size.split('/') : [],
+          _ref3 = _slicedToArray(_ref2, 2),
+          numerator = _ref3[0],
+          denominator = _ref3[1];
+
+      return {
+        width: 100 / denominator * numerator + '%'
+      };
+    }
+    /* eslint-disable react/require-default-props */
+
+    /* eslint-enable react/require-default-props */
+
   }]);
 
   return Cell;
@@ -145,34 +175,11 @@ var Cell = (_temp = _class = function (_React$Component) {
     if (value && !(typeof value === 'number' || typeof value === 'string' && /^[0-9]+\/[0-9]+$/.test(value))) {
       return new Error('Size should be a fraction (e.g. 1/6) or a number for fixed size');
     }
-  }
-}, _initialiseProps = function _initialiseProps() {
-  var _this2 = this;
-
-  this.handleFlexSize = function (breakpoint) {
-    var _props2 = _this2.props,
-        grow = _props2.grow,
-        size = _props2.size;
-
-    var growStyle = typeof grow === 'number' ? grow : grow === false ? 0 : undefined;
-
-    return breakpoint && breakpoint !== 'hidden' ? _this2.calcWidth(breakpoint) : size ? _this2.calcWidth(size) : growStyle !== undefined ? { flex: growStyle + ' 1 auto',
-      WebkitFlex: growStyle + ' 1 auto',
-      msFlex: growStyle + ' 1 auto' } : null;
-  };
-
-  this.getDefinedBreakpoints = function () {
-    var breakpoints = [];
-
-    for (var i = 0, len = ERGONOMICS.length; i < len; i++) {
-      if (_this2.props[ERGONOMICS[i]]) breakpoints.push(ERGONOMICS[i]);
-    }
-
-    return breakpoints;
-  };
-
-  this.getMatchingBreakpoint = function () {
-    return _this2.props[_utils.findMatch.apply(null, _this2.getDefinedBreakpoints())];
-  };
-}, _temp);
+    return true;
+  } }, _class.defaultProps = {
+  grow: false,
+  gutter: '',
+  flex: true,
+  align: null
+}, _temp2);
 exports.default = Cell;

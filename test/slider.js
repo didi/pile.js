@@ -45,7 +45,7 @@ describe('<SliderLine></SliderLine>', () => {
     const wrapper = shallow(<SliderLine />);
 
     assert(wrapper.instance() instanceof SliderLine);
-    assert(wrapper.find('.Pile-slider').length > 0);
+    assert(wrapper.find('.pile-slider').length > 0);
     // console.log(wrapper.find('.Pile-slider').length)
   });
 

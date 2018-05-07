@@ -26,13 +26,13 @@ var ItemLink = function ItemLink(props) {
   var className = props.className,
       children = props.children,
       diff = props.diff,
-      others = _objectWithoutProperties(props, ['className', 'children', 'diff']),
-      cls = (0, _classnames2.default)(_defineProperty({
-    'jimu-item-link': true,
-    'jimu-item-link-diff': diff
-  }, className, className)),
-      Component = props.href ? 'a' : 'span';
+      others = _objectWithoutProperties(props, ['className', 'children', 'diff']);
 
+  var cls = (0, _classnames2.default)(_defineProperty({
+    'pile-item-link': true,
+    'pile-item-link-diff': diff
+  }, className, className));
+  var Component = props.href ? 'a' : 'span';
   return _react2.default.createElement(
     Component,
     _extends({ className: cls }, others),

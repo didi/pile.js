@@ -39,6 +39,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var SwipeItems = (_temp = _class = function (_React$Component) {
   _inherits(SwipeItems, _React$Component);
 
+  /* eslint-disable react/no-unused-prop-types */
   function SwipeItems(props) {
     _classCallCheck(this, SwipeItems);
 
@@ -50,6 +51,7 @@ var SwipeItems = (_temp = _class = function (_React$Component) {
     _this.initSetState(_this.props);
     return _this;
   }
+  /* eslint-enable react/no-unused-prop-types */
 
   _createClass(SwipeItems, [{
     key: 'componentWillReceiveProps',
@@ -88,7 +90,7 @@ var SwipeItems = (_temp = _class = function (_React$Component) {
     key: 'lotStateVal',
     value: function lotStateVal(key) {
       var newArr = [];
-      _react2.default.Children.map(this.props.children, function (child, i) {
+      _react2.default.Children.map(this.props.children, function () {
         var newKey = key;
         newArr.push(newKey);
       });
@@ -138,19 +140,19 @@ var SwipeItems = (_temp = _class = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var self = this,
-          _props = this.props,
+      var self = this;
+      var _props = this.props,
           className = _props.className,
-          buttons = _props.buttons,
-          _state = this.state,
+          buttons = _props.buttons;
+      var _state = this.state,
           disTouchs = _state.disTouchs,
           shows = _state.shows,
           touchDefaults = _state.touchDefaults,
-          displacements = _state.displacements,
-          cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-swipe-items': true
-      }, className, className));
+          displacements = _state.displacements;
 
+      var cls = (0, _classnames2.default)(_defineProperty({
+        'pile-swipe-items': true
+      }, className, className));
 
       var defaultButtons = [{
         type: 'delet',
@@ -180,7 +182,7 @@ var SwipeItems = (_temp = _class = function (_React$Component) {
           }
           return _react2.default.createElement(
             'div',
-            { className: 'jimu-swipe-del jimu-item-undel', key: index },
+            { className: 'pile-swipe-del pile-item-undel', key: index },
             child
           );
         })
@@ -195,8 +197,7 @@ var SwipeItems = (_temp = _class = function (_React$Component) {
   displacements: _propTypes2.default.array,
   disTouchs: _propTypes2.default.array,
   touchDefaults: _propTypes2.default.array,
-  itemsTouchBack: _propTypes2.default.func
-}, _class.defaultProps = {
+  itemsTouchBack: _propTypes2.default.func }, _class.defaultProps = {
   buttons: [], // 按钮信息 { type: 'cancel', label: '取消', onClick: self._confirmcancel }
   shows: [], // 数据展开
   displacements: [], // 默认已滑动展开

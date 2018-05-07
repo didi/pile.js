@@ -123,18 +123,12 @@ var Search = (_temp = _class = function (_React$Component) {
 
       var _props = this.props,
           className = _props.className,
-          onChangeHandle = _props.onChangeHandle,
-          onClearHandle = _props.onClearHandle,
-          onCancelHandle = _props.onCancelHandle,
-          onSubmitHandle = _props.onSubmitHandle,
-          onFocusHandle = _props.onFocusHandle,
-          onBlurHandle = _props.onBlurHandle,
-          others = _objectWithoutProperties(_props, ['className', 'onChangeHandle', 'onClearHandle', 'onCancelHandle', 'onSubmitHandle', 'onFocusHandle', 'onBlurHandle']),
-          cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-search-bar': true,
-        'jimu-focusing': this.state.focus
-      }, className, className));
+          others = _objectWithoutProperties(_props, ['className']);
 
+      var cls = (0, _classnames2.default)(_defineProperty({
+        'pile-search-bar': true,
+        'pile-focusing': this.state.focus
+      }, className, className));
       var locale = (0, _getLocale.getComponentLocale)(this.props, this.context, 'Search', function () {
         return _zhCN2.default.Search;
       });
@@ -146,17 +140,17 @@ var Search = (_temp = _class = function (_React$Component) {
         { className: cls },
         _react2.default.createElement(
           'div',
-          { className: 'jimu-search-form' },
+          { className: 'pile-search-form' },
           _react2.default.createElement(
             'div',
-            { className: 'jimu-search-layout' },
+            { className: 'pile-search-layout' },
             _react2.default.createElement('span', { className: 'pos-a icon-search', onClick: this.submitHandle }),
             _react2.default.createElement('input', _extends({
               ref: function ref(n) {
                 _this2.searchInput = n;
               },
               type: 'text',
-              className: 'jimu-search-input',
+              className: 'pile-search-input',
               onFocus: this.focusHandle,
               onBlur: this.blurHandle,
               onInput: this.changeHandle,
@@ -192,7 +186,7 @@ var Search = (_temp = _class = function (_React$Component) {
   onBlurHandle: _propTypes2.default.func,
   onCancelHandle: _propTypes2.default.func
 }, _class.defaultProps = {
-  name: 'jimu-search',
+  name: 'pile-search',
   onChangeHandle: function onChangeHandle() {},
   onClearHandle: function onClearHandle() {},
   onCancelHandle: function onCancelHandle() {},
@@ -203,7 +197,7 @@ var Search = (_temp = _class = function (_React$Component) {
 
 
 Search.contextTypes = {
-  jimuLocale: _propTypes2.default.object
+  pileLocale: _propTypes2.default.object
 };
 
 exports.default = Search;

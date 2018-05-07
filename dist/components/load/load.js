@@ -34,6 +34,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var loadcargit = require('../../styles/image/loadingcar.gif');
 
+/* eslint-disable react/no-unused-prop-types, no-underscore-dangle */
 var Load = (_temp = _class = function (_React$Component) {
   _inherits(Load, _React$Component);
 
@@ -79,8 +80,8 @@ var Load = (_temp = _class = function (_React$Component) {
   }, {
     key: '_timeOut',
     value: function _timeOut() {
-      var self = this,
-          timeOut = this.state.timeOut;
+      var self = this;
+      var timeOut = this.state.timeOut;
 
 
       if (timeOut) {
@@ -140,42 +141,11 @@ var Load = (_temp = _class = function (_React$Component) {
             _react2.default.createElement('span', null),
             _react2.default.createElement('span', null)
           );
-        /*
-          <div className="load-layer load-logo">
-            <img src = {loadgif} />
-          </div>
-        */
         case 'loadLogo':
-          return _react2.default.createElement(
-            'div',
-            { className: 'load-layer jimu-load-loading' },
-            _react2.default.createElement(
-              'div',
-              { className: 'load-spinner' },
-              _react2.default.createElement('div', null),
-              _react2.default.createElement('div', null),
-              _react2.default.createElement('div', null),
-              _react2.default.createElement('div', null),
-              _react2.default.createElement('div', null),
-              _react2.default.createElement('div', null),
-              _react2.default.createElement('div', null),
-              _react2.default.createElement('div', null),
-              _react2.default.createElement('div', null),
-              _react2.default.createElement('div', null),
-              _react2.default.createElement('div', null),
-              _react2.default.createElement('div', null)
-            ),
-            _react2.default.createElement(
-              'p',
-              { className: 'load-text' },
-              text
-            )
-          );
-
         case 'loading':
           return _react2.default.createElement(
             'div',
-            { className: 'load-layer jimu-load-loading' },
+            { className: 'load-layer pile-load-loading' },
             _react2.default.createElement(
               'div',
               { className: 'load-spinner' },
@@ -202,7 +172,7 @@ var Load = (_temp = _class = function (_React$Component) {
         case 'ballScale':
           return _react2.default.createElement(
             'div',
-            { className: 'load-layer jimu-load-ball' },
+            { className: 'load-layer pile-load-ball' },
             _react2.default.createElement(
               'div',
               { className: 'load-balls' },
@@ -215,7 +185,7 @@ var Load = (_temp = _class = function (_React$Component) {
         default:
           return _react2.default.createElement(
             'div',
-            { className: 'load-layer jimu-load-loading' },
+            { className: 'load-layer pile-load-loading' },
             _react2.default.createElement(
               'div',
               { className: 'load-spinner' },

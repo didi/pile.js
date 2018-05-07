@@ -14,11 +14,11 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-require('./binaryFile');
+require('./lib/binaryFile');
 
-require('./exif');
+require('./lib/exif');
 
-require('./canvasResize');
+require('./lib/canvasResize');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30,14 +30,15 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+/* global Blob */
 // 早期版本的浏览器需要用BlobBuilder来构造Blob，创建一个通用构造器来兼容早期版本
-var BlobConstructor = function () {
+var BlobConstructor = function init() {
   try {
     return new Blob() && true;
   } catch (e) {
     return false;
   }
-}() ? window.Blob : function (parts, opts) {
+}() ? window.Blob : function initBlob(parts, opts) {
   var bb = new (window.BlobBuilder || window.WebKitBlobBuilder || window.MSBlobBuilder || window.MozBlobBuilder)();
   parts.forEach(function (p) {
     bb.append(p);
@@ -57,16 +58,8 @@ var dataURLtoBlob = function dataURLtoBlob(base64, type) {
   return new BlobConstructor([ia], { type: 'image/' + type });
 };
 
-var isEmptyObject = function isEmptyObject(e) {
-  var t = void 0;
-  for (t in e) {
-    return false;
-  }
-  return true;
-};
-
 var propTypes = {
-  plusDesc: _react2.default.PropTypes.string, // 图片上传文字提示
+  id: _react2.default.PropTypes.string,
   accept: _react2.default.PropTypes.string, // 上传文件格式
   imageArray: _react2.default.PropTypes.array, // 图片默认展示
   imageMaxLen: _react2.default.PropTypes.number, // 图片上传最大个数
@@ -77,8 +70,8 @@ var propTypes = {
 };
 
 var defaultProps = {
+  id: 'upload-multiple',
   imgURI: null,
-  plusDesc: '添加图片',
   accept: 'image/*',
   imageQuality: 0.8,
   imageMaxWidth: 600,
@@ -97,18 +90,8 @@ var UploadImageArray = function (_Component) {
     var _this = _possibleConstructorReturn(this, (UploadImageArray.__proto__ || Object.getPrototypeOf(UploadImageArray)).call(this, props));
 
     _this.state = {
-      imgURI: props.imgURI || '',
       imageBase64: null,
-      originalWidth: 0,
-      originalHeight: 0,
-      originalBase64Length: 0,
-      compressedWidth: 0,
-      compressedHeight: 0,
-      compressedBase64Length: 0,
-      imageArray: props.imageArray || [],
-      orientation: 1,
-      fileType: '',
-      compressedFileType: ''
+      imageArray: props.imageArray || []
     };
     _this.addImage = _this.addImage.bind(_this);
     return _this;
@@ -124,18 +107,18 @@ var UploadImageArray = function (_Component) {
       }
     }
   }, {
-    key: 'outputImageArray',
-    value: function outputImageArray(imageArray) {
-      var onLoadSuccess = this.props.onLoadSuccess;
-
-      onLoadSuccess && onLoadSuccess(imageArray);
-    }
-  }, {
     key: 'getBlob',
     value: function getBlob(outputImageType) {
       var imageBase64 = this.state.imageBase64;
 
       return dataURLtoBlob(imageBase64, outputImageType);
+    }
+  }, {
+    key: 'outputImageArray',
+    value: function outputImageArray(imageArray) {
+      var onLoadSuccess = this.props.onLoadSuccess;
+
+      onLoadSuccess && onLoadSuccess(imageArray);
     }
   }, {
     key: 'addImage',
@@ -145,7 +128,8 @@ var UploadImageArray = function (_Component) {
       var file = e.target.files[0];
       var _props = this.props,
           imageMaxWidth = _props.imageMaxWidth,
-          imageQuality = _props.imageQuality;
+          imageQuality = _props.imageQuality,
+          onLoadError = _props.onLoadError;
       var imageArray = this.state.imageArray;
 
       window.canvasResize(file, {
@@ -177,7 +161,7 @@ var UploadImageArray = function (_Component) {
             self.outputImageArray(imageArray);
           }, 0);
         },
-        onerror: function onerror(e) {
+        onerror: function onerror() {
           onLoadError && onLoadError();
         }
       });
@@ -199,14 +183,13 @@ var UploadImageArray = function (_Component) {
       var _this2 = this;
 
       var _props2 = this.props,
-          plusDesc = _props2.plusDesc,
           className = _props2.className,
           accept = _props2.accept,
           imageMaxLen = _props2.imageMaxLen;
       var imageArray = this.state.imageArray;
 
       var cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-upload-wrap': true
+        'pile-upload-wrap': true
       }, className, className));
       return _react2.default.createElement(
         'div',
@@ -214,12 +197,12 @@ var UploadImageArray = function (_Component) {
         imageArray.map(function (item, index) {
           return _react2.default.createElement(
             'div',
-            { key: index, className: (0, _classnames2.default)('jimu-uploadImage-wrapper', className) },
-            _react2.default.createElement('img', { className: 'jimu-uploadImage-preview', src: item.imgURI }),
+            { key: index, className: (0, _classnames2.default)('pile-uploadImage-wrapper', className) },
+            _react2.default.createElement('img', { className: 'pile-uploadImage-preview', src: item.imgURI, alt: '' }),
             _react2.default.createElement(
               'div',
-              { className: 'jimu-uploadImage-plus-wrapper' },
-              _react2.default.createElement('span', { className: 'jimu-uploadImage-delete icon-jimu-error', onClick: function onClick() {
+              { className: 'pile-uploadImage-plus-wrapper' },
+              _react2.default.createElement('span', { className: 'pile-uploadImage-delete icon-pile-error', onClick: function onClick() {
                   _this2.deleteImageArray(index);
                 } })
             )
@@ -227,17 +210,17 @@ var UploadImageArray = function (_Component) {
         }),
         imageMaxLen > imageArray.length && _react2.default.createElement(
           'div',
-          { className: 'jimu-uploadImage-add' },
+          { className: 'pile-uploadImage-add' },
           _react2.default.createElement(
             'div',
-            { className: 'jimu-uploadImage-plus-wrapper' },
-            _react2.default.createElement('span', { className: 'car-icons-add jimu-uploadImage-plus' }),
-            _react2.default.createElement('p', { className: 'jimu-uploadImage-desc' })
+            { className: 'pile-uploadImage-plus-wrapper' },
+            _react2.default.createElement('span', { className: 'car-icons-add pile-uploadImage-plus' }),
+            _react2.default.createElement('p', { className: 'pile-uploadImage-desc' })
           ),
           _react2.default.createElement(
             'label',
-            { className: 'jimu-uploadImage-label' },
-            _react2.default.createElement('input', { className: 'jimu-uploadImage-input width-100', type: 'file', onChange: this.addImage.bind(this), accept: accept, multiple: true })
+            { className: 'pile-uploadImage-label', htmlFor: this.props.id },
+            _react2.default.createElement('input', { id: this.props.id, className: 'pile-uploadImage-input width-100', type: 'file', onChange: this.addImage.bind(this), accept: accept, multiple: true })
           )
         )
       );

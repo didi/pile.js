@@ -47,8 +47,8 @@ var Label = function Label(props) {
       others = _objectWithoutProperties(props, ['type', 'className', 'children']);
 
   var cls = (0, _classnames2.default)((_classNames = {
-    'jimu-lable': true
-  }, _defineProperty(_classNames, 'jimu-lable-' + type, true), _defineProperty(_classNames, className, className), _classNames));
+    'pile-lable': true
+  }, _defineProperty(_classNames, 'pile-lable-' + type, true), _defineProperty(_classNames, className, className), _classNames));
   return _react2.default.createElement(
     _button2.default,
     _extends({ size: 'small' }, others, { className: cls }),
@@ -57,4 +57,5 @@ var Label = function Label(props) {
 };
 Label.propTypes = propTypes;
 Label.defaultProps = defaultProps;
+
 exports.default = Label;

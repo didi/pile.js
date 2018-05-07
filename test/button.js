@@ -25,9 +25,6 @@ describe('<Button></Button>', () => {
                 wrapper = shallow(<Button type={type} size={size} disabled={disabled} className={clazz}>{label}</Button>);
               }
 
-              it('should render <Button></Button> component', () => {
-                assert(wrapper.instance() instanceof Button);
-              });
 
               it('should render be a button without `href` attribute', () => {
                 if (!isHyperLink) {

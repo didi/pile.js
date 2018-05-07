@@ -55,9 +55,9 @@ var Code = (_temp = _class = function (_React$Component) {
     var show = props.show,
         timer = props.timer,
         phone = props.phone,
-        len = props.len,
-        inputsArr = Array(len).fill(0);
+        len = props.len;
 
+    var inputsArr = Array(len).fill(0);
 
     _this.state = {
       show: show,
@@ -135,12 +135,12 @@ var Code = (_temp = _class = function (_React$Component) {
   }, {
     key: 'timeDown',
     value: function timeDown(timer) {
-      var self = this,
-          timeEndBack = this.props.timeEndBack;
+      var self = this;
+      var timeEndBack = this.props.timeEndBack;
 
-      this.mytimer = setTimeout(function () {
+      this.mytimer = setTimeout(function timerFn() {
         if (timer > 0) {
-          timer--;
+          timer -= 1;
           self.setState({ timer: timer });
           self.timeDown(timer);
         } else {
@@ -154,8 +154,8 @@ var Code = (_temp = _class = function (_React$Component) {
   }, {
     key: 'reSetClick',
     value: function reSetClick() {
-      var self = this,
-          _props2 = this.props,
+      var self = this;
+      var _props2 = this.props,
           resetBack = _props2.resetBack,
           timer = _props2.timer;
 
@@ -191,11 +191,11 @@ var Code = (_temp = _class = function (_React$Component) {
       var _state = this.state,
           len = _state.len,
           focus = _state.focus,
-          once = _state.once,
-          _props3 = this.props,
+          once = _state.once;
+      var _props3 = this.props,
           inputBack = _props3.inputBack,
-          inputBegin = _props3.inputBegin,
-          codeInput = this.codeInput;
+          inputBegin = _props3.inputBegin;
+      var codeInput = this.codeInput;
 
 
       this.setState({
@@ -242,25 +242,25 @@ var Code = (_temp = _class = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var self = this,
-          _state2 = this.state,
+      var self = this;
+      var _state2 = this.state,
           show = _state2.show,
           timer = _state2.timer,
           phone = _state2.phone,
           codeValue = _state2.codeValue,
           inputsArr = _state2.inputsArr,
           len = _state2.len,
-          codeFocus = _state2.codeFocus,
-          _props4 = this.props,
+          codeFocus = _state2.codeFocus;
+      var _props4 = this.props,
           inputType = _props4.inputType,
-          className = _props4.className,
-          formatPhone = phone.substring(0, 3) + ' ' + phone.substring(3, 7) + ' ' + phone.substring(7, 11),
-          cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-code': true,
-        'jimu-code-more': len > 4,
-        'jimu-code-focus': codeFocus
-      }, className, className));
+          className = _props4.className;
 
+      var formatPhone = phone.substring(0, 3) + ' ' + phone.substring(3, 7) + ' ' + phone.substring(7, 11);
+      var cls = (0, _classnames2.default)(_defineProperty({
+        'pile-code': true,
+        'pile-code-more': len > 4,
+        'pile-code-focus': codeFocus
+      }, className, className));
       var locale = (0, _getLocale.getComponentLocale)(this.props, this.context, 'Verification', function () {
         return _zhCN2.default.Verification;
       });
@@ -271,13 +271,13 @@ var Code = (_temp = _class = function (_React$Component) {
 
       return _react2.default.createElement(
         ContentTip,
-        { show: show, className: 'jimu-code-tip', MaskClick: this.closeClick },
+        { show: show, className: 'pile-code-tip', MaskClick: this.closeClick },
         _react2.default.createElement(
           'div',
           { className: cls },
           _react2.default.createElement(
             'div',
-            { className: 'jimu-code-hd' },
+            { className: 'pile-code-hd' },
             _react2.default.createElement('span', { className: 'code-icon-del icon-del', onClick: this.closeClick }),
             _react2.default.createElement(
               'h2',
@@ -294,7 +294,7 @@ var Code = (_temp = _class = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: 'jimu-code-bd' },
+            { className: 'pile-code-bd' },
             _react2.default.createElement(
               'div',
               { className: 'time-down' },
@@ -312,10 +312,10 @@ var Code = (_temp = _class = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'jimu-code-inputs', onClick: this.focusClick },
+              { className: 'pile-code-inputs', onClick: this.focusClick },
               _react2.default.createElement(
                 'label',
-                null,
+                { htmlFor: this.props.id },
                 _react2.default.createElement(
                   'div',
                   { className: 'code-values' },
@@ -357,6 +357,7 @@ var Code = (_temp = _class = function (_React$Component) {
                   ref: function ref(n) {
                     _this2.codeInput = n;
                   },
+                  id: this.props.id,
                   maxLength: len,
                   type: inputType,
                   className: 'code-input',
@@ -378,6 +379,7 @@ var Code = (_temp = _class = function (_React$Component) {
   show: false, // 是否展示
   phone: '13222229999', // 电话号码
   timer: 30, // 倒计时
+  id: 'code-input',
   inputBack: function inputBack() {},
   // 输入完成后的回调
   inputBegin: function inputBegin() {},
@@ -394,6 +396,7 @@ var Code = (_temp = _class = function (_React$Component) {
 }, _temp);
 
 Code.contextTypes = {
-  jimuLocale: _propTypes2.default.object
+  pileLocale: _propTypes2.default.object
 };
+
 exports.default = Code;

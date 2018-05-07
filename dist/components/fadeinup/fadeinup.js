@@ -114,12 +114,12 @@ var FadeInUp = (_temp = _class = function (_React$Component) {
 
       var className = (0, _classnames2.default)({
         'up-bd': contentPadding,
-        'jimu-up-content': !contentPadding
+        'pile-up-content': !contentPadding
       });
       var cls = (0, _classnames2.default)(_defineProperty({
         'up-wrap': true,
-        'jimu-fadein-wrap': true,
-        'jimu-fadein-top-show': !closeShow
+        'pile-fadein-wrap': true,
+        'pile-fadein-top-show': !closeShow
       }, className, className));
 
       return _react2.default.createElement(

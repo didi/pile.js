@@ -8,10 +8,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -34,7 +30,7 @@ var TimeGroup = (_temp = _class = function (_Component) {
   function TimeGroup() {
     _classCallCheck(this, TimeGroup);
 
-    return _possibleConstructorReturn(this, (TimeGroup.__proto__ || Object.getPrototypeOf(TimeGroup)).call(this));
+    return _possibleConstructorReturn(this, (TimeGroup.__proto__ || Object.getPrototypeOf(TimeGroup)).apply(this, arguments));
   }
 
   _createClass(TimeGroup, [{
@@ -42,17 +38,17 @@ var TimeGroup = (_temp = _class = function (_Component) {
     value: function componentWillMount() {
       var _props = this.props,
           value = _props.value,
-          open = _props.open,
-          timeArr = [];
+          open = _props.open;
+
+      var timeArr = void 0;
 
       // 如果没有填写value 则默认获取当前时间
-
-      var onTime = this._gethouer() >= 24 ? 0 : this._gethouer();
+      var onTime = TimeGroup._gethouer() >= 24 ? 0 : TimeGroup._gethouer();
 
       // 判断
       if (value) {
         // 判断是否符合时间单位（0-24）
-        if (this._checkValueTime(value[0], value[1])) {
+        if (TimeGroup._checkValueTime(value[0], value[1])) {
           timeArr = value;
         } else {
           timeArr = [onTime, onTime + 1];
@@ -67,9 +63,41 @@ var TimeGroup = (_temp = _class = function (_Component) {
       // 设置默认显示参数
       this.setState({
         value: newTimeArr, // 默认数值 开始时间 、 结束时间
-        options: [this._optionsAddUnit(this._pushStartHour()), this._optionsAddUnit(this._pushEndHour(timeArr[0]))], // 默认数值
+        options: [this._optionsAddUnit(TimeGroup._pushStartHour()), this._optionsAddUnit(TimeGroup._pushEndHour(timeArr[0]))], // 默认数值
         open: open
       });
+    }
+  }, {
+    key: 'onChange',
+    value: function onChange(val, text, listIndex) {
+      // 当改变开始时间时
+      var value = this.state.value;
+
+      var endHour = void 0;
+      var startHour = value[0];
+      var nval = this._deleteUnit(val);
+
+      if (listIndex === 0) {
+        endHour = nval + 1;
+        this.setState({
+          options: [this._optionsAddUnit(TimeGroup._pushStartHour()), this._optionsAddUnit(TimeGroup._pushEndHour(nval))],
+          value: [this._stringAddUnit(nval), this._stringAddUnit(endHour)]
+        });
+      } else {
+        this.setState({
+          value: [startHour, this._stringAddUnit(nval)]
+        });
+      }
+    }
+  }, {
+    key: 'onClickAway',
+    value: function onClickAway() {
+      this.props.pickerAway && this.props.pickerAway(this.state.value, this.refs.pickertime);
+    }
+  }, {
+    key: 'show',
+    value: function show() {
+      this.refs.date_picker.show();
     }
 
     // 数组添加单位
@@ -79,7 +107,7 @@ var TimeGroup = (_temp = _class = function (_Component) {
     value: function _optionsAddUnit(arr) {
       var unit = this.props.unit;
 
-      var newarr = arr.map(function (re, index) {
+      var newarr = arr.map(function (re) {
         return '' + re + unit;
       });
       return newarr;
@@ -103,27 +131,40 @@ var TimeGroup = (_temp = _class = function (_Component) {
       return Number(string.split(this.props.unit)[0]);
     }
   }, {
-    key: 'onChange',
-    value: function onChange(val, text, listIndex) {
-      // 当改变开始时间时
-      var _state = this.state,
-          value = _state.value,
-          options = _state.options,
-          endHour = value[1],
-          startHour = value[0],
-          nval = this._deleteUnit(val);
+    key: '_onClick',
+    value: function _onClick() {
+      this.refs.date_picker.show();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props2 = this.props,
+          bntTest = _props2.bntTest,
+          textvalue = _props2.textvalue;
 
-      if (listIndex == 0) {
-        endHour = nval + 1;
-        this.setState({
-          options: [this._optionsAddUnit(this._pushStartHour()), this._optionsAddUnit(this._pushEndHour(nval))],
-          value: [this._stringAddUnit(nval), this._stringAddUnit(endHour)]
-        });
-      } else {
-        this.setState({
-          value: [startHour, this._stringAddUnit(nval)]
-        });
-      }
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'div',
+          { className: 'pickertime', onClick: this._onClick.bind(this), ref: 'pickertime' },
+          bntTest || textvalue
+        ),
+        _react2.default.createElement(_picker2.default, {
+          ref: 'date_picker',
+          value: this.state.value,
+          options: this.state.options,
+          onChange: this.onChange.bind(this),
+          onClickAway: this.onClickAway.bind(this),
+          open: this.state.open
+        })
+      );
+    }
+  }], [{
+    key: '_gethouer',
+    value: function _gethouer() {
+      return new Date().getHours();
     }
 
     // 验证当前 value 是否有效
@@ -160,52 +201,6 @@ var TimeGroup = (_temp = _class = function (_Component) {
       }
       return endA;
     }
-  }, {
-    key: 'onClickAway',
-    value: function onClickAway() {
-      this.props.pickerAway && this.props.pickerAway(this.state.value, this.refs.pickertime);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props2 = this.props,
-          bntTest = _props2.bntTest,
-          textvalue = _props2.textvalue;
-
-
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'div',
-          { className: 'pickertime', onClick: this._onClick.bind(this), ref: 'pickertime' },
-          bntTest || textvalue
-        ),
-        _react2.default.createElement(_picker2.default, {
-          ref: 'date_picker',
-          value: this.state.value,
-          options: this.state.options,
-          onChange: this.onChange.bind(this),
-          onClickAway: this.onClickAway.bind(this),
-          open: this.state.open
-        })
-      );
-    }
-  }, {
-    key: '_onClick',
-    value: function _onClick() {
-      this.refs.date_picker.show();
-    }
-  }, {
-    key: 'show',
-    value: function show() {
-      this.refs.date_picker.show();
-    }
-  }, {
-    key: '_gethouer',
-    value: function _gethouer() {
-      return new Date().getHours();
-    }
   }]);
 
   return TimeGroup;
@@ -219,7 +214,8 @@ var TimeGroup = (_temp = _class = function (_Component) {
   textvalue: '时间组件按钮',
   pickerAway: function pickerAway() {},
 
-  open: false
+  open: false,
+  value: null
 }, _temp);
 
 

@@ -37,6 +37,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Toast = (_temp = _class = function (_React$Component) {
   _inherits(Toast, _React$Component);
 
+  /* eslint-disable react/no-unused-prop-types */
   function Toast(props) {
     _classCallCheck(this, Toast);
 
@@ -46,6 +47,8 @@ var Toast = (_temp = _class = function (_React$Component) {
     _this.changeToast = _this.changeToast.bind(_this);
     return _this;
   }
+  /* eslint-enable react/no-unused-prop-types */
+
 
   _createClass(Toast, [{
     key: 'componentDidMount',
@@ -97,11 +100,11 @@ var Toast = (_temp = _class = function (_React$Component) {
           toastShow = _state.toastShow;
 
       if (toastShow) {
-        var that = this,
-            toast = this.toast,
-            toastContent = this.toastContent,
-            toastContentWidth = toastContent.offsetWidth,
-            toastContentHeight = toastContent.offsetHeight;
+        var that = this;
+        var toastContent = this.toastContent;
+
+        var toastContentWidth = toastContent.offsetWidth;
+        var toastContentHeight = toastContent.offsetHeight;
 
         /* 多行展示判断，用到 -webkit-transform: translate(-50%, -50%)属性，css无法设置max-width控制页面宽度自适应。所以用以下js控制 */
         if (toastContentWidth >= 180 || toastContentHeight > 25) {
@@ -133,8 +136,8 @@ var Toast = (_temp = _class = function (_React$Component) {
       }
     }
   }, {
-    key: '_icon',
-    value: function _icon() {
+    key: 'icon',
+    value: function icon() {
       var type = this.props.type;
 
       if (type === 'fail') {
@@ -155,7 +158,7 @@ var Toast = (_temp = _class = function (_React$Component) {
       } else if (type === 'loading') {
         return _react2.default.createElement(
           'div',
-          { className: 'jimu-load-loading' },
+          { className: 'pile-load-loading' },
           _react2.default.createElement(
             'div',
             { className: 'load-spinner' },
@@ -193,17 +196,17 @@ var Toast = (_temp = _class = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'jimu-dialog jimu-dialog-toast', style: { visibility: toastShow ? 'visible' : 'hidden' } },
+        { className: 'pile-dialog pile-dialog-toast', style: { visibility: toastShow ? 'visible' : 'hidden' } },
         _react2.default.createElement(_index2.default, null),
         _react2.default.createElement(
           'div',
-          { className: 'didi_toast', ref: function ref(t) {
+          { className: 'pile_toast', ref: function ref(t) {
               _this2.toast = t;
             } },
-          this._icon(),
+          this.icon(),
           _react2.default.createElement(
             'div',
-            { className: 'didi_toast_content', ref: function ref(t) {
+            { className: 'pile_toast_content', ref: function ref(t) {
                 _this2.toastContent = t;
               } },
             content
@@ -215,14 +218,11 @@ var Toast = (_temp = _class = function (_React$Component) {
 
   return Toast;
 }(_react2.default.Component), _class.propTypes = {
-  buttons: _propTypes2.default.array,
   toastShow: _propTypes2.default.bool,
-  title: _propTypes2.default.string,
-  callback: _propTypes2.default.func
-}, _class.defaultProps = {
-  buttons: [],
+  callback: _propTypes2.default.func }, _class.defaultProps = {
   show: false,
-  title: '',
-  time: 3000
+  toastShow: false,
+  time: 3000,
+  callback: null
 }, _temp);
 exports.default = Toast;

@@ -72,12 +72,12 @@ var SwipeDel = (_temp = _class = function (_React$Component) {
   }, {
     key: 'setContState',
     value: function setContState(pos, touchState) {
-      var delContent = this.delContent,
-          _props = this.props,
+      var delContent = this.delContent;
+      var _props = this.props,
           index = _props.index,
-          touchBack = _props.touchBack,
-          self = this;
+          touchBack = _props.touchBack;
 
+      var self = this;
 
       delContent.style.WebkitTransition = 'all .1s ease-in';
       delContent.style.left = -pos + 'px';
@@ -95,12 +95,12 @@ var SwipeDel = (_temp = _class = function (_React$Component) {
   }, {
     key: 'swipingLeft',
     value: function swipingLeft(e, posX) {
-      var self = this,
-          delContent = this.delContent,
-          _state = this.state,
+      var self = this;
+      var delContent = this.delContent;
+      var _state = this.state,
           oldPosX = _state.oldPosX,
-          postion = _state.postion,
-          _props2 = this.props,
+          postion = _state.postion;
+      var _props2 = this.props,
           touchDefault = _props2.touchDefault,
           displacement = _props2.displacement;
 
@@ -136,8 +136,8 @@ var SwipeDel = (_temp = _class = function (_React$Component) {
     value: function initSetState(props) {
       var delAside = this.delAside,
           delContent = this.delContent,
-          delSwipContent = this.delSwipContent,
-          show = props.show,
+          delSwipContent = this.delSwipContent;
+      var show = props.show,
           displacement = props.displacement;
 
 
@@ -165,17 +165,17 @@ var SwipeDel = (_temp = _class = function (_React$Component) {
     value: function swiped(e, posX) {
       var _state2 = this.state,
           oldPosX = _state2.oldPosX,
-          postion = _state2.postion,
-          _props3 = this.props,
+          postion = _state2.postion;
+      var _props3 = this.props,
           degree = _props3.degree,
           index = _props3.index,
           touchDefault = _props3.touchDefault,
           touchDefaultBack = _props3.touchDefaultBack,
-          displacement = _props3.displacement,
-          posXabs = Math.abs(posX);
+          displacement = _props3.displacement;
+
+      var posXabs = Math.abs(posX);
 
       // 判断当前情景是否可以拖动
-
       if (!displacement) {
         if (posX < degree) {
           this.setContState(0, false);
@@ -191,16 +191,13 @@ var SwipeDel = (_temp = _class = function (_React$Component) {
         return false;
       }
 
-      if (displacement) {
+      var effective = posXabs >= oldPosX && posXabs >= degree;
+
+      if (displacement || !effective) {
         // 关闭状态
         this.setContState(0, false);
       } else {
-        // 展开状态
-        if (posXabs >= oldPosX && posXabs >= degree) {
-          this.setContState(postion, true);
-        } else {
-          this.setContState(0, false);
-        }
+        this.setContState(postion, true);
       }
       return true;
     }
@@ -240,11 +237,11 @@ var SwipeDel = (_temp = _class = function (_React$Component) {
 
       var _props4 = this.props,
           className = _props4.className,
-          children = _props4.children,
-          cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-swipe-del': true
-      }, className, className));
+          children = _props4.children;
 
+      var cls = (0, _classnames2.default)(_defineProperty({
+        'pile-swipe-del': true
+      }, className, className));
       return _react2.default.createElement(
         'div',
         { className: cls, ref: function ref(n) {
@@ -288,6 +285,8 @@ var SwipeDel = (_temp = _class = function (_React$Component) {
   degree: 50, // 滑动展示最小值
   show: true, // 是否展开状态（展示状态）
   displacement: false, // 是否位移(已滑动状态)
-  touchDefault: false // 是否有因素影响拖动
+  touchDefault: false, // 是否有因素影响拖动
+  touchDefaultBack: null,
+  touchBack: null
 }, _temp);
 exports.default = SwipeDel;

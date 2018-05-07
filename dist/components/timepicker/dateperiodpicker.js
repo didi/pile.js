@@ -8,10 +8,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -34,39 +30,36 @@ var DatePeriodPicker = (_temp = _class = function (_Component) {
   function DatePeriodPicker() {
     _classCallCheck(this, DatePeriodPicker);
 
-    return _possibleConstructorReturn(this, (DatePeriodPicker.__proto__ || Object.getPrototypeOf(DatePeriodPicker)).call(this));
+    return _possibleConstructorReturn(this, (DatePeriodPicker.__proto__ || Object.getPrototypeOf(DatePeriodPicker)).apply(this, arguments));
   }
 
   _createClass(DatePeriodPicker, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
       var _props = this.props,
-          value = _props.value,
           open = _props.open,
           days = _props.days,
           startData = _props.startData,
-          format = _props.format,
-          timeArr = [],
-          startDay = '',
-          endDay = '';
+          format = _props.format;
+
+      var startDay = void 0;
 
       // 判断是否传入开始日期 并且检验传入日期是否有效
-
-      if (startData && this.isEffectiveDate(startData)) {
+      if (startData && DatePeriodPicker.isEffectiveDate(startData)) {
         startDay = startData;
       } else {
-        startDay = this._getNewDate();
+        startDay = DatePeriodPicker._getNewDate();
       }
 
-      endDay = this._getEndData(startDay, days - 1);
+      var endDay = DatePeriodPicker._getEndData(startDay, days - 1);
 
       // 设置初始数组
-      var opts = this._setInitOptions(startDay, endDay, startDay),
-          newArrValue = startDay.split('/');
+      var opts = this._setInitOptions(startDay, endDay, startDay);
+      var newArrValue = startDay.split('/');
 
       // 设置默认显示参数
       this.setState({
-        value: [this._addStrUnit(newArrValue[0], format[0]), this._addStrUnit(newArrValue[1], format[1]), this._setDaysWeek(newArrValue[0], newArrValue[1], newArrValue[2])], // 默认数值 开始时间 、 结束时间
+        value: [DatePeriodPicker._addStrUnit(newArrValue[0], format[0]), DatePeriodPicker._addStrUnit(newArrValue[1], format[1]), this._setDaysWeek(newArrValue[0], newArrValue[1], newArrValue[2])], // 默认数值 开始时间 、 结束时间
         options: opts, // 默认数值
         open: open,
         startD: startDay,
@@ -74,125 +67,23 @@ var DatePeriodPicker = (_temp = _class = function (_Component) {
         valueD: newArrValue
       });
     }
-
-    // 设置 options 当前年月日
-
-  }, {
-    key: '_setInitOptions',
-    value: function _setInitOptions(startDay, endDay, onDay) {
-      var self = this,
-          format = this.props.format,
-          start = startDay.split('/'),
-          end = endDay.split('/'),
-          on = onDay.split('/'),
-          opt = [],
-          year = [],
-          mouth = [],
-          day = [],
-          ys = Number(start[0]),
-          ye = Number(end[0]),
-          yon = Number(on[0]),
-          ms = Number(start[1]),
-          me = Number(end[1]),
-          mon = Number(on[1]),
-          ds = Number(start[2]),
-          de = Number(end[2]),
-          don = Number(on[2]),
-          optms = 1,
-          optme = 12,
-          optds = 1,
-          optde = this._getDays(yon, mon);
-
-      // 如果同年 2017/3/5 2017/6/7
-      if (ys == yon && yon == ye) {
-        optms = ms;
-        optme = me;
-        // 月份相同
-        if (mon == me && mon == ms) {
-          optds = ds;
-          optde = de;
-        } else {
-          // 如果 当前月份 与 开始月份相同
-          if (mon == ms) {
-            optds = ds;
-          }
-          // 如果 当前月份 与 结束月份相同
-          if (mon == me) {
-            optds = 1;
-            optde = de;
-          }
-        }
-      } else {
-        // 如果不同年 2016/3/5 2017 /6/7
-        // 如果当前年份与结束年份相等
-        if (yon == ys) {
-          optme = 12;
-          optms = ms;
-          // 如果 当前月份 与 开始月份相同
-          if (mon == ms) {
-            optds = ds;
-          }
-          // 如果 当前月份 与 结束月份相同
-          if (mon == me) {
-            optds = 1;
-          }
-        }
-
-        if (yon == ye) {
-          optms = 1;
-          optme = me;
-
-          // 如果 当前月份 与 结束月份相同
-          if (mon == me) {
-            optds = 1;
-            optde = de;
-          }
-        }
-      }
-
-      // 设置 年份
-      for (; ys <= ye; ys++) {
-        year.push(this._addStrUnit(ys, format[0]));
-      }
-
-      // 设置 月份
-      for (; optms <= optme; optms++) {
-        mouth.push(this._addStrUnit(optms, format[1]));
-      }
-
-      // 设置 天
-      for (; optds <= optde; optds++) {
-        day.push(this._setDaysWeek(yon, mon, optds));
-      }
-
-      return opt = [year, mouth, day];
-    }
-  }, {
-    key: '_setDaysWeek',
-    value: function _setDaysWeek(yon, mon, optds) {
-      var nowdt = yon + '/' + mon + '/' + optds,
-          week = new Date(nowdt).getDay(),
-          newdaysopt = optds + '\u65E5 ' + this.props.weekText[week];
-      return newdaysopt;
-    }
   }, {
     key: 'onChange',
     value: function onChange(val, text, listIndex) {
-      var format = this.props.format,
-          _state = this.state,
+      var format = this.props.format;
+      var _state = this.state,
           startD = _state.startD,
           endD = _state.endD,
-          value = _state.value,
-          valueD = _state.valueD,
-          newDataArr = value,
-          startDataArr = startD.split('/'),
-          onData = valueD; // 当前时间数组
+          valueD = _state.valueD;
+
+      var startDataArr = startD.split('/'); // 起始时间数组
+      var onData = valueD; // 当前时间数组
 
       // 当改变年份时
-      if (listIndex == 0) {
-        var yearval = this._deleteStrUnit(val, format[0]);
+      if (listIndex === 0) {
+        var yearval = DatePeriodPicker._deleteStrUnit(val, format[0]);
         // 当前年份
-        if (startD.split('/')[0] == yearval) {
+        if (startD.split('/')[0] === yearval) {
           onData = [yearval, startDataArr[1], startDataArr[2]];
         } else {
           onData = [yearval, 1, 1];
@@ -200,10 +91,10 @@ var DatePeriodPicker = (_temp = _class = function (_Component) {
       }
 
       // 当改变月份时
-      if (listIndex == 1) {
-        var mouthval = this._deleteStrUnit(val, format[1]);
+      if (listIndex === 1) {
+        var mouthval = DatePeriodPicker._deleteStrUnit(val, format[1]);
         // 当前年份
-        if (startDataArr[0] == onData[0] && startDataArr[1] == mouthval) {
+        if (startDataArr[0] === onData[0] && startDataArr[1] === mouthval) {
           onData = [startDataArr[0], mouthval, startDataArr[2]];
         } else {
           onData = [onData[0], mouthval, 1];
@@ -211,11 +102,11 @@ var DatePeriodPicker = (_temp = _class = function (_Component) {
       }
 
       // 当改变日时
-      if (listIndex == 2) {
-        onData[2] = this._deleteStrUnit(val, format[2]);
+      if (listIndex === 2) {
+        onData[2] = DatePeriodPicker._deleteStrUnit(val, format[2]);
       }
 
-      newDataArr = [this._addStrUnit(onData[0], format[0]), this._addStrUnit(onData[1], format[1]), this._setDaysWeek(onData[0], onData[1], onData[2])];
+      var newDataArr = [DatePeriodPicker._addStrUnit(onData[0], format[0]), DatePeriodPicker._addStrUnit(onData[1], format[1]), this._setDaysWeek(onData[0], onData[1], onData[2])];
 
       this.setState({
         value: newDataArr,
@@ -223,99 +114,22 @@ var DatePeriodPicker = (_temp = _class = function (_Component) {
         valueD: onData
       });
     }
-
-    // 数组添加单位
-
   }, {
-    key: '_addArrUnit',
-    value: function _addArrUnit(arr, unit) {
-      arr.map(function (re, i) {
-        return '' + re + unit;
+    key: 'onClickAway',
+    value: function onClickAway() {
+      var format = this.props.format;
+      var value = this.state.value;
+
+      var dataString = '';
+      dataString += value[0].split(format[0])[0] + '/';
+      dataString += value[1].split(format[1])[0] + '/';
+      dataString += value[2].split(format[2])[0];
+
+      var fmt = new Date(dataString + ' 00:00').getTime();
+      this.props.pickerAway && this.props.pickerAway(value, this.refs.pickertime, {
+        fmt: fmt,
+        data: dataString
       });
-    }
-
-    // 数组删除单位
-
-  }, {
-    key: '_deleteArrUnit',
-    value: function _deleteArrUnit(arr, unit) {
-      arr.map(function (re, i) {
-        return re.split(unit)[0];
-      });
-    }
-
-    // 字符串添加单位
-
-  }, {
-    key: '_addStrUnit',
-    value: function _addStrUnit(string, unit) {
-      return '' + string + unit;
-    }
-
-    // 字符串删除单位
-
-  }, {
-    key: '_deleteStrUnit',
-    value: function _deleteStrUnit(string, unit) {
-      return string.split(unit)[0];
-    }
-
-    // 判断是否为有效日期
-
-  }, {
-    key: 'isEffectiveDate',
-    value: function isEffectiveDate(data) {
-      var dataArr = data.split('/'),
-          intYear = dataArr[0],
-          intMonth = dataArr[1],
-          intDay = dataArr[2];
-      if (isNaN(intYear) || isNaN(intMonth) || isNaN(intDay)) return false;
-      if (intMonth > 12 || intMonth < 1) return false;
-      if (intDay < 1 || intDay > 31) return false;
-      if ((intMonth == 4 || intMonth == 6 || intMonth == 9 || intMonth == 11) && intDay > 30) return false;
-      if (intMonth == 2) {
-        if (intDay > 29) return false;
-        if ((intYear % 100 == 0 && intYear % 400 != 0 || intYear % 4 != 0) && intDay > 28) return false;
-      }
-      return true;
-    }
-
-    // 获取 结束时间
-
-  }, {
-    key: '_getEndData',
-    value: function _getEndData(startData, days) {
-      var nowTamp = this._dataTransTamp(startData) + days * 60 * 60 * 1000 * 24;
-      return this._tampTransData(nowTamp);
-    }
-
-    // 时间戳转换时间
-
-  }, {
-    key: '_tampTransData',
-    value: function _tampTransData(tamp) {
-      var d = new Date(parseInt(tamp));
-      return d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate();
-    }
-
-    // 时间转换时间戳
-
-  }, {
-    key: '_dataTransTamp',
-    value: function _dataTransTamp(data) {
-      return new Date(data).getTime();
-    }
-
-    // 设置结束小时参数值
-
-  }, {
-    key: '_pushEndHour',
-    value: function _pushEndHour(starthour) {
-      var endA = [];
-      for (var i = starthour + 1; i <= 24; i++) {
-        endA.push(i);
-      }
-      return endA;
     }
 
     // 设置delay 以后时间 日期格式化  yyyy-MM-dd hh:mm ; yyyy/MM/dd hh:mm
@@ -323,20 +137,20 @@ var DatePeriodPicker = (_temp = _class = function (_Component) {
   }, {
     key: 'setDateFormat',
     value: function setDateFormat(nowdate, fmt) {
-      var delay = this.props.delay,
-          deleytamp = new Date(nowdate).getTime() + 60 * 1000 * delay,
-          date = new Date(parseInt(deleytamp)),
-          o = {
+      var delay = this.props.delay;
+
+      var deleytamp = new Date(nowdate).getTime() + 60 * 1000 * delay;
+      var date = new Date(parseInt(deleytamp, 10));
+      var o = {
         'M+': date.getMonth() + 1, // 月份
         'd+': date.getDate(), // 日
         'h+': date.getHours(), // 小时
         'm+': date.getMinutes(), // 分
         's+': date.getSeconds() // 秒
       };
-
-      if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
+      if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, ('' + date.getFullYear()).substr(4 - RegExp.$1.length));
       for (var k in o) {
-        if (new RegExp('(' + k + ')').test(fmt)) fmt = fmt.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length));
+        if (new RegExp('(' + k + ')').test(fmt)) fmt = fmt.replace(RegExp.$1, RegExp.$1.length === 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length));
       }
 
       return {
@@ -350,21 +164,116 @@ var DatePeriodPicker = (_temp = _class = function (_Component) {
         }
       };
     }
-  }, {
-    key: 'onClickAway',
-    value: function onClickAway() {
-      var format = this.props.format,
-          value = this.state.value,
-          dataString = '';
-      dataString += value[0].split(format[0])[0] + '/';
-      dataString += value[1].split(format[1])[0] + '/';
-      dataString += value[2].split(format[2])[0];
 
-      var fmt = new Date(dataString + ' 00:00').getTime();
-      this.props.pickerAway && this.props.pickerAway(value, this.refs.pickertime, {
-        fmt: fmt,
-        data: dataString
-      });
+    // 设置 options 当前年月日
+
+  }, {
+    key: '_setInitOptions',
+    value: function _setInitOptions(startDay, endDay, onDay) {
+      var format = this.props.format;
+
+      var start = startDay.split('/');
+      var end = endDay.split('/');
+      var on = onDay.split('/');
+      var year = [];
+      var mouth = [];
+      var day = [];
+
+      /* 开始、结束、当前 年月日 */
+      var ys = Number(start[0]);
+      var ye = Number(end[0]);
+      var yon = Number(on[0]);
+      var ms = Number(start[1]);
+      var me = Number(end[1]);
+      var mon = Number(on[1]);
+      var ds = Number(start[2]);
+      var de = Number(end[2]);
+
+      var optms = 1;
+      var optme = 12;
+      var optds = 1;
+      var optde = DatePeriodPicker._getDays(yon, mon);
+
+      // 如果同年 2017/3/5 2017/6/7
+      if (ys === yon && yon === ye) {
+        optms = ms;
+        optme = me;
+        // 月份相同
+        if (mon === me && mon === ms) {
+          optds = ds;
+          optde = de;
+        } else {
+          // 如果 当前月份 与 开始月份相同
+          if (mon === ms) {
+            optds = ds;
+          }
+          // 如果 当前月份 与 结束月份相同
+          if (mon === me) {
+            optds = 1;
+            optde = de;
+          }
+        }
+      } else {
+        // 如果不同年 2016/3/5 2017 /6/7
+        // 如果当前年份与结束年份相等
+        if (yon === ys) {
+          optme = 12;
+          optms = ms;
+          // 如果 当前月份 与 开始月份相同
+          if (mon === ms) {
+            optds = ds;
+          }
+          // 如果 当前月份 与 结束月份相同
+          if (mon === me) {
+            optds = 1;
+          }
+        }
+
+        if (yon === ye) {
+          optms = 1;
+          optme = me;
+
+          // 如果 当前月份 与 结束月份相同
+          if (mon === me) {
+            optds = 1;
+            optde = de;
+          }
+        }
+      }
+
+      // 设置 年份
+      for (; ys <= ye; ys++) {
+        year.push(DatePeriodPicker._addStrUnit(ys, format[0]));
+      }
+
+      // 设置 月份
+      for (; optms <= optme; optms++) {
+        mouth.push(DatePeriodPicker._addStrUnit(optms, format[1]));
+      }
+
+      // 设置 天
+      for (; optds <= optde; optds++) {
+        day.push(this._setDaysWeek(yon, mon, optds));
+      }
+      return [year, mouth, day];
+    }
+  }, {
+    key: '_setDaysWeek',
+    value: function _setDaysWeek(yon, mon, optds) {
+      var nowdt = yon + '/' + mon + '/' + optds;
+      var week = new Date(nowdt).getDay();
+      var newdaysopt = optds + '\u65E5 ' + this.props.weekText[week];
+      return newdaysopt;
+    }
+  }, {
+    key: 'show',
+    value: function show() {
+      this.refs.date_picker.show();
+    }
+  }, {
+    key: '_onClick',
+    value: function _onClick() {
+      this.refs.date_picker.show();
     }
   }, {
     key: 'render',
@@ -388,18 +297,95 @@ var DatePeriodPicker = (_temp = _class = function (_Component) {
           options: this.state.options,
           onChange: this.onChange.bind(this),
           onClickAway: this.onClickAway.bind(this),
-          open: this.state.open })
+          open: this.state.open
+        })
       );
     }
-  }, {
-    key: 'show',
-    value: function show() {
-      this.refs.date_picker.show();
+  }], [{
+    key: 'isEffectiveDate',
+
+    // 判断是否为有效日期
+    value: function isEffectiveDate(data) {
+      var dataArr = data.split('/');
+      var intYear = dataArr[0];
+      var intMonth = dataArr[1];
+      var intDay = dataArr[2];
+      /* eslint-disable no-restricted-globals */
+      if (isNaN(intYear) || isNaN(intMonth) || isNaN(intDay)) return false;
+      /* eslint-enable no-restricted-globals */
+      if (intMonth > 12 || intMonth < 1) return false;
+      if (intDay < 1 || intDay > 31) return false;
+      if ((intMonth === 4 || intMonth === 6 || intMonth === 9 || intMonth === 11) && intDay > 30) return false;
+      if (intMonth === 2) {
+        if (intDay > 29) return false;
+        if ((intYear % 100 === 0 && intYear % 400 !== 0 || intYear % 4 !== 0) && intDay > 28) return false;
+      }
+      return true;
     }
+
+    // 数组添加单位
+
   }, {
-    key: '_onClick',
-    value: function _onClick() {
-      this.refs.date_picker.show();
+    key: '_addArrUnit',
+    value: function _addArrUnit(arr, unit) {
+      arr.map(function (re) {
+        return '' + re + unit;
+      });
+    }
+
+    // 数组删除单位
+
+  }, {
+    key: '_deleteArrUnit',
+    value: function _deleteArrUnit(arr, unit) {
+      arr.map(function (re) {
+        return re.split(unit)[0];
+      });
+    }
+
+    // 字符串添加单位
+
+  }, {
+    key: '_addStrUnit',
+    value: function _addStrUnit(string, unit) {
+      return '' + string + unit;
+    }
+
+    // 字符串删除单位
+
+  }, {
+    key: '_deleteStrUnit',
+    value: function _deleteStrUnit(string, unit) {
+      return string.split(unit)[0];
+    }
+
+    // 时间戳转换时间
+
+  }, {
+    key: '_tampTransData',
+    value: function _tampTransData(tamp) {
+      var d = new Date(parseInt(tamp, 10));
+      return d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate();
+    }
+
+    // 时间转换时间戳
+
+  }, {
+    key: '_dataTransTamp',
+    value: function _dataTransTamp(data) {
+      return new Date(data).getTime();
+    }
+
+    // 设置结束小时参数值
+
+  }, {
+    key: '_pushEndHour',
+    value: function _pushEndHour(starthour) {
+      var endA = [];
+      for (var i = starthour + 1; i <= 24; i++) {
+        endA.push(i);
+      }
+      return endA;
     }
 
     // 获取当前月份参数
@@ -415,15 +401,27 @@ var DatePeriodPicker = (_temp = _class = function (_Component) {
       var d = new Date();
       return d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate();
     }
+
+    // 获取 结束时间
+
+  }, {
+    key: '_getEndData',
+    value: function _getEndData(startData, days) {
+      var nowTamp = DatePeriodPicker._dataTransTamp(startData) + days * 60 * 60 * 1000 * 24;
+      return DatePeriodPicker._tampTransData(nowTamp);
+    }
   }]);
 
   return DatePeriodPicker;
 }(_react.Component), _class.propTypes = {
+  /* eslint-disable react/no-unused-prop-types */
   value: _propTypes2.default.array,
+  /* eslint-enable react/no-unused-prop-types */
   open: _propTypes2.default.bool,
   pickerAway: _propTypes2.default.func,
   days: _propTypes2.default.number
 }, _class.defaultProps = {
+  value: [],
   textvalue: '时间组件按钮',
   pickerAway: function pickerAway() {},
 

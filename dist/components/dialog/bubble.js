@@ -43,6 +43,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Bubble = (_temp = _class = function (_React$Component) {
   _inherits(Bubble, _React$Component);
 
+  /* eslint-disable react/no-unused-prop-types */
   function Bubble(props) {
     _classCallCheck(this, Bubble);
 
@@ -53,6 +54,7 @@ var Bubble = (_temp = _class = function (_React$Component) {
     }, _this.props);
     return _this;
   }
+  /* eslint-enable react/no-unused-prop-types */
 
   _createClass(Bubble, [{
     key: 'componentDidMount',
@@ -85,16 +87,18 @@ var Bubble = (_temp = _class = function (_React$Component) {
           direction = _state.direction,
           top = _state.top,
           left = _state.left,
-          closeBtnShow = _state.closeBtnShow,
-          align = _state.align,
-          bubbleWrap = this.refs.bubbleWrap,
-          bubbleDom = _reactDom2.default.findDOMNode(bubbleWrap);
+          align = _state.align;
+      /* eslint-disable react/no-string-refs, react/no-find-dom-node */
 
+      var bubbleWrap = this.refs.bubbleWrap;
+
+      var bubbleDom = _reactDom2.default.findDOMNode(bubbleWrap);
+      /* eslint-enable react/no-string-refs, react/no-find-dom-node */
       setTimeout(function () {
-        var bubbleDomWidth = bubbleDom.clientWidth,
-            bubbleDomHeight = bubbleDom.clientHeight,
-            transX = void 0,
-            transY = void 0;
+        var bubbleDomWidth = bubbleDom.clientWidth;
+        var bubbleDomHeight = bubbleDom.clientHeight;
+        var transX = void 0;
+        var transY = void 0;
 
         if (direction === 'left' || direction === 'right') {
           transX = direction !== 'left' ? '5px' : '-' + (bubbleDomWidth + 5) + 'px';
@@ -142,18 +146,18 @@ var Bubble = (_temp = _class = function (_React$Component) {
           className = _state2.className,
           closeBtnShow = _state2.closeBtnShow,
           direction = _state2.direction,
-          align = _state2.align,
-          cls = (0, _classnames2.default)((_classNames = {
-        'jimu-bubble': true
-      }, _defineProperty(_classNames, 'jimu-bubble-' + direction, true), _defineProperty(_classNames, 'jimu-bubble-' + align, true), _defineProperty(_classNames, 'jimu-bubble-close', closeBtnShow), _defineProperty(_classNames, className, className), _classNames));
+          align = _state2.align;
 
+      var cls = (0, _classnames2.default)((_classNames = {
+        'pile-bubble': true
+      }, _defineProperty(_classNames, 'pile-bubble-' + direction, true), _defineProperty(_classNames, 'pile-bubble-' + align, true), _defineProperty(_classNames, 'pile-bubble-close', closeBtnShow), _defineProperty(_classNames, className, className), _classNames));
 
       return _react2.default.createElement(
         'div',
         { className: cls, ref: 'bubbleWrap', style: { display: bubbleShow ? 'block' : 'none' } },
         _react2.default.createElement(
           'div',
-          { className: 'jimu-bubble-content', ref: 'bubbleCont' },
+          { className: 'pile-bubble-content', ref: 'bubbleCont' },
           this.props.children,
           closeBtnShow && _react2.default.createElement('span', { className: 'icon-del bubble-close', onClick: this.hiddenBubble.bind(this) })
         )
@@ -168,8 +172,7 @@ var Bubble = (_temp = _class = function (_React$Component) {
   closeBtnShow: _propTypes2.default.bool,
   top: _propTypes2.default.string,
   left: _propTypes2.default.string,
-  closeBack: _propTypes2.default.func
-}, _class.defaultProps = {
+  closeBack: _propTypes2.default.func }, _class.defaultProps = {
   direction: 'left', // 方向
   show: true, // 是否展示
   closeBtnShow: true, // 是否需要关闭按钮

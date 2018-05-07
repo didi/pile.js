@@ -25,11 +25,11 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 var ItemBd = function ItemBd(props) {
   var className = props.className,
       children = props.children,
-      others = _objectWithoutProperties(props, ['className', 'children']),
-      cls = (0, _classnames2.default)(_defineProperty({
-    'jimu-item-bd': true
-  }, className, className));
+      others = _objectWithoutProperties(props, ['className', 'children']);
 
+  var cls = (0, _classnames2.default)(_defineProperty({
+    'pile-item-bd': true
+  }, className, className));
   return _react2.default.createElement(
     'div',
     _extends({ className: cls }, others),

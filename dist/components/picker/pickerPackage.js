@@ -1,14 +1,14 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _picker = require('./picker.js');
 
@@ -22,6 +22,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+/* eslint-disable prefer-destructuring */
 var PickerPackage = function (_Component) {
   _inherits(PickerPackage, _Component);
 
@@ -40,7 +41,7 @@ var PickerPackage = function (_Component) {
       var options = this.state.options.slice(0);
       var stateValueArray = this.state.stateValueArray.slice(0);
 
-      if (typeof options[0][0] === "string") {
+      if (typeof options[0][0] === 'string') {
         stateValueArray[0] = value;
         this.setState({
           stateValueArray: stateValueArray
@@ -49,7 +50,7 @@ var PickerPackage = function (_Component) {
         var valueArray = this.state.valueArray.slice(0);
         var series = this.getCarSeries(value);
         var i = 0;
-        //先把当前项重置，因为这要传到回调里
+        // 先把当前项重置，因为这要传到回调里
         stateValueArray[listIndex] = value;
         valueArray[listIndex] = {
           value: value,
@@ -57,18 +58,19 @@ var PickerPackage = function (_Component) {
         };
         while (series) {
           if (series[0].series) {
-            //重置下一项的系列
+            // 重置下一项的系列
             options[listIndex + i + 1] = series;
-            //下一项的系列重置了，每一项的默认值也要重置
+            // 下一项的系列重置了，每一项的默认值也要重置
             stateValueArray[listIndex + i + 1] = series[0].value;
             valueArray[listIndex + i + 1] = {
               value: series[0].value,
               text: series[0].text
-              //循环重置值
-            };series = series[0].series;
-            i++;
+            };
+            // 循环重置值
+            series = series[0].series;
+            i += 1;
           } else {
-            //如果直接是最后一项了，则只重置最后一项
+            // 如果直接是最后一项了，则只重置最后一项
             options[listIndex + i + 1] = series;
             stateValueArray[listIndex + i + 1] = series[0].value;
             valueArray[listIndex + i + 1] = {
@@ -78,7 +80,7 @@ var PickerPackage = function (_Component) {
             series = null;
           }
         }
-        //set 更新状态
+        // set 更新状态
         this.setState({
           options: options,
           stateValueArray: stateValueArray,
@@ -86,7 +88,32 @@ var PickerPackage = function (_Component) {
         });
       }
     }
-    //获取到某一个ID下的Series，并返回
+  }, {
+    key: 'onClickAway',
+    value: function onClickAway(value, text, listIndex) {
+      // 如明有值，说明滑动过
+      if (value) {
+        // 先把原来的数组复制一份
+        var arr = this.state.stateValueArray.slice(0);
+        // 索引校正
+        var index = listIndex || 0;
+        // 赋值
+        arr[index] = value;
+        // 如果是只有一项的话
+        if (typeof this.props.options[0][0] === 'string') {
+          this.setState({
+            stateValueArray: arr,
+            value: [value]
+          });
+        }
+      }
+      if (typeof this.props.options[0][0] === 'string') {
+        this.props.pickerAway && this.props.pickerAway(this.state.stateValueArray);
+      } else {
+        this.props.pickerAway && this.props.pickerAway(this.state.valueArray);
+      }
+    }
+    // 获取到某一个ID下的Series，并返回
 
   }, {
     key: 'getCarSeries',
@@ -97,17 +124,15 @@ var PickerPackage = function (_Component) {
         for (var i = 0; i < arr.length; i++) {
           if (arr[i].value === value) {
             obj = arr[i].series;
-          } else {
-            if (arr[i].series) {
-              getseries(arr[i].series);
-            }
+          } else if (arr[i].series) {
+            getseries(arr[i].series);
           }
         }
-      };
+      }
       getseries(cont);
       return obj;
     }
-    //获取到某一个ID下的Series，并返回
+    // 获取到某一个ID下的Series，并返回
 
   }, {
     key: 'getOptions',
@@ -118,17 +143,15 @@ var PickerPackage = function (_Component) {
         for (var i = 0; i < arr.length; i++) {
           if (arr[i].value === value) {
             data = arr[i];
-          } else {
-            if (arr[i].series) {
-              getseries(arr[i].series);
-            }
+          } else if (arr[i].series) {
+            getseries(arr[i].series);
           }
         }
-      };
+      }
       getseries(cont);
       return data;
     }
-    //获取到某一个ID下的Series，并返回
+    // 获取到某一个ID下的Series，并返回
 
   }, {
     key: 'getValText',
@@ -137,66 +160,34 @@ var PickerPackage = function (_Component) {
       var str = null;
       function getseries(arr) {
         for (var i = 0; i < arr.length; i++) {
-          if (arr[i].value == value) {
+          if (arr[i].value === value) {
             str = arr[i].text;
-          } else {
-            if (arr[i].series) {
-              getseries(arr[i].series);
-            }
+          } else if (arr[i].series) {
+            getseries(arr[i].series);
           }
         }
-      };
+      }
       getseries(cont);
       return str;
     }
   }, {
-    key: 'onClickAway',
-    value: function onClickAway(value, text, listIndex) {
-      //如明有值，说明滑动过
-      if (value) {
-        //先把原来的数组复制一份
-        var arr = this.state.stateValueArray.slice(0);
-        //索引校正
-        var index = listIndex || 0;
-        //赋值
-        arr[index] = value;
-        //如果是只有一项的话
-        if (typeof this.props.options[0][0] === "string") {
-          this.setState({
-            stateValueArray: arr,
-            value: [value]
-          });
-        }
-      }
-      if (typeof this.props.options[0][0] === "string") {
-        this.props.pickerAway && this.props.pickerAway(this.state.stateValueArray);
-      } else {
-        this.props.pickerAway && this.props.pickerAway(this.state.valueArray);
-      }
-    }
-  }, {
     key: 'render',
     value: function render() {
-      var self = this;
-      //初始化值
+      // 初始化值
       if (!this.state) {
         var _props = this.props,
             options = _props.options,
             value = _props.value;
 
-        var len = void 0,
-            stateValueArray = void 0,
-            //存着每一级id值
-        seriesArray = void 0,
-            //options里每一级的系列值
-        valueArray = void 0; //value的值
-        //如果数组第一项是字符串，说明是单列，则初始化把每一级的每一项放到stateValueArray数组里。并初始化serieArray;
-        if (typeof options[0] === "string") {
+        var stateValueArray = void 0; // 存着每一级id值
+        var seriesArray = void 0; // options里每一级的系列值
+        var valueArray = void 0; // value的值
+        // 如果数组第一项是字符串，说明是单列，则初始化把每一级的每一项放到stateValueArray数组里。并初始化serieArray;
+        if (typeof options[0] === 'string') {
           stateValueArray = [options[0]];
           seriesArray = [options];
         } else {
-          //如果是对象，则递归第一个对象，和第一个对象下series下的第一个对象，组成默认值
-          len = options.length;
+          // 如果是对象，则递归第一个对象，和第一个对象下series下的第一个对象，组成默认值
           stateValueArray = [];
           valueArray = [];
           seriesArray = [];
@@ -210,12 +201,10 @@ var PickerPackage = function (_Component) {
               seriesArray.push(series);
               stateValueArray.push(series[0].value);
               valueArray.push(series[0]);
-              //如果还有下一项，则继续递归
+              // 如果还有下一项，则继续递归
               if (series[0].series) {
                 series = series[0].series;
               } else {
-                //如果没有跳出循环
-                series = null;
                 break;
               }
             }
@@ -242,4 +231,4 @@ var PickerPackage = function (_Component) {
   return PickerPackage;
 }(_react.Component);
 
-module.exports = PickerPackage;
+exports.default = PickerPackage;

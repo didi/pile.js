@@ -14,14 +14,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _classnames = require('classnames');
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -33,35 +25,52 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var ChartLine = (_temp = _class = function (_React$Component) {
   _inherits(ChartLine, _React$Component);
 
-  function ChartLine(props) {
+  function ChartLine() {
     _classCallCheck(this, ChartLine);
 
-    return _possibleConstructorReturn(this, (ChartLine.__proto__ || Object.getPrototypeOf(ChartLine)).call(this, props));
+    return _possibleConstructorReturn(this, (ChartLine.__proto__ || Object.getPrototypeOf(ChartLine)).apply(this, arguments));
   }
-  // static propTypes = {
-  //   onSwipeUp: PropTypes.func,
-  //   onSwipeDown: PropTypes.func,
-  //   onSwipeLeft: PropTypes.func,
-  //   onSwipeRight: PropTypes.func,
-  //   flickThreshold: PropTypes.number,
-  //   swipeThreshold: PropTypes.number,
-  // };
 
   _createClass(ChartLine, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _props = this.props,
+          width = _props.width,
+          size = _props.size,
+          final = _props.final,
+          animation = _props.animation,
+          el = _props.el;
+
+      var calheight = void 0;
+      var ctx = document.getElementById(el).getContext('2d');
+
+      if (final === 'circle') {
+        calheight = size - width / 2;
+      } else {
+        calheight = size;
+      }
+
+      if (animation) {
+        this.drawAnimated(ctx, calheight);
+      } else {
+        this.drawcal(ctx, calheight);
+      }
+    }
+  }, {
     key: 'drawcal',
     value: function drawcal(ctx, calheight) {
-      var self = this,
-          _props = this.props,
-          width = _props.width,
-          value = _props.value,
-          fill = _props.fill,
-          final = _props.final,
-          reverse = _props.reverse,
-          size = _props.size;
+      var _props2 = this.props,
+          width = _props2.width,
+          value = _props2.value,
+          fill = _props2.fill,
+          final = _props2.final,
+          reverse = _props2.reverse,
+          size = _props2.size;
+
 
       ctx.beginPath();
       if (reverse) {
-        //树状图
+        // 树状图
         ctx.clearRect(0, 0, width, size);
         if (fill.gradient) {
           /* 指定渐变区域 */
@@ -77,51 +86,39 @@ var ChartLine = (_temp = _class = function (_React$Component) {
         /* 绘制矩形 */
         ctx.rect(0, size - calheight * value, width, size);
         ctx.fill();
-        if (final == "circle") {
+        if (final === 'circle') {
           if (fill.gradient) {
-            this.drawfinal(ctx, width / 2, size - calheight * value, width / 2, fill.gradient[1]);
+            ChartLine.drawfinal(ctx, width / 2, size - calheight * value, width / 2, fill.gradient[1]);
           } else {
-            this.drawfinal(ctx, width / 2, size - calheight * value, width / 2, fill);
+            ChartLine.drawfinal(ctx, width / 2, size - calheight * value, width / 2, fill);
           }
         }
       } else {
-        //默认横行图
+        // 默认横行图
         ctx.clearRect(0, 0, size, width);
 
         if (fill.gradient) {
           /* 指定渐变区域 */
-          var grad = ctx.createLinearGradient(0, 0, size * value, 0);
+          var _grad = ctx.createLinearGradient(0, 0, size * value, 0);
           /* 指定几个颜色 */
-          grad.addColorStop(0, fill.gradient[0]);
-          grad.addColorStop(1, fill.gradient[1]);
+          _grad.addColorStop(0, fill.gradient[0]);
+          _grad.addColorStop(1, fill.gradient[1]);
           /* 将这个渐变设置为fillStyle */
-          ctx.fillStyle = grad;
+          ctx.fillStyle = _grad;
         } else {
           ctx.fillStyle = fill;
         }
         /* 绘制矩形 */
         ctx.rect(0, 0, calheight * value, width);
         ctx.fill();
-        if (final == "circle") {
+        if (final === 'circle') {
           if (fill.gradient) {
-            this.drawfinal(ctx, calheight * value, width / 2, width / 2, fill.gradient[1]);
+            ChartLine.drawfinal(ctx, calheight * value, width / 2, width / 2, fill.gradient[1]);
           } else {
-            this.drawfinal(ctx, calheight * value, width / 2, width / 2, fill);
+            ChartLine.drawfinal(ctx, calheight * value, width / 2, width / 2, fill);
           }
         }
       }
-    }
-  }, {
-    key: 'drawfinal',
-    value: function drawfinal(ctx, x, y, r, color) {
-      var self = this;
-
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(x, y, r, 0, 2 * Math.PI);
-      ctx.fillStyle = color;
-      ctx.restore();
-      ctx.fill();
     }
   }, {
     key: 'drawAnimated',
@@ -132,18 +129,11 @@ var ChartLine = (_temp = _class = function (_React$Component) {
   }, {
     key: 'timeout',
     value: function timeout(ctx, calheight, tempheight) {
-      var self = this,
-          _props2 = this.props,
-          width = _props2.width,
-          value = _props2.value,
-          fill = _props2.fill,
-          final = _props2.final,
-          reverse = _props2.reverse,
-          size = _props2.size;
+      var self = this;
 
       if (tempheight < calheight) {
         self.drawcal(ctx, tempheight);
-        tempheight++;
+        tempheight += 1;
         setTimeout(function () {
           self.timeout(ctx, calheight, tempheight);
         }, 5);
@@ -152,77 +142,60 @@ var ChartLine = (_temp = _class = function (_React$Component) {
       }
     }
   }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _props3 = this.props,
-          fill = _props3.fill,
-          width = _props3.width,
-          size = _props3.size,
-          final = _props3.final,
-          animation = _props3.animation,
-          el = _props3.el;
-
-      var self = this,
-          calheight = void 0,
-          ctx = document.getElementById(el).getContext('2d');
-
-      if (final == "circle") {
-        calheight = size - width / 2;
-      } else {
-        calheight = size;
-      }
-
-      if (animation) {
-        this.drawAnimated(ctx, calheight);
-      } else {
-        this.drawcal(ctx, calheight);
-      }
-    }
-  }, {
     key: 'render',
     value: function render() {
-      var _props4 = this.props,
-          value = _props4.value,
-          size = _props4.size,
-          width = _props4.width,
-          calheight = _props4.calheight,
-          fill = _props4.fill,
-          final = _props4.final,
-          animation = _props4.animation,
-          el = _props4.el,
-          ctx = _props4.ctx,
-          canvas_width = _props4.canvas_width,
-          canvas_height = _props4.canvas_height;
+      var _props3 = this.props,
+          el = _props3.el,
+          canvas_width = _props3.canvas_width,
+          canvas_height = _props3.canvas_height;
 
 
       return _react2.default.createElement('canvas', { id: el, height: canvas_height, width: canvas_width });
     }
+  }], [{
+    key: 'drawfinal',
+    value: function drawfinal(ctx, x, y, r, color) {
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, 2 * Math.PI);
+      ctx.fillStyle = color;
+      ctx.restore();
+      ctx.fill();
+    }
+
+    // static propTypes = {
+    //   onSwipeUp: PropTypes.func,
+    //   onSwipeDown: PropTypes.func,
+    //   onSwipeLeft: PropTypes.func,
+    //   onSwipeRight: PropTypes.func,
+    //   flickThreshold: PropTypes.number,
+    //   swipeThreshold: PropTypes.number,
+    // };
+
   }]);
 
   return ChartLine;
 }(_react2.default.Component), _class.defaultProps = {
-  //值
+  // 值
   value: 0.0,
-  //容器的长度
+  // 容器的长度
   size: 100.0,
-  //容器的宽度
+  // 容器的宽度
   width: 12,
-  //实际柱形图的高度（除掉底端的弧形）
+  // 实际柱形图的高度（除掉底端的弧形）
   calheight: 100.0,
-  //canvas的颜色
+  // canvas的颜色
   fill: {
     gradient: ['#1ad5ff', '#1a7bff']
   },
-  //柱形图底端的形状
-  final: "circle",
-  //动画效果
+  // 柱形图底端的形状
+  final: 'circle',
+  // 动画效果
   animation: {
     duration: 1200,
     easing: 'circleProgressEasing'
   },
-  //容器
+  // 容器
   el: null
 }, _temp);
-;
-
 exports.default = ChartLine;

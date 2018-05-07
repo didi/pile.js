@@ -21,7 +21,7 @@ var Message = function Message(props) {
 
   return _react2.default.createElement(
     "div",
-    { className: "jimu_message" },
+    { className: "pile_message" },
     _react2.default.createElement(
       "div",
       others,

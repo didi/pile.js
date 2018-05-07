@@ -35,9 +35,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// 引用方式:
-// <CarRecord filedMap={{"pay_type":["企业支付","个人垫付","混合支付"],"use_car_type":{"1":"出租车","2":"专车","3":"快车","4":"代驾"},"use_car_srv":{"101":"出租车单次用车","201":"专车单次用车","202":"专车时租","203":"专车接机","204":"专车送机","301":"快车"},"require_level":{"100":"舒适型","200":"豪华型","400":"商务型","600":"普通型"}}}  weekFormat="zh" drsFontLen={5} nameSubstrLen={3} weekShow={true} dateFormat="yyyy-mm-dd hh:ss" superAdmin={0} start_name="北京首都国际机场T2航站楼1" end_name="当代城市家园-东门" create_time={1430291523} use_car_type={2} require_level={600} pay_type={0} real_pay={0} tip_fee={10} other_fee={30} realname="牛德华" />
-
 var CarRecord = (_temp = _class = function (_Component) {
   _inherits(CarRecord, _Component);
 
@@ -48,26 +45,10 @@ var CarRecord = (_temp = _class = function (_Component) {
   }
 
   _createClass(CarRecord, [{
-    key: 'setDateFormat',
-    value: function setDateFormat(date, fmt) {
-      var o = {
-        'M+': date.getMonth() + 1, // 月份
-        'd+': date.getDate(), // 日
-        'h+': date.getHours(), // 小时
-        'm+': date.getMinutes(), // 分
-        's+': date.getSeconds() // 秒
-      };
-      if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, ('' + date.getFullYear()).substr(4 - RegExp.$1.length));
-      for (var k in o) {
-        if (new RegExp('(' + k + ')').test(fmt)) fmt = fmt.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length));
-      }
-      return fmt;
-    }
+    key: 'setWeekFormat',
+
 
     // 设置星期格式
-
-  }, {
-    key: 'setWeekFormat',
     value: function setWeekFormat(time) {
       var week = {
         zh: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
@@ -87,7 +68,7 @@ var CarRecord = (_temp = _class = function (_Component) {
 
       var re = /[0-9]|[a-z]|[A-Z]|\./;
       var length = 0;
-      var i = 0;
+      var i = void 0;
       if (name.length <= num) {
         return name;
       }
@@ -131,36 +112,31 @@ var CarRecord = (_temp = _class = function (_Component) {
           other_fee = _props.other_fee,
           realname = _props.realname,
           superAdmin = _props.superAdmin,
-          drsFontLen = _props.drsFontLen,
-          nameFontLen = _props.nameFontLen,
-          nameSubstrLen = _props.nameSubstrLen,
-          weekFormat = _props.weekFormat,
           weekShow = _props.weekShow,
-          dateFormat = _props.dateFormat,
-          others = _objectWithoutProperties(_props, ['start_name', 'end_name', 'filedMap', 'create_time', 'className', 'use_car_type', 'require_level', 'pay_type', 'real_pay', 'tip_fee', 'other_fee', 'realname', 'superAdmin', 'drsFontLen', 'nameFontLen', 'nameSubstrLen', 'weekFormat', 'weekShow', 'dateFormat']);
+          others = _objectWithoutProperties(_props, ['start_name', 'end_name', 'filedMap', 'create_time', 'className', 'use_car_type', 'require_level', 'pay_type', 'real_pay', 'tip_fee', 'other_fee', 'realname', 'superAdmin', 'weekShow']);
 
-      var username = this.changeName(realname),
-          timeObj = new Date(create_time * 1000),
-          data = !weekShow ? this.setDateFormat(timeObj, this.props.dateFormat) : this.setDateFormat(timeObj, this.props.dateFormat) + ' ' + this.setWeekFormat(timeObj),
-          startName = start_name && this.subFontChar(start_name),
-          endName = end_name && this.subFontChar(end_name),
-          cls = (0, _classnames2.default)(_defineProperty({
+      var username = this.changeName(realname);
+      var timeObj = new Date(create_time * 1000);
+      var data = !weekShow ? CarRecord.setDateFormat(timeObj, this.props.dateFormat) : CarRecord.setDateFormat(timeObj, this.props.dateFormat) + ' ' + this.setWeekFormat(timeObj);
+      var startName = start_name && this.subFontChar(start_name);
+      var endName = end_name && this.subFontChar(end_name);
+      var cls = (0, _classnames2.default)(_defineProperty({
         'car-record-list': true
-      }, className, className)),
-          Component = this.props.href ? 'a' : 'div';
+      }, className, className));
+      var Wapper = this.props.href ? 'a' : 'div';
       return _react2.default.createElement(
-        Component,
+        Wapper,
         _extends({ className: cls }, others),
         _react2.default.createElement(
           'div',
           { className: 'record-head' },
-          _react2.default.createElement('span', { className: 'icon-time icon-jimu-time' }),
+          _react2.default.createElement('span', { className: 'icon-time icon-pile-time' }),
           _react2.default.createElement(
             'span',
             { className: 'timer fz12' },
             data
           ),
-          superAdmin == 1 && _react2.default.createElement(
+          superAdmin === 1 && _react2.default.createElement(
             'span',
             { className: 'remark fz16' },
             username
@@ -184,7 +160,7 @@ var CarRecord = (_temp = _class = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'wrapper wrapper-from-hook' },
-          _react2.default.createElement('span', { className: 'jimu-icon jimu-icon-location-point' }),
+          _react2.default.createElement('span', { className: 'pile-icon pile-icon-location-point' }),
           _react2.default.createElement(
             'span',
             { className: 'fz14 txt-from txt-from-hook default ml5' },
@@ -194,7 +170,7 @@ var CarRecord = (_temp = _class = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'wrapper wrapper-from-hook' },
-          _react2.default.createElement('span', { className: 'jimu-icon jimu-icon-location-point-red' }),
+          _react2.default.createElement('span', { className: 'pile-icon pile-icon-location-point-red' }),
           _react2.default.createElement(
             'span',
             { className: 'fz14 txt-from txt-from-hook default ml5' },
@@ -231,6 +207,24 @@ var CarRecord = (_temp = _class = function (_Component) {
         )
       );
     }
+  }], [{
+    key: 'setDateFormat',
+
+    // 日期格式化   yyyy-MM-dd hh:mm ; yyyy/mm/dd hh:mm
+    value: function setDateFormat(date, fmt) {
+      var o = {
+        'M+': date.getMonth() + 1, // 月份
+        'd+': date.getDate(), // 日
+        'h+': date.getHours(), // 小时
+        'm+': date.getMinutes(), // 分
+        's+': date.getSeconds() // 秒
+      };
+      if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, ('' + date.getFullYear()).substr(4 - RegExp.$1.length));
+      for (var k in o) {
+        if (new RegExp('(' + k + ')').test(fmt)) fmt = fmt.replace(RegExp.$1, RegExp.$1.length === 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length));
+      }
+      return fmt;
+    }
   }]);
 
   return CarRecord;
@@ -241,7 +235,6 @@ var CarRecord = (_temp = _class = function (_Component) {
   weekFormat: _propTypes2.default.string,
   weekShow: _propTypes2.default.bool,
   dateFormat: _propTypes2.default.string,
-  className: _propTypes2.default.string,
 
   start_name: _propTypes2.default.string.isRequired,
   end_name: _propTypes2.default.string.isRequired,
@@ -262,8 +255,5 @@ var CarRecord = (_temp = _class = function (_Component) {
   weekFormat: 'zh', // 星期名称格式 string (zh、en、enlong)
   weekShow: true, // 星期是否展示 bool
   dateFormat: 'yyyy-MM-dd hh:mm' // 日期格式 string ( yyyy-MM-dd hh:mm 、 yyyy/mm/dd hh:mm、 yyyy-MM-dd、 yyyy/mm/dd)
-
-
-  // 日期格式化   yyyy-MM-dd hh:mm ; yyyy/mm/dd hh:mm
 }, _temp);
 exports.default = CarRecord;

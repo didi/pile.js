@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -22,12 +26,14 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+/* global fetch */
 var SelectCar = function (_Component) {
   _inherits(SelectCar, _Component);
 
   function SelectCar(props) {
     _classCallCheck(this, SelectCar);
 
+    /* eslint-disable react/no-unused-state */
     var _this = _possibleConstructorReturn(this, (SelectCar.__proto__ || Object.getPrototypeOf(SelectCar)).call(this, props));
 
     _this.state = {
@@ -38,6 +44,7 @@ var SelectCar = function (_Component) {
       selectCarType: null, // 已选择的车辆型号
       selectColor: null // 已选择的车辆颜色
     };
+    /* esline-enable react/no-unused-state */
     _this.brandClick = _this.brandClick.bind(_this);
     _this.carTypeClick = _this.carTypeClick.bind(_this);
     _this.carColorClick = _this.carColorClick.bind(_this);
@@ -69,11 +76,11 @@ var SelectCar = function (_Component) {
         var list = data.result.fctlist;
         var otherlist = data.result.otherfctlist;
         var arr = [];
-        list.map(function (ele) {
+        list.forEach(function (ele) {
           arr = arr.concat(ele.serieslist);
         });
         // 其他车型 （海外、停售）
-        otherlist.map(function (ele) {
+        otherlist.forEach(function (ele) {
           arr = arr.concat(ele.serieslist);
         });
         self.setState({
@@ -981,4 +988,5 @@ SelectCar.defaultProps = {
     }]
   }
 };
-module.exports = SelectCar;
+
+exports.default = SelectCar;

@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _csstransform = require('./csstransform');
 
 var _csstransform2 = _interopRequireDefault(_csstransform);
@@ -13,7 +17,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /**
  * Created by yanshenshen
 */
-module.exports = {
+exports.default = {
   CssTransform: _csstransform2.default,
   PositionTransform: _positiontransform2.default
 };

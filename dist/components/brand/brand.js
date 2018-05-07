@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -35,6 +39,25 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Brand = function (_Component) {
   _inherits(Brand, _Component);
 
+  _createClass(Brand, null, [{
+    key: 'fast_charClick',
+
+    /* 解决锚点会产生历史记录，点后退，退不出当前页面的问题 */
+    value: function fast_charClick(e) {
+      var fastCharEle = e.currentTarget;
+      var ele = document.querySelector('#first_char_' + fastCharEle.dataset.char);
+      var carBrandCon = document.querySelector('._carBrandCon');
+      carBrandCon.scrollTop = ele.offsetTop;
+    }
+    /* 点击定位城市的事件 */
+
+  }, {
+    key: 'hotCarBrandClick',
+    value: function hotCarBrandClick(e) {
+      document.getElementById('car_' + e.currentTarget.dataset.carid).click();
+    }
+  }]);
+
   function Brand(props) {
     _classCallCheck(this, Brand);
 
@@ -45,14 +68,12 @@ var Brand = function (_Component) {
     // 把26个字母放进数组里
     while (i < 26) {
       firstChar.push(String.fromCharCode(i + 97).toLocaleUpperCase());
-      i++;
+      i += 1;
     }
 
     _this.fast_charTouchMove = _this.fast_charTouchMove.bind(_this);
     _this.fast_charTouchEnd = _this.fast_charTouchEnd.bind(_this);
-    _this.fast_charClick = _this.fast_charClick.bind(_this);
     _this.carClick = _this.carClick.bind(_this);
-    _this.hotCarBrandClick = _this.hotCarBrandClick.bind(_this);
     _this.initMaxChar = _this.initMaxChar.bind(_this);
     _this.initHotCarBrandCon = _this.initHotCarBrandCon.bind(_this);
     _this.initCarBrandCon = _this.initCarBrandCon.bind(_this);
@@ -60,7 +81,6 @@ var Brand = function (_Component) {
 
     _this.state = {
       selectBrand: null,
-      max_char: 'A',
       showMaxChar: false,
       firstChar: firstChar
     };
@@ -70,27 +90,28 @@ var Brand = function (_Component) {
   _createClass(Brand, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      var _props = this.props,
-          carArr = _props.carArr,
-          dataAttrName = _props.dataAttrName;
+      var dataAttrName = this.props.dataAttrName;
+      var carArr = this.props.carArr;
+
 
       if (carArr) {
         // 如果是对象的话，需要转换一下
         if (!carArr.length) {
           var carObj = carArr;
           carArr = [];
-          this.state.firstChar.map(function (char) {
+          this.state.firstChar.forEach(function (char) {
             if (carObj[char]) {
-              carObj[char].map(function (ele) {
-                ele[dataAttrName.firstChar] = char;
-                carArr.push(ele);
+              carObj[char].forEach(function (ele) {
+                var cloneEle = _extends({}, ele);
+                cloneEle[dataAttrName.firstChar] = char;
+                carArr.push(cloneEle);
               });
             }
           });
         }
         var Obj = {};
         /* 把城市分成数组，字母相同的在一组 */
-        carArr.map(function (ele, i) {
+        carArr.forEach(function (ele, i) {
           var firstChar = ele[dataAttrName.firstChar];
           if (!Obj[firstChar]) {
             Obj[firstChar] = [];
@@ -105,10 +126,8 @@ var Brand = function (_Component) {
   }, {
     key: 'init_fast_char',
     value: function init_fast_char() {
-      var self = this;
       var fast_charTouchMove = this.fast_charTouchMove,
           fast_charTouchEnd = this.fast_charTouchEnd,
-          fast_charClick = this.fast_charClick,
           state = this.state;
       var carObj = state.carObj,
           firstChar = state.firstChar;
@@ -124,12 +143,11 @@ var Brand = function (_Component) {
         firstChar.map(function (char, i) {
           if (carObj[char]) {
             return _react2.default.createElement(
-              'a',
+              'button',
               {
-                href: 'javascript:;',
                 'data-char': char,
                 key: i,
-                onClick: fast_charClick
+                onClick: Brand.fast_charClick
               },
               char
             );
@@ -138,16 +156,7 @@ var Brand = function (_Component) {
         })
       );
     }
-    /* 解决锚点会产生历史记录，点后退，退不出当前页面的问题 */
 
-  }, {
-    key: 'fast_charClick',
-    value: function fast_charClick(e) {
-      var fastCharEle = e.currentTarget;
-      var ele = document.querySelector('#first_char_' + fastCharEle.dataset.char);
-      var _carBrandCon = document.querySelector('._carBrandCon');
-      _carBrandCon.scrollTop = ele.offsetTop;
-    }
     /* 城市点击事件 */
 
   }, {
@@ -170,6 +179,7 @@ var Brand = function (_Component) {
 
       var ele = document.elementFromPoint(clientX, clientY) || {};
       var dataset = ele.dataset;
+
 
       if (ele && dataset.char) {
         this.setState({
@@ -202,67 +212,58 @@ var Brand = function (_Component) {
       return _react2.default.createElement(
         'ul',
         { className: 'carBrandCon' },
-        function () {
+        function init() {
           var arr = [];
           for (var a in carObj) {
-            arr.push(_react2.default.createElement(
-              'li',
-              { key: a, id: 'first_char_' + a },
-              _react2.default.createElement(
-                'a',
-                {
-                  className: 'first_char',
-                  href: 'javascript:;'
-                },
-                a
-              ),
-              carObj[a].map(function (ele, index) {
-                var isCheck = false;
-                if (selectBrand && selectBrand.id && selectBrand[dataAttrName.id] === ele[dataAttrName.id]) {
-                  isCheck = true;
-                }
-                {/* div不用label是因为label click 会触发两次 */}
-                return _react2.default.createElement(
-                  'div',
-                  {
-                    className: 'list' + (isCheck ? ' select' : ''),
-                    key: index,
-                    id: 'car_' + ele[dataAttrName.id],
-                    'data-carobj': JSON.stringify(ele),
-                    onClick: self.carClick
-                  },
-                  _react2.default.createElement('img', { src: '' + self.props.staticImgURL + ele.id + '.png' }),
-                  _react2.default.createElement(
-                    'span',
+            if ({}.hasOwnProperty.call(carObj, a)) {
+              arr.push(_react2.default.createElement(
+                'li',
+                { key: a, id: 'first_char_' + a },
+                _react2.default.createElement(
+                  'button',
+                  { className: 'first_char' },
+                  a
+                ),
+                carObj[a].map(function (ele, index) {
+                  var isCheck = false;
+                  if (selectBrand && selectBrand.id && selectBrand[dataAttrName.id] === ele[dataAttrName.id]) {
+                    isCheck = true;
+                  }
+                  return _react2.default.createElement(
+                    'div',
                     {
-                      className: 'carBrandName'
+                      className: 'list' + (isCheck ? ' select' : ''),
+                      key: index,
+                      id: 'car_' + ele[dataAttrName.id],
+                      'data-carobj': JSON.stringify(ele),
+                      onClick: self.carClick,
+                      role: 'button',
+                      tabIndex: index
                     },
-                    ele[dataAttrName.name]
-                  )
-                );
-              })
-            ));
+                    _react2.default.createElement('img', { src: '' + self.props.staticImgURL + ele.id + '.png', alt: '' }),
+                    _react2.default.createElement(
+                      'span',
+                      {
+                        className: 'carBrandName'
+                      },
+                      ele[dataAttrName.name]
+                    )
+                  );
+                })
+              ));
+            }
           }
           return arr;
         }()
       );
     }
-    /* 点击定位城市的事件 */
-
-  }, {
-    key: 'hotCarBrandClick',
-    value: function hotCarBrandClick(e) {
-      document.getElementById('car_' + e.currentTarget.dataset.carid).click();
-    }
   }, {
     key: 'initHotCarBrandCon',
     value: function initHotCarBrandCon() {
-      var _this2 = this;
-
-      var _props2 = this.props,
-          dataAttrName = _props2.dataAttrName,
-          staticImgURL = _props2.staticImgURL,
-          hotCarBrandData = _props2.hotCarBrandData;
+      var _props = this.props,
+          dataAttrName = _props.dataAttrName,
+          staticImgURL = _props.staticImgURL,
+          hotCarBrandData = _props.hotCarBrandData;
       var selectBrand = this.state.selectBrand;
 
       if (!hotCarBrandData) {
@@ -292,9 +293,10 @@ var Brand = function (_Component) {
                 key: index,
                 className: 'hotCarBrandList ' + (isCheck ? 'select' : null),
                 'data-carid': ele.id,
-                onClick: _this2.hotCarBrandClick
+                onClick: Brand.hotCarBrandClick
+
               },
-              _react2.default.createElement('img', { src: '' + staticImgURL + ele.id + '.png' }),
+              _react2.default.createElement('img', { src: '' + staticImgURL + ele.id + '.png', alt: '' }),
               _react2.default.createElement(
                 'span',
                 { className: 'hotCarBrandName block' },
@@ -324,13 +326,10 @@ var Brand = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _props3 = this.props,
-          carArr = _props3.carArr,
-          dataAttrName = _props3.dataAttrName,
-          callBack = _props3.callBack,
-          show = _props3.show,
-          hotCarBrandData = _props3.hotCarBrandData,
-          other = _objectWithoutProperties(_props3, ['carArr', 'dataAttrName', 'callBack', 'show', 'hotCarBrandData']);
+      var _props2 = this.props,
+          show = _props2.show,
+          hotCarBrandData = _props2.hotCarBrandData,
+          other = _objectWithoutProperties(_props2, ['show', 'hotCarBrandData']);
 
       if (!show) {
         return null;
@@ -360,4 +359,5 @@ Brand.defaultProps = {
     firstChar: 'first_char'
   }
 };
-module.exports = Brand;
+
+exports.default = Brand;

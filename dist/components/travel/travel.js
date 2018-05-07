@@ -38,36 +38,17 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Travel = (_temp = _class = function (_Component) {
   _inherits(Travel, _Component);
 
-  function Travel(props) {
+  function Travel() {
     _classCallCheck(this, Travel);
 
-    return _possibleConstructorReturn(this, (Travel.__proto__ || Object.getPrototypeOf(Travel)).call(this, props));
+    return _possibleConstructorReturn(this, (Travel.__proto__ || Object.getPrototypeOf(Travel)).apply(this, arguments));
   }
 
-  // 日期格式化   yyyy-MM-dd hh:mm ; yyyy/mm/dd hh:mm
-
-
   _createClass(Travel, [{
-    key: 'setDateFormat',
-    value: function setDateFormat(date, fmt) {
-      var o = {
-        'M+': date.getMonth() + 1, // 月份
-        'd+': date.getDate(), // 日
-        'h+': date.getHours(), // 小时
-        'm+': date.getMinutes(), // 分
-        's+': date.getSeconds() // 秒
-      };
-      if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, ('' + date.getFullYear()).substr(4 - RegExp.$1.length));
-      for (var k in o) {
-        if (new RegExp('(' + k + ')').test(fmt)) fmt = fmt.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length));
-      }
-      return fmt;
-    }
+    key: 'setWeekFormat',
+
 
     // 设置星期格式
-
-  }, {
-    key: 'setWeekFormat',
     value: function setWeekFormat(time) {
       var week = {
         zh: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
@@ -83,30 +64,28 @@ var Travel = (_temp = _class = function (_Component) {
       var _props = this.props,
           create_time = _props.create_time,
           className = _props.className,
-          weekFormat = _props.weekFormat,
           weekShow = _props.weekShow,
           end_name = _props.end_name,
-          dateFormat = _props.dateFormat,
           start_name = _props.start_name,
           stateHtml = _props.stateHtml,
           remarksHtml = _props.remarksHtml,
-          others = _objectWithoutProperties(_props, ['create_time', 'className', 'weekFormat', 'weekShow', 'end_name', 'dateFormat', 'start_name', 'stateHtml', 'remarksHtml']);
+          others = _objectWithoutProperties(_props, ['create_time', 'className', 'weekShow', 'end_name', 'start_name', 'stateHtml', 'remarksHtml']);
 
-      var timeObj = new Date(create_time * 1000),
-          data = !weekShow ? this.setDateFormat(timeObj, this.props.dateFormat) : this.setDateFormat(timeObj, this.props.dateFormat) + ' ' + this.setWeekFormat(timeObj),
-          cls = (0, _classnames2.default)(_defineProperty({
+      var timeObj = new Date(create_time * 1000);
+      var data = !weekShow ? Travel.setDateFormat(timeObj, this.props.dateFormat) : Travel.setDateFormat(timeObj, this.props.dateFormat) + ' ' + this.setWeekFormat(timeObj);
+      var cls = (0, _classnames2.default)(_defineProperty({
         'car-record-list': true,
-        'jimu-app-v2': true,
-        'jimu-travel': true
-      }, className, className)),
-          component = this.props.href ? 'a' : 'div';
+        'pile-app-v2': true,
+        'pile-travel': true
+      }, className, className));
+      var Wrapper = this.props.href ? 'a' : 'div';
       return _react2.default.createElement(
-        'component',
+        Wrapper,
         _extends({ className: cls }, others),
         _react2.default.createElement(
           'div',
           { className: 'record-head' },
-          _react2.default.createElement('span', { className: 'icon-time icon-jimu-time' }),
+          _react2.default.createElement('span', { className: 'icon-time icon-pile-time' }),
           _react2.default.createElement(
             'span',
             { className: 'timer fz12' },
@@ -116,7 +95,7 @@ var Travel = (_temp = _class = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'wrapper wrapper-from-hook' },
-          _react2.default.createElement('span', { className: 'jimu-icon jimu-icon-location-point' }),
+          _react2.default.createElement('span', { className: 'pile-icon pile-icon-location-point' }),
           _react2.default.createElement(
             'span',
             { className: 'fz14 txt-from txt-from-hook default ml5' },
@@ -126,7 +105,7 @@ var Travel = (_temp = _class = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'wrapper wrapper-from-hook' },
-          _react2.default.createElement('span', { className: 'jimu-icon jimu-icon-location-point-red' }),
+          _react2.default.createElement('span', { className: 'pile-icon pile-icon-location-point-red' }),
           _react2.default.createElement(
             'span',
             { className: 'fz14 txt-from txt-from-hook default ml5' },
@@ -145,14 +124,31 @@ var Travel = (_temp = _class = function (_Component) {
         )
       );
     }
+  }], [{
+    key: 'setDateFormat',
+
+    // 日期格式化   yyyy-MM-dd hh:mm ; yyyy/mm/dd hh:mm
+    value: function setDateFormat(date, fmt) {
+      var o = {
+        'M+': date.getMonth() + 1, // 月份
+        'd+': date.getDate(), // 日
+        'h+': date.getHours(), // 小时
+        'm+': date.getMinutes(), // 分
+        's+': date.getSeconds() // 秒
+      };
+      if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, ('' + date.getFullYear()).substr(4 - RegExp.$1.length));
+      for (var k in o) {
+        if (new RegExp('(' + k + ')').test(fmt)) fmt = fmt.replace(RegExp.$1, RegExp.$1.length === 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length));
+      }
+      return fmt;
+    }
   }]);
 
   return Travel;
 }(_react.Component), _class.propTypes = {
   weekFormat: _propTypes2.default.string,
   weekShow: _propTypes2.default.bool,
-  dateFormat: _propTypes2.default.string,
-  className: _propTypes2.default.string
+  dateFormat: _propTypes2.default.string
 }, _class.defaultProps = {
   weekFormat: 'zh', // 星期名称格式 string (zh、en、enlong)
   weekShow: true, // 星期是否展示 bool

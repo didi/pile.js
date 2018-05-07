@@ -10,10 +10,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _class, _temp;
 
-var _stylesheet = require('./stylesheet');
-
-var _stylesheet2 = _interopRequireDefault(_stylesheet);
-
 var _stilr = require('stilr');
 
 var _stilr2 = _interopRequireDefault(_stilr);
@@ -25,6 +21,10 @@ var _react2 = _interopRequireDefault(_react);
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _stylesheet = require('./stylesheet');
+
+var _stylesheet2 = _interopRequireDefault(_stylesheet);
 
 var _utils = require('./utils');
 
@@ -107,7 +107,8 @@ var Grid = (_temp = _class = function (_Component) {
         'div',
         _extends({}, rest, {
           style: this.styles,
-          className: classes }),
+          className: classes
+        }),
         wrappedChildren
       );
     }
@@ -118,5 +119,9 @@ var Grid = (_temp = _class = function (_Component) {
   gutter: _propTypes2.default.string,
   flexCells: _propTypes2.default.bool,
   align: _propTypes2.default.oneOf(['top', 'center', 'bottom'])
+}, _class.defaultProps = {
+  gutter: '',
+  flexCells: false,
+  align: null
 }, _temp);
 exports.default = Grid;

@@ -4,8 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -30,8 +28,6 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -59,12 +55,12 @@ var NoticeBar = (_temp = _class = function (_React$Component) {
     value: function componentDidMount() {
       var _props = this.props,
           rollingUp = _props.rollingUp,
-          message = _props.message,
-          messageRoot = this.messageRoot,
-          messageItemsRoot = this.messageItemsRoot,
-          msgWidth = messageRoot.clientWidth,
-          itemsWidth = messageItemsRoot.clientWidth;
+          message = _props.message;
+      var messageRoot = this.messageRoot,
+          messageItemsRoot = this.messageItemsRoot;
 
+      var msgWidth = messageRoot.clientWidth;
+      var itemsWidth = messageItemsRoot.clientWidth;
 
       if (itemsWidth > msgWidth && !rollingUp) {
         this.latMove();
@@ -83,9 +79,6 @@ var NoticeBar = (_temp = _class = function (_React$Component) {
           show: nextProps.iconHide
         });
       }
-      this.timer && clearInterval(this.timer);
-      this.rooltimer && clearTimeout(this.rooltimer);
-      this.scrolltimer && clearTimeout(this.scrolltimer);
     }
   }, {
     key: 'componentWillUnmount',
@@ -99,17 +92,18 @@ var NoticeBar = (_temp = _class = function (_React$Component) {
     value: function latMove() {
       var _this2 = this;
 
-      var self = this,
-          _props2 = this.props,
+      var self = this;
+      var _props2 = this.props,
           speed = _props2.speed,
           scrollDuration = _props2.scrollDuration,
-          scrollDefaultLeft = _props2.scrollDefaultLeft,
-          messageRoot = this.messageRoot,
-          messageItemsRoot = this.messageItemsRoot,
-          itemsWidth = messageItemsRoot.clientWidth - messageRoot.clientWidth,
-          mySpeed = speed > 10 ? 10 : speed,
-          initLeft = scrollDefaultLeft;
+          scrollDefaultLeft = _props2.scrollDefaultLeft;
+      var messageRoot = this.messageRoot,
+          messageItemsRoot = this.messageItemsRoot;
+      // msgWidth = messageRoot.clientWidth,
 
+      var itemsWidth = messageItemsRoot.clientWidth - messageRoot.clientWidth;
+      var mySpeed = speed > 10 ? 10 : speed;
+      var initLeft = scrollDefaultLeft;
       this.itemsLeft = initLeft;
       this.timer = setInterval(function () {
         if (self.itemsLeft < -itemsWidth) {
@@ -122,8 +116,9 @@ var NoticeBar = (_temp = _class = function (_React$Component) {
 
           return false;
         }
-        self.itemsLeft--;
+        self.itemsLeft -= 1;
         self.latMoving(self.itemsLeft);
+        return true;
       }, 100 / mySpeed);
     }
   }, {
@@ -136,13 +131,14 @@ var NoticeBar = (_temp = _class = function (_React$Component) {
   }, {
     key: 'rollMove',
     value: function rollMove() {
-      var self = this,
-          _props3 = this.props,
+      var self = this;
+      var _props3 = this.props,
           speed = _props3.speed,
           message = _props3.message,
-          duration = _props3.duration,
-          messageItemsRoot = this.messageItemsRoot,
-          mySpeed = speed > 10 ? 10 : speed;
+          duration = _props3.duration;
+      var messageItemsRoot = this.messageItemsRoot;
+
+      var mySpeed = speed > 10 ? 10 : speed;
       // 如果子元素个数为一时 ，不滚动
       if (message.length <= 1) {
         return;
@@ -157,7 +153,7 @@ var NoticeBar = (_temp = _class = function (_React$Component) {
         self.rooltimer && clearTimeout(self.rooltimer);
         self.rooltimer = setTimeout(function () {
           messageItemsRoot.style.WebkitTransition = 'all ' + duration + 's ease-in';
-          self.itemsCur++;
+          self.itemsCur += 1;
           self.rollMoveing(self.itemsCur);
         }, 20);
       }, 1000 * (10 / mySpeed));
@@ -179,7 +175,7 @@ var NoticeBar = (_temp = _class = function (_React$Component) {
       this.timer && clearInterval(this.timer);
       this.rooltimer && clearTimeout(this.rooltimer);
       this.scrolltimer && clearTimeout(this.scrolltimer);
-      this.closeBack && this.closeBack();
+      this.props.closeBack && this.props.closeBack();
     }
   }, {
     key: 'messageHTML',
@@ -202,6 +198,7 @@ var NoticeBar = (_temp = _class = function (_React$Component) {
           );
         });
       }
+      return null;
     }
   }, {
     key: 'render',
@@ -214,35 +211,34 @@ var NoticeBar = (_temp = _class = function (_React$Component) {
           message = _props4.message,
           iconHtml = _props4.iconHtml,
           rollingUp = _props4.rollingUp,
-          isShadowStyle = _props4.isShadowStyle,
-          others = _objectWithoutProperties(_props4, ['closeIconShow', 'className', 'message', 'iconHtml', 'rollingUp', 'isShadowStyle']),
-          show = this.state.show;
+          isShadowStyle = _props4.isShadowStyle;
+      var show = this.state.show;
 
       var cls = (0, _classnames2.default)(_defineProperty({
-        'jimu-noticebar': true,
-        'jimu-noticebar-layout-asideicon': iconHtml,
-        'jimu-noticebar-layout-iconhidden': !iconHtml,
-        'jimu-noticebar-layout-shadow': isShadowStyle,
-        'jimu-noticebar-layout-closehidden': !closeIconShow,
-        'jimu-noticebar-rollingup': rollingUp
+        'pile-noticebar': true,
+        'pile-noticebar-layout-asideicon': iconHtml,
+        'pile-noticebar-layout-iconhidden': !iconHtml,
+        'pile-noticebar-layout-shadow': isShadowStyle,
+        'pile-noticebar-layout-closehidden': !closeIconShow,
+        'pile-noticebar-rollingup': rollingUp
       }, className, className));
 
       return _react2.default.createElement(
         'div',
-        _extends({ className: cls, style: { display: show ? 'flex' : 'none' } }, others),
+        { className: cls, style: { display: show ? 'flex' : 'none' } },
         iconHtml && _react2.default.createElement(
           'div',
-          { className: 'jimu-noticebar-aside-icon' },
+          { className: 'pile-noticebar-aside-icon' },
           iconHtml
         ),
         _react2.default.createElement(
           'div',
-          { className: 'jimu-noticebar-msg', ref: function ref(t) {
+          { className: 'pile-noticebar-msg', ref: function ref(t) {
               _this3.messageRoot = t;
             } },
           _react2.default.createElement(
             'ul',
-            { className: 'jimu-noticebar-msg-items', ref: function ref(t) {
+            { className: 'pile-noticebar-msg-items', ref: function ref(t) {
                 _this3.messageItemsRoot = t;
               }, style: { left: '1000px' } },
             this.messageHTML(),
@@ -255,7 +251,7 @@ var NoticeBar = (_temp = _class = function (_React$Component) {
         ),
         closeIconShow && _react2.default.createElement(
           'div',
-          { className: 'jimu-noticebar-icon-close', onClick: this.hideClick },
+          { className: 'pile-noticebar-icon-close', onClick: this.hideClick },
           _react2.default.createElement('span', { className: 'icon-del' })
         )
       );
