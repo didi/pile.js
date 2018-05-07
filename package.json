@@ -1,7 +1,7 @@
 {
-  "name": "pile",
+  "name": "pile-ui",
   "version": "1.0.0",
-  "description": "积木组件库助力移动端开发",
+  "description": "pile components build with React.",
   "main": "./dist",
   "scripts": {
     "start": "webpack-dev-server --hot --config webpack.config.dev.js",
@@ -32,6 +32,8 @@
   "repository": {},
   "keywords": [
     "pile",
+    "pile-ui",
+    "react ui",
     "mobile"
   ],
   "author": "Pile Team",

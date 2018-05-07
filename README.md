@@ -1,6 +1,6 @@
 # pile [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![license Apache 2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://www.npmjs.com/package/pile)
 
-[Pile](https://www.npmjs.com/package/pile) Components build with [React](http://facebook.github.io/react/).
+[Pile](https://www.npmjs.com/package/pile-ui) Components build with [React](http://facebook.github.io/react/).
 
 ## Installation
 
@@ -15,10 +15,10 @@ npm install --save react react-dom
 With React Installed
 
 ```
-npm install pile --save
+npm install pile-ui --save
 
 ```
-[![pile](https://nodei.co/npm/pile.png)](https://www.npmjs.com/package/pile)
+[![pile](https://nodei.co/npm/pile-ui.png)](https://www.npmjs.com/package/pile-ui)
 
 
 import css
