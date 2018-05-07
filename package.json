@@ -29,7 +29,11 @@
       "git add"
     ]
   },
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:didi/pile-ui.git"
+  },
+  "homepage": "https://didi.github.io/pile.js",
   "keywords": [
     "pile",
     "pile-ui",
