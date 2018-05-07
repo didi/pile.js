@@ -1,6 +1,6 @@
 {
   "name": "pile",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "积木组件库助力移动端开发",
   "main": "./dist",
   "scripts": {
