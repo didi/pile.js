@@ -28,7 +28,7 @@ class NConfirm extends React.Component {
         type, label, className, ...others
       } = action;
       const cls = classNames({
-        didi_btn_nconfirm: true,
+        pile_btn_nconfirm: true,
         default: type === 'default',
         primary: type === 'primary',
         [className]: className,
@@ -51,17 +51,17 @@ class NConfirm extends React.Component {
       title, show, hide, transparent,
     } = this.props;
     return (
-      <div className="jimu-dialog">
-        <div className={['didi_dialog_nconfirm', (show ? 'show' : undefined)].join(' ')}>
+      <div className="pile-dialog">
+        <div className={['pile_dialog_nconfirm', (show ? 'show' : undefined)].join(' ')}>
           <Mask transparent={transparent} />
-          <div className={['didi_nconfirm', (show ? 'show' : undefined)].join(' ')}>
-            <div className="didi_nconfirm_hd">
-              <strong className="didi_nconfirm_title">{title}</strong>
+          <div className={['pile_nconfirm', (show ? 'show' : undefined)].join(' ')}>
+            <div className="pile_nconfirm_hd">
+              <strong className="pile_nconfirm_title">{title}</strong>
             </div>
-            <div className="didi_nconfirm_bd">
+            <div className="pile_nconfirm_bd">
               {this.renderButtons()}
             </div>
-            <div className="didi_nconfirm_ft">
+            <div className="pile_nconfirm_ft">
               <a className="btn-orange" onClick={hide}>取消</a>
             </div>
           </div>

@@ -53,12 +53,9 @@ class City extends Component {
 
     this.fast_charTouchMove = this.fast_charTouchMove.bind(this);
     this.fast_charTouchEnd = this.fast_charTouchEnd.bind(this);
-    this.fast_charClick = this.fast_charClick.bind(this);
     this.delCity = this.delCity.bind(this);
     this.addCity = this.addCity.bind(this);
     this.cityClick = this.cityClick.bind(this);
-    this.positionAddrClick = this.positionAddrClick.bind(this);
-    this.delSelect = this.delSelect.bind(this);
     this.initSelectCityCon = this.initSelectCityCon.bind(this);
     this.initMaxChar = this.initMaxChar.bind(this);
     this.initPositionCon = this.initPositionCon.bind(this);
@@ -114,11 +111,9 @@ class City extends Component {
   }
   /* 初始化右侧字母栏 */
   init_fast_char() {
-    const self = this;
     const {
       fast_charTouchMove,
       fast_charTouchEnd,
-      fast_charClick,
       state,
     } = this;
     const {
@@ -138,7 +133,7 @@ class City extends Component {
               <button
                 data-char={char}
                 key={i}
-                onClick={fast_charClick.bind(self)}
+                onClick={City.fast_charClick}
               >{char}
               </button>
             );
@@ -310,7 +305,7 @@ class City extends Component {
         <div
           className="positionAddr"
           data-cityid={position.city_id}
-          onClick={this.positionAddrClick}
+          onClick={City.positionAddrClick}
         >
           <span className="icon icon-addr" />
           <span className="positionCityName">{position[dataAttrName.name]}</span>
@@ -356,7 +351,7 @@ class City extends Component {
               <button
                 className="icon icon-close"
                 data-cityid={ele.city_id}
-                onClick={this.delSelect}
+                onClick={City.delSelect}
               />
             </div>
             ))

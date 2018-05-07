@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import JIMU from './index'
-const {Layouts} = JIMU,
+import { Link } from 'react-router'
+import Pile from './index'
+const {Layouts} = Pile,
   {
     Layout,
     LayoutHd,
@@ -26,7 +27,7 @@ const _Layouts = React.createClass({
   render() {
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home"></span></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr">
           <h2 className="page-title"><b>Layout</b><span>图文混排</span></h2>
           <div className="demo-show2">

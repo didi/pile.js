@@ -2,9 +2,10 @@
  * Created by zhaojiejane on 18/01/01.
  */
 import React from 'react'
-import JIMU from './index'
+import { Link } from 'react-router'
+import Pile from './index'
 
-const { CanvasChart } = JIMU,{ ChartLine ,ChartCircle} = CanvasChart
+const { CanvasChart } = Pile,{ ChartLine ,ChartCircle} = CanvasChart
 
 
 const _CanvasChart = React.createClass({
@@ -86,7 +87,7 @@ const _CanvasChart = React.createClass({
     let {canvaslineopts,canvaslineopts1,canvaslineopts2,canvaslineopts3,canvascircleopts,canvascircleopts1} = this.state
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home"></span></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home"></span></Link></div>
         <div className="libs-intr" style={{"minHeight" : `${document.body.clientHeight - 94}px`}}>
           <h2 className="page-title"><b>CanvasChart</b><span>CanvasLine</span></h2>
           <div>

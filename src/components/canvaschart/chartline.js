@@ -5,6 +5,15 @@
 import React from 'react';
 
 class ChartLine extends React.Component {
+  static drawfinal(ctx, x, y, r, color) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, 2 * Math.PI);
+    ctx.fillStyle = color;
+    ctx.restore();
+    ctx.fill();
+  }
+
   // static propTypes = {
   //   onSwipeUp: PropTypes.func,
   //   onSwipeDown: PropTypes.func,
@@ -37,15 +46,6 @@ class ChartLine extends React.Component {
     // 容器
     el: null,
   };
-
-  static drawfinal(ctx, x, y, r, color) {
-    ctx.save();
-    ctx.beginPath();
-    ctx.arc(x, y, r, 0, 2 * Math.PI);
-    ctx.fillStyle = color;
-    ctx.restore();
-    ctx.fill();
-  }
 
   componentDidMount() {
     const {
@@ -93,9 +93,12 @@ class ChartLine extends React.Component {
       ctx.fill();
       if (final === 'circle') {
         if (fill.gradient) {
-          this.drawfinal(ctx, width / 2, (size - calheight * value), width / 2, fill.gradient[1]);
+          ChartLine.drawfinal(
+            ctx, width / 2,
+            (size - calheight * value), width / 2, fill.gradient[1],
+          );
         } else {
-          this.drawfinal(ctx, width / 2, (size - calheight * value), width / 2, fill);
+          ChartLine.drawfinal(ctx, width / 2, (size - calheight * value), width / 2, fill);
         }
       }
     } else {
@@ -118,9 +121,9 @@ class ChartLine extends React.Component {
       ctx.fill();
       if (final === 'circle') {
         if (fill.gradient) {
-          this.drawfinal(ctx, calheight * value, width / 2, width / 2, fill.gradient[1]);
+          ChartLine.drawfinal(ctx, calheight * value, width / 2, width / 2, fill.gradient[1]);
         } else {
-          this.drawfinal(ctx, calheight * value, width / 2, width / 2, fill);
+          ChartLine.drawfinal(ctx, calheight * value, width / 2, width / 2, fill);
         }
       }
     }

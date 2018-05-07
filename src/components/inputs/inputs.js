@@ -37,7 +37,7 @@ const Inputs = (props) => {
   const aligncls = inputsAlign === 'left' ? 'align-lf' : 'align-rt';
   const cls = classNames({
     'name-all': true,
-    'jimu-inputs': true,
+    'pile-inputs': true,
     [aligncls]: aligncls,
     [className]: className,
   });

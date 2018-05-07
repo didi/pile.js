@@ -31,11 +31,11 @@ class Alert extends React.Component {
   }
   componentDidMount() {
     // 居中
-    const { dialog_alert, didi_icon_alert, title_font } = this;
+    const { dialog_alert, pile_icon_alert, title_font } = this;
     dialog_alert.style.background = '#fff';
     dialog_alert.style.width = this.state.width || '267px';
     dialog_alert.style.textAlign = 'center';
-    didi_icon_alert.style.margin = '0 0 16px';
+    pile_icon_alert.style.margin = '0 0 16px';
     title_font.style.lineHeight = '22px';
     title_font.style.marginBottom = !this.props.children ? '20px' : '10px';
     title_font.style.fontSize = '16px';
@@ -84,22 +84,22 @@ class Alert extends React.Component {
     } = this.props;
     const { iconHide } = this.state;
     const className = classNames({
-      // "didi_icon icon-popup_warning": !!type === false ||  type === 'warning',
-      didi_icon_hide: iconHide,
-      'didi_icon icon-popup_right': type === 'success',
-      'didi_icon icon-popup_warning': type !== 'success',
+      // "pile_icon icon-popup_warning": !!type === false ||  type === 'warning',
+      pile_icon_hide: iconHide,
+      'pile_icon icon-popup_right': type === 'success',
+      'pile_icon icon-popup_warning': type !== 'success',
     });
     return (
-      <div className="jimu-dialog">
-        <div className="didi_dialog_alert" style={{ display: show ? 'block' : 'none' }}>
+      <div className="pile-dialog">
+        <div className="pile_dialog_alert" style={{ display: show ? 'block' : 'none' }}>
           <Mask onClick={this.MaskClick} />
-          <div className="didi_dialog" ref={(c) => { this.dialog_alert = c; }}>
-            <p className={className} ref={(c) => { this.didi_icon_alert = c; }} />
+          <div className="pile_dialog" ref={(c) => { this.dialog_alert = c; }}>
+            <p className={className} ref={(c) => { this.pile_icon_alert = c; }} />
             <div className="d_tip title_font tips-title" ref={(c) => { this.title_font = c; }}>
               {title}
             </div>
             {children && (<div className="dialog-alert-content">{children}</div>)}
-            <div className="d_btns didi_btn_alert">
+            <div className="d_btns pile_btn_alert">
               {this.renderButtons()}
             </div>
           </div>

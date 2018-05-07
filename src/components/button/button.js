@@ -13,13 +13,13 @@ const Button = (props) => {
 
   const Component = props.href ? 'a' : 'button';
   const cls = classNames({
-    didi_btn: true,
-    'jimu-button-type-float': float,
-    didi_btn_highlight: type === 'highlight' && !plain,
-    didi_btn_highlight_disable: type === 'highlight' && disabled,
-    didi_btn_border: size === 'small',
-    didi_btn_disable: disabled,
-    didi_btn_selected: selected,
+    pile_btn: true,
+    'pile-button-type-float': float,
+    pile_btn_highlight: type === 'highlight' && !plain,
+    pile_btn_highlight_disable: type === 'highlight' && disabled,
+    pile_btn_border: size === 'small',
+    pile_btn_disable: disabled,
+    pile_btn_selected: selected,
     [className]: className,
   });
 

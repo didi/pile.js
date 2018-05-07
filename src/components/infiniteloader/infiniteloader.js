@@ -210,14 +210,14 @@ class InfiniteLoader extends React.Component {
     } = this.props;
     const { isSwipeIng, swipeSucc, isDegree } = this.state;
     const cls = classNames({
-      'jimu-swipe-items': true,
+      'pile-swipe-items': true,
       [className]: className,
     });
 
     const cls2 = classNames({
-      'jimu-pos-layout': true,
-      'jimu-pos-top': direction === 'top',
-      'jimu-pos-bottom': direction === 'bottom',
+      'pile-pos-layout': true,
+      'pile-pos-top': direction === 'top',
+      'pile-pos-bottom': direction === 'bottom',
     });
     const locale = getComponentLocale(this.props, this.context, 'Infiniteloader', () => Defaultlanguage.Infiniteloader);
     const {
@@ -234,8 +234,8 @@ class InfiniteLoader extends React.Component {
         onSwipingDown={this.SwipingDownBack}
         onSwiped={this.SwipedBack}
       >
-        <div className="jimu-swipe-por">
-          <div ref={(t) => { this.conMain = t; }} className="jimu-swipe-con" style={{ background: defaultbackground || 'transparent' }}>
+        <div className="pile-swipe-por">
+          <div ref={(t) => { this.conMain = t; }} className="pile-swipe-con" style={{ background: defaultbackground || 'transparent' }}>
             {children}
           </div>
           <div className={cls2}>
@@ -259,7 +259,7 @@ class InfiniteLoader extends React.Component {
   }
 }
 InfiniteLoader.contextTypes = {
-  jimuLocale: PropTypes.object,
+  pileLocale: PropTypes.object,
 };
 
 export default InfiniteLoader;

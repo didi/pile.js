@@ -26,12 +26,12 @@ const TextLink = (props) => {
   } = props;
   const Component = props.href ? 'a' : 'span';
   const cls = classNames({
-    'jimu-link': true,
-    'jimu-link-normal': type === 'normal',
-    'jimu-link-danger': type === 'danger',
-    'jimu-link-disabled': type === 'disabled',
-    'jimu-link-left': iconFloat === 'left' && iconClassName,
-    'jimu-link-right': iconFloat === 'right' && iconClassName,
+    'pile-link': true,
+    'pile-link-normal': type === 'normal',
+    'pile-link-danger': type === 'danger',
+    'pile-link-disabled': type === 'disabled',
+    'pile-link-left': iconFloat === 'left' && iconClassName,
+    'pile-link-right': iconFloat === 'right' && iconClassName,
     [className]: className,
   });
 

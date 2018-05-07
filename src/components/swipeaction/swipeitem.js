@@ -184,7 +184,7 @@ class SwipeDel extends React.Component {
   render() {
     const { className, children } = this.props;
     const cls = classNames({
-      'jimu-swipe-del': true,
+      'pile-swipe-del': true,
       [className]: className,
     });
     return (

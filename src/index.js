@@ -1,4 +1,4 @@
-// jimu-mobile
+// pile
 export { default as Version } from './version';
 // 工具类
 export { default as Mask } from './components/mask/index';

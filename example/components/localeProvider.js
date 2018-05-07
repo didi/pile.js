@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import JIMU from './index';
+import { Link } from 'react-router'
+import Pile from './index';
 import enUS from '../../src/components/localeprovider/en_US';
 import zhCN from '../../src/components/localeprovider/zh-CN';
 
-const { Search, LocaleProvider } = JIMU;
+const { Search, LocaleProvider } = Pile;
 
 const localeData = {
   placeholder: 'hahahah123',
 };
 const _CarRecord = () => (
   <div className="example-wrap">
-    <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home" /></a></div>
+    <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
     <div className="libs-intr" style={{ minHeight: `${document.body.clientHeight - 94}px` }}>
       <h2 className="page-title"><b>localeProvider</b><span>多语言</span></h2>
       <div className="demo-show">

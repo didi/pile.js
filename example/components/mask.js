@@ -1,8 +1,8 @@
 import React from 'react'
-
+import { Link } from 'react-router'
 // 遮罩 Mask
-import JIMU from './index'
-const {Button,Mask} = JIMU
+import Pile from './index'
+const {Button,Mask} = Pile
 
 // 遮罩 Mask
 const _Mask = React.createClass({
@@ -14,7 +14,7 @@ const _Mask = React.createClass({
     console.log(maskshow)
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home"></span></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{"minHeight" : `${document.body.clientHeight - 94}px`}}>
           <h2 className="page-title"><b>Mask</b><span>遮罩</span></h2>
           <div className="demo-show">

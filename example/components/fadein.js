@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import JIMU from './index';
+import { Link } from 'react-router'
+import Pile from './index';
 
 const {
     Layouts, Load, Switch, FadeIn, Button,
-  } = JIMU,
+  } = Pile,
   {
     Layout,
     LayoutHd,
@@ -55,7 +56,7 @@ const _Load = React.createClass({
     } = this.state;
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home" /></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{ minHeight: `${document.body.clientHeight - 94}px` }}>
           <h2 className="page-title"><b>FadeIn</b><span>自定义弹层</span></h2>
           <div>
@@ -64,8 +65,8 @@ const _Load = React.createClass({
               <dd>
                 <Layout>
                   <Items>
-                    <Item className="jimu-item-oh jimu-aside-left">
-                      <div className="jimu-Itemcontent">
+                    <Item className="pile-item-oh pile-aside-left">
+                      <div className="pile-Itemcontent">
                         <select ref="directionSel" onChange={this.handleChange}>
                           <option value="bottom">底部</option>
                           <option value="top" >顶部</option>
@@ -73,36 +74,36 @@ const _Load = React.createClass({
                           <option value="right">右侧</option>
                         </select>
                       </div>
-                      <div className="jimu-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>方向</div>
+                      <div className="pile-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>方向</div>
                     </Item>
-                    <Item className="jimu-item-oh jimu-aside-left">
-                      <div className="jimu-Itemcontent">
+                    <Item className="pile-item-oh pile-aside-left">
+                      <div className="pile-Itemcontent">
                         <select ref="heightSel" onChange={this.handleChange}>
                           <option value="auto">auto</option>
                           <option value="100%">100%</option>
                           <option value="300px">300px</option>
                         </select>
                       </div>
-                      <div className="jimu-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }} >height</div>
+                      <div className="pile-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }} >height</div>
                     </Item>
-                    <Item className="jimu-item-oh jimu-aside-left">
-                      <div className="jimu-Itemcontent">
+                    <Item className="pile-item-oh pile-aside-left">
+                      <div className="pile-Itemcontent">
                         <select ref="widthSel" onChange={this.handleChange}>
                           <option value="100%">100%</option>
                           <option value="300px">300px</option>
                         </select>
                       </div>
-                      <div className="jimu-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }} >width</div>
+                      <div className="pile-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }} >width</div>
                     </Item>
-                    <Item className="jimu-item-oh jimu-aside-left">
-                      <div className="jimu-Itemcontent">
+                    <Item className="pile-item-oh pile-aside-left">
+                      <div className="pile-Itemcontent">
                         <select ref="alignSel" onChange={this.handleChange}>
                           <option value="0">水平或者垂直居中</option>
                           <option value="1">左对齐或者顶部对齐</option>
                           <option value="2">右对齐或者底部对齐</option>
                         </select>
                       </div>
-                      <div className="jimu-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>对齐方式</div>
+                      <div className="pile-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>对齐方式</div>
                     </Item>
                   </Items>
                 </Layout>

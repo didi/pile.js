@@ -190,8 +190,8 @@ class Rule extends React.Component {
       list, lenArr, lineArr, min, unitWidth, unitAmount,
     } = this.state;
     const cls = classNames({
-      'jimu-slider': true,
-      'jimu-step-slider': true,
+      'pile-slider': true,
+      'pile-step-slider': true,
       [className]: className,
     });
     // });
@@ -203,7 +203,7 @@ class Rule extends React.Component {
         onTouchMove={this.eventMove}
         onTouchStart={this.eventStart}
       >
-        <div className="jimu-slider-rule" ref={(n) => { this.wrapLay = n; }}>
+        <div className="pile-slider-rule" ref={(n) => { this.wrapLay = n; }}>
           <div className="line-layout">
             <div className="line-bg" />
             <div className="line-light" ref={(n) => { this.lineLight = n; }}>

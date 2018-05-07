@@ -21,20 +21,20 @@ const Result = (props) => {
     title, message, className, iconHtml, size, ...others
   } = props;
   const cls = classNames({
-    'jimu-result': true,
-    [`jimu-result-size-${size}`]: true,
+    'pile-result': true,
+    [`pile-result-size-${size}`]: true,
     [className]: className,
   });
   return (
     <div className={cls} {...others}>
-      <div className="jimu-result-aside">
-        <div className="jimu-result-icon">
+      <div className="pile-result-aside">
+        <div className="pile-result-icon">
           {iconHtml}
         </div>
       </div>
-      <div className="jimu-result-article">
-        {title && <div className="jimu-result-title">{title}</div>}
-        {message && <div className="jimu-result-message">{message}</div>}
+      <div className="pile-result-article">
+        {title && <div className="pile-result-title">{title}</div>}
+        {message && <div className="pile-result-message">{message}</div>}
       </div>
     </div>
   );

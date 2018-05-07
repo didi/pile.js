@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import JIMU from './index'
+import { Link } from 'react-router'
+import Pile from './index'
 
-const {Button,Score} = JIMU,
+const {Button,Score} = Pile,
   {Star} = Score
 
 const _Star = React.createClass({
@@ -36,7 +37,7 @@ const _Star = React.createClass({
 
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home"></span></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr demo-content" style={{"minHeight" : `${document.body.clientHeight - 94}px`}}>
           <h2 className="page-title"><b>Star</b><span>评星</span></h2>
           <div className="demo-show">

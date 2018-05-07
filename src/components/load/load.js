@@ -121,7 +121,7 @@ class Load extends React.Component {
       case 'loadLogo':
       case 'loading':
         return (
-          <div className="load-layer jimu-load-loading">
+          <div className="load-layer pile-load-loading">
             <div className="load-spinner">
               <div />
               <div />
@@ -144,7 +144,7 @@ class Load extends React.Component {
 
       case 'ballScale':
         return (
-          <div className="load-layer jimu-load-ball">
+          <div className="load-layer pile-load-ball">
             <div className="load-balls">
               <span />
               <span />
@@ -155,7 +155,7 @@ class Load extends React.Component {
 
       default:
         return (
-          <div className="load-layer jimu-load-loading">
+          <div className="load-layer pile-load-loading">
             <div className="load-spinner">
               <div />
               <div />

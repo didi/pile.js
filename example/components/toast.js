@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import JIMU from './index';
+import { Link } from 'react-router'
+import Pile from './index';
 
-const { Dialog, Button } = JIMU,
+const { Dialog, Button } = Pile,
   { Toast } = Dialog;
 // 对话框 _Dialog
 const _Dialog = React.createClass({
@@ -60,7 +61,7 @@ const _Dialog = React.createClass({
       { toastShow, content, type } = this.state;
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home" /></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{ minHeight: `${document.body.clientHeight - 94}px` }}>
           <h2 className="page-title"><b>Toast</b><span>轻提示</span></h2>
           <div className="demo-show">

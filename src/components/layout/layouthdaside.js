@@ -10,7 +10,7 @@ const LayoutHdAside = (props) => {
     className, children, ...others
   } = props;
   const cls = classNames({
-    'jimu-layout-hd-aside': true,
+    'pile-layout-hd-aside': true,
     [className]: className,
   });
   const Component = props.href ? 'a' : 'div';

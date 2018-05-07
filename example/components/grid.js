@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router'
 
-import JIMU from './index'
-const {Grid} = JIMU
+import Pile from './index'
+const {Grid} = Pile
 
 const _List = React.createClass({
   getInitialState() {
@@ -20,7 +21,7 @@ const _List = React.createClass({
     let {isOpen,disabled} = this.state
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home"></span></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home"></span></Link></div>
         <div className="libs-intr" style={{"minHeight" : `${document.body.clientHeight - 94}px`}}>
           <h2 className="page-title"><b>Grid</b><span>栅格</span></h2>
           <div className="demo-show demo-content demo-grid-layout">

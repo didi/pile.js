@@ -290,7 +290,7 @@ class Picker extends React.Component {
     const { cancelBtnText, okBtnText } = locale;
 
     return (
-      <div className={['jimu-picker', this.props.className].join(' ')}>
+      <div className={['pile-picker', this.props.className].join(' ')}>
         {this.props.children}
         <div className={['container', 'table', this.props.className, (this.state.open ? 'show' : undefined)].join(' ')}>
           <Swipeable className="overlay" />
@@ -313,7 +313,7 @@ class Picker extends React.Component {
   }
 }
 Picker.contextTypes = {
-  jimuLocale: PropTypes.object,
+  pileLocale: PropTypes.object,
 };
 
 export default Picker;

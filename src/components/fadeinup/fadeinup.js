@@ -75,12 +75,12 @@ class FadeInUp extends React.Component {
     } = this.props;
     const className = classNames({
       'up-bd': contentPadding,
-      'jimu-up-content': !contentPadding,
+      'pile-up-content': !contentPadding,
     });
     const cls = classNames({
       'up-wrap': true,
-      'jimu-fadein-wrap': true,
-      'jimu-fadein-top-show': !closeShow,
+      'pile-fadein-wrap': true,
+      'pile-fadein-top-show': !closeShow,
       [className]: className,
     });
 

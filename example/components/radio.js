@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import JIMU from './index'
-const {Layouts,Form} = JIMU,
+import { Link } from 'react-router'
+import Pile from './index'
+const {Layouts,Form} = Pile,
   {
     Layout,
     LayoutHd,
@@ -37,7 +38,7 @@ const _List = React.createClass({
     let {isOpen,disabled,radio1,radio2} = this.state
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home"></span></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{"minHeight" : `${document.body.clientHeight - 94}px`}}>
           <h2 className="page-title" onClick={this.chengeState}><b>Radio</b><span>单选框</span></h2>
           <div className="demo-show-nopadd">
@@ -46,7 +47,7 @@ const _List = React.createClass({
               <dd>
                 <Layout>
                   <Items>
-                    <Item className="jimu-item-oh jimu-aside-left">
+                    <Item className="pile-item-oh pile-aside-left">
                       <div className="dis-inline"><Radio defaultChecked = {radio1 == 1} back={(o)=>{this.setState({radio1 : 1})}} label="选项一"/></div>
                       <div className="dis-inline ml-44"><Radio defaultChecked = {radio1 == 2} back={(o)=>{this.setState({radio1 : 2})}} label="选项二"/></div>
                     </Item>
@@ -60,18 +61,18 @@ const _List = React.createClass({
               <dd>
                 <Layout>
                   <Items>
-                    <Item className="jimu-item-oh jimu-aside-left jimu-check-item">
-                      <Radio className="jimu-checkbox-aside" defaultChecked = {radio2 == 1} back={(o)=>{this.setState({radio2 : 1})}} label="选项一"/>
+                    <Item className="pile-item-oh pile-aside-left pile-check-item">
+                      <Radio className="pile-checkbox-aside" defaultChecked = {radio2 == 1} back={(o)=>{this.setState({radio2 : 1})}} label="选项一"/>
                     </Item>
-                    <Item className="jimu-item-oh jimu-aside-left jimu-check-item">
-                      <Radio className="jimu-checkbox-aside" defaultChecked = {radio2 == 2} back={(o)=>{this.setState({radio2 : 2})}} label="选项二"/>
+                    <Item className="pile-item-oh pile-aside-left pile-check-item">
+                      <Radio className="pile-checkbox-aside" defaultChecked = {radio2 == 2} back={(o)=>{this.setState({radio2 : 2})}} label="选项二"/>
                     </Item>
-                    <Item className="jimu-item-oh jimu-aside-left jimu-check-item">
-                      <Radio className="jimu-checkbox-aside" defaultChecked = {radio2 == 3} disabled back={()=>{}} label="未选中不可点击"/>
+                    <Item className="pile-item-oh pile-aside-left pile-check-item">
+                      <Radio className="pile-checkbox-aside" defaultChecked = {radio2 == 3} disabled back={()=>{}} label="未选中不可点击"/>
                     </Item>
 
-                    <Item className="jimu-item-oh jimu-aside-left jimu-check-item">
-                      <Radio className="jimu-checkbox-aside" defaultChecked = {true} disabled back={()=>{}} label="选中不可点击"/>
+                    <Item className="pile-item-oh pile-aside-left pile-check-item">
+                      <Radio className="pile-checkbox-aside" defaultChecked = {true} disabled back={()=>{}} label="选中不可点击"/>
                     </Item>
                   </Items>
                 </Layout>

@@ -229,7 +229,7 @@ class Focus extends Component {
     const { index, loop } = this.state;
 
     const cls = classNames({
-      'jimu-focus-layout': true,
+      'pile-focus-layout': true,
       [className]: className,
     });
 
@@ -245,31 +245,31 @@ class Focus extends Component {
              >
                {loop ?
                 (
-                  <div className="jimu-focus-content" ref={(t) => { this.focusContent = t; }}>
-                    {children.map((re, i) => (<div className="jimu-focus-items" style={{ width }} key={i}>{re}</div>))}
-                    {children.map((re, i) => (<div className="jimu-focus-items" style={{ width }} key={i}>{re}</div>))}
-                    {children.map((re, i) => (<div className="jimu-focus-items" style={{ width }} key={i}>{re}</div>))}
+                  <div className="pile-focus-content" ref={(t) => { this.focusContent = t; }}>
+                    {children.map((re, i) => (<div className="pile-focus-items" style={{ width }} key={i}>{re}</div>))}
+                    {children.map((re, i) => (<div className="pile-focus-items" style={{ width }} key={i}>{re}</div>))}
+                    {children.map((re, i) => (<div className="pile-focus-items" style={{ width }} key={i}>{re}</div>))}
                   </div>
                 )
                 : (
-                  <div className="jimu-focus-content" ref={(t) => { this.focusContent = t; }}>
-                    {children.map((re, i) => (<div className="jimu-focus-items" style={{ width }} key={i}>{re}</div>))}
+                  <div className="pile-focus-content" ref={(t) => { this.focusContent = t; }}>
+                    {children.map((re, i) => (<div className="pile-focus-items" style={{ width }} key={i}>{re}</div>))}
                   </div>
                 )}
-               <div className="jimu-focus-ft">
+               <div className="pile-focus-ft">
                  {spotShow && children.map((re, i) => {
                   if (i === index) {
-                    return (<span className="jimu-focus-ftitems jimu-focus-current" key={i} />);
+                    return (<span className="pile-focus-ftitems pile-focus-current" key={i} />);
                   }
-                    return (<span className="jimu-focus-ftitems" key={i} />);
+                    return (<span className="pile-focus-ftitems" key={i} />);
                 })}
                </div>
              </Swipeable>
            )
            :
            (
-             <div className="jimu-focus-content" ref={(t) => { this.focusContent = t; }}>
-               <div className="jimu-focus-items" style={{ width }}>
+             <div className="pile-focus-content" ref={(t) => { this.focusContent = t; }}>
+               <div className="pile-focus-items" style={{ width }}>
                  {children}
                </div>
              </div>

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import JIMU from './index';
+import { Link } from 'react-router'
+import Pile from './index';
 
-const { Passenger } = JIMU;
+const { Passenger } = Pile;
 // 乘车人 passenger
 const _Passenger = () => (
   <div className="example-wrap">
-    <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home" /></a></div>
+    <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
     <div className="libs-intr" style={{ minHeight: `${document.body.clientHeight - 106}px` }}>
       <h2 className="page-title"><b>Passenger</b><span>乘车人</span></h2>
       <div className="demo-show">

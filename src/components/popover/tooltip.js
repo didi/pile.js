@@ -106,7 +106,7 @@ class Tooltip extends Component {
           align={{ points, offset }}
           monitorWindowResize
         >
-          <div className={classNames('tooltip-box', isHide ? 'hide' : '', [`jimu-popover-${placement}`])} >
+          <div className={classNames('tooltip-box', isHide ? 'hide' : '', [`pile-popover-${placement}`])} >
             <span>{this.props.overlay}</span>
             <div className="tip-close" onClick={this.closeTip}>
               <i className="car-icons-shut icon-del" />

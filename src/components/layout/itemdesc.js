@@ -19,7 +19,7 @@ const ItemDesc = (props) => {
     className, children, clamp, ...others
   } = props;
   const cls = classNames({
-    'jimu-item-desc': true,
+    'pile-item-desc': true,
     [className]: className,
   });
   return (

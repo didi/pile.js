@@ -47,26 +47,26 @@ export default class Travel extends Component {
       remarksHtml, ...others
     } = this.props;
     const timeObj = new Date(create_time * 1000);
-    const data = !weekShow ? this.setDateFormat(timeObj, this.props.dateFormat) : `${this.setDateFormat(timeObj, this.props.dateFormat)} ${this.setWeekFormat(timeObj)}`;
+    const data = !weekShow ? Travel.setDateFormat(timeObj, this.props.dateFormat) : `${Travel.setDateFormat(timeObj, this.props.dateFormat)} ${this.setWeekFormat(timeObj)}`;
     const cls = classNames({
       'car-record-list': true,
-      'jimu-app-v2': true,
-      'jimu-travel': true,
+      'pile-app-v2': true,
+      'pile-travel': true,
       [className]: className,
     });
     const Wrapper = this.props.href ? 'a' : 'div';
     return (
       <Wrapper className={cls} {...others}>
         <div className="record-head">
-          <span className="icon-time icon-jimu-time" />
+          <span className="icon-time icon-pile-time" />
           <span className="timer fz12">{data}</span>
         </div>
         <div className="wrapper wrapper-from-hook">
-          <span className="jimu-icon jimu-icon-location-point" />
+          <span className="pile-icon pile-icon-location-point" />
           <span className="fz14 txt-from txt-from-hook default ml5">{start_name}</span>
         </div>
         <div className="wrapper wrapper-from-hook">
-          <span className="jimu-icon jimu-icon-location-point-red" />
+          <span className="pile-icon pile-icon-location-point-red" />
           <span className="fz14 txt-from txt-from-hook default ml5">{end_name}</span>
         </div>
         <div className="car-travel-state">

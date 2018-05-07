@@ -8,7 +8,7 @@ import classNames from 'classnames';
 const LayoutHd = (props) => {
   const { className, children, ...others } = props;
   const cls = classNames({
-    'jimu-layout-hd': true,
+    'pile-layout-hd': true,
     [className]: className,
   });
   return (

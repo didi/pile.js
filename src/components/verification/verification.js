@@ -194,9 +194,9 @@ class Code extends React.Component {
     } = this.props;
     const formatPhone = `${phone.substring(0, 3)} ${phone.substring(3, 7)} ${phone.substring(7, 11)}`;
     const cls = classNames({
-      'jimu-code': true,
-      'jimu-code-more': len > 4,
-      'jimu-code-focus': codeFocus,
+      'pile-code': true,
+      'pile-code-more': len > 4,
+      'pile-code-focus': codeFocus,
       [className]: className,
     });
     const locale = getComponentLocale(this.props, this.context, 'Verification', () => Defaultlanguage.Verification);
@@ -204,20 +204,20 @@ class Code extends React.Component {
       verTitleText, sendToText, reoccurrenceText, resendText,
     } = locale;
     return (
-      <ContentTip show={show} className="jimu-code-tip" MaskClick={this.closeClick}>
+      <ContentTip show={show} className="pile-code-tip" MaskClick={this.closeClick}>
         <div className={cls}>
-          <div className="jimu-code-hd">
+          <div className="pile-code-hd">
             <span className="code-icon-del icon-del" onClick={this.closeClick} />
             <h2 className="hd-title">{verTitleText}</h2>
             <div className="code-intr">
               {sendToText} {formatPhone}
             </div>
           </div>
-          <div className="jimu-code-bd">
+          <div className="pile-code-bd">
             <div className="time-down">
               {timer !== 0 ? (<span className="code-number">{timer} {reoccurrenceText}</span>) : <span className="reset-code" onClick={this.reSetClick}>{resendText}</span>}
             </div>
-            <div className="jimu-code-inputs" onClick={this.focusClick}>
+            <div className="pile-code-inputs" onClick={this.focusClick}>
               <label htmlFor={this.props.id}>
                 <div className="code-values">
                   {inputsArr.map((re, index) => {
@@ -259,7 +259,7 @@ class Code extends React.Component {
   }
 }
 Code.contextTypes = {
-  jimuLocale: PropTypes.object,
+  pileLocale: PropTypes.object,
 };
 
 export default Code;

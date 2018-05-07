@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import JIMU from './index';
+import { Link } from 'react-router'
+import Pile from './index';
 
-const { Verification, Button, LocaleProvider } = JIMU;
+const { Verification, Button, LocaleProvider } = Pile;
 import enUS from '../../src/components/localeprovider/en_US';
 import zhCN from '../../src/components/localeprovider/zh-CN';
 // 底部弹出展示 FadeInUp
@@ -59,7 +60,7 @@ const _FadeInUp = React.createClass({
     } = this.state;
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home" /></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{ minHeight: `${document.body.clientHeight - 94}px` }}>
           <h2 className="page-title"><b>Verification</b><span>验证码</span></h2>
           <div className="demo-show">

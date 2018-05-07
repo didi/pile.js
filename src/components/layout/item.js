@@ -10,8 +10,8 @@ const Item = (props) => {
     className, children, ...others
   } = props;
   const cls = classNames({
-    'jimu-item': true,
-    'jimu-item-href': props.href,
+    'pile-item': true,
+    'pile-item-href': props.href,
     [className]: className,
   });
   const Component = props.href ? 'a' : 'div';

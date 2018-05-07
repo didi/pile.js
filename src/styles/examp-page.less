@@ -1,4 +1,4 @@
-@import "jimu-base.less";
+@import "pile-base.less";
 
 html, body {
   font-size: 62.5%;
@@ -163,13 +163,13 @@ html, body {
 .pb-20{padding-bottom: 20px}
 /* SwipeDelet */
 .delet-list{position: relative;}
-.jimu-swipe-del:before{position: absolute;content:"";height: 1px;width: 100%;top:0;left:0;z-index:101;position: absolute;height:1px;left:0;right:0;-webkit-transform: scaleY(.5);transform: scaleY(.5);background: #eee;}
-.jimu-swipe-del:first-child:before{display: none;}
-.jimu-swipe-del:before{left:15px;}
+.pile-swipe-del:before{position: absolute;content:"";height: 1px;width: 100%;top:0;left:0;z-index:101;position: absolute;height:1px;left:0;right:0;-webkit-transform: scaleY(.5);transform: scaleY(.5);background: #eee;}
+.pile-swipe-del:first-child:before{display: none;}
+.pile-swipe-del:before{left:15px;}
 .mt-20{margin-top: 20px;}
 .ml-44{margin-left: 44px;}
 .mt-10{margin-top: 10px;}
-.jimu-item-undel .jimu-item-title,.jimu-item-undel .jimu-item-desc{color: #ccc;}
+.pile-item-undel .pile-item-title,.pile-item-undel .pile-item-desc{color: #ccc;}
 .pb-20{padding-bottom: 20px;}
 .swipe-item{font-size:1.4rem;padding:10px 0;margin-left: 16px;border-bottom: 1px solid #ccc;}
 .swipe-tabs{border-bottom: 1px solid #ccc;text-align: center; position: relative;}
@@ -200,18 +200,18 @@ html, body {
 .anime-move-demo-alone,.anime-cont-demo-alone{background: #1E96FA;width: 30px;height: 30px;position: relative;display: inline-block;}
 .btn-margin{text-align: center;}
 .btn-margin button{margin: 0 5px;}
-.jimu-demo-postion-test{text-align: center;height: 40px;line-height: 40px;font-size: 1.4rem;background: #333;margin-left: 10px;color: #fff;width: 40px;}
-.jimu-move-item:nth-child(1) .jimu-demo-postion-test{background: #1E96FA;}
-.jimu-move-item:nth-child(2) .jimu-demo-postion-test{background: #343C5C;}
-.jimu-move-item:nth-child(3) .jimu-demo-postion-test{background: #999;}
-.jimu-move-item:nth-child(4) .jimu-demo-postion-test{background: #E5E5E5;}
+.pile-demo-postion-test{text-align: center;height: 40px;line-height: 40px;font-size: 1.4rem;background: #333;margin-left: 10px;color: #fff;width: 40px;}
+.pile-move-item:nth-child(1) .pile-demo-postion-test{background: #1E96FA;}
+.pile-move-item:nth-child(2) .pile-demo-postion-test{background: #343C5C;}
+.pile-move-item:nth-child(3) .pile-demo-postion-test{background: #999;}
+.pile-move-item:nth-child(4) .pile-demo-postion-test{background: #E5E5E5;}
 .anime-move-demo,.anime-cont-demo{margin: 2px 0;}
 /* star */
 .example-components-wrap{margin-top: 20px;}
 .start-text{text-align: center;margin:15px 0 40px 0;color: #999;font-size: 1.2rem;}
 .start-text:last-child{margin-bottom: 0}
 /* badge */
-.jimu-mark-box{display: inline-block;background:#ffdcde;vertical-align: middle;position: relative;}
+.pile-mark-box{display: inline-block;background:#ffdcde;vertical-align: middle;position: relative;}
 .box-size-18{width: 18px;height: 18px;}
 .box-size-60{width: 60px;height: 60px;}
 .box-size-50{width: 50px;height: 50px;}
@@ -232,10 +232,10 @@ html, body {
 }
 
 /* NoticeBar */
-.jimu-noticebar-layout-shadow{
-  .icon-jimu-successful{color: #5ec0a9}
-  .icon-jimu-information{color: #ed4630}
-  .icon-jimu-error{color: #f28e52}
+.pile-noticebar-layout-shadow{
+  .icon-pile-successful{color: #5ec0a9}
+  .icon-pile-information{color: #ed4630}
+  .icon-pile-error{color: #f28e52}
 }
 
 /* Tabs */
@@ -256,15 +256,15 @@ html, body {
 /* Grid */
 .demo-grid-layout{
   .demo-grid-cell{background: #FFFFFF;border: 1px solid #E5E5E5;height: 50px;}
-  .jimu-cell{margin-left: 10px;}
-  .jimu-cell:first-child{margin-left: 0px;}
+  .pile-cell{margin-left: 10px;}
+  .pile-cell:first-child{margin-left: 0px;}
 }
 .demo-grid-items li{margin-bottom: 10px;}
 .demo-grid-items li:last-child{margin-bottom: 0}
 
 /* Button */
 .demo-button {
-  .didi_btn{
+  .pile_btn{
     span{display: inline-block;vertical-align: middle;}
     .icon-pay{margin-right: 5px;font-size: 2rem}
   }
@@ -277,7 +277,7 @@ html, body {
 
 /* List */
 .demo-page-list{
-  .jimu-itemaside{color: #999}
+  .pile-itemaside{color: #999}
 }
 
 /* mask */
@@ -298,7 +298,7 @@ border-radius: 2px;font-size: 1.2rem;color: #343C5C;padding: 4px 10px;background
   .city-name{margin-left: 5px; font-size: 1.4rem;}
 }
 
-.jimu-noticebar-aside-icon span{font-size: 1.6rem;vertical-align: -2px;}
+.pile-noticebar-aside-icon span{font-size: 1.6rem;vertical-align: -2px;}
 
 .upload-pic-show{background: #fff;min-height: 180px;
   img{width: 100%}

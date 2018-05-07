@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import JIMU from './index'
-const {Layouts,Inputs} = JIMU,
+import { Link } from 'react-router'
+import Pile from './index'
+const {Layouts,Inputs} = Pile,
   {
     Layout,
     LayoutHd,
@@ -23,7 +24,7 @@ const {Layouts,Inputs} = JIMU,
 // 表单组合 Inputs
 const _Inputs = () => (
     <div className="example-wrap">
-      <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home"></span></a></div>
+      <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
       <div className="libs-intr" style={{"minHeight" : `${document.body.clientHeight - 94}px`}}>
         <h2 className="page-title"><b>Inputs</b><span>表单组合</span></h2>
         <div className="demo-show">

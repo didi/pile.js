@@ -1,15 +1,15 @@
 import React from 'react'
-// import JIMU from '../../src/index'
-import JIMU from './index'
+import { Link } from 'react-router'
+import Pile from './index'
 
-const { Label } = JIMU
+const { Label } = Pile
 
 // 按钮组件 Label
 class _Label extends React.Component {
   render() {
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home"></span></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{"minHeight" : `${document.body.clientHeight - 94}px`}}>
           <h2 className="page-title"><b>Label</b><span>标签</span></h2>
           <div className="demo-content">

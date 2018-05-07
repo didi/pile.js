@@ -8,7 +8,7 @@ import classNames from 'classnames';
 const LayoutBd = (props) => {
   const { className, children, ...others } = props;
   const cls = classNames({
-    'jimu-layout-bd': true,
+    'pile-layout-bd': true,
     [className]: className,
   });
   return (

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import JIMU from './index';
+import { Link } from 'react-router'
+import Pile from './index';
 
-const { Layouts, Load, Switch } = JIMU,
+const { Layouts, Load, Switch } = Pile,
   {
     Layout,
     LayoutHd,
@@ -53,7 +54,7 @@ const _Load = React.createClass({
     } = this.state;
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home" /></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{ minHeight: `${document.body.clientHeight - 94}px` }}>
           <h2 className="page-title"><b>Load</b><span>加载</span></h2>
           <div>
@@ -62,8 +63,8 @@ const _Load = React.createClass({
               <dd>
                 <Layout>
                   <Items>
-                    <Item className="jimu-item-oh jimu-aside-left">
-                      <div className="jimu-Itemcontent">
+                    <Item className="pile-item-oh pile-aside-left">
+                      <div className="pile-Itemcontent">
                         <select ref="loadTypeSel" onChange={this.handleChange}>
                           <option value="loadLogo" >loadLogo</option>
                           <option value="carFace">carFace</option>
@@ -75,31 +76,31 @@ const _Load = React.createClass({
                           <option value="ballScale">ballScale</option>
                         </select>
                       </div>
-                      <div className="jimu-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>展现方式</div>
+                      <div className="pile-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>展现方式</div>
                     </Item>
-                    <Item className="jimu-item-oh jimu-aside-left">
-                      <div className="jimu-Itemcontent">
+                    <Item className="pile-item-oh pile-aside-left">
+                      <div className="pile-Itemcontent">
                         <select ref="loadSizeSel" onChange={this.handleChange}>
                           <option value="small">small</option>
                           <option value="big">big</option>
                         </select>
                       </div>
-                      <div className="jimu-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>尺寸</div>
+                      <div className="pile-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>尺寸</div>
                     </Item>
-                    <Item className="jimu-item-oh jimu-aside-left">
-                      <div className="jimu-Itemcontent">
+                    <Item className="pile-item-oh pile-aside-left">
+                      <div className="pile-Itemcontent">
                         <select ref="timeOutSel">
                           <option value="3000" >3秒后消失</option>
                           <option value="0" disabled>永久</option>
                         </select>
                       </div>
-                      <div className="jimu-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>展现时间</div>
+                      <div className="pile-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>展现时间</div>
                     </Item>
-                    <Item className="jimu-item-oh jimu-aside-left">
-                      <div className="jimu-Itemcontent">
+                    <Item className="pile-item-oh pile-aside-left">
+                      <div className="pile-Itemcontent">
                         <Switch isOpen={show} clickBack={this.handleShowChange} />
                       </div>
-                      <div className="jimu-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>是否需要弹层展示</div>
+                      <div className="pile-itemaside" style={{ lineHeight: '25px', fontSize: '1.4rem' }}>是否需要弹层展示</div>
                     </Item>
                   </Items>
                 </Layout>

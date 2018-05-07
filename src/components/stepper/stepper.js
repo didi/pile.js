@@ -89,26 +89,26 @@ class Stepper extends React.Component {
     } = this.props;
     const { defaultVal } = this.state;
     const cls = classNames({
-      'jimu-stepper': true,
-      'jimu-stepper-disabled': disabled,
+      'pile-stepper': true,
+      'pile-stepper-disabled': disabled,
       [className]: className,
     });
     const prevCls = classNames({
-      'jimu-stepper-btn': true,
-      'icon-jimu-artboard-reduce': true,
-      'jimu-stepper-btn-prev': true,
-      'jimu-stepper-disabled': defaultVal <= min,
+      'pile-stepper-btn': true,
+      'icon-pile-artboard-reduce': true,
+      'pile-stepper-btn-prev': true,
+      'pile-stepper-disabled': defaultVal <= min,
     });
     const nextCls = classNames({
-      'jimu-stepper-btn': true,
-      'icon-jimu-artboard-add': true,
-      'jimu-stepper-btn-next': true,
-      'jimu-stepper-disabled': defaultVal >= max,
+      'pile-stepper-btn': true,
+      'icon-pile-artboard-add': true,
+      'pile-stepper-btn-next': true,
+      'pile-stepper-disabled': defaultVal >= max,
     });
     return (
       <div className={cls} {...others}>
         <span className={prevCls} onClick={this.prevClick} />
-        <span className="jimu-stepper-defaultval">{defaultVal}</span>
+        <span className="pile-stepper-defaultval">{defaultVal}</span>
         <span className={nextCls} onClick={this.nextClick} />
       </div>
     );

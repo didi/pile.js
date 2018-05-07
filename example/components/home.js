@@ -42,7 +42,7 @@ class Home extends Component {
     return (
       <div className="examp-page home-page" ref="homePage" onTouchEnd={this.taggleTouchEnd.bind(this)}>
         <div className="page-title">
-          <h1>Jimu Mobile</h1>
+          <h1>pile Mobile</h1>
           <h2>积木组件库助力移动端开发</h2>
         </div>
 

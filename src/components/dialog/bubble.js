@@ -113,16 +113,16 @@ export default class Bubble extends React.Component {
       bubbleShow, className, closeBtnShow, direction, align,
     } = this.state;
     const cls = classNames({
-      'jimu-bubble': true,
-      [`jimu-bubble-${direction}`]: true,
-      [`jimu-bubble-${align}`]: true,
-      'jimu-bubble-close': closeBtnShow,
+      'pile-bubble': true,
+      [`pile-bubble-${direction}`]: true,
+      [`pile-bubble-${align}`]: true,
+      'pile-bubble-close': closeBtnShow,
       [className]: className,
     });
 
     return (
       <div className={cls} ref="bubbleWrap" style={{ display: bubbleShow ? 'block' : 'none' }}>
-        <div className="jimu-bubble-content" ref="bubbleCont">
+        <div className="pile-bubble-content" ref="bubbleCont">
           {this.props.children}
           {closeBtnShow && <span className="icon-del bubble-close" onClick={this.hiddenBubble.bind(this)} />}
         </div>

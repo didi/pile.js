@@ -12,21 +12,21 @@ const Driver = (props) => {
     isMaster, star, children, ...others
   } = props;
   return (
-    <div className="jimu_driver" {...others}>
-      <div className="jimu_driver_avatar">
+    <div className="pile_driver" {...others}>
+      <div className="pile_driver_avatar">
         <img src={avatarUrl || headpic} width="50" height="50" alt="司机头像" />
       </div>
-      <div className="jimu_driver_info">
-        <p className="jimu_driver_info_name fz14">
+      <div className="pile_driver_info">
+        <p className="pile_driver_info_name fz14">
           {name}
-          {star && <b className="jimu_driver_star fz12"><span className="icon-trip_icon_star" />{star}</b>}
-          <span className="jimu_driver_orders fz12">{cntOrder}单</span>
+          {star && <b className="pile_driver_star fz12"><span className="icon-trip_icon_star" />{star}</b>}
+          <span className="pile_driver_orders fz12">{cntOrder}单</span>
         </p>
-        <p className="jimu_driver_info_platenumber fz12">
-          <span className="jimu-driver-platenumber">{card}</span> <b className="jimu-car-color">{carColor}色</b> <b className="jimu-car-type">{carType}</b>
+        <p className="pile_driver_info_platenumber fz12">
+          <span className="pile-driver-platenumber">{card}</span> <b className="pile-car-color">{carColor}色</b> <b className="pile-car-type">{carType}</b>
         </p>
       </div>
-      {isMaster && (<div className="jimu_driver_telphone"><a href={`tel:${phone}`}><span className="icon-trip_icon_phone" /></a></div>)}
+      {isMaster && (<div className="pile_driver_telphone"><a href={`tel:${phone}`}><span className="icon-trip_icon_phone" /></a></div>)}
       {children && (
         <div className="brd">
           {children}

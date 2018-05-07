@@ -1,14 +1,15 @@
 import React from 'react';
-import JIMU from './index';
+import { Link } from 'react-router'
+import Pile from './index';
 
-const { NavBar } = JIMU,
+const { NavBar } = Pile,
   { NavItem } = NavBar;
 // 按钮组件 Label
 class _NavBar extends React.Component {
   render() {
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home" /></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{ minHeight: `${document.body.clientHeight - 94}px` }}>
           <h2 className="page-title"><b>NavBar</b><span>导航栏</span></h2>
           <div className="demo-content">

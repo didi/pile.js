@@ -52,12 +52,12 @@ class TimeGroup extends Component {
     let timeArr;
 
     // 如果没有填写value 则默认获取当前时间
-    const onTime = this._gethouer() >= 24 ? 0 : this._gethouer();
+    const onTime = TimeGroup._gethouer() >= 24 ? 0 : TimeGroup._gethouer();
 
     // 判断
     if (value) {
       // 判断是否符合时间单位（0-24）
-      if (this._checkValueTime(value[0], value[1])) {
+      if (TimeGroup._checkValueTime(value[0], value[1])) {
         timeArr = value;
       } else {
         timeArr = [onTime, onTime + 1];
@@ -72,8 +72,8 @@ class TimeGroup extends Component {
     // 设置默认显示参数
     this.setState({
       value: newTimeArr, // 默认数值 开始时间 、 结束时间
-      options: [this._optionsAddUnit(this._pushStartHour()),
-        this._optionsAddUnit(this._pushEndHour(timeArr[0]))], // 默认数值
+      options: [this._optionsAddUnit(TimeGroup._pushStartHour()),
+        this._optionsAddUnit(TimeGroup._pushEndHour(timeArr[0]))], // 默认数值
       open,
     });
   }
@@ -88,8 +88,8 @@ class TimeGroup extends Component {
     if (listIndex === 0) {
       endHour = nval + 1;
       this.setState({
-        options: [this._optionsAddUnit(this._pushStartHour()),
-          this._optionsAddUnit(this._pushEndHour(nval))],
+        options: [this._optionsAddUnit(TimeGroup._pushStartHour()),
+          this._optionsAddUnit(TimeGroup._pushEndHour(nval))],
         value: [this._stringAddUnit(nval), this._stringAddUnit(endHour)],
       });
     } else {

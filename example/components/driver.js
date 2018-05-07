@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import JIMU from './index'
+import { Link } from 'react-router'
+import Pile from './index'
 
-const {Driver} = JIMU
+const {Driver} = Pile
 // 司机 driver
 const _Driver = () => (
   <div className="example-wrap">
-    <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home"></span></a></div>
+    <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
     <div className="libs-intr" style={{"minHeight" : `${document.body.clientHeight - 106}px`}}>
       <h2 className="page-title"><b>Driver</b><span>司机</span></h2>
       <div className="demo-show">

@@ -16,12 +16,12 @@ export default class Tip extends Component {
     const { show, className, children } = this.props;
 
     const cls = classNames({
-      'jimu-tip-layout': true,
+      'pile-tip-layout': true,
       [className]: className,
     });
 
     return (
-      <div className="jimu-dialog">
+      <div className="pile-dialog">
         {show ? (
           <div className={cls}>
             <Mask onClick={this.hideTip} />

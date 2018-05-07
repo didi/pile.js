@@ -20,7 +20,7 @@ class Search extends React.Component {
     onCancelHandle: PropTypes.func,
   }
   static defaultProps = {
-    name: 'jimu-search',
+    name: 'pile-search',
     onChangeHandle() {},
     onClearHandle() {},
     onCancelHandle() {},
@@ -89,21 +89,21 @@ class Search extends React.Component {
       className, ...others
     } = this.props;
     const cls = classNames({
-      'jimu-search-bar': true,
-      'jimu-focusing': this.state.focus,
+      'pile-search-bar': true,
+      'pile-focusing': this.state.focus,
       [className]: className,
     });
     const locale = getComponentLocale(this.props, this.context, 'Search', () => Defaultlanguage.Search);
     const { cancelText, placeholder } = locale;
     return (
       <div className={cls}>
-        <div className="jimu-search-form">
-          <div className="jimu-search-layout">
+        <div className="pile-search-form">
+          <div className="pile-search-layout">
             <span className="pos-a icon-search" onClick={this.submitHandle} />
             <input
               ref={(n) => { this.searchInput = n; }}
               type="text"
-              className="jimu-search-input"
+              className="pile-search-input"
               onFocus={this.focusHandle}
               onBlur={this.blurHandle}
               onInput={this.changeHandle}
@@ -129,7 +129,7 @@ class Search extends React.Component {
 }
 
 Search.contextTypes = {
-  jimuLocale: PropTypes.object,
+  pileLocale: PropTypes.object,
 };
 
 export default Search;

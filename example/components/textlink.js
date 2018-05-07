@@ -1,7 +1,8 @@
 import React from 'react'
-import JIMU from './index'
+import { Link } from 'react-router'
+import Pile from './index'
 
-const {Layouts,TextLink} = JIMU,
+const {Layouts,TextLink} = Pile,
   {
     Layout,
     LayoutHd,
@@ -26,7 +27,7 @@ class _Button extends React.Component {
   render() {
     return (
       <div className="example-wrap">
-        <div className="example-back"><a href="http://es-static.xiaojukeji.com/static/web/activity/jimudemo3/index.html#/?_k=qn72wa"><span className="icon-pic-home"></span></a></div>
+        <div className="example-back"><Link to="/"><span className="icon-pic-home" /></Link></div>
         <div className="libs-intr" style={{"minHeight" : `${document.body.clientHeight - 94}px`}}>
           <h2 className="page-title"><b>TextLink</b><span>文字链</span></h2>
           <div>
@@ -37,24 +38,24 @@ class _Button extends React.Component {
                   <Items>
                     <Item>
                       <span className="de-mr-20 di-inblok"><TextLink href="javascript:;">文字按钮</TextLink> </span> <b style={{padding:"0 10px"}}></b>
-                      <span className="de-mr-20 di-inblok"><TextLink href="javascript:;" iconClassName="icon-jimu-pay toast_icon" >文字按钮</TextLink> </span> <b style={{padding:"0 10px"}}></b>
-                      <span className="de-mr-20 di-inblok"><TextLink href="javascript:;" iconClassName="icon-jimu-pay toast_icon" iconFloat="right">文字按钮</TextLink> </span> <b style={{padding:"0 10px"}}></b>
+                      <span className="de-mr-20 di-inblok"><TextLink href="javascript:;" iconClassName="icon-pile-pay toast_icon" >文字按钮</TextLink> </span> <b style={{padding:"0 10px"}}></b>
+                      <span className="de-mr-20 di-inblok"><TextLink href="javascript:;" iconClassName="icon-pile-pay toast_icon" iconFloat="right">文字按钮</TextLink> </span> <b style={{padding:"0 10px"}}></b>
 
                     </Item>
                     <Item>
                       <span className="de-mr-20 di-inblok"><TextLink href="javascript:;" type="danger">文字按钮</TextLink> </span> <b style={{padding:"0 10px"}}></b>
-                      <span className="de-mr-20 di-inblok"><TextLink href="javascript:;" type="danger" iconClassName="icon-jimu-pay toast_icon" >文字按钮</TextLink> </span> <b style={{padding:"0 10px"}}></b>
-                      <span className="de-mr-20 di-inblok"><TextLink href="javascript:;" type="danger" iconClassName="icon-jimu-pay toast_icon" iconFloat="right">文字按钮</TextLink> </span>
+                      <span className="de-mr-20 di-inblok"><TextLink href="javascript:;" type="danger" iconClassName="icon-pile-pay toast_icon" >文字按钮</TextLink> </span> <b style={{padding:"0 10px"}}></b>
+                      <span className="de-mr-20 di-inblok"><TextLink href="javascript:;" type="danger" iconClassName="icon-pile-pay toast_icon" iconFloat="right">文字按钮</TextLink> </span>
                     </Item>
                     <Item>
                       <span className="de-mr-20 di-inblok"><TextLink href="javascript:;" type="normal">文字按钮</TextLink> </span> <b style={{padding:"0 10px"}}></b>
-                      <span className="de-mr-20 di-inblok"><TextLink href="javascript:;" type="normal" iconClassName="icon-jimu-pay toast_icon" >文字按钮</TextLink> </span> <b style={{padding:"0 10px"}}></b>
-                      <span className="de-mr-20 di-inblok"><TextLink href="javascript:;" type="normal" iconClassName="icon-jimu-pay toast_icon" iconFloat="right">文字按钮</TextLink> </span>
+                      <span className="de-mr-20 di-inblok"><TextLink href="javascript:;" type="normal" iconClassName="icon-pile-pay toast_icon" >文字按钮</TextLink> </span> <b style={{padding:"0 10px"}}></b>
+                      <span className="de-mr-20 di-inblok"><TextLink href="javascript:;" type="normal" iconClassName="icon-pile-pay toast_icon" iconFloat="right">文字按钮</TextLink> </span>
                     </Item>
                     <Item>
                       <span className="de-mr-20 di-inblok"><TextLink type="disabled">文字按钮</TextLink> </span> <b style={{padding:"0 10px"}}></b>
-                      <span className="de-mr-20 di-inblok"><TextLink type="disabled" iconClassName="icon-jimu-pay toast_icon" >文字按钮</TextLink> </span> <b style={{padding:"0 10px"}}></b>
-                      <span className="de-mr-20 di-inblok"><TextLink type="disabled" iconClassName="icon-jimu-pay toast_icon" iconFloat="right">文字按钮</TextLink> </span>
+                      <span className="de-mr-20 di-inblok"><TextLink type="disabled" iconClassName="icon-pile-pay toast_icon" >文字按钮</TextLink> </span> <b style={{padding:"0 10px"}}></b>
+                      <span className="de-mr-20 di-inblok"><TextLink type="disabled" iconClassName="icon-pile-pay toast_icon" iconFloat="right">文字按钮</TextLink> </span>
                       </Item>
                   </Items>
                 </Layout>

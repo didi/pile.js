@@ -64,9 +64,6 @@ class NoticeBar extends React.Component {
         show: nextProps.iconHide,
       });
     }
-    this.timer && clearInterval(this.timer);
-    this.rooltimer && clearTimeout(this.rooltimer);
-    this.scrolltimer && clearTimeout(this.scrolltimer);
   }
 
   componentWillUnmount() {
@@ -143,7 +140,7 @@ class NoticeBar extends React.Component {
     this.timer && clearInterval(this.timer);
     this.rooltimer && clearTimeout(this.rooltimer);
     this.scrolltimer && clearTimeout(this.scrolltimer);
-    this.closeBack && this.closeBack();
+    this.props.closeBack && this.props.closeBack();
   }
 
   messageHTML() {
@@ -159,29 +156,29 @@ class NoticeBar extends React.Component {
 
   render() {
     const {
-      closeIconShow, className, message, iconHtml, rollingUp, isShadowStyle, ...others
+      closeIconShow, className, message, iconHtml, rollingUp, isShadowStyle,
     } = this.props;
     const { show } = this.state;
     const cls = classNames({
-      'jimu-noticebar': true,
-      'jimu-noticebar-layout-asideicon': iconHtml,
-      'jimu-noticebar-layout-iconhidden': !iconHtml,
-      'jimu-noticebar-layout-shadow': isShadowStyle,
-      'jimu-noticebar-layout-closehidden': !closeIconShow,
-      'jimu-noticebar-rollingup': rollingUp,
+      'pile-noticebar': true,
+      'pile-noticebar-layout-asideicon': iconHtml,
+      'pile-noticebar-layout-iconhidden': !iconHtml,
+      'pile-noticebar-layout-shadow': isShadowStyle,
+      'pile-noticebar-layout-closehidden': !closeIconShow,
+      'pile-noticebar-rollingup': rollingUp,
       [className]: className,
     });
 
     return (
-      <div className={cls} style={{ display: show ? 'flex' : 'none' }} {...others}>
-        {iconHtml && <div className="jimu-noticebar-aside-icon">{iconHtml}</div>}
-        <div className="jimu-noticebar-msg" ref={(t) => { this.messageRoot = t; }}>
-          <ul className="jimu-noticebar-msg-items" ref={(t) => { this.messageItemsRoot = t; }} style={{ left: '1000px' }}>
+      <div className={cls} style={{ display: show ? 'flex' : 'none' }}>
+        {iconHtml && <div className="pile-noticebar-aside-icon">{iconHtml}</div>}
+        <div className="pile-noticebar-msg" ref={(t) => { this.messageRoot = t; }}>
+          <ul className="pile-noticebar-msg-items" ref={(t) => { this.messageItemsRoot = t; }} style={{ left: '1000px' }}>
             {this.messageHTML()}
             {rollingUp && message.length > 1 && typeof message === 'object' && <li key="-1">{message[0]}</li>}
           </ul>
         </div>
-        {closeIconShow && <div className="jimu-noticebar-icon-close" onClick={this.hideClick}><span className="icon-del" /></div>}
+        {closeIconShow && <div className="pile-noticebar-icon-close" onClick={this.hideClick}><span className="icon-del" /></div>}
       </div>
     );
   }

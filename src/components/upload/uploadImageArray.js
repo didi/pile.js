@@ -142,28 +142,28 @@ class UploadImageArray extends Component {
     } = this.props;
     const { imageArray } = this.state;
     const cls = classNames({
-      'jimu-upload-wrap': true,
+      'pile-upload-wrap': true,
       [className]: className,
     });
     return (
       <div className={cls}>
         {imageArray.map((item, index) => (
-          <div key={index} className={classNames('jimu-uploadImage-wrapper', className)}>
-            <img className="jimu-uploadImage-preview" src={item.imgURI} alt="" />
-            <div className="jimu-uploadImage-plus-wrapper">
-              <span className="jimu-uploadImage-delete icon-jimu-error" onClick={() => { this.deleteImageArray(index); }} />
+          <div key={index} className={classNames('pile-uploadImage-wrapper', className)}>
+            <img className="pile-uploadImage-preview" src={item.imgURI} alt="" />
+            <div className="pile-uploadImage-plus-wrapper">
+              <span className="pile-uploadImage-delete icon-pile-error" onClick={() => { this.deleteImageArray(index); }} />
             </div>
           </div>
         ))}
 
         {imageMaxLen > imageArray.length && (
-          <div className="jimu-uploadImage-add">
-            <div className="jimu-uploadImage-plus-wrapper" >
-              <span className="car-icons-add jimu-uploadImage-plus" />
-              <p className="jimu-uploadImage-desc" />
+          <div className="pile-uploadImage-add">
+            <div className="pile-uploadImage-plus-wrapper" >
+              <span className="car-icons-add pile-uploadImage-plus" />
+              <p className="pile-uploadImage-desc" />
             </div>
-            <label className="jimu-uploadImage-label" htmlFor={this.props.id}>
-              <input id={this.props.id} className="jimu-uploadImage-input width-100" type="file" onChange={this.addImage.bind(this)} accept={accept} multiple />
+            <label className="pile-uploadImage-label" htmlFor={this.props.id}>
+              <input id={this.props.id} className="pile-uploadImage-input width-100" type="file" onChange={this.addImage.bind(this)} accept={accept} multiple />
             </label>
           </div>
         )}

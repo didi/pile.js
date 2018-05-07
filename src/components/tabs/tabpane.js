@@ -14,7 +14,7 @@ const propTypes = {
 const TabPane = (props) => {
   const { className, children, ...others } = props;
   const cls = classNames({
-    'jimu-tab-item': true,
+    'pile-tab-item': true,
     [className]: className,
   });
   return (

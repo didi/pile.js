@@ -4,7 +4,7 @@
 import React from 'react';
 
 const Card = ({ children = null, ...props }) => (
-  <div className="jimu_card">
+  <div className="pile_card">
     <div {...props}>
       {children}
     </div>

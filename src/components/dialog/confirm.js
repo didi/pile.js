@@ -69,22 +69,22 @@ class Confirm extends React.Component {
     } = this.props;
     const { iconHide } = this.state;
     const className = classNames({
-      didi_icon: true,
-      didi_icon_hide: iconHide,
+      pile_icon: true,
+      pile_icon_hide: iconHide,
       'icon-popup_warning': type !== 'success',
       'icon-popup_right': type === 'success',
     });
     return (
-      <div className="jimu-dialog">
-        <div className="didi_dialog_confirm" style={{ display: show ? 'block' : 'none' }}>
+      <div className="pile-dialog">
+        <div className="pile_dialog_confirm" style={{ display: show ? 'block' : 'none' }}>
           <Mask onClick={this.MaskClick} />
-          <div className="didi_dialog">
+          <div className="pile_dialog">
             <p className={className} />
             <div className="d_tip title_font tips-content">
               {title}
             </div>
             {children && (<div className="dialog-confirm-content">{children}</div>)}
-            <div className="d_btns didi_btn_confirm">
+            <div className="d_btns pile_btn_confirm">
               {this.renderButtons()}
             </div>
           </div>

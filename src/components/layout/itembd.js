@@ -8,7 +8,7 @@ import classNames from 'classnames';
 const ItemBd = (props) => {
   const { className, children, ...others } = props;
   const cls = classNames({
-    'jimu-item-bd': true,
+    'pile-item-bd': true,
     [className]: className,
   });
   return (

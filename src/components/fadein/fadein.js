@@ -7,19 +7,6 @@ import classNames from 'classnames';
 import Mask from '../mask';
 
 class FadeIn extends React.Component {
-  static defaultProps = {
-    closeBtnText: '确定',
-    show: false,
-    direction: 'bottom', // 滑动方向 bottom , top , left ,right
-    closeShow: true, // 关闭按钮是否展示
-    height: 'auto', // 高度  "100%" 、"300px"
-    width: '100%', // 宽度  "100%" 、"300px"
-    transparent: false, // 背景是否透明
-    closeBack() {}, // 关闭时的回调
-    showBack() {}, // 展开时的回调
-    align: 1, // 0:水平或者垂直居中，1 ：左对齐或者顶部对齐，2右对齐或者底部对齐
-  }
-
   static setPos(props) {
     const { direction, align } = props;
     let posInP;
@@ -40,6 +27,19 @@ class FadeIn extends React.Component {
     return pos;
   }
 
+  static defaultProps = {
+    closeBtnText: '确定',
+    show: false,
+    direction: 'bottom', // 滑动方向 bottom , top , left ,right
+    closeShow: true, // 关闭按钮是否展示
+    height: 'auto', // 高度  "100%" 、"300px"
+    width: '100%', // 宽度  "100%" 、"300px"
+    transparent: false, // 背景是否透明
+    closeBack() {}, // 关闭时的回调
+    showBack() {}, // 展开时的回调
+    align: 1, // 0:水平或者垂直居中，1 ：左对齐或者顶部对齐，2右对齐或者底部对齐
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -51,12 +51,12 @@ class FadeIn extends React.Component {
   }
 
   componentDidMount() {
-    this.setPos(this.props);
+    FadeIn.setPos(this.props);
     this.setStyle(this.props);
     if (this.props.show) {
-      this.wrapFadeIn(this.setPos(this.props), this.props.direction);
+      this.wrapFadeIn(FadeIn.setPos(this.props), this.props.direction);
     } else {
-      this.wrapFadeOut(this.setPos(this.props), this.props.direction);
+      this.wrapFadeOut(FadeIn.setPos(this.props), this.props.direction);
     }
   }
 
@@ -66,9 +66,9 @@ class FadeIn extends React.Component {
       this.setStyle(nextprops);
     }
     if (nextprops.show) {
-      this.wrapFadeIn(this.setPos(nextprops), nextprops.direction);
+      this.wrapFadeIn(FadeIn.setPos(nextprops), nextprops.direction);
     } else {
-      this.wrapFadeOut(this.setPos(nextprops), nextprops.direction);
+      this.wrapFadeOut(FadeIn.setPos(nextprops), nextprops.direction);
     }
   }
 
@@ -152,7 +152,7 @@ class FadeIn extends React.Component {
   }
 
   closeTips() {
-    this.wrapFadeOut(this.setPos(this.props), this.props.direction);
+    this.wrapFadeOut(FadeIn.setPos(this.props), this.props.direction);
     this.props.closeBack && this.props.closeBack();
   }
 
@@ -162,13 +162,13 @@ class FadeIn extends React.Component {
     } = this.props;
     const claName = classNames({
       'up-bd': contentPadding,
-      'jimu-up-content': !contentPadding,
+      'pile-up-content': !contentPadding,
     });
     const cls = classNames({
       'up-wrap': true,
-      'jimu-fade-wrap': true,
-      [`jimu-fade-${direction}`]: true,
-      'jimu-fade-top-show': !closeShow,
+      'pile-fade-wrap': true,
+      [`pile-fade-${direction}`]: true,
+      'pile-fade-top-show': !closeShow,
       [className]: className,
     });
     return (
