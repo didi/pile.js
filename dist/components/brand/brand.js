@@ -329,7 +329,11 @@ var Brand = function (_Component) {
       var _props2 = this.props,
           show = _props2.show,
           hotCarBrandData = _props2.hotCarBrandData,
-          other = _objectWithoutProperties(_props2, ['show', 'hotCarBrandData']);
+          staticImgURL = _props2.staticImgURL,
+          carArr = _props2.carArr,
+          dataAttrName = _props2.dataAttrName,
+          callBack = _props2.callBack,
+          other = _objectWithoutProperties(_props2, ['show', 'hotCarBrandData', 'staticImgURL', 'carArr', 'dataAttrName', 'callBack']);
 
       if (!show) {
         return null;

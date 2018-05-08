@@ -44,7 +44,7 @@ export default class Travel extends Component {
   render() {
     const {
       create_time, className, weekShow, end_name, start_name, stateHtml,
-      remarksHtml, ...others
+      remarksHtml, weekFormat, dateFormat, ...others
     } = this.props;
     const timeObj = new Date(create_time * 1000);
     const data = !weekShow ? Travel.setDateFormat(timeObj, this.props.dateFormat) : `${Travel.setDateFormat(timeObj, this.props.dateFormat)} ${this.setWeekFormat(timeObj)}`;

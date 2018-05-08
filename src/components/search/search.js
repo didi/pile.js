@@ -86,7 +86,8 @@ class Search extends React.Component {
 
   render() {
     const {
-      className, ...others
+      className, name, onChangeHandle, onClearHandle, onSubmitHandle,
+      onFocusHandle, onBlurHandle, onCancelHandle, ...others
     } = this.props;
     const cls = classNames({
       'pile-search-bar': true,

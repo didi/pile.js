@@ -74,7 +74,9 @@ var carList = function (_Component) {
           listData = _state.listData,
           dataAttrName = _state.dataAttrName,
           selectCarType = _state.selectCarType,
-          other = _objectWithoutProperties(_state, ['listData', 'dataAttrName', 'selectCarType']);
+          show = _state.show,
+          showWrap = _state.showWrap,
+          other = _objectWithoutProperties(_state, ['listData', 'dataAttrName', 'selectCarType', 'show', 'showWrap']);
 
       if (!listData) {
         return null;

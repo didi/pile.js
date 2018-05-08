@@ -33,7 +33,7 @@ class carList extends Component {
   initListData() {
     const self = this;
     const {
-      listData, dataAttrName, selectCarType, ...other
+      listData, dataAttrName, selectCarType, show, showWrap, ...other
     } = this.state;
     if (!listData) {
       return null;

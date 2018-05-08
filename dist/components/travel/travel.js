@@ -69,7 +69,9 @@ var Travel = (_temp = _class = function (_Component) {
           start_name = _props.start_name,
           stateHtml = _props.stateHtml,
           remarksHtml = _props.remarksHtml,
-          others = _objectWithoutProperties(_props, ['create_time', 'className', 'weekShow', 'end_name', 'start_name', 'stateHtml', 'remarksHtml']);
+          weekFormat = _props.weekFormat,
+          dateFormat = _props.dateFormat,
+          others = _objectWithoutProperties(_props, ['create_time', 'className', 'weekShow', 'end_name', 'start_name', 'stateHtml', 'remarksHtml', 'weekFormat', 'dateFormat']);
 
       var timeObj = new Date(create_time * 1000);
       var data = !weekShow ? Travel.setDateFormat(timeObj, this.props.dateFormat) : Travel.setDateFormat(timeObj, this.props.dateFormat) + ' ' + this.setWeekFormat(timeObj);

@@ -34,7 +34,8 @@ var Driver = function Driver(props) {
       isMaster = props.isMaster,
       star = props.star,
       children = props.children,
-      others = _objectWithoutProperties(props, ['name', 'avatarUrl', 'carType', 'carColor', 'cntOrder', 'card', 'phone', 'isMaster', 'star', 'children']);
+      company = props.company,
+      others = _objectWithoutProperties(props, ['name', 'avatarUrl', 'carType', 'carColor', 'cntOrder', 'card', 'phone', 'isMaster', 'star', 'children', 'company']);
 
   return _react2.default.createElement(
     'div',

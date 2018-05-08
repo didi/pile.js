@@ -123,7 +123,14 @@ var Search = (_temp = _class = function (_React$Component) {
 
       var _props = this.props,
           className = _props.className,
-          others = _objectWithoutProperties(_props, ['className']);
+          name = _props.name,
+          onChangeHandle = _props.onChangeHandle,
+          onClearHandle = _props.onClearHandle,
+          onSubmitHandle = _props.onSubmitHandle,
+          onFocusHandle = _props.onFocusHandle,
+          onBlurHandle = _props.onBlurHandle,
+          onCancelHandle = _props.onCancelHandle,
+          others = _objectWithoutProperties(_props, ['className', 'name', 'onChangeHandle', 'onClearHandle', 'onSubmitHandle', 'onFocusHandle', 'onBlurHandle', 'onCancelHandle']);
 
       var cls = (0, _classnames2.default)(_defineProperty({
         'pile-search-bar': true,

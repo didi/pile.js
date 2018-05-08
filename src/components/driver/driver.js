@@ -9,7 +9,7 @@ const headpic = require('../../styles/image/img_driver_nor.png');
 const Driver = (props) => {
   const {
     name, avatarUrl, carType, carColor, cntOrder, card, phone,
-    isMaster, star, children, ...others
+    isMaster, star, children, company, ...others
   } = props;
   return (
     <div className="pile_driver" {...others}>

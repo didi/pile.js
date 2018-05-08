@@ -3683,6 +3683,8 @@ mask
   color: #333;
   font-size: 12px;
   background-color: #f0f0f0;
+  width: 100%;
+  text-align: left;
 }
 .cityCon .list {
   display: block;
@@ -3732,11 +3734,16 @@ mask
   text-align: center;
   width: 50px;
 }
-.fast_char a {
+.fast_char a,
+.fast_char button {
   height: 16px;
   line-height: 16px;
   display: block;
+  width: 50px;
   font-size: 12px;
+  background: transparent;
+  padding: 0;
+  color: #7e8c8d;
 }
 #rootContent {
   height: 100%;
@@ -3963,6 +3970,8 @@ mask
   line-height: 25px;
   display: block;
   padding-left: 15px;
+  width: 100%;
+  text-align: left;
   color: #333;
   font-size: 12px;
   background: #f0f0f0;
@@ -4781,7 +4790,6 @@ a.pile-permissions-card:active {
 .pile-form-radio .label {
   font-size: 14px;
   margin-left: 5px;
-  display: inline-block;
   vertical-align: middle;
 }
 .pile-checkbox-checked .icon,

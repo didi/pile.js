@@ -12,7 +12,9 @@ const propTypes = {
 
 
 const TabPane = (props) => {
-  const { className, children, ...others } = props;
+  const {
+    className, children, tab, ...others
+  } = props;
   const cls = classNames({
     'pile-tab-item': true,
     [className]: className,

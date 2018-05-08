@@ -28,12 +28,13 @@ class PositionSwitch extends Component {
     }
 
     obj.forEach((re, idx) => {
-      self.refs[`move_${re - 1}`].style.webkitTransform = `translate(${width * ((idx - re) + 1)}px,0)`;
+      self[`move_${re - 1}`].style.webkitTransform = `translate(${width * ((idx - re) + 1)}px,0)`;
     });
     itemsMoveBack && itemsMoveBack({ obj });
   }
 
   render() {
+    const self = this;
     const { className, width, children } = this.props;
     const cls = classNames({
       'pile-position-switch': true,
@@ -44,7 +45,7 @@ class PositionSwitch extends Component {
         {React.Children.map(children, (re, index) => (
           <div
             style={{ width: `${width}px` }}
-            ref={`move_${index}`}
+            ref={(obj) => { self[`move_${index}`] = obj; }}
             className="pile-move-item"
             key={index}
           >{re}

@@ -442,7 +442,10 @@ var City = function (_Component) {
       var _props2 = this.props,
           position = _props2.position,
           show = _props2.show,
-          other = _objectWithoutProperties(_props2, ['position', 'show']);
+          callBack = _props2.callBack,
+          dataAttrName = _props2.dataAttrName,
+          cityArr = _props2.cityArr,
+          other = _objectWithoutProperties(_props2, ['position', 'show', 'callBack', 'dataAttrName', 'cityArr']);
 
       if (!show) {
         return null;

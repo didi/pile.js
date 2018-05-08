@@ -66,7 +66,10 @@ var Passenger = function Passenger(props) {
       user_phone = props.user_phone,
       order_info = props.order_info,
       ride_type = props.ride_type,
-      others = _objectWithoutProperties(props, ['start_address', 'end_address', 'user_name', 'departure_endtime', 'isMaster', 'isPhone', 'isNeed', 'user_phone', 'order_info', 'ride_type']);
+      avatarUrl = props.avatarUrl,
+      company_pay = props.company_pay,
+      total_fee = props.total_fee,
+      others = _objectWithoutProperties(props, ['start_address', 'end_address', 'user_name', 'departure_endtime', 'isMaster', 'isPhone', 'isNeed', 'user_phone', 'order_info', 'ride_type', 'avatarUrl', 'company_pay', 'total_fee']);
 
   return _react2.default.createElement(
     'div',

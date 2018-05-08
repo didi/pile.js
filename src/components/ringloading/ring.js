@@ -39,7 +39,7 @@ class Ringloading extends React.Component {
   render() {
     const {
       width, border, borderColor, contentColor, textSize, contentBgColor,
-      ringTimer, ballShow, bottomRingBgColor, ballBgColor, className, ...others
+      ringTimer, ballShow, bottomRingBgColor, ballBgColor, className, text, ...others
     } = this.props;
     const cls = classNames({
       'ring-loading': true,

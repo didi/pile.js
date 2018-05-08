@@ -369,6 +369,9 @@ class City extends Component {
     const {
       position,
       show,
+      callBack,
+      dataAttrName,
+      cityArr,
       ...other
     } = this.props;
     if (!show) {

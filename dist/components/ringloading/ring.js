@@ -63,7 +63,8 @@ var Ringloading = (_temp = _class = function (_React$Component) {
           bottomRingBgColor = _props.bottomRingBgColor,
           ballBgColor = _props.ballBgColor,
           className = _props.className,
-          others = _objectWithoutProperties(_props, ['width', 'border', 'borderColor', 'contentColor', 'textSize', 'contentBgColor', 'ringTimer', 'ballShow', 'bottomRingBgColor', 'ballBgColor', 'className']);
+          text = _props.text,
+          others = _objectWithoutProperties(_props, ['width', 'border', 'borderColor', 'contentColor', 'textSize', 'contentBgColor', 'ringTimer', 'ballShow', 'bottomRingBgColor', 'ballBgColor', 'className', 'text']);
 
       var cls = (0, _classnames2.default)(_defineProperty({
         'ring-loading': true

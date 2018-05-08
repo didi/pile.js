@@ -263,6 +263,10 @@ class Brand extends Component {
     const {
       show,
       hotCarBrandData,
+      staticImgURL,
+      carArr,
+      dataAttrName,
+      callBack,
       ...other
     } = this.props;
     if (!show) {

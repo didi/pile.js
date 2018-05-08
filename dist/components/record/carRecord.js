@@ -113,7 +113,12 @@ var CarRecord = (_temp = _class = function (_Component) {
           realname = _props.realname,
           superAdmin = _props.superAdmin,
           weekShow = _props.weekShow,
-          others = _objectWithoutProperties(_props, ['start_name', 'end_name', 'filedMap', 'create_time', 'className', 'use_car_type', 'require_level', 'pay_type', 'real_pay', 'tip_fee', 'other_fee', 'realname', 'superAdmin', 'weekShow']);
+          weekFormat = _props.weekFormat,
+          drsFontLen = _props.drsFontLen,
+          nameSubstrLen = _props.nameSubstrLen,
+          dateFormat = _props.dateFormat,
+          nameFontLen = _props.nameFontLen,
+          others = _objectWithoutProperties(_props, ['start_name', 'end_name', 'filedMap', 'create_time', 'className', 'use_car_type', 'require_level', 'pay_type', 'real_pay', 'tip_fee', 'other_fee', 'realname', 'superAdmin', 'weekShow', 'weekFormat', 'drsFontLen', 'nameSubstrLen', 'dateFormat', 'nameFontLen']);
 
       var username = this.changeName(realname);
       var timeObj = new Date(create_time * 1000);

@@ -85,7 +85,7 @@ class Stepper extends React.Component {
 
   render() {
     const {
-      className, disabled, min, max, ...others
+      className, disabled, min, max,
     } = this.props;
     const { defaultVal } = this.state;
     const cls = classNames({
@@ -106,7 +106,7 @@ class Stepper extends React.Component {
       'pile-stepper-disabled': defaultVal >= max,
     });
     return (
-      <div className={cls} {...others}>
+      <div className={cls}>
         <span className={prevCls} onClick={this.prevClick} />
         <span className="pile-stepper-defaultval">{defaultVal}</span>
         <span className={nextCls} onClick={this.nextClick} />

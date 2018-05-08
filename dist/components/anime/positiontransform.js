@@ -63,13 +63,14 @@ var PositionSwitch = (_temp = _class = function (_Component) {
       }
 
       obj.forEach(function (re, idx) {
-        self.refs['move_' + (re - 1)].style.webkitTransform = 'translate(' + width * (idx - re + 1) + 'px,0)';
+        self['move_' + (re - 1)].style.webkitTransform = 'translate(' + width * (idx - re + 1) + 'px,0)';
       });
       itemsMoveBack && itemsMoveBack({ obj: obj });
     }
   }, {
     key: 'render',
     value: function render() {
+      var self = this;
       var _props2 = this.props,
           className = _props2.className,
           width = _props2.width,
@@ -86,7 +87,9 @@ var PositionSwitch = (_temp = _class = function (_Component) {
             'div',
             {
               style: { width: width + 'px' },
-              ref: 'move_' + index,
+              ref: function ref(obj) {
+                self['move_' + index] = obj;
+              },
               className: 'pile-move-item',
               key: index
             },

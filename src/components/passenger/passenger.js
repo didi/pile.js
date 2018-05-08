@@ -44,7 +44,7 @@ const headpic = require('../../styles/image/default-avatar.png');
 const Passenger = (props) => {
   const {
     start_address, end_address, user_name, departure_endtime, isMaster, isPhone,
-    isNeed, user_phone, order_info, ride_type, ...others
+    isNeed, user_phone, order_info, ride_type, avatarUrl, company_pay, total_fee, ...others
   } = props;
   return (
     <div className="pile_passenger" {...others}>

@@ -90,7 +90,9 @@ export default class CarRecord extends Component {
   render() {
     const {
       start_name, end_name, filedMap, create_time, className, use_car_type, require_level,
-      pay_type, real_pay, tip_fee, other_fee, realname, superAdmin, weekShow, ...others
+      pay_type, real_pay, tip_fee, other_fee, realname, superAdmin, weekShow,
+      weekFormat, drsFontLen, nameSubstrLen, dateFormat, nameFontLen,
+      ...others
     } = this.props;
     const username = this.changeName(realname);
     const timeObj = new Date(create_time * 1000);

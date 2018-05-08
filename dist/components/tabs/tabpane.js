@@ -31,7 +31,8 @@ var propTypes = {
 var TabPane = function TabPane(props) {
   var className = props.className,
       children = props.children,
-      others = _objectWithoutProperties(props, ['className', 'children']);
+      tab = props.tab,
+      others = _objectWithoutProperties(props, ['className', 'children', 'tab']);
 
   var cls = (0, _classnames2.default)(_defineProperty({
     'pile-tab-item': true
