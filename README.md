@@ -77,8 +77,8 @@ ReactDOM.render((
 ## Development
 
 ```shell
-git clone git@github.com:didi/pile.git
-cd pile
+git clone git@github.com:didi/pile.js.git
+cd pile.js
 npm install
 npm start
 ```
