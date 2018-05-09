@@ -1,0 +1,22 @@
+{
+  "name": "jimu-jekyll",
+  "version": "1.0.0",
+  "description": "jekyll-jimu ============ jekyll用 Markdown (或 Textile)、Liquid、HTML & CSS 就可以构建可部署的静态网站,jekyll-jimu是用jekyll搭建的jimu api 介绍的网站",
+  "main": "index.js",
+  "dependencies": {
+    "_jekyll@3.0.0-beta1@jekyll": "^3.0.0-beta1",
+    "gem": "^2.4.3",
+    "jekyll": "^3.0.0-beta1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "jekyll serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.xiaojukeji.com:yanshenshen/jekyll-jimu.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>滴滴企业版设计体验技术部</title>
+		<description>A jekyll theme</description>
+		<link>http://localhost:4000</link>
+		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Inputs</title>
+				<description>&lt;h2 id=&quot;定义&quot;&gt;定义&lt;/h2&gt;
+&lt;p&gt;单选、复选框与文本框的随意组合。&lt;/p&gt;
+
+&lt;h2 id=&quot;图片展示&quot;&gt;图片展示&lt;/h2&gt;
+&lt;div class=&quot;pic-show-intr&quot;&gt;
+    &lt;img src=&quot;/images/developIntr/picture-inputs.jpg&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;代码演示&quot;&gt;代码演示&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-jsx&quot;&gt;
+import Inputs from 'pile/dist/components/inputs'
+&amp;lt;Inputs mainValue=&quot;pile 灵活的移动端组件&quot; /&amp;gt;
+&amp;lt;Inputs placeholder=&quot;请随心所欲的输入&quot; /&amp;gt;
+&amp;lt;Inputs
+    inputsAlign=&quot;left&quot;
+    placeholder=&quot;请输入&quot;
+    mainValue=&quot;jimu 灵活的移动端组件&quot;
+    asideType=&quot;checkbox&quot;
+/&amp;gt;
+&amp;lt;Inputs
+    inputsAlign=&quot;right&quot;
+    placeholder=&quot;请随心所欲的输入&quot;
+    asideType=&quot;checkbox&quot;
+/&amp;gt;
+&amp;lt;Inputs
+    inputsAlign=&quot;left&quot;
+    mainValue=&quot;pile 灵活的移动端组件&quot;
+    asideType=&quot;radio&quot;
+    asideName=&quot;test_radio&quot;
+/&amp;gt;
+&amp;lt;Inputs
+    inputsAlign=&quot;right&quot;
+    placeholder=&quot;请随心所欲的输入&quot;
+    asideType=&quot;radio&quot;
+    asideName=&quot;test_radio&quot;
+/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;属性&quot;&gt;属性&lt;/h2&gt;
+&lt;table class=&quot;table table-fixed table-bordered table-hover&quot;&gt;&lt;thead&gt;&lt;tr&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;参数&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;55%&quot;&gt;&lt;span&gt;描述&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;数据类型&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;默认值&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;inputsAlign&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;设置侧边单选框、复选框位置 （left、right）&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;asideType&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;设置侧边input类型 （checkbox、radio）&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;asideVal&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;侧边input value值&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;asideVal&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;侧边input value值&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;asideName&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;侧边input name值&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;asideId&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;侧边input id 名称&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;mainValue&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;input输入框 默认值&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;mainclass&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;input输入框  class名称&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;mainFocusClass&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;input输入框 focus class名称&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;focus&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;mainBlurClass&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;input输入框 blur class名称&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;blur&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;mainMaxlength&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;input输入框 最大输入字符&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;number&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;99999&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+</description>
+				<pubDate>Tue, 08 Aug 2017 02:13:06 +0800</pubDate>
+				<link>http://localhost:4000/2017/08/develop-components-inputs</link>
+				<guid isPermaLink="true">http://localhost:4000/2017/08/develop-components-inputs</guid>
+			</item>
+		
+			<item>
+				<title>TextLink</title>
+				<description>&lt;h2 id=&quot;定义&quot;&gt;定义&lt;/h2&gt;
+&lt;p&gt;用于页面跳转或者触发一个自定义事件。&lt;/p&gt;
+
+&lt;h2 id=&quot;图片展示&quot;&gt;图片展示&lt;/h2&gt;
+&lt;div class=&quot;pic-show-intr&quot;&gt;
+    &lt;img src=&quot;/images/developIntr/picture-textlink.jpg&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;代码演示&quot;&gt;代码演示&lt;/h2&gt;
+&lt;!-- &lt;span class=&quot;copy&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;b class=&quot;copy-name&quot;&gt;复制代码&lt;/b&gt;&lt;/span&gt; --&gt;
+&lt;pre&gt;
+&lt;code class=&quot;language-jsx&quot;&gt;
+import TextLink from 'pile/dist/components/textlink'
+&amp;lt;TextLink
+    href=&quot;javascript:;&quot;
+    iconClassName=&quot;icon-toast_warning toast_icon&quot;
+    iconFloat=&quot;right&quot;
+&amp;gt;文字按钮&amp;lt;/TextLink&amp;gt;
+&amp;lt;TextLink
+    href=&quot;javascript:;&quot;
+    type=&quot;danger&quot;
+    iconClassName=&quot;icon-toast_warning toast_icon&quot;
+    iconFloat=&quot;right&quot;
+&amp;gt;文字按钮&amp;lt;/TextLink&amp;gt;
+&amp;lt;TextLink
+    href=&quot;javascript:;&quot;
+    type=&quot;normal&quot;
+    iconClassName=&quot;icon-toast_warning toast_icon&quot;
+    iconFloat=&quot;right&quot;
+&amp;gt;文字按钮&amp;lt;/TextLink&amp;gt;
+&amp;lt;TextLink
+    type=&quot;disabled&quot;
+    iconClassName=&quot;icon-toast_warning toast_icon&quot;
+    iconFloat=&quot;right&quot;
+&amp;gt;文字按钮&amp;lt;/TextLink&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;属性&quot;&gt;属性&lt;/h2&gt;
+&lt;table class=&quot;table table-fixed table-bordered table-hover&quot;&gt;&lt;thead&gt;&lt;tr&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;参数&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;55%&quot;&gt;&lt;span&gt;描述&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;数据类型&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;默认值&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;type&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;类型：&quot;&quot; 默认，normal 普通  ， danger 危险提示 ，disabled 禁止&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;&quot;&quot;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;href&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;链接地址：有值时标签为a，不传值时标签为span&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;normal&lt;/td&gt;&lt;/tr&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;iconClassName&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;icon 的classname,传值时icon彩绘展示&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;&quot;&quot;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;iconFloat&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;icon展示位置：left 左侧，right 右侧&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;left&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+</description>
+				<pubDate>Mon, 07 Aug 2017 07:25:06 +0800</pubDate>
+				<link>http://localhost:4000/2017/08/develop-components-textlink</link>
+				<guid isPermaLink="true">http://localhost:4000/2017/08/develop-components-textlink</guid>
+			</item>
+		
+			<item>
+				<title>star</title>
+				<description>&lt;h2 id=&quot;定义&quot;&gt;定义&lt;/h2&gt;
+&lt;p&gt;评星组件。&lt;/p&gt;
+
+&lt;h2 id=&quot;图片展示&quot;&gt;图片展示&lt;/h2&gt;
+&lt;div class=&quot;pic-show-intr&quot;&gt;
+    &lt;img src=&quot;/images/developIntr/picture-star.jpg&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;代码演示&quot;&gt;代码演示&lt;/h2&gt;
+&lt;pre&gt;
+&lt;code class=&quot;language-jsx&quot;&gt;
+import Score from 'pile/dist/components/score',
+  {Star} = Score
+&amp;lt;Star defaultVal={2} len={5} back={(n)=&amp;gt;{console.log(n)}}/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;属性&quot;&gt;属性&lt;/h2&gt;
+&lt;table class=&quot;table table-fixed table-bordered table-hover&quot;&gt;&lt;thead&gt;&lt;tr&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;参数&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;55%&quot;&gt;&lt;span&gt;描述&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;数据类型&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;默认值&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+
+&lt;tr class=&quot;grid-item&quot;&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;len&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;星星显示个数&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;number&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;defaultVal&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;默认值&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;number&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;disabled&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;禁用状态&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;bool&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;back&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;当点选星星后回调函数，返回值：n,(所选中的索引值，从1开始算起)&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;function&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;null&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+</description>
+				<pubDate>Mon, 07 Aug 2017 07:25:06 +0800</pubDate>
+				<link>http://localhost:4000/2017/08/develop-components-score-star</link>
+				<guid isPermaLink="true">http://localhost:4000/2017/08/develop-components-score-star</guid>
+			</item>
+		
+			<item>
+				<title>LocaleProvider</title>
+				<description>&lt;h2 id=&quot;定义&quot;&gt;定义&lt;/h2&gt;
+&lt;p&gt;用于默认信息等可配置不同语言展示、也可以通过调整属性值来调整展示信息。&lt;/p&gt;
+
+&lt;h2 id=&quot;说明&quot;&gt;说明&lt;/h2&gt;
+&lt;p&gt;两种方式更改信息展示：
+1、配置LocaleProvider组件的locale属性值，如：enUS、zhCN。
+2、直接更改组件内属性值，如Search组件的placeholder属性值。&lt;/p&gt;
+
+&lt;h2 id=&quot;图片展示&quot;&gt;图片展示&lt;/h2&gt;
+&lt;div class=&quot;pic-show-intr&quot;&gt;
+    &lt;img src=&quot;/images/developIntr/picture-localeprovider.jpg&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;代码演示&quot;&gt;代码演示&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-jsx&quot;&gt;
+import enUS from '../../src/components/localeprovider/en_US';
+import zhCN from '../../src/components/localeprovider/zh-CN';
+import LocaleProvider from 'pile/dist/components/localeprovider'
+import Search from 'pile/dist/components/search'
+&amp;lt;LocaleProvider locale={enUS}&amp;gt;
+  &amp;lt;Search
+    onChangeHandle={function (text) { console.log(`change:${text}`); }}
+    onClearHandle={function () { console.log('clearHandle'); }}
+    onFocusHandle={function () { console.log('onFocusHandle'); }}
+    onBlurHandle={function (text) { console.log('onBlurHandle'); }}
+  /&amp;gt;
+&amp;lt;/LocaleProvider&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;属性&quot;&gt;属性&lt;/h2&gt;
+&lt;table class=&quot;table table-fixed table-bordered table-hover&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;参数&lt;/span&gt;&lt;/th&gt;
+      &lt;th class=&quot;pile-text-center&quot; width=&quot;55%&quot;&gt;&lt;span&gt;描述&lt;/span&gt;&lt;/th&gt;
+      &lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;数据类型&lt;/span&gt;&lt;/th&gt;
+      &lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;默认值&lt;/span&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr class=&quot;grid-item&quot;&gt;
+      &lt;td class=&quot;pile-text-center&quot;&gt;locale&lt;/td&gt;
+      &lt;td class=&quot;pile-text-center&quot;&gt;语言类型：enUS：英语、zhCN：中文等&lt;/td&gt;
+      &lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;
+      &lt;td class=&quot;pile-text-center&quot;&gt;zhCN&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+				<pubDate>Mon, 07 Aug 2017 07:25:06 +0800</pubDate>
+				<link>http://localhost:4000/2017/08/develop-components-providerintr</link>
+				<guid isPermaLink="true">http://localhost:4000/2017/08/develop-components-providerintr</guid>
+			</item>
+		
+			<item>
+				<title>Button</title>
+				<description>&lt;h2 id=&quot;定义&quot;&gt;定义&lt;/h2&gt;
+&lt;p&gt;按钮用于开始一个即时操作。&lt;/p&gt;
+
+&lt;h2 id=&quot;图片展示&quot;&gt;图片展示&lt;/h2&gt;
+&lt;div class=&quot;pic-show-intr&quot;&gt;
+    &lt;img src=&quot;/images/developIntr/picture-button.jpg&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;代码演示&quot;&gt;代码演示&lt;/h2&gt;
+&lt;!-- &lt;span class=&quot;copy&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;b class=&quot;copy-name&quot;&gt;复制代码&lt;/b&gt;&lt;/span&gt; --&gt;
+&lt;pre&gt;
+&lt;code class=&quot;language-jsx&quot;&gt;
+import Button from 'pile/dist/components/button'
+&amp;lt;Button&amp;gt;默认&amp;lt;/Button&amp;gt;
+&amp;lt;Button type=&quot;highlight&quot;&amp;gt;高亮&amp;lt;/Button&amp;gt;
+&amp;lt;Button type=&quot;highlight&quot; disabled={true}&amp;gt;锁定高亮&amp;lt;/Button&amp;gt;
+&amp;lt;Button disabled={true}&amp;gt;锁定&amp;lt;/Button&amp;gt;
+&amp;lt;Button selected={true}&amp;gt;选中&amp;lt;/Button&amp;gt;
+&amp;lt;Button selected={true}&amp;gt;选中状态&amp;lt;/Button&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;属性&quot;&gt;属性&lt;/h2&gt;
+&lt;table class=&quot;table table-fixed table-bordered table-hover&quot;&gt;&lt;thead&gt;&lt;tr&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;参数&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;55%&quot;&gt;&lt;span&gt;描述&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;数据类型&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;默认值&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;type&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;是否高亮按钮&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;primary&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;size&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;尺寸（small:小按钮(行内块级元素),normal:大按钮(块级元素))&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;normal&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;disabled&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;是否锁定（true:是,false:否）&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;bool&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;false&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;selected&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;是否选中（true:是,false:否）&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;bool&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;false&lt;/td&gt;&lt;/tr&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;
+    &lt;td class=&quot;pile-text-center&quot;&gt;href&lt;/td&gt;
+    &lt;td class=&quot;pile-text-center&quot;&gt;带有href转变成a标签否则是button标签&lt;/td&gt;
+    &lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;
+    &lt;td class=&quot;pile-text-center&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+</description>
+				<pubDate>Mon, 07 Aug 2017 07:25:06 +0800</pubDate>
+				<link>http://localhost:4000/2017/08/develop-components-button</link>
+				<guid isPermaLink="true">http://localhost:4000/2017/08/develop-components-button</guid>
+			</item>
+		
+			<item>
+				<title>PositionTransform</title>
+				<description>&lt;h2 id=&quot;定义&quot;&gt;定义&lt;/h2&gt;
+&lt;p&gt;模块间位置相互切换。&lt;/p&gt;
+
+&lt;h2 id=&quot;图片展示&quot;&gt;图片展示&lt;/h2&gt;
+&lt;div class=&quot;pic-show-intr&quot;&gt;
+    &lt;img src=&quot;/images/developIntr/picture-positiontransform.jpg&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;代码演示&quot;&gt;代码演示&lt;/h2&gt;
+&lt;pre&gt;
+&lt;code class=&quot;language-jsx&quot;&gt;
+import Anime from 'pile/dist/components/anime'
+const {PositionTransform} = Anime
+
+&amp;lt;PositionTransform
+  ref=&quot;myPostionSwitch&quot;
+  orderArr={[1,2,3,4]}
+  itemsMoveBack={function(n){console.log(n)}}
+&amp;gt;
+  &amp;lt;div className=&quot;pile-demo-postion-test&quot;&amp;gt;1&amp;lt;/div&amp;gt;
+  &amp;lt;div className=&quot;pile-demo-postion-test&quot;&amp;gt;2&amp;lt;/div&amp;gt;
+  &amp;lt;div className=&quot;pile-demo-postion-test&quot;&amp;gt;3&amp;lt;/div&amp;gt;
+  &amp;lt;div className=&quot;pile-demo-postion-test&quot;&amp;gt;4&amp;lt;/div&amp;gt;
+&amp;lt;/PositionTransform&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;属性&quot;&gt;属性&lt;/h2&gt;
+&lt;table class=&quot;table table-fixed table-bordered table-hover&quot;&gt;&lt;thead&gt;&lt;tr&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;参数&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;55%&quot;&gt;&lt;span&gt;描述&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;数据类型&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;默认值&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+
+&lt;tr class=&quot;grid-item&quot;&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;width&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;子元素移动的单位宽度&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;number&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;80&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;orderArr&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;子元素排列的数组（数组个数需与自元素的个数一致）&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;array&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;[1,2,3,4]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;itemsMoveBack&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;自元素位置移动后的回调&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;function&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+
+
+
+&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;div style=&quot;margin-top: 20px;&quot;&gt;
+  &lt;a href=&quot;https://www.npmjs.com/package/animejs&quot; target=&quot;_block&quot;&gt;点击查看详细参数说明&lt;/a&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Mon, 07 Aug 2017 07:25:06 +0800</pubDate>
+				<link>http://localhost:4000/2017/08/develop-components-anime-positiontransform</link>
+				<guid isPermaLink="true">http://localhost:4000/2017/08/develop-components-anime-positiontransform</guid>
+			</item>
+		
+			<item>
+				<title>CssTransform</title>
+				<description>&lt;h2 id=&quot;定义&quot;&gt;定义&lt;/h2&gt;
+&lt;p&gt;基于animejs封装的React组件。&lt;/p&gt;
+
+&lt;h2 id=&quot;图片展示&quot;&gt;图片展示&lt;/h2&gt;
+&lt;div class=&quot;pic-show-intr&quot;&gt;
+    &lt;img src=&quot;/images/developIntr/picture-csstransform.jpg&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;代码演示&quot;&gt;代码演示&lt;/h2&gt;
+&lt;pre&gt;
+&lt;code class=&quot;language-jsx&quot;&gt;
+import Anime from 'pile/dist/components/anime'
+const {CssTransform} = Anime
+
+let moveAlone = {
+  targets: '.anime-move-demo-alone',
+  left: '240px',
+  backgroundColor: '#5EF3FB',
+  borderRadius: 40,
+  loop: false,
+  delay: 300,
+  autoplay: true,
+  easing: 'easeInOutQuad'
+},
+moveMore = {
+  targets: '.anime-move-demo',
+  translateX: 250,
+  direction: 'alternate',
+  loop: false,
+  delay: 500,
+  autoplay: true,
+  elasticity: (el, i, l) =&amp;gt; {
+    return (200 + i * 200);
+  }
+}
+
+&amp;lt;CssTransform {...moveAlone}&amp;gt;
+  &amp;lt;div className=&quot;anime-move-demo-alone&quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/CssTransform&amp;gt;
+
+&amp;lt;CssTransform {...moveMore}&amp;gt;
+  &amp;lt;div className=&quot;anime-move-demo&quot;&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;div className=&quot;anime-move-demo&quot;&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;div className=&quot;anime-move-demo&quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/CssTransform&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;属性&quot;&gt;属性&lt;/h2&gt;
+&lt;table class=&quot;table table-fixed table-bordered table-hover&quot;&gt;&lt;thead&gt;&lt;tr&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;参数&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;55%&quot;&gt;&lt;span&gt;描述&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;数据类型&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;默认值&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+
+&lt;tr class=&quot;grid-item&quot;&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;targets&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;CSS Selectors&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;(CSS 属性名,驼峰式命名)&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;CSS 属性名&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;duration&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;持续的时间&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;number,function&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;delay&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;延迟&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;number, function&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;easing&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;动画运行轨迹&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;string&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;loop&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;次数&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;number, boolean&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr class=&quot;grid-item&quot;&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;autoplay&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;是否自动播放&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;boolean&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;true&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr class=&quot;grid-item&quot;&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;...&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;...&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;...&lt;/td&gt;
+  &lt;td class=&quot;pile-text-center&quot;&gt;...&lt;/td&gt;
+&lt;/tr&gt;
+
+
+
+&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;div style=&quot;margin-top: 20px;&quot;&gt;
+  &lt;a href=&quot;https://www.npmjs.com/package/animejs&quot; target=&quot;_block&quot;&gt;点击查看详细参数说明&lt;/a&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Mon, 07 Aug 2017 07:25:06 +0800</pubDate>
+				<link>http://localhost:4000/2017/08/develop-components-anime-csstransform</link>
+				<guid isPermaLink="true">http://localhost:4000/2017/08/develop-components-anime-csstransform</guid>
+			</item>
+		
+			<item>
+				<title>InputItem</title>
+				<description>&lt;h2 id=&quot;定义&quot;&gt;定义&lt;/h2&gt;
+&lt;p&gt;需用户通过键盘输入内容的一种控件。&lt;/p&gt;
+
+&lt;div class=&quot;design-layout&quot;&gt;
+    &lt;div class=&quot;design-hd&quot;&gt;
+        &lt;h2 class=&quot;title&quot;&gt;视觉样式&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;design-bd&quot;&gt;
+        &lt;div class=&quot;aside-img&quot;&gt;
+            &lt;img src=&quot;/images/design/InputItem_gui1@2x.png&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;content-main&quot;&gt;
+            &lt;ul class=&quot;intr-item&quot;&gt;
+                &lt;li&gt;
+                    &lt;span class=&quot;title-name&quot;&gt;尺寸：&lt;/span&gt;
+                    &lt;p&gt;高度不变，宽度随预计字符数量而变，内部文本左对齐&lt;/p&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;span class=&quot;title-name&quot;&gt;样式：&lt;/span&gt;
+                    &lt;p&gt;分基础文本输入和多行文本输入。基础文本输入的标题文字最长为6位文字。&lt;/p&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;p class=&quot;link-all-style&quot;&gt;&lt;a href=&quot;javascript:;&quot;&gt;查看所有样式&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;design-layout&quot;&gt;
+    &lt;div class=&quot;design-hd&quot;&gt;
+        &lt;h2 class=&quot;title&quot;&gt;交互原则&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;design-bd&quot;&gt;
+        &lt;div class=&quot;aside-img&quot;&gt;
+            &lt;img src=&quot;/images/design-principle.png&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;content-main&quot;&gt;
+            &lt;ul class=&quot;intr-item&quot;&gt;
+                &lt;li&gt;
+                    &lt;span class=&quot;title-name&quot;&gt;交互：&lt;/span&gt;
+                    &lt;p&gt;默认（normal）、悬停（hover）、激活（focus）、不可用（disable）&lt;/p&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;span class=&quot;title-name&quot;&gt;适用：&lt;/span&gt;
+                    &lt;p&gt;用于信息采集、信息验证&lt;/p&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;design-layout&quot;&gt;
+    &lt;div class=&quot;design-hd&quot;&gt;
+        &lt;h2 class=&quot;title&quot;&gt;案例展示&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;design-bd&quot;&gt;
+        &lt;div class=&quot;aside-img&quot;&gt;
+            &lt;img src=&quot;/images/design/InputItem_gui2@2x.png&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;content-main&quot;&gt;
+            &lt;p&gt;根据输入数据类型唤起相应的系统键盘。&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Mon, 07 Aug 2017 07:25:06 +0800</pubDate>
+				<link>http://localhost:4000/2017/08/design-components-input-inputitem</link>
+				<guid isPermaLink="true">http://localhost:4000/2017/08/design-components-input-inputitem</guid>
+			</item>
+		
+			<item>
+				<title>Button</title>
+				<description>&lt;h2 id=&quot;定义&quot;&gt;定义&lt;/h2&gt;
+&lt;p&gt;需用户通过键盘输入内容的一种控件。&lt;/p&gt;
+
+&lt;div class=&quot;design-layout&quot;&gt;
+    &lt;div class=&quot;design-hd&quot;&gt;
+        &lt;h2 class=&quot;title&quot;&gt;视觉样式&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;design-bd&quot;&gt;
+        &lt;div class=&quot;aside-img&quot;&gt;
+            &lt;img src=&quot;/images/design/button_gui1@2x.png&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;content-main&quot;&gt;
+            &lt;ul class=&quot;intr-item&quot;&gt;
+                &lt;li&gt;
+                    &lt;span class=&quot;title-name&quot;&gt;尺寸：&lt;/span&gt;
+                    &lt;p&gt;高度不变，宽度可根据实际设计而变化。若变长，A值最大=自定义；若变短，A值最小 =30px&lt;/p&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;span class=&quot;title-name&quot;&gt;样式：&lt;/span&gt;
+                    &lt;p&gt;文字按钮&lt;/p&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;p class=&quot;link-all-style&quot;&gt;&lt;a href=&quot;javascript:;&quot;&gt;查看所有样式&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;design-layout&quot;&gt;
+    &lt;div class=&quot;design-hd&quot;&gt;
+        &lt;h2 class=&quot;title&quot;&gt;交互原则&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;design-bd&quot;&gt;
+        &lt;div class=&quot;aside-img&quot;&gt;
+            &lt;img src=&quot;/images/design-principle.png&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;content-main&quot;&gt;
+            &lt;ul class=&quot;intr-item&quot;&gt;
+                &lt;li&gt;
+                    &lt;span class=&quot;title-name&quot;&gt;交互：&lt;/span&gt;
+                    &lt;p&gt;默认（normal）、悬停（hover）、点击（press）、不可用（disable）、加载中（loading）&lt;/p&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;span class=&quot;title-name&quot;&gt;适用：&lt;/span&gt;
+                    &lt;p&gt;用以开始一个即时操作&lt;/p&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;design-layout&quot;&gt;
+    &lt;div class=&quot;design-hd&quot;&gt;
+        &lt;h2 class=&quot;title&quot;&gt;案例展示&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;design-bd&quot;&gt;
+        &lt;div class=&quot;aside-img&quot;&gt;
+            &lt;img src=&quot;/images/design/button_gui2@2x.png&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;content-main&quot;&gt;
+            &lt;p&gt;按钮一般需要和页面内容一起呈现才有意义&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description>
+				<pubDate>Mon, 07 Aug 2017 07:25:06 +0800</pubDate>
+				<link>http://localhost:4000/2017/08/design-components-click-button</link>
+				<guid isPermaLink="true">http://localhost:4000/2017/08/design-components-click-button</guid>
+			</item>
+		
+			<item>
+				<title>Tabs</title>
+				<description>&lt;h2 id=&quot;定义&quot;&gt;定义&lt;/h2&gt;
+&lt;p&gt;页卡组件。&lt;/p&gt;
+&lt;h2 id=&quot;图片展示&quot;&gt;图片展示&lt;/h2&gt;
+&lt;div class=&quot;pic-show-intr&quot;&gt;
+    &lt;img src=&quot;/images/developIntr/picture-tabs.jpg&quot; /&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;代码演示&quot;&gt;代码演示&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-jsx&quot;&gt;
+import Tabs from 'pile/dist/components/tabs'
+const {TabPane} = Tabs
+&amp;lt;Tabs activeIndex={1} onChange={(n)=&amp;gt;{console.log(n)}}&amp;gt;
+  &amp;lt;TabPane tab=&quot;Tab1&quot;&amp;gt;&amp;lt;div className=&quot;tabs-test-style&quot;&amp;gt;Tab1 内容&amp;lt;/div&amp;gt;&amp;lt;/TabPane&amp;gt;
+  &amp;lt;TabPane tab=&quot;Tab2&quot;&amp;gt;&amp;lt;div className=&quot;tabs-test-style&quot;&amp;gt;Tab2 内容&amp;lt;/div&amp;gt;&amp;lt;/TabPane&amp;gt;
+  &amp;lt;TabPane tab=&quot;Tab3&quot;&amp;gt;&amp;lt;div className=&quot;tabs-test-style&quot;&amp;gt;Tab3 内容&amp;lt;/div&amp;gt;&amp;lt;/TabPane&amp;gt;
+&amp;lt;/Tabs&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;属性&quot;&gt;属性&lt;/h2&gt;
+&lt;table class=&quot;table table-fixed table-bordered table-hover&quot;&gt;&lt;thead&gt;&lt;tr&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;参数&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;55%&quot;&gt;&lt;span&gt;描述&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;数据类型&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;pile-text-center&quot; width=&quot;15%&quot;&gt;&lt;span&gt;默认值&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;activeIndex&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;默认展示&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;number&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;1&lt;/td&gt;&lt;/tr&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;isInLocal&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;是否行内展示，true 通栏样式；false 行内样式&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;bool&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;false&lt;/td&gt;&lt;/tr&gt;
+&lt;tr class=&quot;grid-item&quot;&gt;&lt;td class=&quot;pile-text-center&quot;&gt;onChange&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;回调函数（n）参数n当前activeIndex的位置&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;function&lt;/td&gt;&lt;td class=&quot;pile-text-center&quot;&gt;()=&amp;gt;{}&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+</description>
+				<pubDate>Mon, 07 Aug 2017 02:13:06 +0800</pubDate>
+				<link>http://localhost:4000/2017/08/develop-components-tabs</link>
+				<guid isPermaLink="true">http://localhost:4000/2017/08/develop-components-tabs</guid>
+			</item>
+		
+	</channel>
+</rss>
