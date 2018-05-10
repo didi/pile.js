@@ -1,6 +1,6 @@
 {
   "name": "pile-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "pile components build with React.",
   "main": "./dist",
   "scripts": {
