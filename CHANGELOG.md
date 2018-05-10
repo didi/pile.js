@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* **city.less:** props problem about others and the style of city ([202018c](https://github.com/didi/pile-ui/commit/202018c))
+* **city.less:** props problem about others and the style of city ([202018c](https://github.com/didi/pile.js/commit/202018c))
 
 
 

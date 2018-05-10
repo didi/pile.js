@@ -31,9 +31,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:didi/pile-ui.git"
+    "url": "git@github.com:didi/pile.js.git"
   },
-  "homepage": "https://didi.github.io/pile.js",
+  "homepage": "https://didi.github.io/pile.js/docs",
   "keywords": [
     "pile",
     "pile-ui",
