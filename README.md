@@ -4,9 +4,9 @@
 
 ## Mobile Demo
 
-[Mobile Demo](https://didi.github.io/pile.js)
+[Mobile Demo](https://didi.github.io/pile.js/docs/)
 
-![pile](http://es-static.xiaojukeji.com/static/web/activity/pile/evm.png)
+![pile](http://es-static.xiaojukeji.com/static/web/activity/pile/pilejsqr05.png)
 
 ## Installation
 
