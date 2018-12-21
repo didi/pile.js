@@ -1,4 +1,4 @@
-/* yanshenshen 2017、5、9 */
+/* yanshenshen 2017.5.9 */
 import React from 'react';
 import PropTypes from 'prop-types';
 // 时间选择组件
