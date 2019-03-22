@@ -1,64 +1,77 @@
-# pile [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![license Apache 2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://www.npmjs.com/package/pile)
+# Pile [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![license Apache 2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://www.npmjs.com/package/pile)
 
-[Pile](https://www.npmjs.com/package/pile-ui) Components build with [React](http://facebook.github.io/react/).
+A lightweight mobile components library build with [React](http://facebook.github.io/react/).
 
-## Mobile Demo
+[![pile](https://nodei.co/npm/pile-ui.png)](https://www.npmjs.com/package/pile-ui)
 
-[Mobile Demo](https://didi.github.io/pile.js/docs/)
+## Docs
 
-![pile](http://es-static.xiaojukeji.com/static/web/activity/pile/pilejsqr05.png)
+[View the docs here](https://didi.github.io/pile.js/docs/)
+
+[1.x docs](https://didi.github.io/pile.js/1.x/docs/)
+
+## Components
+
+Existing components of pile 2.0
+
+| Component | Package | Author |
+|---|---|---|
+| **Button** | [@pile/button](https://www.npmjs.com/package/@pile/button) | [miaocai](https://github.com/renmm) |
+| **Icon** | [@pile/icon](https://www.npmjs.com/package/@pile/button) | [miaocai](https://github.com/renmm) |
+| **Switch** | [@pile/switch](https://www.npmjs.com/package/@pile/button) | [xilixjd](https://github.com/xilixjd) |
+| **Toast** | [@pile/toast](https://www.npmjs.com/package/@pile/button) | [susan](https://github.com/zhixunqiu) |
+| **InputFiled** | [@pile/inputFiled](https://www.npmjs.com/package/@pile/button) | [hpfree](https://github.com/hpfree) |
+| **Alert** | [@pile/alert](https://www.npmjs.com/package/@pile/button) | [gaiazhang](https://github.com/gaiazhang) |
+| **Radio** | [@pile/radio](https://www.npmjs.com/package/@pile/button) | [abiaoGit](https://github.com/abiaoGit) |
+
+## Dependences
+
+* react@16.x
+* react-dom@16.x
 
 ## Installation
 
-With [npm](http://npmjs.com/):
-
-If React is not installed
 
 ```
-npm install --save react react-dom
+npm i pile-ui@latest --save
+
+// import css
+npm i @pile/theme-default
 ```
 
-With React Installed
+import component
 
-```
-npm install pile-ui --save
+```js
 
-```
-[![pile](https://nodei.co/npm/pile-ui.png)](https://www.npmjs.com/package/pile-ui)
+// style1
+import {Button} from 'pile-ui'
 
-
-import css
-
-```
-import 'pile/dist/styles/pile.min.css'
+// single component
+import Button from '@pile/button'
 ```
 
-import Pile
 
+import all css
+
+```js
+import '@pile/theme-default/lib/index.min.css'
 ```
-// 引用方式一
-import Pile from 'pile'
-const {Button} = Pile
 
-// 引用方式二
-import {Button} from 'pile'
+import single css
 
-// 单个组件引用方式 （推荐使用，节省无用组件调用）
-import Button from 'pile/dist/components/button'
+```js
+import '@pile/theme-default/lib/button.min.css'
 ```
 
 ## Example
 
 We have several examples on the documentation. Here is the first one to get you started:
-```javascript
 
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-
-//import pile
-import Pile from 'pile'
-import 'pile/dist/styles/pile.min.css'
-const {Button} = Pile
+```jsx
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { Button } from 'pile-ui'
+import '@pile/theme-default/lib/index.min.css'
 
 class App extends Component {
     render() {
@@ -71,16 +84,46 @@ class App extends Component {
 ReactDOM.render((
     <App/>
 ), document.getElementById('container'));
-
 ```
+
+
 
 ## Development
 
-```shell
+```js
 git clone git@github.com:didi/pile.js.git
 cd pile.js
 npm install
 npm start
+```
+
+css build
+
+```
+cd packages/theme-default
+npm run build
+```
+
+```bash
+npm run build
+```
+
+Build single package by running the following:
+
+```bash
+npm run build -- --scope "@pile/button"
+```
+
+Build multiple packages where scope is a glob expression:
+
+```bash
+npm run build -- --scope "{@pile/button,@pile/icon}"
+```
+
+Watch all filters (auto-rebuild upon src changes):
+
+```bash
+npm run watch
 ```
 
 ## Contributing
@@ -91,6 +134,3 @@ Welcome to contribute by creating issues or sending pull requests. See [Contribu
 ## License
 
 pile is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file.
-
-
-

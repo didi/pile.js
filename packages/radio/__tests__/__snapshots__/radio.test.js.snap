@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio suite render a radio 1`] = `
+<withState(withHandlers(Component))
+  prefixCls="pile"
+  size={null}
+  updateValue={[Function]}
+  value=""
+/>
+`;

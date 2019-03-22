@@ -1,0 +1,98 @@
+:root {
+  /* base */
+  --opacity: 0.65;
+  --border-radius: 2px;
+
+  /* sizes */
+  --size-small: 12px;
+  --size-normal: 16px;
+  --size-large: 24px;
+
+  /* colors */
+  --color-white: #fff;
+  --color-black: #333;
+  --color-dashed: #d9d9d9;
+  --color-transparent: rgba(0,0,0,0);
+
+  --color-primary: #337ab7;
+  --color-success: #218838;
+  --color-info: #31b0d5;
+  --color-warning: #ec971f;
+  --color-danger: #c9302c;
+
+  /* icons*/
+  --icon-size-normal: var(--size-normal);
+  --icon-size-small: var(--size-small);
+  --icon-size-large: var(--size-large);
+
+  /* toast */
+  --radius-xs: 2px;
+  --icon-size-big: 32px;
+  --font-size-base: 14px;
+}
+
+.pile-switch {}
+
+.pile-switch--wrap {
+      position: relative;
+
+      /* &.bgColor {
+        background-color: #ccc;
+      }
+
+      &.wrap-shape {
+        width: 50px;
+        height: 30px;
+        border-radius: 30px;
+      } */
+}
+
+.pile-switch--wrap:focus{
+        outline: none;
+      }
+
+.pile-switch--wrap.isDisabled {
+        opacity: 0.4;
+      }
+
+.pile-switch--wrap > input {
+        width: 100%;
+        height: 100%;
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+
+        /* &.input-shape:before {
+          width: 30px;
+          height: 30px;
+          border-radius: 30px;
+        } */
+
+        /* &:before {
+          background-color: white;
+          width: attr(data-width px);
+          height: attr(data-width px);
+          border-radius: attr(data-width px);
+          content: '';
+          position: absolute;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+          transition: all .3s;
+        } */
+      }
+
+.pile-switch--wrap > div {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        background-color: white;
+        border-radius: 30px;
+        top: 1px;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        -webkit-transition: all .3s;
+        -o-transition: all .3s;
+        transition: all .3s;
+      }

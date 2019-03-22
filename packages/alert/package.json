@@ -1,0 +1,39 @@
+{
+  "name": "@pile/alert",
+  "version": "2.0.0",
+  "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
+  "keywords": [],
+  "author": "zhangzhipeng <zhangzhipeng@didichuxing.com>",
+  "license": "ISC",
+  "module": "lib/alert.esm.js",
+  "main": "lib/alert.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://npm.intra.xiaojukeji.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaiazhang/pile.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/gaiazhang/pile/issues"
+  },
+  "homepage": "https://github.com/gaiazhang/pile#readme",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
+    "rc-animate": "^2.6.0",
+    "react-transition-group": "^2.6.1",
+    "@pile/shared": "^2.0.0"
+  },
+  "devDependencies": {}
+}

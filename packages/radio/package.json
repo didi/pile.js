@@ -1,0 +1,38 @@
+{
+  "name": "@pile/radio",
+  "version": "2.0.0",
+  "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
+  "keywords": [],
+  "author": "peibiao <peibiao@didichuxing.com>",
+  "license": "ISC",
+  "module": "lib/radio.esm.js",
+  "main": "lib/radio.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://npm.intra.xiaojukeji.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abiaoGit/pile.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/abiaoGit/pile/issues"
+  },
+  "homepage": "https://github.com/abiaoGit/pile#readme",
+  "dependencies": {
+    "@pile/condition": "^2.0.0",
+    "@pile/shared": "^2.0.0",
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
+    "recompose": "^0.30.0"
+  }
+}
