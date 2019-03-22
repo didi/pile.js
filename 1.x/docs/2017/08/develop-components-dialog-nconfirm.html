@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>滴滴企业版设计体验技术部</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/pile.js/docs/js/jquery.min.js"></script>
+    <script src="/pile.js/docs/js/bootstrap.min.js"></script>
+    <link rel="icon" href="/pile.js/docs/images/favicon.ico" type="image/x-icon">
+    <link href="/pile.js/docs/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/pile.js/docs/css/theme.css" rel="stylesheet" type="text/css">
+    <link href="/pile.js/docs/css/syntax.css" rel="stylesheet" type="text/css">
+    <link href="/pile.js/docs/css/prism.css" rel="stylesheet" type="text/css">
+
+<!--[if gt IE 6 ]>
+<style type="text/css">
+a:visited{text-decoration: none;}
+.navbar-inverse{height: 60px;overflow: hidden;}
+.navbar-nav{float: left;vertical-align: top;margin-top: 0px;}
+.navbar-nav li{float: left;}
+.navbar-header {float: left;height: 60px;overflow: hidden;}
+.collapse{display: block;}
+.navbar-toggle{display: none;}
+.col-md-3 {
+    overflow: auto;
+    position: absolute;
+    top:60px;left:0;bottom: 0;
+    width: 220px;
+    bottom:0;
+    border-right: 1px #eeeff1 solid;
+}
+.container-fluid{position: absolute;bottom:0;height: 60px;left:0;right:0;z-index:10;}
+body{overflow: hidden;}
+.col-md-9{position: absolute;left:220px;right:0;top:60px;bottom:0;overflow: auto;width: auto;}
+.container-fluid{position: static}
+.design-layout .design-bd .aside-img{float:none;text-align: left;}
+</style>
+<![endif]-->
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand navbar-index" href="/pile.js/docs/"><img src="/pile.js/docs/images/logo.png"/></a>
+              </div>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" id="navBarNav">
+                    <li class="active" tag="design"><a href="/pile.js/docs/2017/08/design-rule-latentrules.html">设计</a></li>
+                    <li class="active" tag="develop"><a href="/pile.js/docs/2017/08/develop-introduction.html">开发</a></li>
+                    <!-- <li class="active" tag="animation"><a href="/pile.js/docs/animation.html">动画</a></li> -->
+                    <li class="active" data-><a target="_blank" href="https://github.com/didi/pile.js">Github</a></li>
+                </ul>
+              </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container container-left">
+    <div class="row"  id="container" >
+        <div class="col-md-3 hidden-xs"  id="asideNav">
+            <div class="sidebar nav-side" id="sidebar">
+    
+        
+        
+            
+                <h2 class="links" tag="introduction"><a _href="/pile.js/docs/2017/08/develop-introduction.html">pile of React</a></h2>
+            
+                <h2 class="links" tag="rule"><a _href="/pile.js/docs/2017/08/develop-rule.html">组件规范</a></h2>
+            
+                <h2 class="links" tag="theme"><a _href="/pile.js/docs/2017/04/develop-theme.html">定制主题</a></h2>
+            
+                <h2 class="links" tag="localeprovider"><a _href="/pile.js/docs/2017/04/develop-localeprovider.html">多语言</a></h2>
+            
+        
+        
+        
+    
+        
+        
+        
+        
+    
+        
+        
+        
+        
+    
+        
+        
+        
+        
+            <h2 class="un-links">components <span class="col"><i></i><b></b></span></h2>
+            <ul class="arc-list">
+                
+
+                    
+                        <li class="links" tag="inputs"><a _href="/pile.js/docs/2017/08/develop-components-inputs.html">Inputs<span>输入框</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="textlink"><a _href="/pile.js/docs/2017/08/develop-components-textlink.html">TextLink<span>文字链</span></a></li>
+                    
+                
+
+                    
+                        
+                            <li class="sec-nav">
+                                <dl>
+                                    <dt>score</dt>
+                                    <dd class="links" tag="star"><a _href="/pile.js/docs/2017/08/develop-components-score-star.html">star<span>评星</span></a></dd>
+                                </dl>
+                            </li>
+                        
+                        
+                    
+                
+
+                    
+                        <li class="links" tag="providerintr"><a _href="/pile.js/docs/2017/08/develop-components-providerintr.html">LocaleProvider<span>多语言</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="button"><a _href="/pile.js/docs/2017/08/develop-components-button.html">Button<span>按钮</span></a></li>
+                    
+                
+
+                    
+                        
+                            <li class="sec-nav">
+                                <dl>
+                                    <dt>Anime</dt>
+                                    <dd class="links" tag="positiontransform"><a _href="/pile.js/docs/2017/08/develop-components-anime-positiontransform.html">PositionTransform<span>模块间位置切换</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                                <dd class="links" tag="csstransform"><a _href="/pile.js/docs/2017/08/develop-components-anime-csstransform.html">CssTransform<span>css3过渡动画</span></a></dd>
+                                </dl>
+                            </li>
+                        
+                        
+                    
+                
+
+                    
+                        <li class="links" tag="tabs"><a _href="/pile.js/docs/2017/08/develop-components-tabs.html">Tabs<span>页卡</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="switch"><a _href="/pile.js/docs/2017/08/develop-components-switch.html">Switch<span>开关</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="stepper"><a _href="/pile.js/docs/2017/08/develop-components-stepper.html">Stepper<span>步进器</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="search"><a _href="/pile.js/docs/2017/08/develop-components-search.html">Search<span>搜索框</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="ringloading"><a _href="/pile.js/docs/2017/08/develop-components-ringloading.html">Ringloading<span>圆环loading加载</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="result"><a _href="/pile.js/docs/2017/08/develop-components-result.html">Result<span>结果页</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="radar"><a _href="/pile.js/docs/2017/08/develop-components-radar.html">Radar<span>模拟雷达</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="noticebar"><a _href="/pile.js/docs/2017/08/develop-components-noticebar.html">NoticeBar<span>通告栏</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="navbar"><a _href="/pile.js/docs/2017/08/develop-components-navbar.html">NavBar<span>标签</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="mask"><a _href="/pile.js/docs/2017/08/develop-components-mask.html">Mask<span>遮罩</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="label"><a _href="/pile.js/docs/2017/08/develop-components-label.html">Label<span>标签</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="icon"><a _href="/pile.js/docs/2017/08/develop-components-icon.html">Icon<span>图标</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="badge"><a _href="/pile.js/docs/2017/08/develop-components-badge.html">Badge<span>标签</span></a></li>
+                    
+                
+
+                    
+                        
+                            <li class="sec-nav">
+                                <dl>
+                                    <dt>picker</dt>
+                                    <dd class="links" tag="columnpicker"><a _href="/pile.js/docs/2017/08/develop-components-picker-columnpicker.html">ColumnPicker<span>选择器</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                            <dd class="links" tag="timeperiodpicker"><a _href="/pile.js/docs/2017/08/develop-components-picker-timeperiodpicker.html">TimePeriodPicker<span>日期控件</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                            <dd class="links" tag="timegrouppicker"><a _href="/pile.js/docs/2017/08/develop-components-picker-timegrouppicker.html">TimeGroupPicker<span>日期控件</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                            <dd class="links" tag="timedefaultpicker"><a _href="/pile.js/docs/2017/08/develop-components-picker-timedefaultpicker.html">TimeDefaultPicker<span>日期控件</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                            <dd class="links" tag="datetimepicker"><a _href="/pile.js/docs/2017/08/develop-components-picker-datetimepicker.html">DateTimePicker<span>日期控件</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                            <dd class="links" tag="daterangepicker"><a _href="/pile.js/docs/2017/08/develop-components-picker-daterangepicker.html">DateRangePicker<span>日期控件</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                            <dd class="links" tag="dateperiodpicker"><a _href="/pile.js/docs/2017/08/develop-components-picker-dateperiodpicker.html">DatePeriodPicker<span>日期控件</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                                <dd class="links" tag="carnumberpicker"><a _href="/pile.js/docs/2017/08/develop-components-picker-carnumberpicker.html">CarNumberPicker<span>选择车牌</span></a></dd>
+                                </dl>
+                            </li>
+                        
+                        
+                    
+                
+
+                    
+                        
+                            <li class="sec-nav">
+                                <dl>
+                                    <dt>dialog</dt>
+                                    <dd class="links" tag="toast"><a _href="/pile.js/docs/2017/08/develop-components-dialog-toast.html">Toast<span>提示框</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                            <dd class="links" tag="nconfirm"><a _href="/pile.js/docs/2017/08/develop-components-dialog-nconfirm.html">NConfirm<span>底部菜单</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                            <dd class="links" tag="dialoglayout"><a _href="/pile.js/docs/2017/08/develop-components-dialog-dialoglayout.html">DialogLayout<span>函数示引用对话框</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                            <dd class="links" tag="contenttip"><a _href="/pile.js/docs/2017/08/develop-components-dialog-contenttip.html">ContentTip<span>弹层</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                            <dd class="links" tag="confirm"><a _href="/pile.js/docs/2017/08/develop-components-dialog-confirm.html">Confirm<span>对话框</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                                <dd class="links" tag="alert"><a _href="/pile.js/docs/2017/08/develop-components-dialog-alert.html">Alert<span>警告框</span></a></dd>
+                                </dl>
+                            </li>
+                        
+                        
+                    
+                
+
+                    
+                        
+                            <li class="sec-nav">
+                                <dl>
+                                    <dt>slider</dt>
+                                    <dd class="links" tag="sliders"><a _href="/pile.js/docs/2017/08/develop-components-slider-sliders.html">Sliders<span>滑动条</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                                <dd class="links" tag="sliderline"><a _href="/pile.js/docs/2017/08/develop-components-slider-sliderline.html">SliderLine<span>滑动条</span></a></dd>
+                                </dl>
+                            </li>
+                        
+                        
+                    
+                
+
+                    
+                        <li class="links" tag="loads"><a _href="/pile.js/docs/2017/08/develop-components-loads.html">Load<span>加载</span></a></li>
+                    
+                
+
+                    
+                        
+                            <li class="sec-nav">
+                                <dl>
+                                    <dt>Form</dt>
+                                    <dd class="links" tag="radio"><a _href="/pile.js/docs/2017/08/develop-components-form-radio.html">Radio<span>单选框</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                                <dd class="links" tag="checkbox"><a _href="/pile.js/docs/2017/08/develop-components-form-checkbox.html">Checkbox<span>复选框</span></a></dd>
+                                </dl>
+                            </li>
+                        
+                        
+                    
+                
+
+                    
+                        <li class="links" tag="verification"><a _href="/pile.js/docs/2017/08/develop-components-verification.html">Verification<span>验证码</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="upload"><a _href="/pile.js/docs/2017/08/develop-components-upload.html">Upload<span>上传</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="swipemove"><a _href="/pile.js/docs/2017/08/develop-components-swipemove.html">SwipeMove<span>滑动弹层</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="swipeaction"><a _href="/pile.js/docs/2017/08/develop-components-swipeaction.html">SwipeAction<span>滑动删除</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="ruleline"><a _href="/pile.js/docs/2017/08/develop-components-ruleline.html">RuleLine<span>刻度尺</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="popover"><a _href="/pile.js/docs/2017/08/develop-components-popover.html">Popover<span>气泡</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="infiniteloader"><a _href="/pile.js/docs/2017/08/develop-components-infiniteloader.html">InfiniteLoader<span>滚动加载</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="grid"><a _href="/pile.js/docs/2017/08/develop-components-grid.html">Grid<span>栅格</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="focus"><a _href="/pile.js/docs/2017/08/develop-components-focus.html">Focus<span>焦点图</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="fadeinx"><a _href="/pile.js/docs/2017/08/develop-components-fadeinx.html">FadeIn<span>自定义弹层</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="fadeinup"><a _href="/pile.js/docs/2017/08/develop-components-fadeinup.html">FadeInUp<span>底部弹层</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="city"><a _href="/pile.js/docs/2017/08/develop-components-city.html">City<span>城市</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="cartype"><a _href="/pile.js/docs/2017/08/develop-components-cartype.html">SelectCar<span>车型</span></a></li>
+                    
+                
+
+                    
+                        
+                            <li class="sec-nav">
+                                <dl>
+                                    <dt>fragment</dt>
+                                    <dd class="links" tag="travel"><a _href="/pile.js/docs/2017/08/develop-components-fragment-travel.html">Travel<span>用车纪录</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                            <dd class="links" tag="record"><a _href="/pile.js/docs/2017/08/develop-components-fragment-record.html">CarRecord<span>用车纪录</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                            <dd class="links" tag="passenger"><a _href="/pile.js/docs/2017/08/develop-components-fragment-passenger.html">Passenger<span>乘车人卡片</span></a></dd>
+                        
+                        
+                    
+                
+
+                    
+                        
+                                <dd class="links" tag="driver"><a _href="/pile.js/docs/2017/08/develop-components-fragment-driver.html">Driver<span>司机卡片</span></a></dd>
+                                </dl>
+                            </li>
+                        
+                        
+                    
+                
+            </ul>
+        
+    
+        
+        
+        
+        
+    
+</div>
+
+        </div>
+        <div class="col-md-9" id="mainContainer">
+          <div class="article" id="articleLayout">
+            <div class="well">
+                <div class="page-content-header">
+                    <h1>NConfirm<span>底部菜单</span></h1>
+                    
+                        <div class="evm-show">
+                            <i></i>
+                            <div class="evm-pic">
+                                <span>扫二维码查看演示效果</span>
+                                <img width="120" height="120" src="/pile.js/docs/images/evm/pile-evm-dialog.png">
+                            </div>
+                        </div>
+                    
+                    
+                    <div class="auther-poa">author: 赵婕</div>
+                    
+
+                </div>
+            
+                
+            
+            <div class="post-content">
+            <h2 id="定义">定义</h2>
+<p>弹层按钮提示二次确认操作。</p>
+
+<h2 id="图片展示">图片展示</h2>
+<div class="pic-show-intr">
+    <img src="/pile.js/docs/images/developIntr/picture-nconfirm.jpg" />
+</div>
+
+<h2 id="代码演示">代码演示</h2>
+
+<pre><code class="language-jsx">
+import Dialog from 'pile/dist/components/dialog'
+const  {NConfirm } = Dialog
+
+  &lt;NConfirm
+  show={true}
+  title="同时会将我从对方列表列删除"
+  hide={...fun}
+  buttons=[
+    {
+      label: '分享',
+      type: 'default',
+      onClick: this.hidenConfirm.bind(this)
+    },
+    {
+      type: 'primary',
+      label: '删除',
+      onClick: this.hidenConfirm.bind(this,'晚上一起吃饭了')
+    }
+  ]
+  /&gt;
+</code></pre>
+<h2 id="属性">属性</h2>
+<table class="table table-fixed table-bordered table-hover"><thead><tr>
+<th class="pile-text-center" width="15%"><span>参数</span></th>
+<th class="pile-text-center" width="55%"><span>描述</span></th>
+<th class="pile-text-center" width="15%"><span>数据类型</span></th>
+<th class="pile-text-center" width="15%"><span>默认值</span></th></tr></thead><tbody><tr class="grid-item"><td class="pile-text-center">show</td><td class="pile-text-center">底部菜单的初始隐藏状态</td><td class="pile-text-center">bool</td><td class="pile-text-center"></td></tr><tr class="grid-item"><td class="pile-text-center">title</td><td class="pile-text-center">底部菜单的标题</td><td class="pile-text-center">string</td><td class="pile-text-center"></td></tr><tr class="grid-item"><td class="pile-text-center">buttons</td><td class="pile-text-center">底部菜单的两个按钮（名字 样式 已经点击的回调方法）</td><td class="pile-text-center">array</td><td class="pile-text-center"></td></tr><tr class="grid-item"><td class="pile-text-center">hide</td><td class="pile-text-center">取消按钮的回调</td><td class="pile-text-center">function</td><td class="pile-text-center"></td></tr></tbody></table>
+
+            </div>
+            
+                
+            
+            </div>
+          </div>
+          <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+                        <p class="copyright">Copyright © 2017 滴滴企业版设计体验技术部联合出品</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<textarea name="copyLayout" id="copyLayout" class="copy-layout"></textarea>
+<script src="/pile.js/docs/js/prism.js"  data-manual></script>
+<script type="text/javascript">
+    // var isFirst = true;
+    // 设置 主体内容最小高度
+    function setMainHeight(){
+       if ($(window).width() > 977 ) {
+            // // $("#mainContainer").css({"min-height" : $("#sidebar").height() + 50})
+            // $("#mainContainer").css({"min-height" : $("#sidebar").height()  + 50 > $(window).height() - 40 ? $("#sidebar").height()  + 50  : $(window).height() - 15  })
+            // $("#mid-layout").css({"min-height" : $(window).height() - 60 })
+
+            $("#articleLayout").css({"min-height" : $(window).height() - 121})
+        }else{
+            // $("#mainContainer").css({"min-height" : "60px"})
+        }
+
+        // articleLayout
+        // $("#container").css({"min-height" : $(window).height() - 60 }) 
+    }
+
+    setMainHeight()
+    
+    // 设置二级导航高亮
+    var url = document.URL,
+        navUl = $("#navBarNav li")
+    for (var i = navUl.length - 1; i >= 0; i--) {
+        if (url.indexOf(navUl.eq(i).attr("tag")) >= 0) {
+            navUl.eq(i).addClass("hover")
+        }
+
+        if (navUl.eq(i).attr("tag") == "index" && $("#checkIndex").length > 0) {
+            navUl.eq(i).addClass("hover")
+        }
+    }
+
+    $('#sidebar .links').each(function(i, block) {
+        // hljs.highlightBlock(block);
+        if (url.indexOf($(this).attr("tag")) >= 0) {
+            $(this).addClass("actived")
+        }
+    });
+
+    document.title = $("h1").text()
+
+    // 模拟url跳转 jumpIframe
+    if (window.history && "pushState" in window.history) {
+        function jumpTag(obj,ishistory){
+            var newUrl = obj.attr("_href")
+            $('.links').removeClass("actived")
+            obj.closest(".links").addClass("actived")
+            $("#jumpIframe").remove()
+            $("body").append('<iframe src="' + newUrl + '" id="jumpIframe" class="jump-iframe"></iframe><div class="load-layout"><div class="load-step"></div></div>')
+
+            $(".load-step").css({"width":"10%"})
+            document.getElementById("jumpIframe").onload = function(){
+                var mainHtml = $("#jumpIframe").contents().find("#mainContainer").html(),
+                    pageTitle = $("#jumpIframe").contents().find("h1").text()
+                document.title = pageTitle
+                $("#mainContainer").html(mainHtml)
+                !ishistory && history.pushState({}, pageTitle , newUrl)
+                // $("#jumpIframe").remove()
+                // 进度条动画
+                $(".load-step").css({"width":"100%"})
+                setTimeout(function(){
+                    $(".load-step").fadeOut(200,"",function(){
+                        $(".load-layout").remove()
+                        setMainHeight()
+                    });
+                },150)
+
+                // 返回顶部
+                $("#mainContainer").scrollTop(0)
+
+                $("#copyLayout").html($("code").html())
+
+                // 代码高亮设置
+                window.Prism.highlightAll()
+            }
+
+        }
+
+        // 模拟左侧边栏 导航跳转
+        $('.links a').on("click",function() {
+            jumpTag($(this),false)
+        })
+
+        // 浏览器回退事件
+        window.addEventListener('popstate', function() {  
+            $('.links a').each(function(i, obj) {
+                $(this).attr("href",$(this).attr("_href"))
+                if ($(this).attr("_href") == window.location.pathname) {
+                    jumpTag($(this),true)
+                    return 
+                }
+            })
+        })
+
+        // 判断页面是否是在iframe中打开
+        if( self == top){
+            $("#copyLayout").html($("code").html())
+            // 代码高亮设置
+            window.Prism.highlightAll()
+        }
+    }else{
+        $('.links a').each(function(i, obj) {
+            $(this).attr("href",$(this).attr("_href"))
+        })
+
+        $("#copyLayout").html($("code").html())
+        // 代码高亮设置
+        window.Prism.highlightAll()
+    }
+
+    // copy
+    $("pre").append('<span class="copy" id="copy"><i></i><b class="copy-name">复制代码</b></span>')
+    // $("#copyLayout").html($("code").html())
+    
+    $("body").on("click","#copy",function(){
+        var e = document.getElementById("copyLayout"); //对象是content 
+        e.select(); //选择对象 
+        document.execCommand("Copy"); //执行浏览器复制命令
+        alert("已复制好，可贴粘。"); 
+    })
+
+    // 一级菜单展开合并 切换
+    $("body").on("click",".un-links",function(){
+        if ($(this).hasClass("slide-down")) {
+            $(this).removeClass("slide-down").next(".arc-list").slideDown("fast",function(){
+                setMainHeight()
+            })
+        }else{
+            $(this).addClass("slide-down").next(".arc-list").slideUp("fast",function(){
+                setMainHeight()
+            })
+        }
+    })
+
+    // icon 
+    $("body").on("click","#iconItems li",function(){
+        $(this).addClass("actived").siblings().removeClass("actived")
+        var name = $(this).find(".icon-name").text()
+        $("#iconCode").html('&lt;span className="'+name+'"&gt;&lt;/span&gt;')
+
+        $("#copyLayout").html('&lt;span className="'+name+'"&gt;&lt;/span&gt;')
+        // 代码高亮设置
+        window.Prism.highlightAll()
+    })
+
+</script>
+</body>
+</html>

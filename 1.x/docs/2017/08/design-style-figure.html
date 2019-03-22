@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>滴滴企业版设计体验技术部</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/pile.js/docs/js/jquery.min.js"></script>
+    <script src="/pile.js/docs/js/bootstrap.min.js"></script>
+    <link rel="icon" href="/pile.js/docs/images/favicon.ico" type="image/x-icon">
+    <link href="/pile.js/docs/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/pile.js/docs/css/theme.css" rel="stylesheet" type="text/css">
+    <link href="/pile.js/docs/css/syntax.css" rel="stylesheet" type="text/css">
+    <link href="/pile.js/docs/css/prism.css" rel="stylesheet" type="text/css">
+
+<!--[if gt IE 6 ]>
+<style type="text/css">
+a:visited{text-decoration: none;}
+.navbar-inverse{height: 60px;overflow: hidden;}
+.navbar-nav{float: left;vertical-align: top;margin-top: 0px;}
+.navbar-nav li{float: left;}
+.navbar-header {float: left;height: 60px;overflow: hidden;}
+.collapse{display: block;}
+.navbar-toggle{display: none;}
+.col-md-3 {
+    overflow: auto;
+    position: absolute;
+    top:60px;left:0;bottom: 0;
+    width: 220px;
+    bottom:0;
+    border-right: 1px #eeeff1 solid;
+}
+.container-fluid{position: absolute;bottom:0;height: 60px;left:0;right:0;z-index:10;}
+body{overflow: hidden;}
+.col-md-9{position: absolute;left:220px;right:0;top:60px;bottom:0;overflow: auto;width: auto;}
+.container-fluid{position: static}
+.design-layout .design-bd .aside-img{float:none;text-align: left;}
+</style>
+<![endif]-->
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand navbar-index" href="/pile.js/docs/"><img src="/pile.js/docs/images/logo.png"/></a>
+              </div>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" id="navBarNav">
+                    <li class="active" tag="design"><a href="/pile.js/docs/2017/08/design-rule-latentrules.html">设计</a></li>
+                    <li class="active" tag="develop"><a href="/pile.js/docs/2017/08/develop-introduction.html">开发</a></li>
+                    <!-- <li class="active" tag="animation"><a href="/pile.js/docs/animation.html">动画</a></li> -->
+                    <li class="active" data-><a target="_blank" href="https://github.com/didi/pile.js">Github</a></li>
+                </ul>
+              </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container container-left">
+    <div class="row" id="container">
+        <div class="col-md-3 hidden-xs" id="asideNav">
+            <div class="sidebar nav-side design-side" id="sidebar">
+    
+        <!-- 
+         
+
+        || category.first == "设计风格" || category.first == "框架布局" || category.first == "组件" 
+
+        -->
+        
+        
+    
+        <!-- 
+         
+
+        || category.first == "设计风格" || category.first == "框架布局" || category.first == "组件" 
+
+        -->
+        
+        
+            <h2 class="un-links">设计准则 <span class="col"><i></i><b></b></span></h2>
+            <ul class="arc-list design-list">
+                
+
+                    
+                        <li class="links" tag="latentrules"><a _href="/pile.js/docs/2017/08/design-rule-latentrules.html"><span>潜规则</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="clearsighted"><a _href="/pile.js/docs/2017/08/design-rule-clearsighted.html"><span>明规则</span></a></li>
+                    
+                
+            </ul>
+        
+    
+        <!-- 
+         
+
+        || category.first == "设计风格" || category.first == "框架布局" || category.first == "组件" 
+
+        -->
+        
+        
+            <h2 class="un-links">设计风格 <span class="col"><i></i><b></b></span></h2>
+            <ul class="arc-list design-list">
+                
+
+                    
+                        <li class="links" tag="text"><a _href="/pile.js/docs/2017/08/design-style-text.html"><span>文字</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="icon"><a _href="/pile.js/docs/2017/08/design-style-icon.html"><span>图标</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="figure"><a _href="/pile.js/docs/2017/08/design-style-figure.html"><span>商业插图</span></a></li>
+                    
+                
+
+                    
+                        <li class="links" tag="color"><a _href="/pile.js/docs/2017/08/design-style-color.html"><span>色彩</span></a></li>
+                    
+                
+            </ul>
+        
+    
+        <!-- 
+         
+
+        || category.first == "设计风格" || category.first == "框架布局" || category.first == "组件" 
+
+        -->
+        
+        
+    
+        <!-- 
+         
+
+        || category.first == "设计风格" || category.first == "框架布局" || category.first == "组件" 
+
+        -->
+        
+        
+            <h2 class="un-links">控件 <span class="col"><i></i><b></b></span></h2>
+            <ul class="arc-list design-list">
+                
+
+                    
+                        
+                            <li class="sec-nav">
+                                <dl>
+                                    <dt>填写类</dt>
+                                    <dd class="links" tag="inputitem"><a _href="/pile.js/docs/2017/08/design-components-input-inputitem.html"><span>输入框</span></a></dd>
+                                </dl>
+                            </li>
+                        
+                    
+                
+
+                    
+                        
+                            <li class="sec-nav">
+                                <dl>
+                                    <dt>点击类</dt>
+                                    <dd class="links" tag="button"><a _href="/pile.js/docs/2017/08/design-components-click-button.html"><span>按钮</span></a></dd>
+                                </dl>
+                            </li>
+                        
+                    
+                
+            </ul>
+        
+    
+</div>
+
+
+        </div>
+        <div class="col-md-9" id="mainContainer">
+          <div class="article" id="articleLayout">
+            <div class="well">
+                <div class="page-content-header">
+                    <h1>Figure<span>商业插图</span></h1>
+
+                    
+
+                    
+                        <a class="download" href="/pile.js/docs/images/temp/style.psd"><b></b> Sketch文件下载</a>
+                    
+
+                </div>
+            
+                
+            
+            <div class="post-content">
+            <div class="design-layout">
+    <h2>图标定义</h2>
+    <dl class="intr-dl">
+        <dd>“现代商业插图”是为企业或产品传递商品信息，集艺术与商业的一种图像表现形式。</dd>
+        <dd>商业活动要求把所承载的信息准确、明晰地传达给观众，希求人们对这些信息正确接收、把握，并在让观众采取行动的同时使他们得到美的感受，因此说它是为商业活动服务的。</dd>
+    </dl>
+    <dl class="intr-dl">
+        <dt>命名</dt>
+        <dd>商业插图遵循统一命名规则，即 类型_位置_名称</dd>
+        <dd>例：pic_page01_rocket</dd>
+    </dl>
+
+    <dl class="intr-dl">
+        <dt>适用范围</dt>
+        <dd>内容表意复杂，且需要被进一步解释／营造气氛</dd>
+        <dd>多用于页面</dd>
+    </dl>
+
+    <dl class="intr-dl">
+        <dt>绘制限制</dt>
+        <dd>保持简洁：设计应遵循“扁平”、“轻质感”的设计理念</dd>
+        <dd>科技画风：配图美术风格尽量偏向科技风格的场景化叙述</dd>
+        <dd>表意精准：页面设计基于自身场景表达情况下，优先解决功能需求</dd>
+        <dd>情感融合：在满足功能引导的基础上考虑更多情感化设计的引入</dd>
+    </dl>
+
+    <dl class="intr-dl">
+        <dt>主图</dt>
+        <dd>用色：品牌色面积占比不超过10%，且在元素关键位置上（只有一处展现）</dd>
+        <dd>   图形设计以#D1D8DF为基础色，面积占比40%-80%</dd>
+        <dd>透视：前景图形只限于使用10、20、30、45度的旋转角度</dd>
+        <dd>质感：不能出现明显的立体结构与光影关系的表达手法</dd>
+        <dd>认知：图形以表达功能性的日常物体为主</dd>
+    </dl>
+
+    <div class="pic-layout mb-20">
+        <img src="/pile.js/docs/images/design/figure-1@2x.png" width="724" height="103" />
+    </div>
+
+
+    <dl class="intr-dl">
+        <dt>背景</dt>
+        <dd>用色：背景图元素颜色偏中灰调，淡色为主</dd>
+        <dd>透视：背景的图形组合需要前后交错叠加，有一定景深关系</dd>
+        <dd>质感：新增背景的图形美术手法需要参照示意：渐变虚化处理</dd>
+        <dd>认知：背景配合主图，增强画面氛围，且两者表意需要有一定关联性</dd>
+    </dl>
+
+    <div class="pic-layout mb-20">
+        <img src="/pile.js/docs/images/design/figure-2@2x.png" width="433" height="183" />
+    </div>
+
+    <dl class="intr-dl">
+        <dt>尺寸</dt>
+        <dd>图形设计整体尺寸140px*140px，背景尺寸100px*140px</dd>
+        <dd>图形设计不能超过最大外边界，建议四周留10px</dd>
+    </dl>
+
+    <div class="pic-layout mb-20">
+        <img src="/pile.js/docs/images/design/figure-3@2x.png" width="673" height="178" />
+    </div>
+
+    <dl class="intr-dl">
+        <dt>文本</dt>
+        <dd>一级：  字号：16px，色值：#333333，字数：建议不折行，小于12字</dd>
+        <dd>二级：  字号：14px，色值：#999999，字数：建议每行小于14字</dd>
+    </dl>
+
+    <div class="pic-layout mb-20">
+        <img src="/pile.js/docs/images/design/figure-4@2x.png" width="958" height="762" />
+    </div>
+
+
+    <dl class="intr-dl">
+        <dt>布局</dt>
+        <dd>A=(C-B)/3，图形永远满足此公式</dd>
+        <dd>表格内容区最大高度750px，即A=(750-B)/3</dd>
+    </dl>
+
+    <div class="pic-layout mb-20">
+        <img src="/pile.js/docs/images/design/figure-5@2x.png" width="960" height="657" />
+    </div>
+
+    <dl class="intr-dl">
+        <dt>普通场景配图：</dt>
+    </dl>
+
+    <div class="pic-layout mb-20">
+        <img src="/pile.js/docs/images/design/figure-6@2x.png" width="843" height="152" />
+    </div>
+
+    <dl class="intr-dl">
+        <dt>特殊场景-404配图：</dt>
+    </dl>
+
+    <div class="pic-layout mb-20">
+        <img src="/pile.js/docs/images/design/figure-7@2x.png" width="720" height="236" />
+    </div>
+
+
+</div>
+
+
+            </div>
+            
+                
+            
+            </div>
+          </div>
+          <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+                        <p class="copyright">Copyright © 2017 滴滴企业版设计体验技术部联合出品</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<textarea name="copyLayout" id="copyLayout" class="copy-layout"></textarea>
+<script src="/pile.js/docs/js/prism.js"  data-manual></script>
+<script type="text/javascript">
+    // var isFirst = true;
+    // 设置 主体内容最小高度
+    function setMainHeight(){
+       if ($(window).width() > 977 ) {
+            // // $("#mainContainer").css({"min-height" : $("#sidebar").height() + 50})
+            // $("#mainContainer").css({"min-height" : $("#sidebar").height()  + 50 > $(window).height() - 40 ? $("#sidebar").height()  + 50  : $(window).height() - 15  })
+            // $("#mid-layout").css({"min-height" : $(window).height() - 60 })
+
+            $("#articleLayout").css({"min-height" : $(window).height() - 121})
+        }else{
+            // $("#mainContainer").css({"min-height" : "60px"})
+        }
+
+        // articleLayout
+        // $("#container").css({"min-height" : $(window).height() - 60 }) 
+    }
+
+    setMainHeight()
+    
+    // 设置二级导航高亮
+    var url = document.URL,
+        navUl = $("#navBarNav li")
+    for (var i = navUl.length - 1; i >= 0; i--) {
+        if (url.indexOf(navUl.eq(i).attr("tag")) >= 0) {
+            navUl.eq(i).addClass("hover")
+        }
+
+        if (navUl.eq(i).attr("tag") == "index" && $("#checkIndex").length > 0) {
+            navUl.eq(i).addClass("hover")
+        }
+    }
+
+    $('#sidebar .links').each(function(i, block) {
+        // hljs.highlightBlock(block);
+        if (url.indexOf($(this).attr("tag")) >= 0) {
+            $(this).addClass("actived")
+        }
+    });
+
+    document.title = $("h1").text()
+
+    // 模拟url跳转 jumpIframe
+    if (window.history && "pushState" in window.history) {
+        function jumpTag(obj,ishistory){
+            var newUrl = obj.attr("_href")
+            $('.links').removeClass("actived")
+            obj.closest(".links").addClass("actived")
+            $("#jumpIframe").remove()
+            $("body").append('<iframe src="' + newUrl + '" id="jumpIframe" class="jump-iframe"></iframe><div class="load-layout"><div class="load-step"></div></div>')
+
+            $(".load-step").css({"width":"10%"})
+            document.getElementById("jumpIframe").onload = function(){
+                var mainHtml = $("#jumpIframe").contents().find("#mainContainer").html(),
+                    pageTitle = $("#jumpIframe").contents().find("h1").text()
+                document.title = pageTitle
+                $("#mainContainer").html(mainHtml)
+                !ishistory && history.pushState({}, pageTitle , newUrl)
+                // $("#jumpIframe").remove()
+                // 进度条动画
+                $(".load-step").css({"width":"100%"})
+                setTimeout(function(){
+                    $(".load-step").fadeOut(200,"",function(){
+                        $(".load-layout").remove()
+                        setMainHeight()
+                    });
+                },150)
+
+                // 返回顶部
+                $("#mainContainer").scrollTop(0)
+
+                $("#copyLayout").html($("code").html())
+
+                // 代码高亮设置
+                window.Prism.highlightAll()
+            }
+
+        }
+
+        // 模拟左侧边栏 导航跳转
+        $('.links a').on("click",function() {
+            jumpTag($(this),false)
+        })
+
+        // 浏览器回退事件
+        window.addEventListener('popstate', function() {  
+            $('.links a').each(function(i, obj) {
+                $(this).attr("href",$(this).attr("_href"))
+                if ($(this).attr("_href") == window.location.pathname) {
+                    jumpTag($(this),true)
+                    return 
+                }
+            })
+        })
+
+        // 判断页面是否是在iframe中打开
+        if( self == top){
+            $("#copyLayout").html($("code").html())
+            // 代码高亮设置
+            window.Prism.highlightAll()
+        }
+    }else{
+        $('.links a').each(function(i, obj) {
+            $(this).attr("href",$(this).attr("_href"))
+        })
+
+        $("#copyLayout").html($("code").html())
+        // 代码高亮设置
+        window.Prism.highlightAll()
+    }
+
+    // copy
+    $("pre").append('<span class="copy" id="copy"><i></i><b class="copy-name">复制代码</b></span>')
+    // $("#copyLayout").html($("code").html())
+    
+    $("body").on("click","#copy",function(){
+        var e = document.getElementById("copyLayout"); //对象是content 
+        e.select(); //选择对象 
+        document.execCommand("Copy"); //执行浏览器复制命令
+        alert("已复制好，可贴粘。"); 
+    })
+
+    // 一级菜单展开合并 切换
+    $("body").on("click",".un-links",function(){
+        if ($(this).hasClass("slide-down")) {
+            $(this).removeClass("slide-down").next(".arc-list").slideDown("fast",function(){
+                setMainHeight()
+            })
+        }else{
+            $(this).addClass("slide-down").next(".arc-list").slideUp("fast",function(){
+                setMainHeight()
+            })
+        }
+    })
+
+    // icon 
+    $("body").on("click","#iconItems li",function(){
+        $(this).addClass("actived").siblings().removeClass("actived")
+        var name = $(this).find(".icon-name").text()
+        $("#iconCode").html('&lt;span className="'+name+'"&gt;&lt;/span&gt;')
+
+        $("#copyLayout").html('&lt;span className="'+name+'"&gt;&lt;/span&gt;')
+        // 代码高亮设置
+        window.Prism.highlightAll()
+    })
+
+</script>
+</body>
+</html>
