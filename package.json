@@ -11,6 +11,7 @@
 		"doc": "http-server ./_site -p 3333",
 		"clearn:doc": "rimraf _site",
 		"watch": "rollup -cw",
+    "release": "lerna publish",
 		"lerna": "lerna",
 		"lint": "eslint packages/**/src/*.js"
 	},
