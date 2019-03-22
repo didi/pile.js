@@ -1,5 +1,5 @@
 /*!
- * @pile-ui/alert.js v2.0.2-alpha.0
+ * @pile-ui/alert.js v2.0.3-alpha.0
  * (c) 2018-2019 zhangzhipeng <zhangzhipeng@didichuxing.com>
  * Released under the MIT License.
  */

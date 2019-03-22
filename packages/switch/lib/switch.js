@@ -1,5 +1,5 @@
 /*!
- * @pile-ui/switch.js v2.0.2-alpha.0
+ * @pile-ui/switch.js v2.0.3-alpha.0
  * (c) 2018-2019 xiejunda <xiejunda@didichuxing.com>
  * Released under the MIT License.
  */

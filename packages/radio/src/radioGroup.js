@@ -17,7 +17,7 @@ const enhanced = composed(
   withHandlers({
     onClick: props => item => event => {
       if (props.disabled || item.disabled) return null;
-      props.updateValue(item.value, event);
+      props.updateValue(item.value);
       return props.onChange(item.value, event);
     },
   })

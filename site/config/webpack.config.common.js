@@ -10,7 +10,7 @@ module.exports = {
     filename: 'js/[name].[hash].js',
     chunkFilename: 'js/[name].[hash].js',
     path: path.resolve(__dirname, '../../_site'),
-    publicPath: process.env.NODE_ENV === 'production' ? '/pile.js/' :'/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/pile.js/docs/' :'/',
   },
   plugins: [
     new HtmlWebpackPlugin({
