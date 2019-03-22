@@ -1,5 +1,5 @@
 {
-  "name": "@pile-ui/inputFiled",
+  "name": "@pile-ui/inputfiled",
   "version": "2.0.2-alpha.0",
   "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
   "keywords": [],
@@ -35,5 +35,5 @@
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2"
   },
-  "gitHead": "1a5f9937de5480d6422663deb1d9d840b9c2e76b"
+  "gitHead": "10cdb82fc10416b88207ba6ee8001edacd4514a2"
 }

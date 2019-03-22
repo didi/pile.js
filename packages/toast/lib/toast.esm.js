@@ -1,5 +1,5 @@
 /*!
- * @pile-ui/toast.js v2.0.1-alpha.0
+ * @pile-ui/toast.js v2.0.2-alpha.0
  * (c) 2018-2019 wutaosusan <wutaosusan@didichuxing.com>
  * Released under the MIT License.
  */

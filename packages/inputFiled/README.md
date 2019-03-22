@@ -1,11 +1,11 @@
-# `@pile-ui/input`
+# `@pile-ui/inputfiled`
 
 > TODO: description
 
 ## Usage
 
 ```
-const input = require('@pile-ui/input');
+const inputFiled = require('@pile-ui/inputfiled');
 
 // TODO: DEMONSTRATE API
 ```

@@ -33,5 +33,6 @@
     "prop-types": "^15.7.2",
     "rc-animate": "^2.6.0",
     "react-transition-group": "^2.6.1"
-  }
+  },
+  "gitHead": "10cdb82fc10416b88207ba6ee8001edacd4514a2"
 }

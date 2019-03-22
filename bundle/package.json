@@ -30,10 +30,10 @@
     "@pile-ui/alert": "^2.0.2-alpha.0",
     "@pile-ui/button": "^2.0.2-alpha.0",
     "@pile-ui/icon": "^2.0.2-alpha.0",
-    "@pile-ui/inputFiled": "^2.0.2-alpha.0",
+    "@pile-ui/inputfiled": "^2.0.2-alpha.0",
     "@pile-ui/radio": "^2.0.2-alpha.0",
     "@pile-ui/switch": "^2.0.2-alpha.0",
     "@pile-ui/toast": "^2.0.2-alpha.0"
   },
-  "gitHead": "1a5f9937de5480d6422663deb1d9d840b9c2e76b"
+  "gitHead": "10cdb82fc10416b88207ba6ee8001edacd4514a2"
 }
