@@ -1,6 +1,11 @@
 # Change Log
 
-### 2.0.2-rc.3
+### 2.0.4-rc.3
+
+- Fix
+  - hotfix @pile-ui/radio event error
+
+### 2.0.3-rc.3
 
 - `@pile-ui/inputFiled`包名与npm规则冲突，更改为`@pile-ui/inputfiled`
 
