@@ -1,6 +1,6 @@
 {
   "name": "pile-ui",
-  "version": "2.0.0",
+  "version": "2.0.1-alpha.0",
   "description": "pile components build with React.",
   "main": "lib/pile.js",
   "module": "lib/pile.esm.js",
@@ -24,12 +24,12 @@
   },
   "homepage": "https://didi.github.io/pile.js/docs",
   "dependencies": {
-    "@pile/alert": "^2.0.0",
-    "@pile/button": "^2.0.0",
-    "@pile/icon": "^2.0.0",
-    "@pile/inputFiled": "^2.0.0",
-    "@pile/radio": "^2.0.0",
-    "@pile/switch": "^2.0.0",
-    "@pile/toast": "^2.0.0"
+    "@pile/alert": "^2.0.1-alpha.0",
+    "@pile/button": "^2.0.1-alpha.0",
+    "@pile/icon": "^2.0.1-alpha.0",
+    "@pile/inputFiled": "^2.0.1-alpha.0",
+    "@pile/radio": "^2.0.1-alpha.0",
+    "@pile/switch": "^2.0.1-alpha.0",
+    "@pile/toast": "^2.0.1-alpha.0"
   }
 }
