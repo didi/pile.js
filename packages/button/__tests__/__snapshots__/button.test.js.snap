@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button suite render a button 1`] = `
+<button
+  className="pile-button pile-button--secondary"
+  disabled={false}
+  type="button"
+>
+  <IfComponent
+    when={false}
+  >
+    <Component />
+  </IfComponent>
+  <IfComponent
+    when={false}
+  >
+    <Component />
+  </IfComponent>
+  <span
+    className="pile-button-label"
+  >
+    default
+  </span>
+</button>
+`;

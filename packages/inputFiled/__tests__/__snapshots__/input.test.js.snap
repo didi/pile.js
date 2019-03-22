@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input suite render a input 1`] = `
+<div
+  className="pile-input-item"
+>
+  <InputLabel
+    labeltext=""
+    prefixCls="pile"
+  />
+  <InputContent
+    autoFocus={false}
+    clearable={true}
+    disabled={false}
+    name=""
+    placeholder=""
+    prefixCls="pile"
+    type="text"
+  />
+</div>
+`;

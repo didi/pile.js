@@ -1,0 +1,8 @@
+{
+  "packages": [
+    "bundle",
+    "packages/*",
+    "site"
+  ],
+  "version": "2.0.0"
+}

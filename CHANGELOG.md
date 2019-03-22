@@ -1,21 +1,21 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+### 2.0.0-rc.1
 
-<a name="1.0.1"></a>
-## [1.0.1](https://github.com/didi/pile-ui/compare/v1.0.0...v1.0.1) (2018-05-10)
+`2019-03-22`
 
+- Components
 
-### Bug Fixes
+| Component | Package | Author |
+|---|---|---|
+| **Button** | [@pile/button](https://www.npmjs.com/package/@pile/button) | [miaocai](https://github.com/renmm) |
+| **Icon** | [@pile/icon](https://www.npmjs.com/package/@pile/button) | [miaocai](https://github.com/renmm) |
+| **Switch** | [@pile/switch](https://www.npmjs.com/package/@pile/button) | [xilixjd](https://github.com/xilixjd) |
+| **Toast** | [@pile/toast](https://www.npmjs.com/package/@pile/button) | [susan](https://github.com/zhixunqiu) |
+| **InputFiled** | [@pile/inputFiled](https://www.npmjs.com/package/@pile/button) | [hpfree](https://github.com/hpfree) |
+| **Alert** | [@pile/alert](https://www.npmjs.com/package/@pile/button) | [gaiazhang](https://github.com/gaiazhang) |
+| **Radio** | [@pile/radio](https://www.npmjs.com/package/@pile/button) | [abiaoGit](https://github.com/abiaoGit) |
 
-* **city.less:** props problem about others and the style of city ([202018c](https://github.com/didi/pile.js/commit/202018c))
+### 1.x
 
-
-
-<a name="1.0.0"></a>
-# 1.0.0 (2018-05-07)
-
-
-### Bug Fixes
-
-* **switch.less:** handling Switch component style compatibility issues ([df40885](https://github.com/didi/pile.js/commit/df40885))
+去[GitHub](https://github.com/didi/pile.js/blob/1.x/CHANGELOG.md)查看`1.x`的 Change Log。
