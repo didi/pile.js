@@ -1,6 +1,6 @@
 {
   "name": "@pile-ui/inputFiled",
-  "version": "2.0.1-alpha.0",
+  "version": "2.0.2-alpha.0",
   "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
   "keywords": [],
   "author": "huangping <huangping@didichuxing.com>",
@@ -29,9 +29,9 @@
     "lib"
   ],
   "dependencies": {
-    "@pile-ui/condition": "^2.0.1-alpha.0",
-    "@pile-ui/icon": "^2.0.1-alpha.0",
-    "@pile-ui/shared": "^2.0.1-alpha.0",
+    "@pile-ui/condition": "^2.0.2-alpha.0",
+    "@pile-ui/icon": "^2.0.2-alpha.0",
+    "@pile-ui/shared": "^2.0.2-alpha.0",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2"
   },
