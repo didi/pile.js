@@ -2,6 +2,6 @@
 
 const alert = require('..');
 
-describe('@pile/alert', () => {
+describe('@pile-ui/alert', () => {
     it('needs tests');
 });

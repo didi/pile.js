@@ -1,12 +1,12 @@
 /*!
- * @pile/switch.js v2.0.0
+ * @pile-ui/switch.js v2.0.1-alpha.0
  * (c) 2018-2019 xiejunda <xiejunda@didichuxing.com>
  * Released under the MIT License.
  */
 import classnames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { prefixClsProperty } from '@pile/shared';
+import { prefixClsProperty } from '@pile-ui/shared';
 
 function _defineProperty(obj, key, value) {
   if (key in obj) {

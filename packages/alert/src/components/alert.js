@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group'; // ES6
 import classNames from 'classnames';
-import { prefixClsProperty } from '@pile/shared';
+import { prefixClsProperty } from '@pile-ui/shared';
 
 class Alert extends React.Component {
   constructor(props) {

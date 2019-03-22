@@ -62,7 +62,7 @@ async function main() {
   const packages = await getSortedPackages();
   const results = [];
 
-  packages.filter(pkg => pkg.name !== '@pile/theme-default').forEach((pkg) => {
+  packages.filter(pkg => pkg.name !== '@pile-ui/theme-default').forEach((pkg) => {
     // Get settings from package JSON
     const {
       name, main, module, version, author,

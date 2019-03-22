@@ -1,5 +1,5 @@
 {
-  "name": "@pile/theme-default",
+  "name": "@pile-ui/theme-default",
   "version": "2.0.1-alpha.0",
   "description": "",
   "main": "lib/index.css",
@@ -18,6 +18,20 @@
     "not ie < 9",
     "iOS 7"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/didi/pile.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/didi/pile.js/issues"
+  },
+  "homepage": "https://didi.github.io/pile.js/docs",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib"
+  ],
   "devDependencies": {
     "cssnano": "^4.1.7",
     "gulp": "^4.0.0",
@@ -33,5 +47,6 @@
   },
   "dependencies": {
     "@csstools/normalize.css": "^9.0.1"
-  }
+  },
+  "gitHead": "1a5f9937de5480d6422663deb1d9d840b9c2e76b"
 }

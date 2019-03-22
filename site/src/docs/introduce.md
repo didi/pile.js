@@ -23,7 +23,7 @@ A lightweight mobile components library build with [React](http://facebook.githu
 npm i pile-ui@latest --save
 
 // import css
-npm i @pile/theme-default
+npm i @pile-ui/theme-default
 ```
 
 import component
@@ -34,20 +34,20 @@ import component
 import {Button} from 'pile-ui'
 
 // single component
-import Button from '@pile/button'
+import Button from '@pile-ui/button'
 ```
 
 
 import all css
 
 ```js
-import '@pile/theme-default/lib/index.min.css'
+import '@pile-ui/theme-default/lib/index.min.css'
 ```
 
 import single css
 
 ```js
-import '@pile/theme-default/lib/button.min.css'
+import '@pile-ui/theme-default/lib/button.min.css'
 ```
 
 ## 按需加载
@@ -62,7 +62,7 @@ import '@pile/theme-default/lib/button.min.css'
         camel2DashComponentName: false,
         customName(name) {
           if (name) {
-            return `pile-ui/node_modules/@pile/${name}`;
+            return `pile-ui/node_modules/@pile-ui/${name}`;
           }
         },
       }],
@@ -77,7 +77,7 @@ We have several examples on the documentation. Here is the first one to get you 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Button } from 'pile-ui'
-import '@pile/theme-default/lib/index.min.css'
+import '@pile-ui/theme-default/lib/index.min.css'
 
 class App extends Component {
     render() {
@@ -117,13 +117,13 @@ npm run build
 Build single package by running the following:
 
 ```bash
-npm run build -- --scope "@pile/button"
+npm run build -- --scope "@pile-ui/button"
 ```
 
 Build multiple packages where scope is a glob expression:
 
 ```bash
-npm run build -- --scope "{@pile/button,@pile/icon}"
+npm run build -- --scope "{@pile-ui/button,@pile-ui/icon}"
 ```
 
 Watch all filters (auto-rebuild upon src changes):

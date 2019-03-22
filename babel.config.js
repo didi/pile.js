@@ -9,6 +9,7 @@ module.exports = function config(api) {
             {
               modules: false,
               useBuiltIns: 'entry',
+              corejs: 2,
               debug: true,
             },
           ],

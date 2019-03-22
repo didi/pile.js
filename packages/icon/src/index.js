@@ -1,7 +1,12 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { compose, prefixClsProperty, sizeProperty, sizes } from '@pile/shared';
+import {
+  compose,
+  prefixClsProperty,
+  sizeProperty,
+  sizes,
+} from '@pile-ui/shared';
 
 const Icon = ({ prefixCls, type, size, className, ...props }) => {
   const cls = classNames({

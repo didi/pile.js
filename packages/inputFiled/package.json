@@ -1,5 +1,5 @@
 {
-  "name": "@pile/inputFiled",
+  "name": "@pile-ui/inputFiled",
   "version": "2.0.1-alpha.0",
   "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
   "keywords": [],
@@ -11,20 +11,29 @@
     "lib": "lib",
     "test": "__tests__"
   },
-  "files": [
-    "lib"
-  ],
-  "publishConfig": {
-    "registry": "http://npm.intra.xiaojukeji.com"
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/didi/pile.js.git"
   },
+  "bugs": {
+    "url": "https://github.com/didi/pile.js/issues"
+  },
+  "homepage": "https://didi.github.io/pile.js/docs",
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib"
+  ],
   "dependencies": {
-    "@pile/condition": "^2.0.1-alpha.0",
-    "@pile/icon": "^2.0.1-alpha.0",
-    "@pile/shared": "^2.0.1-alpha.0",
+    "@pile-ui/condition": "^2.0.1-alpha.0",
+    "@pile-ui/icon": "^2.0.1-alpha.0",
+    "@pile-ui/shared": "^2.0.1-alpha.0",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2"
-  }
+  },
+  "gitHead": "1a5f9937de5480d6422663deb1d9d840b9c2e76b"
 }

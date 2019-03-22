@@ -1,5 +1,5 @@
 /*!
- * @pile/inputFiled.js v2.0.0
+ * @pile-ui/inputFiled.js v2.0.1-alpha.0
  * (c) 2018-2019 huangping <huangping@didichuxing.com>
  * Released under the MIT License.
  */
@@ -10,9 +10,9 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = require('react');
 var PropTypes = _interopDefault(require('prop-types'));
 var classNames = _interopDefault(require('classnames'));
-var shared = require('@pile/shared');
-var condition = require('@pile/condition');
-var Icon = _interopDefault(require('@pile/icon'));
+var shared = require('@pile-ui/shared');
+var condition = require('@pile-ui/condition');
+var Icon = _interopDefault(require('@pile-ui/icon'));
 
 function _defineProperty(obj, key, value) {
   if (key in obj) {

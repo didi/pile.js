@@ -1,12 +1,12 @@
 /*!
- * @pile/icon.js v2.0.0
+ * @pile-ui/icon.js v2.0.1-alpha.0
  * (c) 2018-2019 renmaomin <renmaomin@126.com> (https://github.com/renmm)
  * Released under the MIT License.
  */
 import { createElement } from 'react';
 import { string } from 'prop-types';
 import classNames from 'classnames';
-import { compose, sizeProperty, sizes, prefixClsProperty } from '@pile/shared';
+import { compose, sizeProperty, sizes, prefixClsProperty } from '@pile-ui/shared';
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;

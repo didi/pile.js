@@ -1,5 +1,5 @@
 /*!
- * @pile/switch.js v2.0.0
+ * @pile-ui/switch.js v2.0.1-alpha.0
  * (c) 2018-2019 xiejunda <xiejunda@didichuxing.com>
  * Released under the MIT License.
  */
@@ -10,7 +10,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var classnames = _interopDefault(require('classnames'));
 var React = _interopDefault(require('react'));
 var PropTypes = _interopDefault(require('prop-types'));
-var shared = require('@pile/shared');
+var shared = require('@pile-ui/shared');
 
 function _defineProperty(obj, key, value) {
   if (key in obj) {

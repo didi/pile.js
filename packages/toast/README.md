@@ -1,11 +1,11 @@
-# `@pile/toast`
+# `@pile-ui/toast`
 
 > TODO: description
 
 ## Usage
 
 ```
-const toast = require('@pile/toast');
+const toast = require('@pile-ui/toast');
 
 // TODO: DEMONSTRATE API
 ```

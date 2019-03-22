@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { prefixClsProperty } from '@pile/shared';
+import { prefixClsProperty } from '@pile-ui/shared';
 
 class Switch extends React.Component {
   constructor(props) {

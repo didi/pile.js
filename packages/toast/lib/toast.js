@@ -1,5 +1,5 @@
 /*!
- * @pile/toast.js v2.0.0
+ * @pile-ui/toast.js v2.0.1-alpha.0
  * (c) 2018-2019 wutaosusan <wutaosusan@didichuxing.com>
  * Released under the MIT License.
  */
@@ -10,7 +10,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = require('react');
 var ReactDOM = _interopDefault(require('react-dom'));
 var PropTypes = _interopDefault(require('prop-types'));
-var Icon = _interopDefault(require('@pile/icon'));
+var Icon = _interopDefault(require('@pile-ui/icon'));
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;

@@ -1,5 +1,5 @@
 /*!
- * @pile/alert.js v2.0.0
+ * @pile-ui/alert.js v2.0.1-alpha.0
  * (c) 2018-2019 zhangzhipeng <zhangzhipeng@didichuxing.com>
  * Released under the MIT License.
  */
@@ -7,7 +7,7 @@ import { createElement, Component } from 'react';
 import { oneOfType, arrayOf, node, bool, string, func, oneOf } from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
-import { prefixClsProperty } from '@pile/shared';
+import { prefixClsProperty } from '@pile-ui/shared';
 import { unmountComponentAtNode, render } from 'react-dom';
 
 function _classCallCheck(instance, Constructor) {

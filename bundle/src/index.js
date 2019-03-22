@@ -1,7 +1,7 @@
-export { default as Icon } from '@pile/icon';
-export { default as Button } from '@pile/button';
-export { default as Toast } from '@pile/toast';
-export { default as Switch } from '@pile/switch';
-export { default as InputFiled } from '@pile/inputFiled';
-export { default as Radio } from '@pile/radio';
-export { default as Alert } from '@pile/alert';
+export { default as Icon } from '@pile-ui/icon';
+export { default as Button } from '@pile-ui/button';
+export { default as Toast } from '@pile-ui/toast';
+export { default as Switch } from '@pile-ui/switch';
+export { default as InputFiled } from '@pile-ui/inputFiled';
+export { default as Radio } from '@pile-ui/radio';
+export { default as Alert } from '@pile-ui/alert';

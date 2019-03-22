@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { prefixClsProperty } from '@pile/shared';
+import { prefixClsProperty } from '@pile-ui/shared';
 import InputLabel from './inputlabel';
 import InputContent from './inputContent';
 

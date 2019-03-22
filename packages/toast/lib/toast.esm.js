@@ -1,12 +1,12 @@
 /*!
- * @pile/toast.js v2.0.0
+ * @pile-ui/toast.js v2.0.1-alpha.0
  * (c) 2018-2019 wutaosusan <wutaosusan@didichuxing.com>
  * Released under the MIT License.
  */
 import { createElement, Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import Icon from '@pile/icon';
+import Icon from '@pile-ui/icon';
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;

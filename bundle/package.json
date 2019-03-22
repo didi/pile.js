@@ -11,6 +11,10 @@
     "type": "git",
     "url": "git+ssh://git@github.com/didi/pile.js.git"
   },
+  "bugs": {
+    "url": "https://github.com/didi/pile.js/issues"
+  },
+  "homepage": "https://didi.github.io/pile.js/docs",
   "keywords": [
     "pile",
     "mobile",
@@ -19,17 +23,17 @@
   ],
   "author": "Pile Team",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/didi/pile.js/issues"
-  },
-  "homepage": "https://didi.github.io/pile.js/docs",
+  "files": [
+    "lib"
+  ],
   "dependencies": {
-    "@pile/alert": "^2.0.1-alpha.0",
-    "@pile/button": "^2.0.1-alpha.0",
-    "@pile/icon": "^2.0.1-alpha.0",
-    "@pile/inputFiled": "^2.0.1-alpha.0",
-    "@pile/radio": "^2.0.1-alpha.0",
-    "@pile/switch": "^2.0.1-alpha.0",
-    "@pile/toast": "^2.0.1-alpha.0"
-  }
+    "@pile-ui/alert": "^2.0.1-alpha.0",
+    "@pile-ui/button": "^2.0.1-alpha.0",
+    "@pile-ui/icon": "^2.0.1-alpha.0",
+    "@pile-ui/inputFiled": "^2.0.1-alpha.0",
+    "@pile-ui/radio": "^2.0.1-alpha.0",
+    "@pile-ui/switch": "^2.0.1-alpha.0",
+    "@pile-ui/toast": "^2.0.1-alpha.0"
+  },
+  "gitHead": "1a5f9937de5480d6422663deb1d9d840b9c2e76b"
 }

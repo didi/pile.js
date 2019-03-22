@@ -1,8 +1,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { compose, prefixClsProperty, sizeProperty, sizes } from '@pile/shared';
-import { IfComponent } from '@pile/condition';
+import {
+  compose,
+  prefixClsProperty,
+  sizeProperty,
+  sizes,
+} from '@pile-ui/shared';
+import { IfComponent } from '@pile-ui/condition';
 
 const Button = ({
   children,

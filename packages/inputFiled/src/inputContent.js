@@ -1,8 +1,8 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { IfComponent } from '@pile/condition';
-import Icon from '@pile/icon';
-import { prefixClsProperty } from '@pile/shared';
+import { IfComponent } from '@pile-ui/condition';
+import Icon from '@pile-ui/icon';
+import { prefixClsProperty } from '@pile-ui/shared';
 import classNames from 'classnames';
 import Value from './value';
 import Inputbody from './input';

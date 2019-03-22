@@ -1,12 +1,12 @@
 /*!
- * @pile/radio.js v2.0.0
+ * @pile-ui/radio.js v2.0.1-alpha.0
  * (c) 2018-2019 peibiao <peibiao@didichuxing.com>
  * Released under the MIT License.
  */
 import React__default, { createElement, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { compose, sizeProperty, sizes, prefixClsProperty } from '@pile/shared';
+import { compose, sizeProperty, sizes, prefixClsProperty } from '@pile-ui/shared';
 
 function _defineProperty(obj, key, value) {
   if (key in obj) {
@@ -24,44 +24,6 @@ function _defineProperty(obj, key, value) {
 }
 
 var defineProperty = _defineProperty;
-
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
-}
-
-var objectWithoutPropertiesLoose = _objectWithoutPropertiesLoose;
-
-function _objectWithoutProperties(source, excluded) {
-  if (source == null) return {};
-  var target = objectWithoutPropertiesLoose(source, excluded);
-  var key, i;
-
-  if (Object.getOwnPropertySymbols) {
-    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-
-    for (i = 0; i < sourceSymbolKeys.length; i++) {
-      key = sourceSymbolKeys[i];
-      if (excluded.indexOf(key) >= 0) continue;
-      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-      target[key] = source[key];
-    }
-  }
-
-  return target;
-}
-
-var objectWithoutProperties = _objectWithoutProperties;
 
 function unwrapExports (x) {
 	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x.default : x;
@@ -325,13 +287,15 @@ var enhanced = _compose(_withHandlers({
   onItemClick: function onItemClick(props) {
     return function (value) {
       return function (event) {
-        if (props.onClick) return props.onClick();
+        if (props.onClick) return props.onClick(event);
         if (props.disabled) return null;
-        props.onChange(value);
+        return props.onChange(value, event);
       };
     };
   }
 }));
+/* eslint-disable react/prop-types, no-param-reassign, react/no-unused-prop-types */
+
 
 var Radio = function Radio(_ref) {
   var _classNames;
@@ -345,9 +309,7 @@ var Radio = function Radio(_ref) {
       children = _ref.children,
       clsicon = _ref.clsicon,
       name = _ref.name,
-      vertical = _ref.vertical,
-      props = objectWithoutProperties(_ref, ["prefixCls", "className", "onItemClick", "checked", "disabled", "value", "children", "clsicon", "name", "vertical"]);
-
+      vertical = _ref.vertical;
   var cls = classNames((_classNames = {}, defineProperty(_classNames, "".concat(prefixCls, "-radio"), true), defineProperty(_classNames, "".concat(prefixCls, "-radio-vertical"), vertical), defineProperty(_classNames, className, className), _classNames));
 
   if (!clsicon) {
@@ -394,7 +356,9 @@ Radio.propTypes = {
 Radio.defaultProps = {
   disabled: false,
   checked: false,
-  onChange: function onChange() {}
+  onChange: function onChange() {},
+  value: '',
+  vertical: false
 };
 var enhance = compose(sizeProperty([sizes.SMALL, sizes.LARGE]), prefixClsProperty);
 var Radio$1 = enhanced(enhance(Radio));
@@ -502,8 +466,8 @@ var enhanced$1 = _compose(_withState('selectedValue', 'updateValue', function (p
     return function (item) {
       return function (event) {
         if (props.disabled || item.disabled) return null;
-        props.updateValue(item.value);
-        props.onChange(item.value);
+        props.updateValue(item.value, event);
+        return props.onChange(item.value, event);
       };
     };
   }
@@ -521,12 +485,12 @@ var RadioGroup = enhanced$1(function (_ref) {
       children = _ref.children,
       onChange = _ref.onChange,
       name = _ref.name,
-      vertical = _ref.vertical,
-      props = objectWithoutProperties(_ref, ["prefixCls", "className", "onClick", "options", "selectedValue", "disabled", "children", "onChange", "name", "vertical"]);
-
+      vertical = _ref.vertical;
   var cls = classNames((_classNames = {}, defineProperty(_classNames, "".concat(prefixCls, "-radio-group"), true), defineProperty(_classNames, className, className), _classNames));
-  options && options.forEach(function (item, index) {
-    if (item.value == selectedValue) {
+  /* eslint-disable no-param-reassign, no-unused-expressions */
+
+  options && options.forEach(function (item) {
+    if (item.value === selectedValue) {
       var _classNames2;
 
       item.clsicon = classNames((_classNames2 = {}, defineProperty(_classNames2, "".concat(prefixCls, "-radio-icon"), true), defineProperty(_classNames2, "".concat(prefixCls, "-radio-checked"), true), defineProperty(_classNames2, "".concat(prefixCls, "-radio-vertical-icon"), vertical), defineProperty(_classNames2, "".concat(prefixCls, "-radio-disabled"), disabled || item.disabled), _classNames2));
@@ -540,19 +504,20 @@ var RadioGroup = enhanced$1(function (_ref) {
     className: cls
   }, options && options.map(function (item, index) {
     return createElement(Radio$1, _extends_1({}, item, {
-      key: item.value + '' + index,
+      /* eslint-disable react/no-array-index-key */
+      key: "".concat(item.value).concat(index),
       onClick: onClick(item),
       onChange: onChange,
       name: name,
       vertical: vertical,
-      checked: item.value == selectedValue
+      checked: item.value === selectedValue
     }), item.label);
   }), !options && Children.map(children, function (child) {
     return cloneElement(child, objectSpread({}, child.props, {
       onClick: onClick(child.props),
       onChange: onChange,
       name: name,
-      checked: child.props.value == selectedValue
+      checked: child.props.value === selectedValue
     }));
   }));
 });
@@ -563,6 +528,8 @@ RadioGroup.propTypes = {
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
   vertical: PropTypes.bool,
+
+  /* eslint-disable react/forbid-prop-types */
   options: PropTypes.array
 };
 RadioGroup.defaultProps = {

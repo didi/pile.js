@@ -1,7 +1,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { compose, prefixClsProperty, sizeProperty, sizes } from '@pile/shared';
+import {
+  compose,
+  prefixClsProperty,
+  sizeProperty,
+  sizes,
+} from '@pile-ui/shared';
 import { compose as composed, withState, withHandlers } from 'recompose';
 import Radio from './radio';
 

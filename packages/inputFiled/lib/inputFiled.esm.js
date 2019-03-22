@@ -1,14 +1,14 @@
 /*!
- * @pile/inputFiled.js v2.0.0
+ * @pile-ui/inputFiled.js v2.0.1-alpha.0
  * (c) 2018-2019 huangping <huangping@didichuxing.com>
  * Released under the MIT License.
  */
 import { createElement, Component, createRef, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { prefixClsProperty, refProperty } from '@pile/shared';
-import { IfComponent } from '@pile/condition';
-import Icon from '@pile/icon';
+import { prefixClsProperty, refProperty } from '@pile-ui/shared';
+import { IfComponent } from '@pile-ui/condition';
+import Icon from '@pile-ui/icon';
 
 function _defineProperty(obj, key, value) {
   if (key in obj) {

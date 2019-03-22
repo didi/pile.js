@@ -1,11 +1,11 @@
-# `@pile/button`
+# `@pile-ui/button`
 
 > TODO: description
 
 ## Usage
 
 ```
-const button = require('@pile/button');
+const button = require('@pile-ui/button');
 
 // TODO: DEMONSTRATE API
 ```

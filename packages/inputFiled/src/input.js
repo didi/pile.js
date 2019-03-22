@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { refProperty } from '@pile/shared';
+import { refProperty } from '@pile-ui/shared';
 import PropTypes from 'prop-types';
 
 class Inputbody extends React.Component {

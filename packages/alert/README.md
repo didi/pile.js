@@ -1,11 +1,11 @@
-# `@pile/alert`
+# `@pile-ui/alert`
 
 > TODO: description
 
 ## Usage
 
 ```
-const alert = require('@pile/alert');
+const alert = require('@pile-ui/alert');
 
 // TODO: DEMONSTRATE API
 ```

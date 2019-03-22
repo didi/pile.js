@@ -1,11 +1,11 @@
-# `@pile/radio`
+# `@pile-ui/radio`
 
 > TODO: description
 
 ## Usage
 
 ```
-const radio = require('@pile/radio');
+const radio = require('@pile-ui/radio');
 
 // TODO: DEMONSTRATE API
 ```

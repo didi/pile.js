@@ -1,5 +1,5 @@
 /*!
- * @pile/button.js v2.0.0
+ * @pile-ui/button.js v2.0.1-alpha.0
  * (c) 2018-2019 renmaomin <renmaomin@126.com> (https://github.com/renmm)
  * Released under the MIT License.
  */
@@ -10,8 +10,8 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = require('react');
 var PropTypes = _interopDefault(require('prop-types'));
 var classNames = _interopDefault(require('classnames'));
-var shared = require('@pile/shared');
-var condition = require('@pile/condition');
+var shared = require('@pile-ui/shared');
+var condition = require('@pile-ui/condition');
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;

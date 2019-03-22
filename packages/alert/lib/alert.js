@@ -1,5 +1,5 @@
 /*!
- * @pile/alert.js v2.0.0
+ * @pile-ui/alert.js v2.0.1-alpha.0
  * (c) 2018-2019 zhangzhipeng <zhangzhipeng@didichuxing.com>
  * Released under the MIT License.
  */
@@ -11,7 +11,7 @@ var React = require('react');
 var PropTypes = require('prop-types');
 var reactTransitionGroup = require('react-transition-group');
 var classNames = _interopDefault(require('classnames'));
-var shared = require('@pile/shared');
+var shared = require('@pile-ui/shared');
 var ReactDOM = require('react-dom');
 
 function _classCallCheck(instance, Constructor) {

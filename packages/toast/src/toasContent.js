@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '@pile/icon';
+import Icon from '@pile-ui/icon';
 
 class ToastContent extends React.Component {
   componentDidMount() {
