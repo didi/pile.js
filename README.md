@@ -17,12 +17,12 @@ Existing components of pile 2.0
 | Component | Package | Author |
 |---|---|---|
 | **Button** | [@pile-ui/button](https://www.npmjs.com/package/@pile-ui/button) | [miaocai](https://github.com/renmm) |
-| **Icon** | [@pile-ui/icon](https://www.npmjs.com/package/@pile-ui/button) | [miaocai](https://github.com/renmm) |
-| **Switch** | [@pile-ui/switch](https://www.npmjs.com/package/@pile-ui/button) | [xilixjd](https://github.com/xilixjd) |
-| **Toast** | [@pile-ui/toast](https://www.npmjs.com/package/@pile-ui/button) | [susan](https://github.com/zhixunqiu) |
-| **InputFiled** | [@pile-ui/inputFiled](https://www.npmjs.com/package/@pile-ui/button) | [hpfree](https://github.com/hpfree) |
-| **Alert** | [@pile-ui/alert](https://www.npmjs.com/package/@pile-ui/button) | [gaiazhang](https://github.com/gaiazhang) |
-| **Radio** | [@pile-ui/radio](https://www.npmjs.com/package/@pile-ui/button) | [abiaoGit](https://github.com/abiaoGit) |
+| **Icon** | [@pile-ui/icon](https://www.npmjs.com/package/@pile-ui/icon) | [miaocai](https://github.com/renmm) |
+| **Switch** | [@pile-ui/switch](https://www.npmjs.com/package/@pile-ui/switch) | [xilixjd](https://github.com/xilixjd) |
+| **Toast** | [@pile-ui/toast](https://www.npmjs.com/package/@pile-ui/toast) | [susan](https://github.com/zhixunqiu) |
+| **InputFiled** | [@pile-ui/inputFiled](https://www.npmjs.com/package/@pile-ui/inputfiled) | [hpfree](https://github.com/hpfree) |
+| **Alert** | [@pile-ui/alert](https://www.npmjs.com/package/@pile-ui/alert) | [gaiazhang](https://github.com/gaiazhang) |
+| **Radio** | [@pile-ui/radio](https://www.npmjs.com/package/@pile-ui/radio) | [abiaoGit](https://github.com/abiaoGit) |
 
 ## Dependences
 

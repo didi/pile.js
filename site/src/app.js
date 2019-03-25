@@ -232,7 +232,7 @@ const App = props => {
               <dt>更多产品</dt>
               <dd>
                 <a href="//github.com/didi/mand-mobile" target="_blank">
-                  Cube UI
+                  Mand Mobile
                   <span>- Vue.js组件库</span>
                 </a>
               </dd>
