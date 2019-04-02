@@ -1,0 +1,2 @@
+import LocalProvider from './langProvider';
+
