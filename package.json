@@ -12,7 +12,7 @@
     "clearn:doc": "rimraf _site",
     "watch": "rollup -cw",
     "release": "lerna publish",
-    "lerna": "lerna",
+    "create:lib": "lerna create ./packages ",
     "lint": "eslint packages/**/src/*.js"
   },
   "husky": {

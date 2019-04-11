@@ -97,6 +97,12 @@ npm install
 npm start
 ```
 
+create new module
+
+```
+lerna create  @pile-ui/xx packages
+```
+
 css build
 
 ```

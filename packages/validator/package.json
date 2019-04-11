@@ -7,7 +7,7 @@
     "form"
   ],
   "author": "renmaomin <renmaomin@126.com> (https://github.com/renmm)",
-  "homepage": "https://didi.github.io/pile.js/docs/tree/master/validator#readme",
+  "homepage": "https://didi.github.io/pile.js/docs",
   "license": "MIT",
   "module": "lib/validator.esm.js",
   "main": "lib/validator.js",
@@ -19,7 +19,7 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "http://npm.intra.xiaojukeji.com/"
+    "access": "public"
   },
   "repository": {
     "type": "git",

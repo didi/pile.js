@@ -3,11 +3,7 @@
  * (c) 2018-2019 wutaosusan <wutaosusan@didichuxing.com>
  * Released under the MIT License.
  */
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var React = require('react');
+import { createContext, createElement } from 'react';
 
 function unwrapExports (x) {
 	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x.default : x;
@@ -1195,12 +1191,12 @@ var zhCn = {
   }
 };
 
-var LangContext = React.createContext(zhCn);
+var LangContext = createContext(zhCn);
 
 var LocaleProvider = function LocaleProvider(_ref) {
   var lang = _ref.lang,
       children = _ref.children;
-  return React.createElement(LangContext.Provider, {
+  return createElement(LangContext.Provider, {
     value: lang
   }, children);
 };
@@ -1217,7 +1213,7 @@ LocaleProvider.propTypes = {
 
 var LocaleReceiver = function LocaleReceiver(_ref) {
   var children = _ref.children;
-  return React.createElement(LangContext.Consumer, null, children);
+  return createElement(LangContext.Consumer, null, children);
 };
 
 LocaleReceiver.defaultProps = {
@@ -1227,6 +1223,5 @@ LocaleReceiver.propTypes = {
   children: propTypes.func
 };
 
-exports.LocaleProvider = LocaleProvider;
-exports.LocaleReceiver = LocaleReceiver;
-//# sourceMappingURL=local-provider.js.map
+export { LocaleProvider, LocaleReceiver };
+//# sourceMappingURL=local-provider.esm.js.map
