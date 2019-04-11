@@ -45,6 +45,7 @@ const navList = [
             nodeName: 'dd',
             link: 'components/inputFiled',
           },
+          { label: 'Validator', nodeName: 'dd', link: 'components/validator' },
           { label: 'Radio', nodeName: 'dd', link: 'components/radio' },
           { label: 'Switch', nodeName: 'dd', link: 'components/switch' },
         ],

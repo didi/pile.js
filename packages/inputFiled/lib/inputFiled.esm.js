@@ -1,5 +1,5 @@
 /*!
- * @pile-ui/inputfiled.js v2.0.3-alpha.0
+ * @pile-ui/inputfiled.js v2.0.4-alpha.0
  * (c) 2018-2019 huangping <huangping@didichuxing.com>
  * Released under the MIT License.
  */
@@ -542,11 +542,14 @@ InputContent.defaultProps = {
 var InputContent$1 = prefixClsProperty(InputContent);
 
 var InputFiled = function InputFiled(_ref) {
-  var prefixCls = _ref.prefixCls,
-      children = _ref.children,
-      props = objectWithoutProperties(_ref, ["prefixCls", "children"]);
+  var _classNames;
 
-  var wrapCls = classNames(defineProperty({}, "".concat(prefixCls, "-input-item"), true));
+  var prefixCls = _ref.prefixCls,
+      className = _ref.className,
+      children = _ref.children,
+      props = objectWithoutProperties(_ref, ["prefixCls", "className", "children"]);
+
+  var wrapCls = classNames((_classNames = {}, defineProperty(_classNames, "".concat(prefixCls, "-input-item"), true), defineProperty(_classNames, className, className), _classNames));
   return createElement("div", {
     className: wrapCls
   }, createElement(InputLabel$1, {

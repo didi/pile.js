@@ -1,5 +1,5 @@
 /*!
- * @pile-ui/radio.js v2.0.3-alpha.0
+ * @pile-ui/radio.js v2.0.4-alpha.0
  * (c) 2018-2019 peibiao <peibiao@didichuxing.com>
  * Released under the MIT License.
  */

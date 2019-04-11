@@ -1,3 +1,6 @@
+import * as React from 'react';
+import zhCn from './lang/zh_CN';
 
-import  zh_cn from './lang/zh_CN'
-export const LangContext = React.createContext(zh_cn);
+const LangContext = React.createContext(zhCn);
+
+export default LangContext;

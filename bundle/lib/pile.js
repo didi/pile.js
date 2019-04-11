@@ -1,5 +1,5 @@
 /*!
- * pile-ui.js v2.0.3-alpha.0
+ * pile-ui.js v2.0.4-alpha.0
  * (c) 2018-2019 Pile Team
  * Released under the MIT License.
  */
@@ -16,6 +16,7 @@ var _switch = _interopDefault(require('@pile-ui/switch'));
 var inputfiled = _interopDefault(require('@pile-ui/inputfiled'));
 var radio = _interopDefault(require('@pile-ui/radio'));
 var alert = _interopDefault(require('@pile-ui/alert'));
+var validator = _interopDefault(require('@pile-ui/validator'));
 
 
 
@@ -26,4 +27,5 @@ exports.Switch = _switch;
 exports.InputFiled = inputfiled;
 exports.Radio = radio;
 exports.Alert = alert;
+exports.Validator = validator;
 //# sourceMappingURL=pile.js.map

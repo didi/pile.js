@@ -1,0 +1,41 @@
+{
+  "name": "@pile-ui/validator",
+  "version": "2.0.4-alpha.0",
+  "description": "simple form validator",
+  "keywords": [
+    "validator",
+    "form"
+  ],
+  "author": "renmaomin <renmaomin@126.com> (https://github.com/renmm)",
+  "homepage": "https://didi.github.io/pile.js/docs",
+  "license": "MIT",
+  "module": "lib/validator.esm.js",
+  "main": "lib/validator.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/didi/pile.js.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/didi/pile.js/issues"
+  },
+  "devDependencies": {
+    "warning": "^4.0.3"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2"
+  }
+}

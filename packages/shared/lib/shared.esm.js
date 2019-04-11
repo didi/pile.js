@@ -1,5 +1,5 @@
 /*!
- * @pile-ui/shared.js v2.0.3-alpha.0
+ * @pile-ui/shared.js v2.0.4-alpha.0
  * (c) 2018-2019 renmaomin <renmaomin@126.com> (https://github.com/renmm)
  * Released under the MIT License.
  */
