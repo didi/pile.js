@@ -62,8 +62,8 @@ gulp.task('copyfont', () =>
   gulp.src('./src/fonts/**').pipe(gulp.dest('./lib/fonts'))
 );
 
-gulp.task('build', ['compile:min', 'compile', 'copyfont']);
+gulp.task('build', gulp.series('compile:min', 'compile', 'copyfont'));
 
 gulp.task('watch-css', function() {
-  gulp.watch('./src/**/*.*', ['build']); // 注意，任务列表是个数组，即使只有一个元素。
+  gulp.watch('./src/**/*.*', gulp.series('build')); // 注意，任务列表是个数组，即使只有一个元素。
 });

@@ -33,7 +33,8 @@
     "@pile-ui/inputfiled": "^2.0.4-alpha.0",
     "@pile-ui/radio": "^2.0.4-alpha.0",
     "@pile-ui/switch": "^2.0.4-alpha.0",
-    "@pile-ui/toast": "^2.0.4-alpha.0"
+    "@pile-ui/toast": "^2.0.4-alpha.0",
+    "@pile-ui/validator": "^2.0.4-alpha.0"
   },
   "gitHead": "10cdb82fc10416b88207ba6ee8001edacd4514a2"
 }

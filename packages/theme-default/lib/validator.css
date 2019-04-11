@@ -1,0 +1,9 @@
+.pile-validator {}
+    .pile-validator-error {
+            font-size: 12px;
+            color: #F2605E;
+            margin: 5px 0
+}
+    .pile-validator-highlight {
+          border-color: #F2605E !important
+}

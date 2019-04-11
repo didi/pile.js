@@ -1,0 +1,12 @@
+@ns pile {
+    @c validator{
+        @d error{
+            font-size: 12px;
+            color: #F2605E;
+            margin: 5px 0;
+        }
+        @d highlight {
+          border-color: #F2605E !important;
+        }
+    }
+}

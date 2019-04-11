@@ -5,9 +5,10 @@ import { prefixClsProperty } from '@pile-ui/shared';
 import InputLabel from './inputlabel';
 import InputContent from './inputContent';
 
-const InputFiled = ({ prefixCls, children, ...props }) => {
+const InputFiled = ({ prefixCls, className, children, ...props }) => {
   const wrapCls = classNames({
     [`${prefixCls}-input-item`]: true,
+    [className]: className,
   });
 
   return (
