@@ -1,5 +1,11 @@
 # Change Log
 
+ ### 2.0.5-alpha.0
+
+- feature
+  - add @pile-ui/validator component
+  - add @pile-ui/local-provider component
+
 ### 2.0.4-alpha.0
 
 - Fix
