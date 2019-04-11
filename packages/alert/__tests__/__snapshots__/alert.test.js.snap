@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert suite render a alert 1`] = `
+<CSSTransition
+  classNames="pile-alert-animate"
+  in={false}
+  onEnter={[Function]}
+  onExited={[Function]}
+  timeout={200}
+  unmountOnExit={true}
+>
+  <div
+    className="pile-alert"
+  >
+    <div
+      className="pile-alert-mask"
+    />
+    <div
+      className="pile-alert-box"
+    >
+      <i
+        className="pile-icon-check pile-alert-icon"
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+      />
+      <div
+        className="pile-alert-title"
+      >
+        提示
+      </div>
+      <div
+        className="pile-alert-content"
+      >
+        内容
+      </div>
+      <div
+        className="d-btns pile-btn-alert"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <span
+          className="btn-orange"
+        >
+          确定
+        </span>
+      </div>
+    </div>
+  </div>
+</CSSTransition>
+`;

@@ -1,14 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test toast component snapshot ui 1`] = `
+exports[`test toast component snapshot toast ui 1`] = `
 <div
-  class="pile-toast"
+  className="pile-toast"
 >
-  <i
-    class="pile-icon-check-circle large"
+  <Icon
+    prefixCls="pile"
+    size="large"
+    type="check-circle"
   />
   <div
-    class="pile-toast-content"
+    className="pile-toast-content"
   >
     hi,you
   </div>

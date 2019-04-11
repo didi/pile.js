@@ -1,7 +1,10 @@
-'use strict';
+import React from 'react';
+import { shallow } from 'enzyme';
+import Validator from '../src';
 
-const validator = require('..');
-
-describe('@pile-ui/validator', () => {
-    it('needs tests');
+describe('Validator suite', () => {
+  it('render a validator', () => {
+    const wrapper = shallow(<Validator>{()=>{}}</Validator>);
+    expect(wrapper).toMatchSnapshot();
+  });
 });

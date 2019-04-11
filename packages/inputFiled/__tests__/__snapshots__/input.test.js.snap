@@ -10,12 +10,15 @@ exports[`Input suite render a input 1`] = `
   />
   <InputContent
     autoFocus={false}
-    clearable={true}
+    clearable={false}
     disabled={false}
-    name=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
     placeholder=""
     prefixCls="pile"
     type="text"
+    value=""
   />
 </div>
 `;
