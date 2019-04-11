@@ -1,6 +1,6 @@
 # Change Log
 
- ### 2.0.5-alpha.0
+ ### 2.0.5-alpha.0 (2019.04.11)
 
 - feature
   - add @pile-ui/validator component
