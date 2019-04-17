@@ -19,6 +19,7 @@ export default () => (
       <Route path="/components/radio" component={pages.Radio} />
       <Route path="/components/introduce" component={pages.Introduce} />
       <Route path="/components/validator" component={pages.Validator} />
+      <Route path="/components/confirm" component={pages.Confirm} />
       <Route path="/index" component={pages.Index} />
       <Route path="/" exact render={() => <Redirect to="/index" />} />
     </Switch>

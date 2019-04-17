@@ -1,0 +1,167 @@
+
+.pile-confirm {}
+  .pile-confirm-mask {
+      z-index: 100;
+      background: rgba(0,0,0,.5);
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+}
+  .pile-confirm-mask.is-transparent {}
+  .pile-confirm-box {
+      position: fixed;
+      z-index: 1051;
+      width: 270px;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%,-50%);
+          -ms-transform: translate(-50%,-50%);
+              transform: translate(-50%,-50%);
+      background: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 20px 0 0;
+      border-radius: 2px;
+}
+  .pile-confirm-box > .pile-alert-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #fafafa;
+        line-height: 50px;
+        font-size: 24px;
+        margin:0px auto;
+      }
+  .pile-confirm-box > .warnning {
+        width:50px;
+        height:50px;
+        font-size:50px;
+      }
+  .pile-confirm-box > .d-btns {
+        width: 100%;
+        border-top: 1px solid #e5e5e5
+      }
+  .pile-confirm-box > .d-btns:focus {
+          outline:none;
+        }
+  .pile-confirm-box > .pile-btn-alert .btn-orange, .pile-confirm-box > .pile-alert-confirm .btn-orange {
+        color: #1e96fa;
+        line-height: 50px;
+        font-size: 16px;
+        position: relative;
+        height: 50px;
+        background-color: transparent;
+        cursor: pointer;
+      }
+  .pile-confirm-title {
+      line-height: 22px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: rgb(51, 51, 51);
+}
+  .pile-confirm-content {
+      padding-bottom: 20px;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+      margin: 0 16px;
+}
+  .pile-confirm-animate-enter {
+      opacity: 0.01;
+}
+  .pile-confirm-animate-enter-done {
+      -webkit-transition: opacity .2s ease-in;
+      -o-transition: opacity .2s ease-in;
+      transition: opacity .2s ease-in;
+      opacity: 1;
+}
+  .pile-confirm-animate-enter-active {
+      -webkit-transition: opacity .2s ease-in;
+      -o-transition: opacity .2s ease-in;
+      transition: opacity .2s ease-in;
+      opacity: 1;
+}
+  .pile-confirm-animate-exit-done {
+      opacity: 0;
+      -webkit-transition: opacity .2s ease-in;
+      -o-transition: opacity .2s ease-in;
+      transition: opacity .2s ease-in;
+}
+  .pile-confirm-animate-exit-active {
+      opacity: 0;
+      -webkit-transition: opacity .2s ease-in;
+      -o-transition: opacity .2s ease-in;
+      transition: opacity .2s ease-in;
+}
+/* .pile-alert-mask {
+  z-index: 100;
+  background: rgba(0,0,0,.5);
+} */
+/* .pile-alert-mask, .pile-alert-mask-transparent {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+} */
+/* .pile-alert-box {
+  position: fixed;
+  z-index: 1051;
+  width: 270px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 20px 0 0;
+  border-radius: 2px;
+} */
+/* .pile-alert-box .icon-popup-right, .pile-alert-box .icon-popup-warning {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #fafafa;
+  line-height: 50px;
+  font-size: 24px;
+  margin:0px auto;
+} */
+/* .pile-alert-box .pile-alert-title {
+    line-height: 22px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: rgb(51, 51, 51);
+} */
+/* .pile-alert-box .pile-alert-content {
+  padding-bottom: 20px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0 16px;
+} */
+/* .pile-alert-box .d-btns {
+  width: 100%;
+  border-top: 1px solid #e5e5e5;
+} */
+/* .pile-alert-box .pile-btn-alert .btn-orange, .pile-alert-box .pile-alert-confirm .btn-orange {
+  color: #1e96fa;
+  line-height: 50px;
+  font-size: 16px;
+  position: relative;
+  height: 50px;
+  background-color: transparent;
+  cursor: pointer;
+} */
+/* .pile-alert-animate-enter {
+  opacity: 0.01;
+} */
+/* .pile-alert-animate-enter-done,.pile-alert-animate-enter-active {
+  transition: opacity .2s ease-in;
+  opacity: 1;
+} */
+/* .pile-alert-animate-exit-done,.pile-alert-animate-exit-active {
+  opacity: 0;
+  transition: opacity .2s ease-in;
+} */

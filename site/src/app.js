@@ -33,6 +33,7 @@ const navList = [
         list: [
           { label: 'Toast', nodeName: 'dd', link: 'components/toast' },
           { label: 'Alert', nodeName: 'dd', link: 'components/alert' },
+          { label: 'Confirm', nodeName: 'dd', link: 'components/confirm' },
         ],
       },
       {

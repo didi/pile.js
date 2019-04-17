@@ -28,6 +28,7 @@
   ],
   "dependencies": {
     "@pile-ui/alert": "^2.0.4-alpha.0",
+    "@pile-ui/confirm": "^2.0.4-alpha.0",
     "@pile-ui/button": "^2.0.4-alpha.0",
     "@pile-ui/icon": "^2.0.4-alpha.0",
     "@pile-ui/inputfiled": "^2.0.4-alpha.0",
