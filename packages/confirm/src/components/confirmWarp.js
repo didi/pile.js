@@ -9,7 +9,7 @@ const defaultOpts = {
   show: false,
   btnText: '确定',
   callBack() {},
-  cancelBtn: '取消',
+  cancelBtnText: '取消',
   cancelCallBack() {},
 };
 let messageInstance;

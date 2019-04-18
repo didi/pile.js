@@ -13,11 +13,15 @@ onClick = () => {
       Confirm.show({
       title: '这是一个测试弹框',
       // content: '内容内容123',
-      btnText:'你好了',
+      btnText:'确定',
       showIcon:true,
       type:'warnning',// success, warnning
       callBack: function() {
-        console.log('关闭了...');
+        console.log('确定了...');
+      },
+      cancelBtnText:'取消',
+      cancelCallBack(){
+        console.log('取消了')
       }
     });
 }
@@ -30,8 +34,8 @@ render () {
   const {show} = this.state;
   return (
     <div>
-      <Button type='primary' onClick={this.onClick}>alert全局式</Button>{' '}
-      <Button type='primary' onClick={this.onClick2}>alert组件式</Button>{' '}
+      <Button type='primary' onClick={this.onClick}>Confirm全局式</Button>{' '}
+      <Button type='primary' onClick={this.onClick2}>Confirm组件式</Button>{' '}
       <Confirm show={show} btnText='确定' callBack={()=>{}} >内容</Confirm>
     </div>
   )

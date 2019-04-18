@@ -40,14 +40,34 @@
         font-size:50px;
       }
   .pile-confirm-box > .d-btns {
-        width: 100%;
-        border-top: 1px solid #e5e5e5
+        width: 49%;
+        border-top: 1px solid #e5e5e5;
+        border-left:1px solid #e5e5e5;
+        display: inline-block
       }
   .pile-confirm-box > .d-btns:focus {
           outline:none;
         }
-  .pile-confirm-box > .pile-btn-alert .btn-orange, .pile-confirm-box > .pile-alert-confirm .btn-orange {
+  .pile-confirm-box > .cancel-btn {
+        width: 50%;
+        border-top: 1px solid #e5e5e5;
+        
+        display: inline-block
+      }
+  .pile-confirm-box > .cancel-btn:focus {
+          outline:none;
+        }
+  .pile-confirm-box > .pile-btn-confirm .btn-orange, .pile-confirm-box > .pile-btn-confirm .btn-cancle-gray {
         color: #1e96fa;
+        line-height: 50px;
+        font-size: 16px;
+        position: relative;
+        height: 50px;
+        background-color: transparent;
+        cursor: pointer;
+      }
+  .pile-confirm-box > .pile-btn-confirm .btn-cancle-gray {
+        color:#666;
         line-height: 50px;
         font-size: 16px;
         position: relative;

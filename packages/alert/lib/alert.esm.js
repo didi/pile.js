@@ -151,10 +151,10 @@ function (_React$Component) {
     _this = possibleConstructorReturn(this, getPrototypeOf(Alert).call(this, props));
 
     defineProperty(assertThisInitialized(_this), "callBackClose", function (e) {
-      var onClick = _this.props.onClick;
+      var callBack = _this.props.callBack;
 
-      if (onClick) {
-        onClick(e);
+      if (callBack) {
+        callBack(e);
       }
     });
 
