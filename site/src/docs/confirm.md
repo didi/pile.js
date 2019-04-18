@@ -36,7 +36,9 @@ render () {
     <div>
       <Button type='primary' onClick={this.onClick}>Confirm全局式</Button>{' '}
       <Button type='primary' onClick={this.onClick2}>Confirm组件式</Button>{' '}
-      <Confirm show={show} btnText='确定' callBack={()=>{}} >内容</Confirm>
+      <Confirm show={show} btnText='确定' callBack={()=>{
+        console.log('确定成功了')
+      }} >内容</Confirm>
     </div>
   )
 }
