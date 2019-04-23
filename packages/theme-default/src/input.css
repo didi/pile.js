@@ -25,6 +25,7 @@
   @c input-input{
     flex:1;
     & > input{
+      font-size: 14px;
       border:0;
       outline:none;
       width:100%;

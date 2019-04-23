@@ -1,0 +1,211 @@
+.pure-markdown {
+    color: #314659;
+    font-size: 14px;
+    line-height: 2
+}
+
+.highlight {
+    line-height: 1.5
+}
+
+.pure-markdown img {
+    max-width: calc(100% - 32px)
+}
+
+.pure-markdown p>img {
+    margin: 34px 0;
+    -webkit-box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35);
+    box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35)
+}
+
+.pure-markdown h1 {
+    margin-top: 8px;
+    margin-bottom: 20px;
+    color: #0d1a26;
+    font-weight: 500;
+    font-size: 30px;
+    font-family: Avenir, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+    line-height: 38px
+}
+
+.pure-markdown h1 .subtitle {
+    margin-left: 12px
+}
+
+.pure-markdown h2 {
+    font-size: 24px;
+    line-height: 32px
+}
+
+.pure-markdown h2,
+.pure-markdown h3,
+.pure-markdown h4,
+.pure-markdown h5,
+.pure-markdown h6 {
+    clear: both;
+    margin: 1.6em 0 .6em;
+    color: #0d1a26;
+    font-weight: 500;
+    font-family: Avenir, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif
+}
+
+.pure-markdown h3 {
+    font-size: 18px
+}
+
+.pure-markdown h4 {
+    font-size: 16px
+}
+
+.pure-markdown h5 {
+    font-size: 14px
+}
+
+.pure-markdown h6 {
+    font-size: 12px
+}
+
+.pure-markdown hr {
+    clear: both;
+    height: 1px;
+    margin: 56px 0;
+    background: #ebedf0;
+    border: 0
+}
+
+.pure-markdown p,
+.pure-markdown pre {
+    margin: 1em 0
+}
+
+.pure-markdown ul>li {
+    margin-left: 20px;
+    padding-left: 4px;
+    list-style-type: circle
+}
+
+.pure-markdown ul>li:empty {
+    display: none
+}
+
+.pure-markdown ol>li {
+    margin-left: 20px;
+    padding-left: 4px;
+    list-style-type: decimal
+}
+
+.pure-markdown ul>li>p,
+.pure-markdown ol>li>p {
+    margin: .2em 0
+}
+
+.pure-markdown code {
+    margin: 0 1px;
+    padding: .2em .4em;
+    font-size: .9em;
+    background: #f2f4f5;
+    border: 1px solid #eee;
+    border-radius: 3px
+}
+
+.pure-markdown pre {
+    font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    background: #f2f4f5;
+    border-radius: 2px
+}
+
+.pure-markdown pre code {
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    color: #314659;
+    font-size: 13px;
+    background: #f2f4f5;
+    border: none
+}
+
+.pure-markdown strong,
+.pure-markdown b {
+    font-weight: 500
+}
+
+.pure-markdown>table {
+    width: 100%;
+    margin: 8px 0 16px;
+    empty-cells: show;
+    border: 1px solid #ebedf0;
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+.pure-markdown>table th {
+    color: #5c6b77;
+    font-weight: 500;
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.02)
+}
+
+.pure-markdown>table th,
+.pure-markdown>table td {
+    padding: 16px 24px;
+    text-align: left;
+    border: 1px solid #ebedf0
+}
+
+.pure-markdown blockquote {
+    margin: 1em 0;
+    padding-left: .8em;
+    color: #697b8c;
+    font-size: 90%;
+    border-left: 4px solid #ebedf0
+}
+
+.pure-markdown blockquote p {
+    margin: 0
+}
+
+.pure-markdown .anchor {
+    margin-left: 8px;
+    opacity: 0;
+    -webkit-transition: opacity .3s ease;
+    transition: opacity .3s ease
+}
+
+.pure-markdown .waiting {
+    color: #ccc;
+    cursor: not-allowed
+}
+
+.pure-markdown a.edit-button {
+    display: inline-block;
+    margin-left: 8px;
+    text-decoration: none
+}
+
+.pure-markdown a.edit-button i {
+    color: #697b8c
+}
+
+.pure-markdown a.edit-button i:hover {
+    color: #1890ff
+}
+
+.pure-markdown a.edit-button .anticon {
+    display: block;
+    font-size: 16px
+}
+
+.pure-markdown h1:hover .anchor,
+.pure-markdown h2:hover .anchor,
+.pure-markdown h3:hover .anchor,
+.pure-markdown h4:hover .anchor,
+.pure-markdown h5:hover .anchor,
+.pure-markdown h6:hover .anchor {
+    display: inline-block;
+    opacity: 1
+}
+
+.pure-markdown>br,
+.pure-markdown>p>br {
+    clear: both
+}

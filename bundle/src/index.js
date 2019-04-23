@@ -6,3 +6,4 @@ export { default as InputFiled } from '@pile-ui/inputfiled';
 export { default as Radio } from '@pile-ui/radio';
 export { default as Alert } from '@pile-ui/alert';
 export { default as Validator } from '@pile-ui/validator';
+export { Field, FieldSet } from '@pile-ui/field';
