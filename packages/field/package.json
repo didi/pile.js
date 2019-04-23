@@ -10,7 +10,7 @@
   "author": "renmaomin <renmaomin@126.com> (https://github.com/renmm)",
   "homepage": "https://didi.github.io/pile.js/docs/tree/master/packages/field#readme",
   "license": "MIT",
-  "module": "src/index.js",
+  "module": "lib/field.esm.js",
   "main": "lib/field.js",
   "directories": {
     "lib": "lib",

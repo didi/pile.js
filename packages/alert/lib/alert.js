@@ -1,5 +1,5 @@
 /*!
- * @pile-ui/alert.js v2.0.4-alpha.0
+ * @pile-ui/alert.js v2.0.5-alpha.0
  * (c) 2018-2019 zhangzhipeng <zhangzhipeng@didichuxing.com>
  * Released under the MIT License.
  */
@@ -155,10 +155,10 @@ function (_React$Component) {
     _this = possibleConstructorReturn(this, getPrototypeOf(Alert).call(this, props));
 
     defineProperty(assertThisInitialized(_this), "callBackClose", function (e) {
-      var onClick = _this.props.onClick;
+      var callBack = _this.props.callBack;
 
-      if (onClick) {
-        onClick(e);
+      if (callBack) {
+        callBack(e);
       }
     });
 

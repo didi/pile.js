@@ -33,9 +33,9 @@ class Alert extends React.Component {
   }
 
   callBackClose = e => {
-    const { onClick } = this.props;
-    if (onClick) {
-      onClick(e);
+    const { callBack } = this.props;
+    if (callBack) {
+      callBack(e);
     }
   };
 

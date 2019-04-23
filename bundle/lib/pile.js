@@ -16,6 +16,7 @@ var _switch = _interopDefault(require('@pile-ui/switch'));
 var inputfiled = _interopDefault(require('@pile-ui/inputfiled'));
 var radio = _interopDefault(require('@pile-ui/radio'));
 var alert = _interopDefault(require('@pile-ui/alert'));
+var confirm = _interopDefault(require('@pile-ui/confirm'));
 var validator = _interopDefault(require('@pile-ui/validator'));
 var field = require('@pile-ui/field');
 
@@ -28,6 +29,7 @@ exports.Switch = _switch;
 exports.InputFiled = inputfiled;
 exports.Radio = radio;
 exports.Alert = alert;
+exports.Confirm = confirm;
 exports.Validator = validator;
 exports.Field = field.Field;
 exports.FieldSet = field.FieldSet;
