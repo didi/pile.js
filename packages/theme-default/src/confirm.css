@@ -1,0 +1,187 @@
+
+@ns pile {
+  @c confirm {
+    @d mask{
+      z-index: 100;
+      background: rgba(0,0,0,.5);
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      @when transparent {
+
+      }
+    }
+    @d box {
+      position: fixed;
+      z-index: 1051;
+      width: 270px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      background: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 20px 0 0;
+      border-radius: 2px;
+      & > .pile-alert-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #fafafa;
+        line-height: 50px;
+        font-size: 24px;
+        margin:0px auto;
+      }
+      & > .warnning {
+        width:50px;
+        height:50px;
+        font-size:50px;
+      }
+      & > .d-btns {
+        width: 49%;
+        border-top: 1px solid #e5e5e5;
+        border-left:1px solid #e5e5e5;
+        display: inline-block;
+        &:focus {
+          outline:none;
+        }
+      }
+      & > .cancel-btn {
+        width: 50%;
+        border-top: 1px solid #e5e5e5;
+        
+        display: inline-block;
+        &:focus {
+          outline:none;
+        }
+      }
+   
+      & > .pile-btn-confirm .btn-orange, & > .pile-btn-confirm .btn-cancle-gray {
+        color: #1e96fa;
+        line-height: 50px;
+        font-size: 16px;
+        position: relative;
+        height: 50px;
+        background-color: transparent;
+        cursor: pointer;
+      }
+      
+      & > .pile-btn-confirm .btn-cancle-gray {
+        color:#666;
+        line-height: 50px;
+        font-size: 16px;
+        position: relative;
+        height: 50px;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+    @d title {
+      line-height: 22px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: rgb(51, 51, 51);
+    }
+    @d content {
+      padding-bottom: 20px;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+      margin: 0 16px;
+    }
+    @d animate-enter {
+      opacity: 0.01;
+    }
+    @d animate-enter-done{
+      transition: opacity .2s ease-in;
+      opacity: 1;
+    }
+    @d animate-enter-active {
+      transition: opacity .2s ease-in;
+      opacity: 1;
+    }
+    @d animate-exit-done {
+      opacity: 0;
+      transition: opacity .2s ease-in;
+    }
+    @d animate-exit-active {
+      opacity: 0;
+      transition: opacity .2s ease-in;
+    }
+  }
+}
+/* .pile-alert-mask {
+  z-index: 100;
+  background: rgba(0,0,0,.5);
+} */
+
+/* .pile-alert-mask, .pile-alert-mask-transparent {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+} */
+/* .pile-alert-box {
+  position: fixed;
+  z-index: 1051;
+  width: 270px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 20px 0 0;
+  border-radius: 2px;
+} */
+/* .pile-alert-box .icon-popup-right, .pile-alert-box .icon-popup-warning {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #fafafa;
+  line-height: 50px;
+  font-size: 24px;
+  margin:0px auto;
+} */
+/* .pile-alert-box .pile-alert-title {
+    line-height: 22px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: rgb(51, 51, 51);
+} */
+/* .pile-alert-box .pile-alert-content {
+  padding-bottom: 20px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0 16px;
+} */
+/* .pile-alert-box .d-btns {
+  width: 100%;
+  border-top: 1px solid #e5e5e5;
+} */
+/* .pile-alert-box .pile-btn-alert .btn-orange, .pile-alert-box .pile-alert-confirm .btn-orange {
+  color: #1e96fa;
+  line-height: 50px;
+  font-size: 16px;
+  position: relative;
+  height: 50px;
+  background-color: transparent;
+  cursor: pointer;
+} */
+/* .pile-alert-animate-enter {
+  opacity: 0.01;
+} */
+
+/* .pile-alert-animate-enter-done,.pile-alert-animate-enter-active {
+  transition: opacity .2s ease-in;
+  opacity: 1;
+} */
+
+/* .pile-alert-animate-exit-done,.pile-alert-animate-exit-active {
+  opacity: 0;
+  transition: opacity .2s ease-in;
+} */

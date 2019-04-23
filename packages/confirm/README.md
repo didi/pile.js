@@ -1,11 +1,11 @@
-# `@pile-ui/shared`
+# `@pile-ui/confirm`
 
 > TODO: description
 
 ## Usage
 
 ```
-const shared = require('@pile-ui/shared');
+const confirm = require('@pile-ui/confirm');
 
 // TODO: DEMONSTRATE API
 ```

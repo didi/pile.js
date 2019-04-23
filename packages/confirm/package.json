@@ -1,0 +1,39 @@
+{
+  "name": "@pile-ui/confirm",
+  "version": "2.0.5-alpha.0",
+  "description": "confirm",
+  "keywords": [
+    "confirm"
+  ],
+  "author": "zhangzhipeng <zhangzhipeng@didichuxing.com>",
+  "homepage": "https://didi.github.io/pile.js/docs/tree/master/packages/confirm#readme",
+  "license": "ISC",
+  "module": "src/index.js",
+  "main": "lib/confirm.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/didi/pile.js.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/didi/pile.js/issues"
+  },
+  "dependencies": {
+    "@pile-ui/shared": "^2.0.4-alpha.0",
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
+    "react-transition-group": "^4.0.0"
+  }
+}

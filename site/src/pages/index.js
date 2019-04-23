@@ -7,6 +7,7 @@ import InputFiled from './dev/inputfiled'
 import Radio from './dev/radio'
 import Introduce from './dev/introduce'
 import Validator from './dev/validator'
+import Confirm from './dev/confirm'
 import Index from './home'
 
 export default {
@@ -19,5 +20,6 @@ export default {
   Radio,
   Introduce,
   Validator,
-  Index
+  Index,
+  Confirm
 }

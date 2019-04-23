@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group'; // ES6
 import classNames from 'classnames';
 import { prefixClsProperty } from '@pile-ui/shared';
 
-class Alert extends React.Component {
+class Confirm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { show: false };
@@ -33,15 +33,27 @@ class Alert extends React.Component {
   }
 
   callBackClose = e => {
-    const { callBack } = this.props;
-    if (callBack) {
+    const { callBack, cancelCallBack } = this.props;
+    const { isCancel } = this.state;
+    if (callBack && !isCancel) {
       callBack(e);
+    }
+    if (cancelCallBack && isCancel) {
+      cancelCallBack(e);
     }
   };
 
   onClose = () => {
     this.setState({
       show: false,
+      isCancel: false,
+    });
+  };
+
+  onCloseCancel = () => {
+    this.setState({
+      show: false,
+      isCancel: true,
     });
   };
 
@@ -51,10 +63,23 @@ class Alert extends React.Component {
       this.onClose(e);
     }
   };
+  cancelOnKeyPress = e => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      this.onClose(e);
+    }
+  };
 
   render() {
     let typeIcon = 'success';
-    const { showIcon, title, children, btnText, type } = this.props;
+    const {
+      showIcon,
+      title,
+      children,
+      btnText,
+      type,
+      cancelBtnText,
+    } = this.props;
     const { show } = this.state;
     const { prefixCls } = this.props;
     const iconCls = classNames({ [`${prefixCls}-alert-icon`]: true });
@@ -67,7 +92,7 @@ class Alert extends React.Component {
       <CSSTransition
         in={show}
         timeout={200} // 动画时长
-        classNames="pile-alert-animate"
+        classNames="pile-confirm-animate"
         unmountOnExit
         onEnter={() => {
           document.body.style.overflow = 'hidden';
@@ -77,27 +102,35 @@ class Alert extends React.Component {
           this.callBackClose();
         }}
       >
-        <div className="pile-alert">
-          <div className="pile-alert-mask" />
-          <div className="pile-alert-box">
+        <div className="pile-confirm">
+          <div className="pile-confirm-mask" />
+          <div className="pile-confirm-box">
             <i
               className={`${prefixCls}-icon-${typeIcon} ${iconCls}`}
               style={showIcon ? { display: 'block' } : { display: 'none' }}
             />
 
-            <div className="pile-alert-title">{title}</div>
+            <div className="pile-confirm-title">{title}</div>
             {children ? (
-              <div className="pile-alert-content">{children}</div>
+              <div className="pile-confirm-content">{children}</div>
             ) : null}
-
             <div
               role="button"
               tabIndex={0}
-              className="d-btns pile-btn-alert"
+              className="d-btns pile-btn-confirm cancel-btn"
+              onClick={this.onCloseCancel}
+              onKeyPress={this.cancelOnKeyPress}
+            >
+              <span className="btn-cancle-gray">{cancelBtnText || '取消'}</span>
+            </div>
+            <div
+              role="button"
+              tabIndex={0}
+              className="d-btns pile-btn-confirm"
               onClick={this.onClose}
               onKeyPress={this.onKeyPress}
             >
-              <span className="btn-orange">{btnText}</span>
+              <span className="btn-orange">{btnText || '确定'}</span>
             </div>
           </div>
         </div>
@@ -105,7 +138,7 @@ class Alert extends React.Component {
     );
   }
 }
-Alert.propTypes = {
+Confirm.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
@@ -118,7 +151,7 @@ Alert.propTypes = {
   type: PropTypes.oneOf(['success', 'warnning']),
 };
 
-Alert.defaultProps = {
+Confirm.defaultProps = {
   children: null,
   showIcon: false,
   title: '提示',
@@ -127,4 +160,4 @@ Alert.defaultProps = {
   type: 'success',
   onClick() {},
 };
-export default prefixClsProperty(Alert);
+export default prefixClsProperty(Confirm);
