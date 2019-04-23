@@ -1,0 +1,38 @@
+:root {
+  /* button 2 */
+  --button-default-font-size: 16px;
+  --button-default-color: #343C5C;
+  --button-default-fill: #FFFFFF;
+  --button-default-border: 1px solid #343C5C;
+  --button-default-border-radius: 2px;
+  --button-default-height: 44px;
+  --button-default-line-height: 44px;
+  --button-default-padding: 0 49px;
+  --button-small-font-size: 12px;
+  --button-small-height: 28px;
+  --button-small-line-height: 28px;
+  --button-small-default-padding: 0 15px;
+  --button-small-noborder-padding: 0 14px;
+  --button-primary-color: #FFFFFF;
+  --button-primary-fill: #343C5C;
+  --button-primary-border: none;
+  --button-primary-padding: 0 50px;
+  --button-primary-status-active: #2E3552;
+  --button-primary-status-disabled: #D7D8DF;
+  --button-secondary-color: #343C5C;
+  --button-secondary-fill: none;
+  --button-secondary-status-active: rgba(52,60,92,0.03);
+  --button-secondary-status-disabled: #CCCCCC;
+  --button-float-color: #343C5C;
+  --button-float-fill: #FFFFFF;
+  --button-float-border: none;
+  --button-float-padding: 0 50px;
+  --button-float-box-shadow: 0 1px 6px 0 rgba(0,0,0,0.15);
+  --button-float-status-active: #FAFAFA;
+  --button-float-status-disabled-fill: #FAFAFA;
+  --button-float-status-disabled-color: #CCCCCC;
+  --button-icon-spacing: 6px;
+  --button-icon-font-size: 18px;
+  --button-icon-small-font-size: 14px;
+  --button-icon-small-margin-right: 4px;
+}

@@ -1,0 +1,33 @@
+:root {
+  /* base */
+  --opacity: 0.65;
+  --border-radius: 2px;
+
+  /* sizes */
+  --size-small: 12px;
+  --size-normal: 16px;
+  --size-large: 24px;
+
+  /* colors */
+  --color-white: #fff;
+  --color-black: #333;
+  --color-dashed: #d9d9d9;
+  --color-transparent: #0000;
+
+  --color-primary: #337ab7;
+  --color-success: #218838;
+  --color-info: #31b0d5;
+  --color-warning: #ec971f;
+  --color-danger: #c9302c;
+
+  /* icons*/
+  --icon-size-normal: var(--size-normal);
+  --icon-size-small: var(--size-small);
+  --icon-size-large: var(--size-large);
+
+  /* toast */
+  --radius-xs: 2px;
+  --icon-size-big: 32px;
+  --font-size-base: 14px;
+}
+

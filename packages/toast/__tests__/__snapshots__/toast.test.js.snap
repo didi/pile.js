@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test toast component snapshot ui 1`] = `
+<div
+  class="pile-toast"
+>
+  <i
+    class="pile-icon-check-circle large"
+  />
+  <div
+    class="pile-toast-content"
+  >
+    hi,you
+  </div>
+</div>
+`;

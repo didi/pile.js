@@ -1,0 +1,44 @@
+@import 'theme/base';
+
+@ns pile {
+  @c input-item {
+    font-size:14px;
+    height:44px;
+    padding:0px 15px;
+    background-color:#fff;
+    display:flex;
+    vertical-align:middle;
+    box-align:center;
+    align-items:center;
+    &:not(:last-child) {
+      border-bottom:1px solid #ddd;
+    }
+  }
+  @c input-label{
+    color:#333;
+    padding-right:10px;
+    text-align:left;
+    max-width:82px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  @c input-input{
+    flex:1;
+    & > input{
+      border:0;
+      outline:none;
+      width:100%;
+      padding:10px;
+      box-sizing:border-box;
+      appearance:none;
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
+  @c input-clear{
+    cursor:pointer;
+    display:none;
+  }
+  @c input-fucos{
+    display:block;
+  }
+}

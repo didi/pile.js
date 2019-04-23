@@ -1,0 +1,39 @@
+{
+  "name": "@pile-ui/toast",
+  "version": "2.0.4-alpha.0",
+  "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
+  "keywords": [],
+  "author": "wutaosusan <wutaosusan@didichuxing.com>",
+  "license": "ISC",
+  "module": "lib/toast.esm.js",
+  "main": "lib/toast.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/didi/pile.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/didi/pile.js/issues"
+  },
+  "homepage": "https://didi.github.io/pile.js/docs",
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "rollup -c config/rollup.prod.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "@pile-ui/icon": "^2.0.4-alpha.0",
+    "@pile-ui/shared": "^2.0.4-alpha.0",
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2"
+  },
+  "gitHead": "10cdb82fc10416b88207ba6ee8001edacd4514a2"
+}

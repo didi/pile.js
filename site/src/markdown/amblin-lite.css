@@ -1,0 +1,112 @@
+#wrapper table,
+#wrapper caption,
+#wrapper tbody,
+#wrapper tfoot,
+#wrapper thead,
+#wrapper tr,
+#wrapper th,
+#wrapper td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+#wrapper table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+#wrapper caption,
+#wrapper th,
+#wrapper td {
+  text-align: left;
+  font-weight: 400;
+}
+
+#wrapper caption,
+#wrapper col,
+#wrapper colgroup,
+#wrapper table,
+#wrapper tbody,
+#wrapper td,
+#wrapper tfoot,
+#wrapper th,
+#wrapper thead,
+#wrapper tr {
+  border-spacing: 0;
+}
+
+#wrapper table {
+  width: 100%;
+  margin-bottom: 2em;
+  padding: 0;
+  font-size: 13px;
+  border: 1px solid #ddd;
+  border-collapse: separate;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+#wrapper table th,
+#wrapper table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+#wrapper table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+#wrapper table td {
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+
+#wrapper table tbody th {
+  border-top: 1px solid #ddd;
+  vertical-align: top;
+}
+
+#wrapper table th+th,
+#wrapper table td+td,
+#wrapper table th+td {
+  border-left: 1px solid #ddd;
+}
+
+#wrapper table thead tr:first-child th:first-child,
+#wrapper table tbody tr:first-child td:first-child {
+  border-radius: 4px 0 0 0;
+  -moz-border-radius: 4px 0 0 0;
+  -webkit-border-radius: 4px 0 0 0;
+}
+
+#wrapper table thead tr:first-child th:last-child,
+#wrapper table tbody tr:first-child td:last-child {
+  border-radius: 0 4px 0 0;
+  -moz-border-radius: 0 4px 0 0;
+  -webkit-border-radius: 0 4px 0 0;
+}
+
+#wrapper table tbody tr:last-child td:first-child {
+  border-radius: 0 0 0 4px;
+  -moz-border-radius: 0 0 0 4px;
+  -webkit-border-radius: 0 0 0 4px;
+}
+
+#wrapper table tbody tr:last-child td:last-child {
+  border-radius: 0 0 4px 0;
+  -moz-border-radius: 0 0 4px 0;
+  -webkit-border-radius: 0 0 4px 0;
+}
+
+#wrapper table tbody tr:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.03);
+}

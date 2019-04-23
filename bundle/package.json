@@ -1,0 +1,39 @@
+{
+  "name": "pile-ui",
+  "version": "2.0.4-alpha.0",
+  "description": "pile components build with React.",
+  "main": "lib/pile.js",
+  "module": "lib/pile.esm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/didi/pile.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/didi/pile.js/issues"
+  },
+  "homepage": "https://didi.github.io/pile.js/docs",
+  "keywords": [
+    "pile",
+    "mobile",
+    "react",
+    "ui"
+  ],
+  "author": "Pile Team",
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "@pile-ui/alert": "^2.0.4-alpha.0",
+    "@pile-ui/button": "^2.0.4-alpha.0",
+    "@pile-ui/icon": "^2.0.4-alpha.0",
+    "@pile-ui/inputfiled": "^2.0.4-alpha.0",
+    "@pile-ui/radio": "^2.0.4-alpha.0",
+    "@pile-ui/switch": "^2.0.4-alpha.0",
+    "@pile-ui/toast": "^2.0.4-alpha.0"
+  },
+  "gitHead": "10cdb82fc10416b88207ba6ee8001edacd4514a2"
+}

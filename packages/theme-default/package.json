@@ -1,0 +1,52 @@
+{
+  "name": "@pile-ui/theme-default",
+  "version": "2.0.3-alpha.0",
+  "description": "",
+  "main": "lib/index.css",
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "npm run clean && gulp build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "renmaomin <renmaomin@126.com> (https://github.com/renmm)",
+  "license": "MIT",
+  "browserslist": [
+    ">1%",
+    "last 4 versions",
+    "Firefox ESR",
+    "not ie < 9",
+    "iOS 7"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/didi/pile.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/didi/pile.js/issues"
+  },
+  "homepage": "https://didi.github.io/pile.js/docs",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib"
+  ],
+  "devDependencies": {
+    "cssnano": "^4.1.7",
+    "gulp": "^4.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "postcss": "^7.0.6",
+    "postcss-color-mod-function": "^3.0.3",
+    "postcss-import": "^12.0.1",
+    "postcss-nested": "^4.1.1",
+    "postcss-normalize": "^7.0.1",
+    "postcss-preset-env": "^6.4.0",
+    "rimraf": "^2.6.3"
+  },
+  "dependencies": {
+    "@csstools/normalize.css": "^9.0.1"
+  },
+  "gitHead": "10cdb82fc10416b88207ba6ee8001edacd4514a2"
+}

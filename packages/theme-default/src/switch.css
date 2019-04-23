@@ -1,0 +1,65 @@
+@import 'theme/base';
+
+@ns pile {
+  @c switch {
+    @m wrap {
+      position: relative;
+
+      /* &.bgColor {
+        background-color: #ccc;
+      }
+
+      &.wrap-shape {
+        width: 50px;
+        height: 30px;
+        border-radius: 30px;
+      } */
+      &:focus{
+        outline: none;
+      }
+      &.isDisabled {
+        opacity: 0.4;
+      }
+
+      & > input {
+        width: 100%;
+        height: 100%;
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+
+        /* &.input-shape:before {
+          width: 30px;
+          height: 30px;
+          border-radius: 30px;
+        } */
+
+        /* &:before {
+          background-color: white;
+          width: attr(data-width px);
+          height: attr(data-width px);
+          border-radius: attr(data-width px);
+          content: '';
+          position: absolute;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+          transition: all .3s;
+        } */
+      }
+
+      & > div {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        background-color: white;
+        border-radius: 30px;
+        top: 1px;
+        box-sizing: border-box;
+        transition: all .3s;
+      }
+
+    }
+  }
+}
