@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import Routes from './roots/routes';
 
 import '../../packages/theme-default/lib/index.css';
+import './ant-like.css';
 import './app.css';
 import './prism.css';
 import './prism.js';
@@ -49,6 +50,7 @@ const navList = [
           { label: 'Validator', nodeName: 'dd', link: 'components/validator' },
           { label: 'Radio', nodeName: 'dd', link: 'components/radio' },
           { label: 'Switch', nodeName: 'dd', link: 'components/switch' },
+          { label: 'Field', nodeName: 'dd', link: 'components/field' },
         ],
       },
     ],

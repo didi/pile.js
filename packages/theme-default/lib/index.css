@@ -1371,6 +1371,7 @@ a, a:hover, a:active, a:visited {
 }
 
 .pile-input-input > input{
+      font-size: 14px;
       border:0;
       outline:none;
       width:100%;
@@ -1510,6 +1511,98 @@ a, a:hover, a:active, a:visited {
           border-color: #F2605E !important;
 }
 
+.pile-field {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    vertical-align: middle;
+    line-height: 44px;
+    outline: none;
+    background-color: #fff;
+    font-size: 14px;
+    padding: 0 15px;
+}
+
+.pile-field:not(:last-child) {
+      border-bottom:1px solid #ddd;
+    }
+
+.pile-field.is-clickable:active {
+      background: rgba(52,60,92,0.03);
+    }
+
+.pile-field--label {
+      color: #333;
+      vertical-align: middle;
+      margin-right: 10px;
+}
+
+.pile-field--label.is-ellips {
+        max-width: 82px;
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+           text-overflow: ellipsis;
+}
+
+.pile-field--icon {
+      margin-right: -3px;
+      color: #999;
+}
+
+.pile-field--extraAfter {
+      display: inline-block;
+      vertical-align: middle;
+      overflow: hidden;
+}
+
+.pile-field-value {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      display: inline-block;
+      text-align: left;
+      overflow: hidden;
+      padding: 0 10px;
+}
+
+.pile-field-value.is-right {
+        text-align: right;
+}
+
+.pile-field-value.is-placeholder {
+        color: #CCCCCC;
+}
+
+.pile-field-value--wrapper {
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        line-height: 1.5;
+}
+
+.pile-field-value--wrapper.is-ellips {
+          overflow: hidden;
+          -o-text-overflow: ellipsis;
+             text-overflow: ellipsis;
+          white-space: nowrap;
+}
+
+.pile-fieldset {}
+
+.pile-fieldset--title {
+      padding: 17px 10px 6px;
+      font-size: 12px;
+      color: #999999;
+      background: #F3F4F5;
+}
+
 .pile-confirm {}
 
 .pile-confirm-mask {
@@ -1570,7 +1663,7 @@ a, a:hover, a:active, a:visited {
 .pile-confirm-box > .cancel-btn {
         width: 50%;
         border-top: 1px solid #e5e5e5;
-        
+
         display: inline-block
       }
 
@@ -1644,84 +1737,3 @@ a, a:hover, a:active, a:visited {
       -o-transition: opacity .2s ease-in;
       transition: opacity .2s ease-in;
 }
-
-/* .pile-alert-mask {
-  z-index: 100;
-  background: rgba(0,0,0,.5);
-} */
-
-/* .pile-alert-mask, .pile-alert-mask-transparent {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-} */
-
-/* .pile-alert-box {
-  position: fixed;
-  z-index: 1051;
-  width: 270px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  background: #fff;
-  text-align: center;
-  border-radius: 2px;
-  padding: 20px 0 0;
-  border-radius: 2px;
-} */
-
-/* .pile-alert-box .icon-popup-right, .pile-alert-box .icon-popup-warning {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #fafafa;
-  line-height: 50px;
-  font-size: 24px;
-  margin:0px auto;
-} */
-
-/* .pile-alert-box .pile-alert-title {
-    line-height: 22px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: rgb(51, 51, 51);
-} */
-
-/* .pile-alert-box .pile-alert-content {
-  padding-bottom: 20px;
-  font-size: 14px;
-  color: #666;
-  line-height: 1.5;
-  margin: 0 16px;
-} */
-
-/* .pile-alert-box .d-btns {
-  width: 100%;
-  border-top: 1px solid #e5e5e5;
-} */
-
-/* .pile-alert-box .pile-btn-alert .btn-orange, .pile-alert-box .pile-alert-confirm .btn-orange {
-  color: #1e96fa;
-  line-height: 50px;
-  font-size: 16px;
-  position: relative;
-  height: 50px;
-  background-color: transparent;
-  cursor: pointer;
-} */
-
-/* .pile-alert-animate-enter {
-  opacity: 0.01;
-} */
-
-/* .pile-alert-animate-enter-done,.pile-alert-animate-enter-active {
-  transition: opacity .2s ease-in;
-  opacity: 1;
-} */
-
-/* .pile-alert-animate-exit-done,.pile-alert-animate-exit-active {
-  opacity: 0;
-  transition: opacity .2s ease-in;
-} */

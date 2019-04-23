@@ -1,5 +1,5 @@
 /*!
- * @pile-ui/local-provider.js v2.0.4-alpha.0
+ * @pile-ui/local-provider.js v2.0.5-alpha.0
  * (c) 2018-2019 wutaosusan <wutaosusan@didichuxing.com>
  * Released under the MIT License.
  */

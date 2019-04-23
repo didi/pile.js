@@ -1,0 +1,73 @@
+@ns pile {
+  @c field {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    line-height: 44px;
+    outline: none;
+    background-color: #fff;
+    font-size: 14px;
+    padding: 0 15px;
+    &:not(:last-child) {
+      border-bottom:1px solid #ddd;
+    }
+    &.is-clickable:active {
+      background: rgba(52,60,92,0.03);
+    }
+    @m label {
+      color: #333;
+      vertical-align: middle;
+      margin-right: 10px;
+      @when ellips{
+        max-width: 82px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+    @m icon {
+      margin-right: -3px;
+      color: #999;
+    }
+    @m extraAfter {
+      display: inline-block;
+      vertical-align: middle;
+      overflow: hidden;
+    }
+    @d value {
+      flex: 1;
+      display: inline-block;
+      text-align: left;
+      overflow: hidden;
+      padding: 0 10px;
+      @m wrapper {
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        line-height: 1.5;
+        @when ellips{
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+      @when placeholder {
+        color: #CCCCCC;
+      }
+      @when right {
+        text-align: right;
+      }
+    }
+  }
+
+  @c fieldset {
+    @m title {
+      padding: 17px 10px 6px;
+      font-size: 12px;
+      color: #999999;
+      background: #F3F4F5;
+    }
+
+
+  }
+}

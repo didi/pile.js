@@ -8,7 +8,7 @@
   "author": "zhangzhipeng <zhangzhipeng@didichuxing.com>",
   "homepage": "https://didi.github.io/pile.js/docs/tree/master/packages/confirm#readme",
   "license": "ISC",
-  "module": "src/index.js",
+  "module": "lib/confirm.esm.js",
   "main": "lib/confirm.js",
   "directories": {
     "lib": "lib",
@@ -31,7 +31,7 @@
     "url": "https://github.com/didi/pile.js/issues"
   },
   "dependencies": {
-    "@pile-ui/shared": "^2.0.4-alpha.0",
+    "@pile-ui/shared": "^2.0.5-alpha.0",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react-transition-group": "^4.0.0"

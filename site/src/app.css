@@ -241,6 +241,11 @@
   font-size: 14px;
   color: #666666;
   line-height: 20px;
+  margin-bottom: 20px;
+}
+
+.pure-markdown>ul {
+  margin-bottom: 20px;
 }
 
 .pure-canvas .pure-editor {

@@ -1,5 +1,5 @@
 /*!
- * pile-ui.js v2.0.4-alpha.0
+ * pile-ui.js v2.0.5-alpha.0
  * (c) 2018-2019 Pile Team
  * Released under the MIT License.
  */
@@ -18,6 +18,7 @@ var radio = _interopDefault(require('@pile-ui/radio'));
 var alert = _interopDefault(require('@pile-ui/alert'));
 var confirm = _interopDefault(require('@pile-ui/confirm'));
 var validator = _interopDefault(require('@pile-ui/validator'));
+var field = require('@pile-ui/field');
 
 
 
@@ -30,4 +31,6 @@ exports.Radio = radio;
 exports.Alert = alert;
 exports.Confirm = confirm;
 exports.Validator = validator;
+exports.Field = field.Field;
+exports.FieldSet = field.FieldSet;
 //# sourceMappingURL=pile.js.map
