@@ -16,6 +16,10 @@
 }
 
 .doc-mt10 {
+  margin-top: 10px;
+}
+
+.doc-mb10 {
   margin-bottom: 10px;
 }
 
@@ -237,6 +241,11 @@
   font-size: 14px;
   color: #666666;
   line-height: 20px;
+  margin-bottom: 20px;
+}
+
+.pure-markdown>ul {
+  margin-bottom: 20px;
 }
 
 .pure-canvas .pure-editor {
@@ -410,6 +419,7 @@
   vertical-align: middle;
   width: 30px;
   height: 30px;
+  display: none;
 }
 
 .code-title .code-pic .code-icon {
@@ -435,6 +445,7 @@
   -o-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
   box-shadow: 0 0px 12px 0 rgba(0, 0, 0, 0.6);
+  z-index: 9999;
 }
 
 .nav-switch-btn {
@@ -479,6 +490,7 @@
     transition: left .5s;
     -moz-transition: left .5s;
     -webkit-transition: left .5s;
+    z-index: 9999;
   }
   .note-footer .footer-links {
     display: -webkit-box;

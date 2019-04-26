@@ -1,10 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Radio suite render a radio 1`] = `
-<withState(withHandlers(Component))
+<Radio
+  checked={false}
+  disabled={false}
+  onChange={[Function]}
+  onItemClick={[Function]}
   prefixCls="pile"
   size={null}
-  updateValue={[Function]}
   value=""
+  vertical={false}
 />
 `;

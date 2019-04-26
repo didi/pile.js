@@ -4,6 +4,7 @@ import * as QRCode from 'qrcode';
 import Routes from './roots/routes';
 
 import '../../packages/theme-default/lib/index.css';
+import './ant-like.css';
 import './app.css';
 import './prism.css';
 import './prism.js';
@@ -34,6 +35,7 @@ const navList = [
         list: [
           { label: 'Toast', nodeName: 'dd', link: 'components/toast' },
           { label: 'Alert', nodeName: 'dd', link: 'components/alert' },
+          { label: 'Confirm', nodeName: 'dd', link: 'components/confirm' },
         ],
       },
       {
@@ -46,8 +48,10 @@ const navList = [
             nodeName: 'dd',
             link: 'components/inputFiled',
           },
+          { label: 'Validator', nodeName: 'dd', link: 'components/validator' },
           { label: 'Radio', nodeName: 'dd', link: 'components/radio' },
           { label: 'Switch', nodeName: 'dd', link: 'components/switch' },
+          { label: 'Field', nodeName: 'dd', link: 'components/field' },
         ],
       },
     ],
@@ -166,7 +170,12 @@ const App = props => {
     setCodeUrl(curnav.split('components/')[1]);
   }
 
-  if (curnav === 'index' || curnav === '/' || curnav === '/index') {
+  if (
+    curnav === 'index' ||
+    curnav === '/' ||
+    curnav === '/index' ||
+    curnav === ''
+  ) {
     return (
       <div className="pile-note-index">
         <Routes />
@@ -304,6 +313,12 @@ const App = props => {
                 <a href="//github.com/didi/cube-ui" target="_blank">
                   Cube UI
                   <span>- Vue.js组件库</span>
+                </a>
+              </dd>
+              <dd>
+                <a href="//github.com/didi/chameleon" target="_blank">
+                  chameleon
+                  <span>- 一套代码运行多端，一端所见即多端所见</span>
                 </a>
               </dd>
               <dd>

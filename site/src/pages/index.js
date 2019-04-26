@@ -6,6 +6,9 @@ import Switch from './dev/switch'
 import InputFiled from './dev/inputfiled'
 import Radio from './dev/radio'
 import Introduce from './dev/introduce'
+import Validator from './dev/validator'
+import Field from './dev/field'
+import Confirm from './dev/confirm'
 import Index from './home'
 
 export default {
@@ -17,5 +20,8 @@ export default {
   InputFiled,
   Radio,
   Introduce,
-  Index
+  Validator,
+  Field,
+  Index,
+  Confirm
 }
