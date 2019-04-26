@@ -1,6 +1,6 @@
 {
   "name": "@pile-ui/theme-default",
-  "version": "2.0.5-alpha.0",
+  "version": "2.0.6-alpha.0",
   "description": "",
   "main": "lib/index.css",
   "scripts": {

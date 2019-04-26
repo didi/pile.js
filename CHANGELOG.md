@@ -1,6 +1,12 @@
 # Change Log
 
- ### 2.0.5-alpha.0 (2019.04.11)
+### 2.0.6-alpha.0 (2019.04.24)
+
+- feature
+  - add @pile-ui/field component
+  - add @pile-ui/confirm component
+
+### 2.0.5-alpha.0 (2019.04.11)
 
 - feature
   - add @pile-ui/validator component

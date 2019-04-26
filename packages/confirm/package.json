@@ -1,6 +1,6 @@
 {
   "name": "@pile-ui/confirm",
-  "version": "2.0.5-alpha.0",
+  "version": "2.0.6-alpha.0",
   "description": "confirm",
   "keywords": [
     "confirm"
@@ -31,7 +31,7 @@
     "url": "https://github.com/didi/pile.js/issues"
   },
   "dependencies": {
-    "@pile-ui/shared": "^2.0.5-alpha.0",
+    "@pile-ui/shared": "^2.0.6-alpha.0",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react-transition-group": "^4.0.0"
