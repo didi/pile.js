@@ -1,4 +1,4 @@
-# mobile端inputFile组件
+# mobile端inputFile组件 {QR-code}
 
 ## 基本用法
 ```jsx harmony

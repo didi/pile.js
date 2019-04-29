@@ -1,4 +1,4 @@
-# mobile端Radio组件
+# mobile端Radio组件 {QR-code}
 
 ## Radio 基本用法
 

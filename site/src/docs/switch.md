@@ -1,4 +1,4 @@
-# mobile端switch组件
+# mobile端switch组件 {QR-code}
 
 ## 基本用法
 普通情况2

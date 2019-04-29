@@ -1,4 +1,5 @@
-# mobile端alert组件
+
+# mobile端alert组件 {QR-code}
 
 ## 基本用法
 alert

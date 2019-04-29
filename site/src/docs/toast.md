@@ -1,4 +1,4 @@
-# mobile端toast组件
+# mobile端toast组件 {QR-code}
 
 ## 基本用法
 

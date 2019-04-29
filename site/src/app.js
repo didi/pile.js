@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import * as QRCode from 'qrcode';
 import Routes from './roots/routes';
 
 import '../../packages/theme-default/lib/index.css';
@@ -59,9 +60,21 @@ const navList = [
 
 // 当前页卡展示
 let curnav = 'index';
+let noteSidebarShow = false;
 
 function changeLink(e) {
   curnav = e;
+  if (e.includes('components/')) {
+    setCodeUrl(e.split('components/')[1]);
+  }
+  const doe = document.documentElement;
+  doe.scrollTop = 0;
+  // 移动端适配
+  if (document.body.clientWidth < 700) {
+    mobileToggle();
+  }
+
+  console.log(1234);
 }
 // 侧边栏 分类展示
 const navH2 = (re, curnav) => (
@@ -78,13 +91,26 @@ const navH2 = (re, curnav) => (
 );
 
 const navUnlinks = re => <h2 className="un-links">{re.label}</h2>;
+const mobileToggle = re => {
+  const noteSidebar = document.getElementById('noteSidebar');
+  if (!noteSidebarShow) {
+    noteSidebarShow = true;
+    noteSidebar.style.left = '0px';
+  } else {
+    noteSidebarShow = false;
+    noteSidebar.style.left = '-200px';
+  }
+};
 
 const navUl = (re, curnav) => (
   <ul className="arc-list">
     {re.list.map((item, index) => {
       if (item.nodeName === 'li') {
         return (
-          <li key={index} className={`links ${item.link == curnav ? 'actived' : ''}`}>
+          <li
+            key={index}
+            className={`links ${item.link == curnav ? 'actived' : ''}`}
+          >
             <Link
               to={`/${item.link}`}
               onClick={() => {
@@ -124,9 +150,32 @@ const navUl = (re, curnav) => (
   </ul>
 );
 
+const setCodeUrl = nav => {
+  setTimeout(function() {
+    const canvas = document.getElementById('canvas');
+    canvas &&
+      QRCode.toCanvas(
+        canvas,
+        `https://didi.github.io/pile.js/demo/#/${nav}`,
+        { scale: 7 },
+        function(error) {}
+      );
+  }, 1000);
+};
+
 const App = props => {
-  curnav = props.location.pathname;
-  if (curnav === 'index' || curnav === '/' || curnav === '/index') {
+  curnav = props.location.pathname.substr(1);
+  console.log(11111111111111111111, curnav);
+  if (curnav.includes('components/')) {
+    setCodeUrl(curnav.split('components/')[1]);
+  }
+
+  if (
+    curnav === 'index' ||
+    curnav === '/' ||
+    curnav === '/index' ||
+    curnav === ''
+  ) {
     return (
       <div className="pile-note-index">
         <Routes />
@@ -146,7 +195,10 @@ const App = props => {
                 </Link>
               </li>
               <li className={curnav.includes('design') ? 'actived' : ''}>
-                <a href="https://didi.github.io/pile.js/1.x/docs/2017/08/design-rule-latentrules.html" target="_blank">
+                <a
+                  href="https://didi.github.io/pile.js/1.x/docs/2017/08/design-rule-latentrules.html"
+                  target="_blank"
+                >
                   <span>设计</span>
                 </a>
               </li>
@@ -182,7 +234,7 @@ const App = props => {
         </div>
         <div className="note-main">
           {curnav.includes('components') && (
-            <div className="note-sidebar">
+            <div className="note-sidebar" id="noteSidebar">
               {navList.map((re, index) => {
                 if (re.nodeName === 'h2') {
                   return navH2(re, curnav);
@@ -210,7 +262,12 @@ const App = props => {
                 </a>
               </dd>
               <dd>
-                <a href="https://github.com/didi/pile.js/blob/master/CHANGELOG.md" target="_blank">更新日志</a>
+                <a
+                  href="https://github.com/didi/pile.js/blob/master/CHANGELOG.md"
+                  target="_blank"
+                >
+                  更新日志
+                </a>
               </dd>
               {
                 // <dd>
@@ -222,13 +279,25 @@ const App = props => {
             <dl className="f-links-item">
               <dt>社区</dt>
               <dd>
-                <a href="https://github.com/didi/pile.js/blob/master/.github/CONTRIBUTING.md" target="_blank">贡献指南</a>
+                <a
+                  href="https://github.com/didi/pile.js/blob/master/.github/CONTRIBUTING.md"
+                  target="_blank"
+                >
+                  贡献指南
+                </a>
               </dd>
               <dd>
-                <a href="https://github.com/didi/pile.js/issues" target="_blank">问题反馈</a>
+                <a
+                  href="https://github.com/didi/pile.js/issues"
+                  target="_blank"
+                >
+                  问题反馈
+                </a>
               </dd>
               <dd>
-                <a href="http://job.didichuxing.com/" target="_blank">加入我们</a>
+                <a href="http://job.didichuxing.com/" target="_blank">
+                  加入我们
+                </a>
               </dd>
             </dl>
 
@@ -244,6 +313,12 @@ const App = props => {
                 <a href="//github.com/didi/cube-ui" target="_blank">
                   Cube UI
                   <span>- Vue.js组件库</span>
+                </a>
+              </dd>
+              <dd>
+                <a href="//github.com/didi/chameleon" target="_blank">
+                  chameleon
+                  <span>- 一套代码运行多端，一端所见即多端所见</span>
                 </a>
               </dd>
               <dd>
@@ -266,6 +341,12 @@ const App = props => {
             </div>
           </div>
         </div>
+        <div
+          className="nav-switch-btn"
+          onClick={() => {
+            mobileToggle();
+          }}
+        />
       </div>
     );
   }

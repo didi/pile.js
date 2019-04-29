@@ -1,4 +1,4 @@
-# mobile端Icon组件
+# mobile端Icon组件 {QR-code}
 
 ## 基本用法
 

@@ -126,11 +126,11 @@
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
+  border-left: 1px solid #e5e5e5;
 }
 
 .note-content>div {
   padding: 0 40px;
-  border-left: 1px solid #e5e5e5;
 }
 
 .note-header .nav-links-github {
@@ -405,4 +405,136 @@
   color: #1E96FA;
 }
 
+/* 二维码 */
+
+.code-title h1 {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.code-title .code-pic {
+  display: inline-block;
+  position: relative;
+  margin-left: 10px;
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  display: none;
+}
+
+.code-title .code-pic .code-icon {
+  width: 30px;
+  height: 30px;
+  background: url(//es-static.xiaojukeji.com/static/web/activity/pile2.0/evm.jpg);
+  background-size: cover;
+  display: inline-block;
+}
+
+.code-title .code-pic .code-canvas {
+  display: none
+}
+
+.code-title .code-pic:hover .code-canvas {
+  display: block;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  box-shadow: 0 0px 12px 0 rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+}
+
+.nav-switch-btn {
+  display: none;
+}
+
 /* 移动端兼容 */
+
+@media (max-width: 750px) {
+  .app-note .trademark {
+    padding-top: 20px;
+  }
+  .app-note .trademark, .app-note .note-nav {
+    float: none;
+    text-align: center;
+    line-height: 50px;
+  }
+  .app-note .note-header .note-nav ul li a {
+    line-height: 50px;
+    height: 50px;
+  }
+  .app-note .note-nav {
+    height: 52px;
+    overflow: hidden;
+  }
+  .app-note .note-header .note-nav ul, .app-note .note-header .note-nav ul li {
+    float: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  .note-nav .change-version, .note-header .nav-links-github {
+    display: none;
+  }
+  .note-main .note-sidebar {
+    position: fixed;
+    top: 0;
+    left: -200px;
+    width: 200px;
+    bottom: 0;
+    background: #fff;
+    border-right: 1px solid #f5f2f0;
+    transition: left .5s;
+    -moz-transition: left .5s;
+    -webkit-transition: left .5s;
+    z-index: 9999;
+  }
+  .note-footer .footer-links {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    padding: 40px 20px;
+  }
+  .footer-links .f-links-item {
+    float: none;
+    margin-left: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+  }
+  .version-msg {
+    padding: 30px 0;
+    text-align: center;
+  }
+  .nav-switch-btn {
+    display: block;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    background: #1C80F9;
+  }
+  .nav-switch-btn::after, .nav-switch-btn::before {
+    position: absolute;
+    content: "";
+    width: 26px;
+    height: 4px;
+    background: #fff;
+    top: 13px;
+    left: 7px;
+  }
+  .nav-switch-btn::before {
+    top: auto;
+    bottom: 13px;
+  }
+  .code-title .code-pic {
+    display: none;
+  }
+  .note-content {
+    border: none
+  }
+}
