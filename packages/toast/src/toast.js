@@ -11,6 +11,7 @@ const getMessageInstance = function createMessage(properties) {
   function destroy() {
     ReactDOM.unmountComponentAtNode(div);
     div.parentNode.removeChild(div);
+    messageInstance = null;
   }
 
   ReactDOM.render(
@@ -25,7 +26,6 @@ export default {
   show(properties) {
     if (messageInstance) {
       messageInstance.destroy();
-      messageInstance = null;
     }
 
     messageInstance = getMessageInstance(properties);
@@ -33,7 +33,6 @@ export default {
   hide() {
     if (messageInstance) {
       messageInstance.destroy();
-      messageInstance = null;
     }
   },
 };
