@@ -85,7 +85,7 @@
     "json-loader": "^0.5.7",
     "lerna": "^3.13.1",
     "lint-staged": "^8.1.5",
-    "marked": "^0.5.2",
+    "marked": "^0.6.1",
     "mini-css-extract-plugin": "^0.4.4",
     "minimist": "^1.2.0",
     "mockdate": "^2.0.1",
