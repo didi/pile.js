@@ -84,7 +84,7 @@
     "jest-spec-reporter": "^1.0.3",
     "json-loader": "^0.5.7",
     "lerna": "^3.13.1",
-    "lint-staged": "^8.1.5",
+    "lint-staged": "^13.1.0",
     "marked": "^0.5.2",
     "mini-css-extract-plugin": "^0.4.4",
     "minimist": "^1.2.0",
